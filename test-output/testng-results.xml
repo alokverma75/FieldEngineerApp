@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-10-14T18:25:08 IST" name="Default suite" finished-at="2020-10-14T18:25:51 IST" duration-ms="42982">
+  <suite started-at="2020-10-15T00:20:31 IST" name="Default suite" finished-at="2020-10-15T00:21:14 IST" duration-ms="42479">
     <groups>
     </groups>
-    <test started-at="2020-10-14T18:25:08 IST" name="Default test" finished-at="2020-10-14T18:25:51 IST" duration-ms="42982">
+    <test started-at="2020-10-15T00:20:31 IST" name="Default test" finished-at="2020-10-15T00:21:14 IST" duration-ms="42479">
       <class name="com.colt.fieldengineerapp.testcases.LandingPageTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.colt.fieldengineerapp.testcases.LandingPageTest@6a192cfe]" started-at="2020-10-14T18:25:08 IST" name="setUp" finished-at="2020-10-14T18:25:17 IST" duration-ms="9330" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.colt.fieldengineerapp.testcases.LandingPageTest@6a192cfe]" started-at="2020-10-15T00:20:31 IST" name="setUp" finished-at="2020-10-15T00:20:42 IST" duration-ms="11267" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="continueTest()[pri:0, instance:com.colt.fieldengineerapp.testcases.LandingPageTest@6a192cfe]" started-at="2020-10-14T18:25:17 IST" name="continueTest" finished-at="2020-10-14T18:25:29 IST" duration-ms="11980" status="PASS">
+        <test-method signature="continueTest()[pri:0, instance:com.colt.fieldengineerapp.testcases.LandingPageTest@6a192cfe]" started-at="2020-10-15T00:20:42 IST" name="continueTest" finished-at="2020-10-15T00:20:53 IST" duration-ms="10918" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- continueTest -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.colt.fieldengineerapp.testcases.LandingPageTest@6a192cfe]" started-at="2020-10-14T18:25:29 IST" name="setUp" finished-at="2020-10-14T18:25:40 IST" duration-ms="10589" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.colt.fieldengineerapp.testcases.LandingPageTest@6a192cfe]" started-at="2020-10-15T00:20:53 IST" name="setUp" finished-at="2020-10-15T00:21:03 IST" duration-ms="9423" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="homePageTasksTitleTest()[pri:1, instance:com.colt.fieldengineerapp.testcases.LandingPageTest@6a192cfe]" started-at="2020-10-14T18:25:40 IST" name="homePageTasksTitleTest" finished-at="2020-10-14T18:25:51 IST" duration-ms="11053" status="PASS">
+        <test-method signature="homePageTasksTitleTest()[pri:1, instance:com.colt.fieldengineerapp.testcases.LandingPageTest@6a192cfe]" started-at="2020-10-15T00:21:03 IST" name="homePageTasksTitleTest" finished-at="2020-10-15T00:21:14 IST" duration-ms="10842" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- homePageTasksTitleTest -->

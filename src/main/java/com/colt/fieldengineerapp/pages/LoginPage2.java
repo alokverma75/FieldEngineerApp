@@ -43,19 +43,19 @@ public class LoginPage2 extends TestBase {
 	}	
 	
 	
-	public LoginPage() throws MalformedURLException, IOException {
+	public LoginPage2() throws MalformedURLException, IOException {
 		//PageFactory.initElements(TestBase.getDriver(), this);
 		TestBase.initialization();
 		
 	}
 	
-	public LandingPage login(String un, String pwd) throws MalformedURLException, IOException{
+	public LandingPage2 login(String un, String pwd) throws MalformedURLException, IOException{
 		this.getUsername().sendKeys(un);
 		this.getPassword().sendKeys(pwd);
 		this.getRememberMeChkBox().click();
 		this.getLoginBtn().click();
 
-		return new LandingPage();
+		return new LandingPage2();
 	}
 	
 	public String validateLandingPageTitle(){
