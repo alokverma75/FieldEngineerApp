@@ -8,12 +8,9 @@ public interface FieldEngineerAppConstants {
 		public static final String ELEMENT_ATTRIBUTE_CONTENT_DESC = "new UiSelector().description(\"";
 		public static final String ELEMENT_ATTRIBUTE_SCROLL_VIEW = "new UiScrollable(new UiSelector()).scrollIntoView(text(\"";
 		public static final String ELEMENT_SCROLL_SUFFIX = "\"));";
-		public static final String ELEMENT_TAP_SUFFIX = "\")";	
+		public static final String ELEMENT_TAP_SUFFIX = "\")";		
 		
 		
-		
-		
-		public static final String ELEMENT_PREFERENCE = "Preference";
 		public static final String ELEMENT_TEXT_WIDGET = "android.widget.TextView";
 		public static final String ELEMENT_BUTTON_WIDGET = "android.widget.Button";
 		public static final String ELEMENT_EDIT_TEXT_WIDGET = "android.widget.EditText";
@@ -29,13 +26,18 @@ public interface FieldEngineerAppConstants {
 		//Page Element
 		
 		
-		//Page 1
-		public static final String ELEMENT_DROP_DOWN = "text1";
+		//Login Page
+		
 		public static final String ELEMENT_USER_ID = "User ID";
 		public static final String ELEMENT_PASSWORD = "Password";
+		public static final String ELEMENT_CHECKBOX_REMEMBER = "Remember me";
+		public static final String BUTTON_LOGIN = "Login";
+		public static final String BUTTON_SIGNUP = "Don't have an account? Sign up";
 		
 		
 		//Landing Page
+		public static final String ELEMENT_RADIO_NONE="None";		
+		public static final String BUTTON_CONTINUE = "Continue";
 		public static final String ELEMENT_AUTHENTICATION_LABEL="Choose Authentication Type";
 		public static final String ELEMENT_AUTHENTICATION_ID="com.colt.coltengineering:id/tv_title";
 		
@@ -45,13 +47,7 @@ public interface FieldEngineerAppConstants {
 		
 		
 		
-		public static final String ELEMENT_RADIO_NONE="None";
 		
-		
-		public static final String ELEMENT_CHECKBOX_REMEMBER = "Remember me";
-		public static final String BUTTON_LOGIN = "Login";
-		public static final String BUTTON_SIGNUP = "Don't have an account? Sign up";
-		public static final String BUTTON_CONTINUE = "Continue";
 		
 		
 
