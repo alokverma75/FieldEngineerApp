@@ -28,23 +28,19 @@ public class LoginPageTest extends TestBase {
 	@BeforeMethod
 	public void setUp() throws MalformedURLException, IOException{
 		driver = getDriver();
-		loginPage = new LoginPage(driver);	
-		//landingPage = new LandingPage1(driver);
+		loginPage = new LoginPage(driver);		
 	}
 	
 	@Test(priority=1)
 	public void landingPageTitleTest() throws MalformedURLException, IOException{
 		landingPage = loginPage.login(driver, prop.getProperty("userID"), prop.getProperty("password"));
 		String title = landingPage.getLandingPageTitle().getText();
-		Assert.assertEquals(title, "Choose Authentication Type");
+		Assert.assertEquals(title, ELEMENT_AUTHENTICATION_LABEL);
 	}
-	
-
 	
 	@Test(priority=0)
 	public void loginTest() throws MalformedURLException, IOException{
-		landingPage = loginPage.login(driver, prop.getProperty("userID"), prop.getProperty("password"));
-		
+		landingPage = loginPage.login(driver, prop.getProperty("userID"), prop.getProperty("password"));		
 		Assert.assertNotNull(landingPage);
 	}
 	

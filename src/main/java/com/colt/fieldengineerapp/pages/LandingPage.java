@@ -15,19 +15,15 @@ public class LandingPage extends TestBase {
 	
 	
 	@AndroidFindBy(uiAutomator = "text(\"Continue\")")
-	//@AndroidFindBy(id = "com.colt.coltengineering:id/btn_continue")
 	AndroidElement continueBtn;
 	
-	//@AndroidFindBy(uiAutomator = ELEMENT_AUTHENTICATION_LABEL)
 	@AndroidFindBy(uiAutomator = "text(\"Choose Authentication Type\")")
-	AndroidElement landingPageTitle;
-	
+	AndroidElement landingPageTitle;	
 	
 	public LandingPage(AppiumDriver<?> driver) {
 		PageFactory.initElements(new AppiumFieldDecorator(driver, getDuration(30)), this);
 		
 	}
-
 
 	public AndroidElement getContinueBtn() {
 		return continueBtn;

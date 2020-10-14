@@ -34,21 +34,15 @@ public class LandingPageTest extends TestBase {
 	public void homePageTasksTitleTest() throws MalformedURLException, IOException{
 		landingPage = loginPage.login(driver, prop.getProperty("userID"), prop.getProperty("password"));
 		landingPage.getContinueBtn().click();		
-		boolean hasTasksTitle = homePage.validateHomePageTasksTitle("Tasks");
+		boolean hasTasksTitle = homePage.validateHomePageTasksTitle(ELEMENT_HOMEPAGE_TASKS_LABEL);
 		Assert.assertTrue(hasTasksTitle);
 	}
-	
-//	@Test(priority=2)
-//	public void crmLogoImageTest(){
-//		boolean flag = loginPage.validateCRMImage();
-//		Assert.assertTrue(flag);
-//	}
 	
 	@Test(priority=0)
 	public void continueTest() throws MalformedURLException, IOException{
 		landingPage = loginPage.login(driver, prop.getProperty("userID"), prop.getProperty("password"));
 		landingPage.getContinueBtn().click();
-		boolean pageHasTitle = homePage.validateHomePageTitle("Field Experts");
+		boolean pageHasTitle = homePage.validateHomePageTitle(ELEMENT_HOMEPAGE_LABEL);
 		Assert.assertTrue(pageHasTitle);
 	}
 	
