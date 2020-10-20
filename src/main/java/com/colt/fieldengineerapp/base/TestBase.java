@@ -25,24 +25,26 @@ import io.appium.java_client.touch.offset.PointOption;
 public class TestBase implements FieldEngineerAppConstants{
 	
 	public static AndroidDriver<AndroidElement> driver;
-	private static DesiredCapabilities cap = new DesiredCapabilities();	
+	private static DesiredCapabilities cap = new DesiredCapabilities();
+	public static String USRDIR = System.getProperty("user.dir");
 	public static Properties prop;	
+	static boolean  started = false;
 
 	public static AndroidDriver<AndroidElement> getDriver() throws IOException, MalformedURLException {
 
 		prop = ReadPropertyFile.readPropertiesFile("resources/config.properties");
 		
 		cap.setCapability(MobileCapabilityType.DEVICE_NAME, prop.getProperty("deviceName"));
-		cap.setCapability(MobileCapabilityType.APP, prop.getProperty("app"));
+		cap.setCapability(MobileCapabilityType.APP, USRDIR + prop.getProperty("app"));
+		cap.setCapability(AndroidMobileCapabilityType.AVD, prop.getProperty("avdName"));
 		cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, prop.getProperty("automationName"));
 		cap.setCapability(MobileCapabilityType.PLATFORM_NAME, prop.getProperty("platformName"));
 		cap.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, prop.getProperty("appActivity"));
-		cap.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, prop.getProperty("appPackage"));
-		
+		cap.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, prop.getProperty("appPackage"));	
 
 		driver = new AndroidDriver<AndroidElement>(
 				new URL("http://127.0.0.1:4723/wd/hub"), cap);
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 		return driver;
 
@@ -62,8 +64,35 @@ public class TestBase implements FieldEngineerAppConstants{
 
 		driver = new AndroidDriver<AndroidElement>(
 				new URL("http://127.0.0.1:4723/wd/hub"), cap);
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);	
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);	
 
+	}
+	
+	public static void startAVD() throws IOException {
+		
+		System.out.println("This will start avd");
+		
+		if(started) {
+			System.out.println(" Already started so shutting down");
+		shutDownAVD();
+		}
+	
+		Runtime.getRuntime().exec("adb start-server");
+		Runtime.getRuntime().exec("emulator -avd pixel2");
+		started = true;
+		
+		
+		System.out.println("the avd is started successfully");
+		
+	}
+	
+	public static void shutDownAVD() throws IOException {
+		
+		System.out.println("This will close the avd");
+		Runtime.getRuntime().exec("adb shell reboot -p");
+		started = false;
+		System.out.println("the avd is closed successfully");
+		
 	}
 	
 	public static TapOptions geTapOption(AndroidDriver<AndroidElement> driver, String attributeText,String elementText) {

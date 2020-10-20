@@ -5,6 +5,7 @@ import java.net.MalformedURLException;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
 import com.colt.fieldengineerapp.base.TestBase;
@@ -18,41 +19,40 @@ public class LandingPageTest extends TestBase {
 	HomePage homePage;
 	LoginPage loginPage;
 	
-	public LandingPageTest(){
+	public LandingPageTest() throws MalformedURLException, IOException{
 		super();
+			
 	}
 	
-	@BeforeMethod
+	@BeforeSuite(alwaysRun = true)
+	public void startServer() throws IOException {
+		TestBase.startAVD();		
+	}
+	
+		
+	@BeforeMethod(alwaysRun = true)
 	public void setUp() throws MalformedURLException, IOException{
 		driver = getDriver();
 		loginPage = new LoginPage(driver);
 		homePage = new HomePage(driver);
+		landingPage = loginPage.login(driver, prop.getProperty("userID"), prop.getProperty("password"));
 		
 	}
 	
 	@Test(priority=1)
 	public void homePageTasksTitleTest() throws MalformedURLException, IOException{
-		landingPage = loginPage.login(driver, prop.getProperty("userID"), prop.getProperty("password"));
 		landingPage.getContinueBtn().click();		
 		boolean hasTasksTitle = homePage.validateHomePageTasksTitle(ELEMENT_HOMEPAGE_TASKS_LABEL);
 		Assert.assertTrue(hasTasksTitle);
 	}
 	
-	@Test(priority=0)
+	@Test(groups = {"smoke"})
 	public void continueTest() throws MalformedURLException, IOException{
-		landingPage = loginPage.login(driver, prop.getProperty("userID"), prop.getProperty("password"));
 		landingPage.getContinueBtn().click();
 		boolean pageHasTitle = homePage.validateHomePageTitle(ELEMENT_HOMEPAGE_LABEL);
 		Assert.assertTrue(pageHasTitle);
-	}
+	}	
 	
 	
-	
-//	@After
-//	public void tearDown(){
-//		driver.quit();
-//	}
-	
-
 
 }
