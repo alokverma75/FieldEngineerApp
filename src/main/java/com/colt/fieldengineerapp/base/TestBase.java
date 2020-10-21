@@ -196,6 +196,11 @@ public class TestBase implements FieldEngineerAppConstants{
 		return driver.findElementsByClassName(elementText);
 	}
 	
+	public static List<AndroidElement> getElementsById(AndroidDriver<AndroidElement> driver,	String elementText) {
+
+		return driver.findElementsById(elementText);
+	}
+	
 	//driver.findElementByXPath("//android.widget.Button[@text='OK']");
 	public static AndroidElement getElementByXpath(AndroidDriver<AndroidElement> driver, String textWidget, String elementText) {
 		

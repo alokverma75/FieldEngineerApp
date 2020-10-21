@@ -18,6 +18,21 @@ public class HomePage extends TestBase {
 	@AndroidFindBy(uiAutomator = "text(\"Field Experts\")")
 	AndroidElement homePageTitle;
 	
+	@AndroidFindBy(uiAutomator = "text(\"View All\")")
+	AndroidElement viewAllTasksBtn;
+	
+	@AndroidFindBy(id = "com.android.packageinstaller:id/permission_allow_button")
+	AndroidElement allowBtn;
+	
+	
+	public AndroidElement getAllowBtn() {
+		return allowBtn;
+	}
+
+	public AndroidElement getViewAllTasksBtn() {
+		return viewAllTasksBtn;
+	}
+
 	public HomePage(AndroidDriver<AndroidElement> driver) {
 		PageFactory.initElements(new AppiumFieldDecorator(driver, getDuration(30)), this);
 	}
@@ -29,5 +44,9 @@ public class HomePage extends TestBase {
 	public boolean validateHomePageTitle(String element){
 		return homePageTitle.getText().equals(element);
 	}
+
+
+
+	
 
 }

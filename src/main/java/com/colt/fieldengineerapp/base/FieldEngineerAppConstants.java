@@ -46,6 +46,24 @@ public interface FieldEngineerAppConstants {
 		public static final String ELEMENT_HOMEPAGE_TASKS_LABEL="Tasks";
 		
 		
+		//Single Task Details Page
+		
+		public static final String ELEMENT_TEXT_VIEW="android.widget.TextView";
+		public static final String ELEMENT_TV_VALUE="com.colt.coltengineering:id/tv_value";
+		
+		public static final String ELEMENT_CUSTOMER="Customer";
+		public static final String ELEMENT_PLANNED_START_DATE="Planned Start Date/Time";
+		public static final String ELEMENT_CPD="CPD";
+		public static final String ELEMENT_JOB_REMARKS="Job Remarks";
+		public static final String ELEMENT_COOP_TECH_MAIL="Coop Tech Email";
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		
