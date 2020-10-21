@@ -7,18 +7,10 @@
 			class-name="com.colt.fieldengineerapp.base.TestCaseListener" />
 	</listeners>
 	<test thread-count="5" name="Test">
-		<!-- 
-		<groups>
-			<run>
-				<exclude name="smoke" />
-			</run>
-		</groups>
-		 -->
-		<!-- <packages> <package name = "com.colt.fieldengineerapp.testcases"/> 
-			</packages> -->
+
+		
 		<classes>
-			<class
-				name="com.colt.fieldengineerapp.testcases.LandingPageTest" />
+			
 			<class name="com.colt.fieldengineerapp.testcases.LoginPageTest" />
 
 		</classes>
