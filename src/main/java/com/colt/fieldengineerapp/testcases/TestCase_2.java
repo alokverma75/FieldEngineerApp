@@ -20,16 +20,16 @@ public class TestCase_2 extends TestBase{
 		//TouchAction<?> action = new TouchAction<>(driver);
 		
 		
-		TestBase.getElementByAutomator(driver, ELEMENT_ATTRIBUTE_TEXT, ELEMENT_USER_ID).sendKeys("coltonlinedcp");
+		TestBase.getElementByAutomator(driver, ELEMENT_USER_ID).sendKeys("coltonlinedcp");
 		TestBase.hideKeyBoard(driver);
-		TestBase.getElementByAutomator(driver, ELEMENT_ATTRIBUTE_TEXT, ELEMENT_PASSWORD).sendKeys("Colt@1234");
+		TestBase.getElementByAutomator(driver, ELEMENT_PASSWORD).sendKeys("Colt@1234");
 		TestBase.hideKeyBoard(driver);
-		TestBase.getElementByAutomator(driver, ELEMENT_ATTRIBUTE_TEXT, ELEMENT_CHECKBOX_REMEMBER).click();
-		TestBase.getElementByAutomator(driver, ELEMENT_ATTRIBUTE_TEXT, BUTTON_LOGIN).click();
+		TestBase.getElementByAutomator(driver,ELEMENT_CHECKBOX_REMEMBER).click();
+		TestBase.getElementByAutomator(driver, BUTTON_LOGIN).click();
 		//Thread.sleep(10);
 		//obj.wait(10);
 		//TestBase.getElementByAutomator(driver, ELEMENT_ATTRIBUTE_TEXT, BUTTON_CONTINUE).click();
-		String title = TestBase.getElementByAutomator(driver, ELEMENT_ATTRIBUTE_TEXT, ELEMENT_AUTHENTICATION_LABEL).getText();
+		String title = TestBase.getElementByAutomator(driver, ELEMENT_AUTHENTICATION_LABEL).getText();
 		System.out.println(" Title is "+title);
 		
 		

@@ -11,8 +11,10 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+
 import com.colt.fieldengineerapp.util.ReadPropertyFile;
 
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
@@ -95,11 +97,11 @@ public class TestBase implements FieldEngineerAppConstants{
 		
 	}
 	
-	public static TapOptions geTapOption(AndroidDriver<AndroidElement> driver, String attributeText,String elementText) {
+	public static TapOptions geTapOption(AndroidDriver<AndroidElement> driver, String elementText) {
 
 		//String searchWebElement = "text(\"" + elementText + "\")";
 		
-		String searchWebElement = attributeText + elementText + ELEMENT_TAP_SUFFIX;		
+		String searchWebElement = ELEMENT_ATTRIBUTE_TEXT + elementText + ELEMENT_TAP_SUFFIX;		
 		System.out.println(" search Web eleement   "+ searchWebElement);
 
 		return TapOptions.tapOptions()
@@ -107,11 +109,10 @@ public class TestBase implements FieldEngineerAppConstants{
 
 	}
 	
-	public static TapOptions geTapOptionForScroll(AndroidDriver<AndroidElement> driver, String attributeText,String elementText) {
+	public static TapOptions geTapOptionForScroll(AndroidDriver<AndroidElement> driver, String scrollPrefix,String elementText) {
 
-		//String searchWebElement = "text(\"" + elementText + "\")";
-		
-		String searchWebElement = attributeText + elementText + ELEMENT_SCROLL_SUFFIX;		
+				
+		String searchWebElement = ELEMENT_ATTRIBUTE_SCROLL_VIEW + elementText + ELEMENT_SCROLL_SUFFIX;		
 		System.out.println(" search Web element   "+ searchWebElement);
 
 		return TapOptions.tapOptions()
@@ -130,8 +131,8 @@ public class TestBase implements FieldEngineerAppConstants{
 	}
 
 	//To be used later
-	public static AndroidElement getElementByAutomator(AndroidDriver<AndroidElement> driver,String elementText, String elementTextValue) {
-		String searchWebElement = elementText + elementTextValue + ELEMENT_TAP_SUFFIX;
+	public static AndroidElement getElementByAutomator(AndroidDriver<AndroidElement> driver, String elementTextValue) {
+		String searchWebElement = ELEMENT_ATTRIBUTE_TEXT + elementTextValue + ELEMENT_TAP_SUFFIX;
 		
 		System.out.println(searchWebElement);
 		
@@ -144,13 +145,23 @@ public class TestBase implements FieldEngineerAppConstants{
 		return automatorFormat;
 	}
 	
-	public static AndroidElement getElementByAutomatorForScroll(AndroidDriver<AndroidElement> driver,String elementText, String elementTextValue) {
-		String searchWebElement = elementText + elementTextValue + ELEMENT_SCROLL_SUFFIX;
+	public static AndroidElement getElementByAutomatorForScroll(AndroidDriver<AndroidElement> driver, String elementTextValue) {
+		String searchWebElement = ELEMENT_ATTRIBUTE_SCROLL_VIEW + elementTextValue + ELEMENT_SCROLL_SUFFIX;
 		
 		System.out.println(searchWebElement);
 		
 		return driver.findElementByAndroidUIAutomator(searchWebElement);
 	}
+	
+	
+	public static TouchAction<?> getTouchActionForElement(AndroidDriver<AndroidElement> driver, String elementTextScrollTo){
+		TouchAction<?> action = new TouchAction<>(driver);
+		
+		//action.tap(Base.geTapOptionForScroll(driver,ELEMENT_ATTRIBUTE_SCROLL_VIEW, ELEMENT_WEBVIEW)).perform();
+		return action.tap(TestBase.geTapOptionForScroll(driver,ELEMENT_ATTRIBUTE_SCROLL_VIEW,elementTextScrollTo)).perform();
+		
+	}
+		
 	
 	//To hide keyboard
 	public static void hideKeyBoard(AndroidDriver<AndroidElement> driver) {

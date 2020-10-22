@@ -17,15 +17,15 @@ public class LandingPage2 extends TestBase {
 	}
 	
 	public AndroidElement getContinueBtn() {
-		return TestBase.getElementByAutomator(driver, ELEMENT_ATTRIBUTE_TEXT, BUTTON_CONTINUE);
+		return TestBase.getElementByAutomator(driver, BUTTON_CONTINUE);
 	}
 	
 	public String validateHomePageTitle(){
-		return TestBase.getElementByAutomator(driver, ELEMENT_ATTRIBUTE_TEXT,ELEMENT_HOMEPAGE_LABEL).getText();
+		return TestBase.getElementByAutomator(driver,ELEMENT_HOMEPAGE_LABEL).getText();
 	}
 	
 	public String validateHomePageTasksTitle(){
-		return TestBase.getElementByAutomator(driver, ELEMENT_ATTRIBUTE_TEXT,ELEMENT_HOMEPAGE_TASKS_LABEL).getText();
+		return TestBase.getElementByAutomator(driver, ELEMENT_HOMEPAGE_TASKS_LABEL).getText();
 	}
 	
 	

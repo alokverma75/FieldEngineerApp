@@ -50,8 +50,8 @@ public interface FieldEngineerAppConstants {
 		
 		public static final String ELEMENT_TEXT_VIEW="android.widget.TextView";
 		public static final String ELEMENT_TV_VALUE="com.colt.coltengineering:id/tv_value";
-		
-		public static final String ELEMENT_CUSTOMER="Customer";
+		public static final String ELEMENT_JOB_STATUS="Job Status";
+		public static final String ELEMENT_JOB_OWNER="Job Owner";
 		public static final String ELEMENT_PLANNED_START_DATE="Planned Start Date/Time";
 		public static final String ELEMENT_CPD="CPD";
 		public static final String ELEMENT_JOB_REMARKS="Job Remarks";
