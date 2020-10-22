@@ -21,6 +21,7 @@ import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.touch.LongPressOptions;
 import io.appium.java_client.touch.TapOptions;
+
 import io.appium.java_client.touch.offset.ElementOption;
 import io.appium.java_client.touch.offset.PointOption;
 
@@ -108,29 +109,26 @@ public class TestBase implements FieldEngineerAppConstants{
 				.withElement(ElementOption.element(driver.findElementByAndroidUIAutomator(searchWebElement)));
 
 	}
-	
-	public static TapOptions geTapOptionForScroll(AndroidDriver<AndroidElement> driver, String scrollPrefix,String elementText) {
-
-				
+// This will search element by scrolling in actual
+	public static TapOptions geTapOptionForScroll(AndroidDriver<AndroidElement> driver, String elementText) {				
 		String searchWebElement = ELEMENT_ATTRIBUTE_SCROLL_VIEW + elementText + ELEMENT_SCROLL_SUFFIX;		
 		System.out.println(" search Web element   "+ searchWebElement);
+		// e.g. of search search Web element   new UiScrollable(new UiSelector()).scrollIntoView(text("Job Remarks"));
 
 		return TapOptions.tapOptions()
 				.withElement(ElementOption.element(driver.findElementByAndroidUIAutomator(searchWebElement)));
 
-	}
-	
+	}	
 	
 	public static LongPressOptions geLongPressOption(AndroidDriver<AndroidElement> driver, String attributeText, String elementText) {
 
 		String searchWebElement = attributeText + elementText + ELEMENT_TAP_SUFFIX;
-
 		return LongPressOptions.longPressOptions()
 				.withElement(ElementOption.element(driver.findElementByAndroidUIAutomator(searchWebElement)));
 
 	}
 
-	//To be used later
+	//Find Element by UiAutomator for Android elements though page factory mandates this in string constant and not used with page factory
 	public static AndroidElement getElementByAutomator(AndroidDriver<AndroidElement> driver, String elementTextValue) {
 		String searchWebElement = ELEMENT_ATTRIBUTE_TEXT + elementTextValue + ELEMENT_TAP_SUFFIX;
 		
@@ -144,7 +142,7 @@ public class TestBase implements FieldEngineerAppConstants{
 		String automatorFormat = ELEMENT_ATTRIBUTE_TEXT + elementText + ELEMENT_TAP_SUFFIX;		
 		return automatorFormat;
 	}
-	
+	// Search element by scrolling which will work like for TouchAction and TapOption combination
 	public static AndroidElement getElementByAutomatorForScroll(AndroidDriver<AndroidElement> driver, String elementTextValue) {
 		String searchWebElement = ELEMENT_ATTRIBUTE_SCROLL_VIEW + elementTextValue + ELEMENT_SCROLL_SUFFIX;
 		
@@ -153,12 +151,11 @@ public class TestBase implements FieldEngineerAppConstants{
 		return driver.findElementByAndroidUIAutomator(searchWebElement);
 	}
 	
-	
+	// This will return an element after scrolling on mobile screen
 	public static TouchAction<?> getTouchActionForElement(AndroidDriver<AndroidElement> driver, String elementTextScrollTo){
 		TouchAction<?> action = new TouchAction<>(driver);
 		
-		//action.tap(Base.geTapOptionForScroll(driver,ELEMENT_ATTRIBUTE_SCROLL_VIEW, ELEMENT_WEBVIEW)).perform();
-		return action.tap(TestBase.geTapOptionForScroll(driver,ELEMENT_ATTRIBUTE_SCROLL_VIEW,elementTextScrollTo)).perform();
+		return action.tap(TestBase.geTapOptionForScroll(driver,elementTextScrollTo)).perform();
 		
 	}
 		
@@ -169,6 +166,7 @@ public class TestBase implements FieldEngineerAppConstants{
 		driver.hideKeyboard();
 	}
 	
+	// Used for Drag and Drop functionality from one point to another like clock arm 
 	public static PointOption<?> getPointOption(AndroidDriver<AndroidElement> driver, String elementText, String moveTo) {
 		String searchWebElement = elementText + moveTo + ELEMENT_TAP_SUFFIX;
 		
@@ -179,7 +177,16 @@ public class TestBase implements FieldEngineerAppConstants{
 		
 		return PointOption.point(element.getCenter().getX(), element.getCenter().getY());
 	}
-	
+	/**Used for Drag and Drop functionality from one point to another like clock arm 
+	 * e. g. action.press(Base.getPointOptionById(driver, ELEMENT_APIS_ID_PREFIX, ELEMENT_DRAG_DROP_ONE))
+	 * .waitAction(WaitOptions.waitOptions(Base.getDuration(2))).moveTo(
+	 * getPointOptionById(driver, ELEMENT_APIS_ID_PREFIX, ELEMENT_DRAG_DROP_TWO)).release().perform();
+	 * 
+	 * @param driver
+	 * @param elementText
+	 * @param moveTo
+	 * @return
+	 */
 	public static PointOption<?> getPointOptionById(AndroidDriver<AndroidElement> driver, String elementText, String moveTo) {
 		String searchWebElement = elementText + moveTo ;
 		

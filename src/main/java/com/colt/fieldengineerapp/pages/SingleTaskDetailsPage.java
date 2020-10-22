@@ -83,9 +83,13 @@ public class SingleTaskDetailsPage extends TestBase {
 	
 	//Helper Method	for scroll
 	
-	public TouchAction<?> getTouchActionElement(AndroidDriver<AndroidElement> driver, String elementTextScrollTo){				
+	public TouchAction<?> moveToScrollToElement(AndroidDriver<AndroidElement> driver, String elementTextScrollTo){				
 		return TestBase.getTouchActionForElement(driver, elementTextScrollTo);
 		
+	}
+	
+	public AndroidElement moveToElement(AndroidDriver<AndroidElement> driver, String elementTextScrollTo) {
+		return TestBase.getElementByAutomatorForScroll(driver, elementTextScrollTo);
 	}
 
 

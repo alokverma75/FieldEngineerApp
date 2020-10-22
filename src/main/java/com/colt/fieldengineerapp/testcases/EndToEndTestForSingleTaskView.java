@@ -6,7 +6,6 @@ import java.util.List;
 
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -71,10 +70,12 @@ public class EndToEndTestForSingleTaskView extends TestBase {
 		}
 
 		// ScrollTo Job status
-		singleTaskDetailsPage.getTouchActionElement(driver, ELEMENT_JOB_STATUS).perform();
+		//singleTaskDetailsPage.moveToScrollToElement(driver, ELEMENT_JOB_STATUS).perform();
 
-		String labelCustomer = singleTaskDetailsPage.getJobStatusLabel().getText();
-		System.out.println("Label is " + labelCustomer);
+		//String labelCustomer = singleTaskDetailsPage.getJobStatusLabel().getText();
+		
+		String labelJobStatus = singleTaskDetailsPage.moveToElement(driver, ELEMENT_JOB_STATUS).getText();
+		System.out.println("Label is " + labelJobStatus);
 
 		listofTextView1 = singleTaskDetailsPage.getTextElementsByResourceId(driver, ELEMENT_TV_VALUE);
 		for (int i = 0; i < listofTextView1.size(); i++) {
@@ -82,9 +83,10 @@ public class EndToEndTestForSingleTaskView extends TestBase {
 		}
 
 		// ScrollTo PLanned Start Date
-		singleTaskDetailsPage.getTouchActionElement(driver, ELEMENT_PLANNED_START_DATE).perform();
+		//singleTaskDetailsPage.moveToScrollToElement(driver, ELEMENT_PLANNED_START_DATE).perform();
 
-		String labelPlannedStartDate = singleTaskDetailsPage.getPlannedStartLabel().getText();
+		//String labelPlannedStartDate = singleTaskDetailsPage.getPlannedStartLabel().getText();
+		String labelPlannedStartDate = singleTaskDetailsPage.moveToElement(driver, ELEMENT_PLANNED_START_DATE).getText();
 		System.out.println("Label is " + labelPlannedStartDate);
 
 		listofTextView1 = singleTaskDetailsPage.getTextElementsByResourceId(driver, ELEMENT_TV_VALUE);
@@ -93,9 +95,10 @@ public class EndToEndTestForSingleTaskView extends TestBase {
 		}
 		
 		// ScrollTo CPD
-		singleTaskDetailsPage.getTouchActionElement(driver, ELEMENT_CPD).perform();
+		//singleTaskDetailsPage.moveToScrollToElement(driver, ELEMENT_CPD).perform();
 
-		String labelCPD = singleTaskDetailsPage.getCpdLabel().getText();
+		//String labelCPD = singleTaskDetailsPage.getCpdLabel().getText();
+		String labelCPD = singleTaskDetailsPage.moveToElement(driver, ELEMENT_CPD).getText();
 		System.out.println("Label is " + labelCPD);
 
 		listofTextView1 = singleTaskDetailsPage.getTextElementsByResourceId(driver, ELEMENT_TV_VALUE);
@@ -104,9 +107,10 @@ public class EndToEndTestForSingleTaskView extends TestBase {
 		}
 
 		// ScrollTo Job Remarks
-		singleTaskDetailsPage.getTouchActionElement(driver, ELEMENT_JOB_REMARKS).perform();
+		//singleTaskDetailsPage.moveToScrollToElement(driver, ELEMENT_JOB_REMARKS).perform();
 
-		String labelJobRemarks = singleTaskDetailsPage.getJobRemarksLabel().getText();
+		//String labelJobRemarks = singleTaskDetailsPage.getJobRemarksLabel().getText();
+		String labelJobRemarks =  singleTaskDetailsPage.moveToElement(driver, ELEMENT_CPD).getText();
 		System.out.println("Label is " + labelJobRemarks);
 
 		listofTextView1 = singleTaskDetailsPage.getTextElementsByResourceId(driver, ELEMENT_TV_VALUE);
@@ -117,9 +121,11 @@ public class EndToEndTestForSingleTaskView extends TestBase {
 
 		// Now scroll to end element and capture values of all elements on screen view
 
-		singleTaskDetailsPage.getTouchActionElement(driver, ELEMENT_COOP_TECH_MAIL).perform();
+		//singleTaskDetailsPage.moveToScrollToElement(driver, ELEMENT_COOP_TECH_MAIL).perform();
 
-		String labelCoopTech = singleTaskDetailsPage.getCoopTechEmailLabel().getText();
+		//String labelCoopTech = singleTaskDetailsPage.getCoopTechEmailLabel().getText();
+		
+		String labelCoopTech = singleTaskDetailsPage.moveToElement(driver, ELEMENT_COOP_TECH_MAIL).getText();
 		System.out.println("Label is " + labelCoopTech);
 
 		listofTextView1 = singleTaskDetailsPage.getTextElementsByResourceId(driver, ELEMENT_TV_VALUE);
