@@ -5,23 +5,10 @@
     <listener class-name="com.colt.fieldengineerapp.base.TestCaseListener"/>
   </listeners>
   <test thread-count="5" name="Test(failed)">
-    <groups>
-      <run>
-        <exclude name="smoke"/>
-      </run>
-    </groups>
     <classes>
-      <class name="com.colt.fieldengineerapp.testcases.LandingPageTest">
-        <methods>
-          <include name="setUp"/>
-          <include name="homePageTasksTitleTest"/>
-          <include name="startServer"/>
-        </methods>
-      </class> <!-- com.colt.fieldengineerapp.testcases.LandingPageTest -->
       <class name="com.colt.fieldengineerapp.testcases.LoginPageTest">
         <methods>
           <include name="loginTestWithMultiUsers"/>
-          <include name="landingPageTitleTest"/>
           <include name="tearDown"/>
           <include name="setUp"/>
         </methods>

@@ -73,12 +73,12 @@ public class TestBase implements FieldEngineerAppConstants{
 	public static void startAVD() throws IOException {
 		
 		System.out.println("This will start avd");
-		
-		if(started) {
-			System.out.println(" Already started so shutting down");
-		shutDownAVD();
-		}
-	
+//		
+//		if(started) {
+//			System.out.println(" Already started so shutting down");
+//		shutDownAVD();
+//		}
+//	
 		Runtime.getRuntime().exec("adb start-server");
 		Runtime.getRuntime().exec("emulator -avd pixel2");
 		started = true;
