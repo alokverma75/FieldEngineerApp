@@ -28,11 +28,7 @@ public class EndToEndTestForSingleTaskView extends TestBase {
 	SingleTaskDetailsPage singleTaskDetailsPage;
 	AndroidDriver<AndroidElement> driver;
 	List<AndroidElement> listofTextView;
-	List<AndroidElement> listofTextView1;
-	List<AndroidElement> listofTextView2;
-	List<AndroidElement> listofTextView3;
-	List<AndroidElement> listofTextView4;
-	List<AndroidElement> listofTextView5;
+
 
 	public EndToEndTestForSingleTaskView() throws MalformedURLException, IOException {
 		super();
@@ -77,9 +73,9 @@ public class EndToEndTestForSingleTaskView extends TestBase {
 		String labelJobStatus = singleTaskDetailsPage.scrollToElement(driver, ELEMENT_JOB_STATUS).getText();
 		System.out.println("Label is " + labelJobStatus);
 
-		listofTextView1 = singleTaskDetailsPage.getTextElementsByResourceId(driver, ELEMENT_TV_VALUE);
-		for (int i = 0; i < listofTextView1.size(); i++) {
-			System.out.println(" element at" + i + "th Index is " + listofTextView1.get(i).getText());
+		listofTextView = singleTaskDetailsPage.getTextElementsByResourceId(driver, ELEMENT_TV_VALUE);
+		for (int i = 0; i < listofTextView.size(); i++) {
+			System.out.println(" element at" + i + "th Index is " + listofTextView.get(i).getText());
 		}
 
 		// ScrollTo PLanned Start Date
@@ -89,9 +85,9 @@ public class EndToEndTestForSingleTaskView extends TestBase {
 		String labelPlannedStartDate = singleTaskDetailsPage.scrollToElement(driver, ELEMENT_PLANNED_START_DATE).getText();
 		System.out.println("Label is " + labelPlannedStartDate);
 
-		listofTextView1 = singleTaskDetailsPage.getTextElementsByResourceId(driver, ELEMENT_TV_VALUE);
-		for (int i = 0; i < listofTextView1.size(); i++) {
-			System.out.println(" element at" + i + "th Index is " + listofTextView1.get(i).getText());
+		listofTextView = singleTaskDetailsPage.getTextElementsByResourceId(driver, ELEMENT_TV_VALUE);
+		for (int i = 0; i < listofTextView.size(); i++) {
+			System.out.println(" element at" + i + "th Index is " + listofTextView.get(i).getText());
 		}
 		
 		// ScrollTo CPD
@@ -101,9 +97,9 @@ public class EndToEndTestForSingleTaskView extends TestBase {
 		String labelCPD = singleTaskDetailsPage.scrollToElement(driver, ELEMENT_CPD).getText();
 		System.out.println("Label is " + labelCPD);
 
-		listofTextView1 = singleTaskDetailsPage.getTextElementsByResourceId(driver, ELEMENT_TV_VALUE);
-		for (int i = 0; i < listofTextView1.size(); i++) {
-			System.out.println(" element at" + i + "th Index is " + listofTextView1.get(i).getText());
+		listofTextView = singleTaskDetailsPage.getTextElementsByResourceId(driver, ELEMENT_TV_VALUE);
+		for (int i = 0; i < listofTextView.size(); i++) {
+			System.out.println(" element at" + i + "th Index is " + listofTextView.get(i).getText());
 		}
 
 		// ScrollTo Job Remarks
@@ -113,9 +109,9 @@ public class EndToEndTestForSingleTaskView extends TestBase {
 		String labelJobRemarks =  singleTaskDetailsPage.scrollToElement(driver, ELEMENT_CPD).getText();
 		System.out.println("Label is " + labelJobRemarks);
 
-		listofTextView1 = singleTaskDetailsPage.getTextElementsByResourceId(driver, ELEMENT_TV_VALUE);
-		for (int i = 0; i < listofTextView1.size(); i++) {
-			System.out.println(" element at" + i + "th Index is " + listofTextView1.get(i).getText());
+		listofTextView = singleTaskDetailsPage.getTextElementsByResourceId(driver, ELEMENT_TV_VALUE);
+		for (int i = 0; i < listofTextView.size(); i++) {
+			System.out.println(" element at" + i + "th Index is " + listofTextView.get(i).getText());
 		}
 
 
@@ -128,9 +124,9 @@ public class EndToEndTestForSingleTaskView extends TestBase {
 		String labelCoopTech = singleTaskDetailsPage.scrollToElement(driver, ELEMENT_COOP_TECH_MAIL).getText();
 		System.out.println("Label is " + labelCoopTech);
 
-		listofTextView1 = singleTaskDetailsPage.getTextElementsByResourceId(driver, ELEMENT_TV_VALUE);
-		for (int i = 0; i < listofTextView1.size(); i++) {
-			System.out.println(" element at" + i + "th Index is " + listofTextView1.get(i).getText());
+		listofTextView = singleTaskDetailsPage.getTextElementsByResourceId(driver, ELEMENT_TV_VALUE);
+		for (int i = 0; i < listofTextView.size(); i++) {
+			System.out.println(" element at" + i + "th Index is " + listofTextView.get(i).getText());
 		}
 
 	}

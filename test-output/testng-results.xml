@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-10-22T11:10:26 IST" name="Default suite" finished-at="2020-10-22T11:11:11 IST" duration-ms="44440">
+  <suite started-at="2020-10-22T12:37:41 IST" name="Default suite" finished-at="2020-10-22T12:38:22 IST" duration-ms="41529">
     <groups>
     </groups>
-    <test started-at="2020-10-22T11:10:26 IST" name="Default test" finished-at="2020-10-22T11:11:11 IST" duration-ms="44440">
+    <test started-at="2020-10-22T12:37:41 IST" name="Default test" finished-at="2020-10-22T12:38:22 IST" duration-ms="41529">
       <class name="com.colt.fieldengineerapp.testcases.EndToEndTestForSingleTaskView">
-        <test-method is-config="true" signature="startServer()[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndTestForSingleTaskView@7193666c]" started-at="2020-10-22T11:10:26 IST" name="startServer" finished-at="2020-10-22T11:10:26 IST" duration-ms="29" status="PASS">
+        <test-method is-config="true" signature="startServer()[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndTestForSingleTaskView@7193666c]" started-at="2020-10-22T12:37:41 IST" name="startServer" finished-at="2020-10-22T12:37:41 IST" duration-ms="63" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startServer -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndTestForSingleTaskView@7193666c]" started-at="2020-10-22T11:10:26 IST" name="setUp" finished-at="2020-10-22T11:10:37 IST" duration-ms="10735" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndTestForSingleTaskView@7193666c]" started-at="2020-10-22T12:37:41 IST" name="setUp" finished-at="2020-10-22T12:37:51 IST" duration-ms="10520" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="endToEndTestTillSingleTaskView()[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndTestForSingleTaskView@7193666c]" started-at="2020-10-22T11:10:37 IST" name="endToEndTestTillSingleTaskView" finished-at="2020-10-22T11:11:11 IST" duration-ms="33636" status="PASS">
+        <test-method signature="endToEndTestTillSingleTaskView()[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndTestForSingleTaskView@7193666c]" started-at="2020-10-22T12:37:51 IST" name="endToEndTestTillSingleTaskView" finished-at="2020-10-22T12:38:22 IST" duration-ms="30913" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endToEndTestTillSingleTaskView -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndTestForSingleTaskView@7193666c]" started-at="2020-10-22T11:11:11 IST" name="tearDown" finished-at="2020-10-22T11:11:11 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndTestForSingleTaskView@7193666c]" started-at="2020-10-22T12:38:22 IST" name="tearDown" finished-at="2020-10-22T12:38:22 IST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
