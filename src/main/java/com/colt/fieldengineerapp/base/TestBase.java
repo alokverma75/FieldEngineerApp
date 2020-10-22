@@ -1,5 +1,10 @@
 package com.colt.fieldengineerapp.base;
 
+/*
+ * 
+ * @author Alok Verma
+ */
+
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -32,6 +37,13 @@ public class TestBase implements FieldEngineerAppConstants{
 	public static String USRDIR = System.getProperty("user.dir");
 	public static Properties prop;	
 	static boolean  started = false;
+	
+	/**
+	 * This will return an instance of driver with required capabilities and will be used in all places
+	 * @return
+	 * @throws IOException
+	 * @throws MalformedURLException
+	 */
 
 	public static AndroidDriver<AndroidElement> getDriver() throws IOException, MalformedURLException {
 
@@ -53,23 +65,10 @@ public class TestBase implements FieldEngineerAppConstants{
 
 	}
 	
-	public static void initialization() throws IOException, MalformedURLException {
-
-		prop = ReadPropertyFile.readPropertiesFile("resources/config.properties");
-		
-		cap.setCapability(MobileCapabilityType.DEVICE_NAME, prop.getProperty("deviceName"));
-		cap.setCapability(MobileCapabilityType.APP, prop.getProperty("app"));
-		cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, prop.getProperty("automationName"));
-		cap.setCapability(MobileCapabilityType.PLATFORM_NAME, prop.getProperty("platformName"));
-		cap.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, prop.getProperty("appActivity"));
-		cap.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, prop.getProperty("appPackage"));
-		
-
-		driver = new AndroidDriver<AndroidElement>(
-				new URL("http://127.0.0.1:4723/wd/hub"), cap);
-		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);	
-
-	}
+	/**
+	 * This method will be called to start the emulator along with adb server. Usually with BeforeSuite method tag
+	 * @throws IOException
+	 */
 	
 	public static void startAVD() throws IOException {
 		
@@ -89,6 +88,11 @@ public class TestBase implements FieldEngineerAppConstants{
 		
 	}
 	
+	/**
+	 * This method will shut down the emulator after test suite is completed
+	 * @throws IOException
+	 */
+	
 	public static void shutDownAVD() throws IOException {
 		
 		System.out.println("This will close the avd");
@@ -97,6 +101,12 @@ public class TestBase implements FieldEngineerAppConstants{
 		System.out.println("the avd is closed successfully");
 		
 	}
+	/**
+	 * This method will return the TapOptions for a given element type on a page
+	 * @param driver
+	 * @param elementText
+	 * @return
+	 */
 	
 	public static TapOptions geTapOption(AndroidDriver<AndroidElement> driver, String elementText) {
 
@@ -109,7 +119,12 @@ public class TestBase implements FieldEngineerAppConstants{
 				.withElement(ElementOption.element(driver.findElementByAndroidUIAutomator(searchWebElement)));
 
 	}
-// This will search element by scrolling in actual
+	/**
+	 * This method will return TapOptions object for a given element after searching in a drop down say or on a screen
+	 * @param driver
+	 * @param elementText
+	 * @return
+	 */
 	public static TapOptions geTapOptionForScroll(AndroidDriver<AndroidElement> driver, String elementText) {				
 		String searchWebElement = ELEMENT_ATTRIBUTE_SCROLL_VIEW + elementText + ELEMENT_SCROLL_SUFFIX;		
 		System.out.println(" search Web element   "+ searchWebElement);
@@ -118,7 +133,15 @@ public class TestBase implements FieldEngineerAppConstants{
 		return TapOptions.tapOptions()
 				.withElement(ElementOption.element(driver.findElementByAndroidUIAutomator(searchWebElement)));
 
-	}	
+	}
+	
+	/**
+	 * This method will return LongPressOptions for functionality of drag/drop of element from one location to another
+	 * @param driver
+	 * @param attributeText
+	 * @param elementText
+	 * @return
+	 */
 	
 	public static LongPressOptions geLongPressOption(AndroidDriver<AndroidElement> driver, String attributeText, String elementText) {
 
@@ -128,7 +151,12 @@ public class TestBase implements FieldEngineerAppConstants{
 
 	}
 
-	//Find Element by UiAutomator for Android elements though page factory mandates this in string constant and not used with page factory
+	/**
+	 * This method will return an element using UiAutomator feature of driver for mobile elements
+	 * @param driver
+	 * @param elementTextValue
+	 * @return
+	 */
 	public static AndroidElement getElementByAutomator(AndroidDriver<AndroidElement> driver, String elementTextValue) {
 		String searchWebElement = ELEMENT_ATTRIBUTE_TEXT + elementTextValue + ELEMENT_TAP_SUFFIX;
 		
@@ -137,12 +165,23 @@ public class TestBase implements FieldEngineerAppConstants{
 		return driver.findElementByAndroidUIAutomator(searchWebElement);
 	}
 	
+	/**
+	 * This method will return the format to search ui automator search string
+	 * @param elementText
+	 * @return
+	 */	
 	public static String getAutomatorElementFormat(String elementText) {
 		
 		String automatorFormat = ELEMENT_ATTRIBUTE_TEXT + elementText + ELEMENT_TAP_SUFFIX;		
 		return automatorFormat;
 	}
-	// Search element by scrolling which will work like for TouchAction and TapOption combination
+	
+	/**
+	 * This method will return an element after scrolling a list of elements if not visible on initial view
+	 * @param driver
+	 * @param elementTextValue
+	 * @return
+	 */
 	public static AndroidElement getElementByAutomatorForScroll(AndroidDriver<AndroidElement> driver, String elementTextValue) {
 		String searchWebElement = ELEMENT_ATTRIBUTE_SCROLL_VIEW + elementTextValue + ELEMENT_SCROLL_SUFFIX;
 		
@@ -151,22 +190,36 @@ public class TestBase implements FieldEngineerAppConstants{
 		return driver.findElementByAndroidUIAutomator(searchWebElement);
 	}
 	
-	// This will return an element after scrolling on mobile screen
+	/**
+	 * This method will return TouchAction object for a given element after searching an element and tapping on the same
+	 * @param driver
+	 * @param elementTextScrollTo
+	 * @return
+	 */
 	public static TouchAction<?> getTouchActionForElement(AndroidDriver<AndroidElement> driver, String elementTextScrollTo){
 		TouchAction<?> action = new TouchAction<>(driver);
 		
 		return action.tap(TestBase.geTapOptionForScroll(driver,elementTextScrollTo)).perform();
 		
-	}
-		
+	}	
 	
-	//To hide keyboard
+	/**
+	 * This method can be used to hide the soft keyboard after data has been entered by script
+	 * @param driver
+	 */
 	public static void hideKeyBoard(AndroidDriver<AndroidElement> driver) {
 		
 		driver.hideKeyboard();
 	}
 	
-	// Used for Drag and Drop functionality from one point to another like clock arm 
+	/**
+	 * This method is used for Swipe functionality from one point to another by finding element's from x,y coordinates to the final x,y coordinates
+	 * This is new way now to move elements and methods like getCenter().getX() etc are used 
+	 * @param driver
+	 * @param elementText
+	 * @param moveTo
+	 * @return
+	 */
 	public static PointOption<?> getPointOption(AndroidDriver<AndroidElement> driver, String elementText, String moveTo) {
 		String searchWebElement = elementText + moveTo + ELEMENT_TAP_SUFFIX;
 		
@@ -198,26 +251,56 @@ public class TestBase implements FieldEngineerAppConstants{
 		return PointOption.point(element.getCenter().getX(), element.getCenter().getY());
 	}
 
-
+	/**
+	 * This method can be used to find an element using className attribute
+	 * @param driver
+	 * @param elementText
+	 * @return
+	 */
 	public static AndroidElement getElementByClassName(AndroidDriver<AndroidElement> driver, String elementText) {
 
 		return driver.findElementByClassName(elementText);
 	}
 	
+	/**
+	 * This will return an instance of Duration with specified time in seconds which is generic and will set any value as required
+	 * @param timeInSeconds
+	 * @return
+	 */
 	public static Duration getDuration(long timeInSeconds) {
 		
 		return Duration.ofSeconds(timeInSeconds);
 	}
-
+	
+	/**
+	 * This method will return a List of elements identified by a common className if no unique locator is defined
+	 * @param driver
+	 * @param elementText
+	 * @return
+	 */
 	public static List<AndroidElement> getElementsByClassName(AndroidDriver<AndroidElement> driver,	String elementText) {
 
 		return driver.findElementsByClassName(elementText);
 	}
 	
+	/**
+	 * This method will return a List of all elements identified by a common id when no unique locator is defined
+	 * @param driver
+	 * @param elementText
+	 * @return
+	 */
 	public static List<AndroidElement> getElementsById(AndroidDriver<AndroidElement> driver,	String elementText) {
 
 		return driver.findElementsById(elementText);
 	}
+	
+	/**
+	 * This method will return an element using xpath
+	 * @param driver
+	 * @param textWidget
+	 * @param elementText
+	 * @return
+	 */
 	
 	//driver.findElementByXPath("//android.widget.Button[@text='OK']");
 	public static AndroidElement getElementByXpath(AndroidDriver<AndroidElement> driver, String textWidget, String elementText) {
@@ -231,6 +314,13 @@ public class TestBase implements FieldEngineerAppConstants{
 		return driver.findElementByXPath(xPath.trim());
 	}
 	
+	/**
+	 * This method will return an element using xpath and provided description only 
+	 * @param driver
+	 * @param elementText
+	 * @return
+	 */
+	
    public static AndroidElement getElementByXpathUsingDescription(AndroidDriver<AndroidElement> driver, String elementText) {
 		
 		String xPath = ELEMENT_XPATH_PREFIX+ ELEMENT_XPATH__DESCRIPTION_PREFIX+ elementText+ELEMENT_XPATH__TEXT_SUFFIX;
@@ -241,6 +331,12 @@ public class TestBase implements FieldEngineerAppConstants{
 		return driver.findElementByXPath(xPath.trim());
 	}
 	
+ /**
+  * This method will return an element by using provided id of element 
+  * @param driver
+  * @param elementText
+  * @return
+  */
 	public static AndroidElement getElementById(AndroidDriver<AndroidElement> driver, String elementText) {
 
 		return driver.findElementById(ELEMENT_ID_PREFIX+elementText);
