@@ -24,6 +24,16 @@ public class HomePage extends TestBase {
 	@AndroidFindBy(id = "com.android.packageinstaller:id/permission_allow_button")
 	AndroidElement allowBtn;
 	
+	@AndroidFindBy(uiAutomator = "text(\"Raise Plan Work\")") 
+	AndroidElement raisePlanWork;
+	
+	@AndroidFindBy(id = "com.colt.coltengineering:id/img_option_icon")
+	AndroidElement raisePlanWorkIcon;
+	
+	public HomePage(AndroidDriver<AndroidElement> driver) {
+		PageFactory.initElements(new AppiumFieldDecorator(driver, getDuration(30)), this);
+	}
+	
 	
 	public AndroidElement getAllowBtn() {
 		return allowBtn;
@@ -32,10 +42,16 @@ public class HomePage extends TestBase {
 	public AndroidElement getViewAllTasksBtn() {
 		return viewAllTasksBtn;
 	}
-
-	public HomePage(AndroidDriver<AndroidElement> driver) {
-		PageFactory.initElements(new AppiumFieldDecorator(driver, getDuration(30)), this);
+	
+	public AndroidElement getRaisePlanWork() {
+		return raisePlanWork;
 	}
+
+	public AndroidElement getRaisePlanWorkIcon() {
+		return raisePlanWorkIcon;
+	}
+
+	
 	
 	public boolean validateHomePageTasksTitle(String element){
 		return homePageTasksTitle.getText().equals(element);
