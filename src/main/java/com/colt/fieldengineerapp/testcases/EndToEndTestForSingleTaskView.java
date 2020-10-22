@@ -69,12 +69,12 @@ public class EndToEndTestForSingleTaskView extends TestBase {
 			System.out.println(" element at" + i + "th Index is " + listofTextView.get(i).getText());
 		}
 
-		// ScrollTo Job status
+		// ScrollTo Job status kept as reference as both methods will work
 		//singleTaskDetailsPage.moveToScrollToElement(driver, ELEMENT_JOB_STATUS).perform();
 
 		//String labelCustomer = singleTaskDetailsPage.getJobStatusLabel().getText();
 		
-		String labelJobStatus = singleTaskDetailsPage.moveToElement(driver, ELEMENT_JOB_STATUS).getText();
+		String labelJobStatus = singleTaskDetailsPage.scrollToElement(driver, ELEMENT_JOB_STATUS).getText();
 		System.out.println("Label is " + labelJobStatus);
 
 		listofTextView1 = singleTaskDetailsPage.getTextElementsByResourceId(driver, ELEMENT_TV_VALUE);
@@ -86,7 +86,7 @@ public class EndToEndTestForSingleTaskView extends TestBase {
 		//singleTaskDetailsPage.moveToScrollToElement(driver, ELEMENT_PLANNED_START_DATE).perform();
 
 		//String labelPlannedStartDate = singleTaskDetailsPage.getPlannedStartLabel().getText();
-		String labelPlannedStartDate = singleTaskDetailsPage.moveToElement(driver, ELEMENT_PLANNED_START_DATE).getText();
+		String labelPlannedStartDate = singleTaskDetailsPage.scrollToElement(driver, ELEMENT_PLANNED_START_DATE).getText();
 		System.out.println("Label is " + labelPlannedStartDate);
 
 		listofTextView1 = singleTaskDetailsPage.getTextElementsByResourceId(driver, ELEMENT_TV_VALUE);
@@ -98,7 +98,7 @@ public class EndToEndTestForSingleTaskView extends TestBase {
 		//singleTaskDetailsPage.moveToScrollToElement(driver, ELEMENT_CPD).perform();
 
 		//String labelCPD = singleTaskDetailsPage.getCpdLabel().getText();
-		String labelCPD = singleTaskDetailsPage.moveToElement(driver, ELEMENT_CPD).getText();
+		String labelCPD = singleTaskDetailsPage.scrollToElement(driver, ELEMENT_CPD).getText();
 		System.out.println("Label is " + labelCPD);
 
 		listofTextView1 = singleTaskDetailsPage.getTextElementsByResourceId(driver, ELEMENT_TV_VALUE);
@@ -110,7 +110,7 @@ public class EndToEndTestForSingleTaskView extends TestBase {
 		//singleTaskDetailsPage.moveToScrollToElement(driver, ELEMENT_JOB_REMARKS).perform();
 
 		//String labelJobRemarks = singleTaskDetailsPage.getJobRemarksLabel().getText();
-		String labelJobRemarks =  singleTaskDetailsPage.moveToElement(driver, ELEMENT_CPD).getText();
+		String labelJobRemarks =  singleTaskDetailsPage.scrollToElement(driver, ELEMENT_CPD).getText();
 		System.out.println("Label is " + labelJobRemarks);
 
 		listofTextView1 = singleTaskDetailsPage.getTextElementsByResourceId(driver, ELEMENT_TV_VALUE);
@@ -119,13 +119,13 @@ public class EndToEndTestForSingleTaskView extends TestBase {
 		}
 
 
-		// Now scroll to end element and capture values of all elements on screen view
+		// Now scroll to end element and capture values of all elements on screen view 
 
 		//singleTaskDetailsPage.moveToScrollToElement(driver, ELEMENT_COOP_TECH_MAIL).perform();
 
 		//String labelCoopTech = singleTaskDetailsPage.getCoopTechEmailLabel().getText();
 		
-		String labelCoopTech = singleTaskDetailsPage.moveToElement(driver, ELEMENT_COOP_TECH_MAIL).getText();
+		String labelCoopTech = singleTaskDetailsPage.scrollToElement(driver, ELEMENT_COOP_TECH_MAIL).getText();
 		System.out.println("Label is " + labelCoopTech);
 
 		listofTextView1 = singleTaskDetailsPage.getTextElementsByResourceId(driver, ELEMENT_TV_VALUE);
