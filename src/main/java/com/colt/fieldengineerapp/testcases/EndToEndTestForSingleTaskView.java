@@ -106,7 +106,7 @@ public class EndToEndTestForSingleTaskView extends TestBase {
 		//singleTaskDetailsPage.moveToScrollToElement(driver, ELEMENT_JOB_REMARKS).perform();
 
 		//String labelJobRemarks = singleTaskDetailsPage.getJobRemarksLabel().getText();
-		String labelJobRemarks =  singleTaskDetailsPage.scrollToElement(driver, ELEMENT_CPD).getText();
+		String labelJobRemarks =  singleTaskDetailsPage.scrollToElement(driver, ELEMENT_JOB_REMARKS).getText();
 		System.out.println("Label is " + labelJobRemarks);
 
 		listofTextView = singleTaskDetailsPage.getTextElementsByResourceId(driver, ELEMENT_TV_VALUE);
