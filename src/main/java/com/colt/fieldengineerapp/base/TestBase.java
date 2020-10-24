@@ -9,9 +9,16 @@ package com.colt.fieldengineerapp.base;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
+import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -26,7 +33,7 @@ import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.touch.LongPressOptions;
 import io.appium.java_client.touch.TapOptions;
-
+import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.ElementOption;
 import io.appium.java_client.touch.offset.PointOption;
 
@@ -201,6 +208,34 @@ public class TestBase implements FieldEngineerAppConstants{
 		
 		return action.tap(TestBase.geTapOptionForScroll(driver,elementTextScrollTo)).perform();
 		
+	}
+	
+	public static TapOptions geTapOption(AndroidDriver<AndroidElement> driver, String attributeText,String elementText) {
+			
+		String searchWebElement = attributeText + elementText + ELEMENT_TAP_SUFFIX;		
+		System.out.println(" search Web eleement   "+ searchWebElement);
+
+		return TapOptions.tapOptions()
+				.withElement(ElementOption.element(driver.findElementByAndroidUIAutomator(searchWebElement)));
+
+	}
+	
+	public static TouchAction<?> getTouchActionForSwipe(AndroidDriver<AndroidElement> driver, String swipeTo){
+		TouchAction<?> action = new TouchAction<>(driver);
+		
+		return action.tap(TestBase.geTapOption(driver,ELEMENT_ATTRIBUTE_CONTENT_DESC,swipeTo)).perform();
+		
+	}
+	
+	public static TouchAction<?> getTouchActionForPress(AndroidDriver<AndroidElement> driver,  
+			String swipeFrom,String swipeTo){
+		
+		TouchAction<?> action = new TouchAction<>(driver);
+		
+		return action.press(TestBase.getPointOption(driver, ELEMENT_ATTRIBUTE_CONTENT_DESC, swipeFrom))
+				.waitAction(WaitOptions.waitOptions(TestBase.getDuration(2))).moveTo(
+						TestBase.getPointOption(driver, ELEMENT_ATTRIBUTE_CONTENT_DESC, swipeTo)).release().perform();
+		
 	}	
 	
 	/**
@@ -340,6 +375,49 @@ public class TestBase implements FieldEngineerAppConstants{
 	public static AndroidElement getElementById(AndroidDriver<AndroidElement> driver, String elementText) {
 
 		return driver.findElementById(ELEMENT_ID_PREFIX+elementText);
+	}
+	
+	
+	public static String getDate(String datePattern) {
+		
+		String pattern = datePattern;
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+
+		String date = simpleDateFormat.format(new Date());
+		System.out.println(date);
+		
+		return date;
+	}
+	
+	public static Map<String, Integer> getDateTimeBasedOnTimeZone(String timeZoneID){
+		TimeZone timeZone = TimeZone.getTimeZone(timeZoneID);
+		
+		Calendar calendar = new GregorianCalendar();
+		calendar.setTimeZone(timeZone);
+
+		
+		System.out.println("year     = " + calendar.get(Calendar.YEAR));		
+		System.out.println("day     = " + calendar.get(Calendar.DAY_OF_MONTH));
+		int monthInCorrectValue = calendar.get(Calendar.MONTH);
+		monthInCorrectValue++;
+		System.out.println("month     = " + monthInCorrectValue);
+		System.out.println("hour     = " + calendar.get(Calendar.HOUR_OF_DAY));
+		System.out.println("minute     = " + calendar.get(Calendar.MINUTE));
+
+		
+		Map<String,Integer> dateTimeZonedMap = new HashMap<String,Integer>();
+		
+		dateTimeZonedMap.put(ELEMENT_YEAR_KEY, Integer.valueOf(calendar.get(Calendar.YEAR)));
+		dateTimeZonedMap.put(ELEMENT_MONTH_KEY, Integer.valueOf(monthInCorrectValue));
+		dateTimeZonedMap.put(ELEMENT_DAY_KEY, Integer.valueOf(calendar.get(Calendar.DAY_OF_MONTH)));
+		dateTimeZonedMap.put(ELEMENT_HOUR_KEY, Integer.valueOf(calendar.get(Calendar.HOUR_OF_DAY)));
+		dateTimeZonedMap.put(ELEMENT_MINUTE_KEY, Integer.valueOf(calendar.get(Calendar.MINUTE)));
+		
+		
+		return dateTimeZonedMap;
+		
+		
+		
 	}
 	
 	

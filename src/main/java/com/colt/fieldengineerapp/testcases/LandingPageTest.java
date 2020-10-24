@@ -46,7 +46,7 @@ public class LandingPageTest extends TestBase {
 		Assert.assertTrue(hasTasksTitle);
 	}
 	
-	@Test(groups = {"smoke"})
+	@Test
 	public void continueTest() throws MalformedURLException, IOException{
 		landingPage.getContinueBtn().click();
 		boolean pageHasTitle = homePage.validateHomePageTitle(ELEMENT_HOMEPAGE_LABEL);

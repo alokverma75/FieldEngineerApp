@@ -43,7 +43,8 @@ public class LoginPageTest extends TestBase {
 		Assert.assertEquals(title, ELEMENT_AUTHENTICATION_LABEL);
 	}
 	
-	@Test(groups = {"smoke"})
+	//@Test(groups = {"smoke"})
+	@Test
 	public void loginTest() throws MalformedURLException, IOException{				
 		landingPage = loginPage.login(driver, prop.getProperty("userID"), prop.getProperty("password"));
 		Assert.assertNotNull(landingPage);		

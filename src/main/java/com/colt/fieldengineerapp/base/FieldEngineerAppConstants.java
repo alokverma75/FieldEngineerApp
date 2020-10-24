@@ -45,7 +45,7 @@ public interface FieldEngineerAppConstants {
 		public static final String ELEMENT_HOMEPAGE_LABEL="Field Experts";
 		public static final String ELEMENT_HOMEPAGE_TASKS_LABEL="Tasks";
 		
-		//Raise Planned Work Page
+		//Raise Planned Work Page - 1
 		public static final String ELEMENT_TEMPLATE_DROPDOWN_1="Please Select";
 		public static final String ELEMENT_TEMPLATE_DROPDOWN_2="Standard SD";
 		
@@ -79,6 +79,91 @@ public interface FieldEngineerAppConstants {
 		public static final String ELEMENT_CHANGE_DESCRIPTION_DROPDOWN_19="Node - MSP Atrica card insertions";
 		public static final String ELEMENT_CHANGE_DESCRIPTION_DROPDOWN_20="PO Cyan - PSW card";
 		public static final String ELEMENT_CHANGE_DESCRIPTION_DROPDOWN_21="Power cabling or insertion of new power modules or batterries";
+		
+		
+		public static final String ELEMENT_LOCATION_TIER1_DROPDOWN_22="United Kingdom";
+		
+		public static final String ELEMENT_LOCATION_TIER2_DROPDOWN_2="Birmingham";
+		
+		public static final String ELEMENT_CLOCK_DIGIT_NINE = "9";
+		public static final String ELEMENT_CLOCK_MINUTE_FIFTEEN = "15";
+		public static final String ELEMENT_CLOCK_MINUTE_FORTY_FIVE = "45";
+		
+		public static final String ELEMENT_CLOCK_DIGIT_HOUR_SEVEN_END = "7";
+		public static final String ELEMENT_CLOCK_MINUTE_TWENTY_END = "10";
+		
+		public static final String ELEMENT_CLOCK_HOUR_EIGHT_BACKOUT = "8";
+		public static final String ELEMENT_CLOCK_MINUTE_FORTY_BACKOUT = "40";
+		
+		public static final String ELEMENT_YEAR_KEY = "Year";
+		public static final String ELEMENT_MONTH_KEY = "Month";
+		public static final String ELEMENT_DAY_KEY = "Day";
+		public static final String ELEMENT_HOUR_KEY = "Hour";
+		public static final String ELEMENT_MINUTE_KEY = "Minute";
+		public static final String ELEMENT_AM = "AM";
+		public static final String ELEMENT_PM = "PM";
+		
+		
+		//Operation Tier dropdowns
+		public static final String ELEMENT_DROP_DOWN_OPCAT_TIER1_1 = "Shift";
+		public static final String ELEMENT_DROP_DOWN_OPCAT_TIER1_2 = "Replace";
+		public static final String ELEMENT_DROP_DOWN_OPCAT_TIER1_3 = "Datacentre";
+		public static final String ELEMENT_DROP_DOWN_OPCAT_TIER1_4 = "Configuration";
+		public static final String ELEMENT_DROP_DOWN_OPCAT_TIER1_5 = "Optimise";
+		public static final String ELEMENT_DROP_DOWN_OPCAT_TIER1_6 = "Commission";
+		public static final String ELEMENT_DROP_DOWN_OPCAT_TIER1_7 = "Third-party";
+		public static final String ELEMENT_DROP_DOWN_OPCAT_TIER1_8 = "Upgrade";
+		public static final String ELEMENT_DROP_DOWN_OPCAT_TIER1_9 = "Core Market Data Application";
+		public static final String ELEMENT_DROP_DOWN_OPCAT_TIER1_10 = "Power Down";
+		public static final String ELEMENT_DROP_DOWN_OPCAT_TIER1_11 = "Power System";
+		public static final String ELEMENT_DROP_DOWN_OPCAT_TIER1_12 = "Reload";
+		public static final String ELEMENT_DROP_DOWN_OPCAT_TIER1_13 = "Decommission";
+		public static final String ELEMENT_DROP_DOWN_OPCAT_TIER1_14 = "Infrastructure";
+		public static final String ELEMENT_DROP_DOWN_OPCAT_TIER1_15 = "Troubleshoot";
+		public static final String ELEMENT_DROP_DOWN_OPCAT_TIER1_16 = "Improve";
+		
+		public static final String ELEMENT_DROP_DOWN_OPCAT_TIER2_1 = "Port";
+		public static final String ELEMENT_DROP_DOWN_OPCAT_TIER2_2 = "Cable";
+		public static final String ELEMENT_DROP_DOWN_OPCAT_TIER2_3 = "Bearer";
+		public static final String ELEMENT_DROP_DOWN_OPCAT_TIER2_4 = "Circuits";
+		public static final String ELEMENT_DROP_DOWN_OPCAT_TIER2_5 = "Dark Fibre";
+		public static final String ELEMENT_DROP_DOWN_OPCAT_TIER2_6 = "Card";
+		public static final String ELEMENT_DROP_DOWN_OPCAT_TIER2_7 = "Rack";
+		public static final String ELEMENT_DROP_DOWN_OPCAT_TIER2_8 = "Cable";
+		public static final String ELEMENT_DROP_DOWN_OPCAT_TIER2_9 = "Shelf";
+		public static final String ELEMENT_DROP_DOWN_OPCAT_TIER2_10 = "Device";
+		
+
+		public static final String ELEMENT_DROP_DOWN_OPCAT_TIER3_1 = "Electrical";
+		public static final String ELEMENT_DROP_DOWN_OPCAT_TIER3_2 = "Optical";
+		public static final String ELEMENT_DROP_DOWN_OPCAT_TIER3_3 = "Hardware";
+		
+		//Product Categories Tier1/2/3
+		
+			
+		//Product Cat Tier 1
+		public static final String ELEMENT_DROP_DOWN_PRODCAT_TIER1_1 = "Civil";
+		public static final String ELEMENT_DROP_DOWN_PRODCAT_TIER1_2 = "VOICE";
+		public static final String ELEMENT_DROP_DOWN_PRODCAT_TIER1_3 = "IP/DATA";
+		public static final String ELEMENT_DROP_DOWN_PRODCAT_TIER1_4 = "TX";
+		public static final String ELEMENT_DROP_DOWN_PRODCAT_TIER1_5 = "ATM/DSL";
+		public static final String ELEMENT_DROP_DOWN_PRODCAT_TIER1_6 = "Infrastructure";
+		public static final String ELEMENT_DROP_DOWN_PRODCAT_TIER1_7 = "DCN";
+		public static final String ELEMENT_DROP_DOWN_PRODCAT_TIER1_8 = "OSS";
+		public static final String ELEMENT_DROP_DOWN_PRODCAT_TIER1_9 = "FIBRE";
+		
+				
+		//Product Cat Tier 2
+		public static final String ELEMENT_DROP_DOWN_PRODCAT_TIER2_1 = "External";
+		public static final String ELEMENT_DROP_DOWN_PRODCAT_TIER2_2 = "Internal";
+		
+		//Product Cat Tier 3
+		public static final String ELEMENT_DROP_DOWN_PRODCAT_TIER3_1 = "Civil Authority";
+		
+		//confirm button
+		public static final String ELEMENT_FINAL_CONFIRM_BUTTON = "Confirm";
+		
+	
 		
 		
 		//Single Task Details Page
