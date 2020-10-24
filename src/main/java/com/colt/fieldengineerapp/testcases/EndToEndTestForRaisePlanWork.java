@@ -148,6 +148,8 @@ public class EndToEndTestForRaisePlanWork extends TestBase {
 		
 		if(hourToBeSet > 12) {
 			hourToBeSet = 1;
+		}else if(hourToBeSet == 12) {
+			hourToBeSet = 12;
 		}
 		
 		setTimePage.getInPutHourTextField().clear();
@@ -159,6 +161,8 @@ public class EndToEndTestForRaisePlanWork extends TestBase {
 		
 		if(minutesToBeSet > 60) {
 			minutesToBeSet = 10;
+		}else if(minutesToBeSet == 60) {
+			minutesToBeSet = 60;
 		}
 		
 		setTimePage.getInPutMinuteTextField().clear();
