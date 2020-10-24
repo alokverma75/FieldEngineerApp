@@ -235,6 +235,7 @@ public class EndToEndTestForRaisePlanWork extends TestBase {
 		
 		raisedPlannedWorkPage.getNextBtn().click();
 		
+		//Next Page
 		raisedPlannedWorkPage.getOrderNumberTextField().sendKeys("1234");
 		raisedPlannedWorkPage.getDeviceIdAddBtn().click();
 		raisedPlannedWorkPage.getInputTextField().sendKeys("123456");
