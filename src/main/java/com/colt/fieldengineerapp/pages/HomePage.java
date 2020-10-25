@@ -27,6 +27,10 @@ public class HomePage extends TestBase {
 	@AndroidFindBy(uiAutomator = "text(\"Raise Plan Work\")") 
 	AndroidElement raisePlanWork;
 	
+	@AndroidFindBy(uiAutomator = "text(\"Templates\")") 
+	AndroidElement plannedlanWorks;
+
+	
 	@AndroidFindBy(id = "com.colt.coltengineering:id/img_option_icon")
 	AndroidElement raisePlanWorkIcon;
 	
@@ -51,8 +55,22 @@ public class HomePage extends TestBase {
 		return raisePlanWorkIcon;
 	}
 
-	
-	
+		
+	public AndroidElement getHomePageTasksTitle() {
+		return homePageTasksTitle;
+	}
+
+
+	public AndroidElement getHomePageTitle() {
+		return homePageTitle;
+	}
+
+
+	public AndroidElement getPlannedlanWorks() {
+		return plannedlanWorks;
+	}
+
+
 	public boolean validateHomePageTasksTitle(String element){
 		return homePageTasksTitle.getText().equals(element);
 	}

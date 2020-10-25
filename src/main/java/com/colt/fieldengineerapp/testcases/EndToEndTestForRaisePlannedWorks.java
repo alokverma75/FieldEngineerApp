@@ -2,13 +2,8 @@ package com.colt.fieldengineerapp.testcases;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
-
-import org.openqa.selenium.By;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
@@ -25,7 +20,7 @@ import com.colt.fieldengineerapp.pages.SetTimePage;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 
-public class EndToEndTestForRaisePlanWork extends TestBase {
+public class EndToEndTestForRaisePlannedWorks extends TestBase {
 
 	LoginPage loginPage;
 	LandingPage landingPage;
@@ -37,7 +32,7 @@ public class EndToEndTestForRaisePlanWork extends TestBase {
 	List<AndroidElement> listofTextView;
 
 
-	public EndToEndTestForRaisePlanWork() throws MalformedURLException, IOException {
+	public EndToEndTestForRaisePlannedWorks() throws MalformedURLException, IOException {
 		super();
 
 	}

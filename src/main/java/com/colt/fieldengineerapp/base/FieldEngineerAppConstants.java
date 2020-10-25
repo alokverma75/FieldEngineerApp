@@ -163,9 +163,6 @@ public interface FieldEngineerAppConstants {
 		//confirm button
 		public static final String ELEMENT_FINAL_CONFIRM_BUTTON = "Confirm";
 		
-	
-		
-		
 		//Single Task Details Page
 		
 		public static final String ELEMENT_TEXT_VIEW="android.widget.TextView";
@@ -177,16 +174,21 @@ public interface FieldEngineerAppConstants {
 		public static final String ELEMENT_JOB_REMARKS="Job Remarks";
 		public static final String ELEMENT_COOP_TECH_MAIL="Coop Tech Email";
 		
+		//Planned Works Page
 		
+		public static final String ELEMENT_PLANNED_WORKS_LABEL="Planned work List";
+		public static final String ELEMENT_PLANNED_WORKS_PAGE_TITLE="Planned Work Detail";
+		public static final String ELEMENT_TOTAL_PLANNED_WORKS_LABEL="Total Plan Works";
+		public static final String ELEMENT_PLANNED_WORKS_ID_LABEL="ID";
+		public static final String ELEMENT_PLANNED_WORKS_START_DATE_LABEL="Start Date";
+		public static final String ELEMENT_PLANNED_WORKS_END_DATE_LABEL="End Date";
+		public static final String ELEMENT_PLANNED_WORKS_CATEGORY_LABEL="Category";
+		public static final String ELEMENT_PLANNED_WORKS_SIEBEL_REF_LABEL="Seibel Ref";
+		public static final String ELEMENT_PLANNED_WORKS_DESCRIPTION_LABEL="Description";
+		public static final String ELEMENT_PLANNED_WORKS_IMAGE_OPTION="com.colt.coltengineering:id/img_option_icon";
+		public static final String ELEMENT_PLANNED_ID_TITLE="com.colt.coltengineering:id/id_title";
 		
-		
-		
-		
-		
-		
-		
-		
-		
+
 		
 
 }

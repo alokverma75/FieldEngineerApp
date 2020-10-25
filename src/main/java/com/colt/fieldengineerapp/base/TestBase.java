@@ -37,7 +37,7 @@ import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.ElementOption;
 import io.appium.java_client.touch.offset.PointOption;
 
-public class TestBase implements FieldEngineerAppConstants{
+public class TestBase implements FieldEngineerAppConstants,PlannedWorksPageErrorMessages{
 	
 	public static AndroidDriver<AndroidElement> driver;
 	private static DesiredCapabilities cap = new DesiredCapabilities();

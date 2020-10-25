@@ -2,28 +2,28 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-10-24T21:37:24 IST" name="Default suite" finished-at="2020-10-24T21:38:55 IST" duration-ms="90877">
+  <suite started-at="2020-10-25T12:15:12 IST" name="Default suite" finished-at="2020-10-25T12:15:37 IST" duration-ms="25446">
     <groups>
     </groups>
-    <test started-at="2020-10-24T21:37:24 IST" name="Default test" finished-at="2020-10-24T21:38:55 IST" duration-ms="90877">
-      <class name="com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlanWork">
-        <test-method is-config="true" signature="startServer()[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlanWork@1dde4cb2]" started-at="2020-10-24T21:37:24 IST" name="startServer" finished-at="2020-10-24T21:37:24 IST" duration-ms="23" status="PASS">
+    <test started-at="2020-10-25T12:15:12 IST" name="Default test" finished-at="2020-10-25T12:15:37 IST" duration-ms="25446">
+      <class name="com.colt.fieldengineerapp.testcases.EndToEndTestForPlannedWorks">
+        <test-method is-config="true" signature="startServer()[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndTestForPlannedWorks@20ce78ec]" started-at="2020-10-25T12:15:12 IST" name="startServer" finished-at="2020-10-25T12:15:12 IST" duration-ms="24" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startServer -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlanWork@1dde4cb2]" started-at="2020-10-24T21:37:24 IST" name="setUp" finished-at="2020-10-24T21:37:38 IST" duration-ms="14518" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndTestForPlannedWorks@20ce78ec]" started-at="2020-10-25T12:15:12 IST" name="setUp" finished-at="2020-10-25T12:15:35 IST" duration-ms="22606" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="endToEndTestForRaisePlanWork()[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlanWork@1dde4cb2]" started-at="2020-10-24T21:37:38 IST" name="endToEndTestForRaisePlanWork" finished-at="2020-10-24T21:38:55 IST" duration-ms="76299" status="PASS">
+        <test-method signature="testPlannedWorkDetails()[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndTestForPlannedWorks@20ce78ec]" started-at="2020-10-25T12:15:35 IST" name="testPlannedWorkDetails" finished-at="2020-10-25T12:15:37 IST" duration-ms="2785" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- endToEndTestForRaisePlanWork -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlanWork@1dde4cb2]" started-at="2020-10-24T21:38:55 IST" name="tearDown" finished-at="2020-10-24T21:38:55 IST" duration-ms="0" status="PASS">
+        </test-method> <!-- testPlannedWorkDetails -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndTestForPlannedWorks@20ce78ec]" started-at="2020-10-25T12:15:37 IST" name="tearDown" finished-at="2020-10-25T12:15:37 IST" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlanWork -->
+      </class> <!-- com.colt.fieldengineerapp.testcases.EndToEndTestForPlannedWorks -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
