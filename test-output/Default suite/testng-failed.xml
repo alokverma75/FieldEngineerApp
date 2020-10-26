@@ -5,9 +5,8 @@
     <classes>
       <class name="com.colt.fieldengineerapp.testcases.EndToEndTestForPlannedWorks">
         <methods>
-          <include name="validateAllLabelAndTextFields"/>
           <include name="setUp"/>
-          <include name="startServer"/>
+          <include name="testPlannedWorkDetails"/>
           <include name="tearDown"/>
         </methods>
       </class> <!-- com.colt.fieldengineerapp.testcases.EndToEndTestForPlannedWorks -->

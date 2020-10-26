@@ -20,10 +20,7 @@ public class HomePage extends TestBase {
 	
 	@AndroidFindBy(uiAutomator = "text(\"View All\")")
 	AndroidElement viewAllTasksBtn;
-	
-	@AndroidFindBy(id = "com.android.packageinstaller:id/permission_allow_button")
-	AndroidElement allowBtn;
-	
+
 	@AndroidFindBy(uiAutomator = "text(\"Raise Plan Work\")") 
 	AndroidElement raisePlanWork;
 	
@@ -38,11 +35,6 @@ public class HomePage extends TestBase {
 		PageFactory.initElements(new AppiumFieldDecorator(driver, getDuration(30)), this);
 	}
 	
-	
-	public AndroidElement getAllowBtn() {
-		return allowBtn;
-	}
-
 	public AndroidElement getViewAllTasksBtn() {
 		return viewAllTasksBtn;
 	}

@@ -55,7 +55,6 @@ public class EndToEndTestForSingleTaskView extends TestBase {
 		landingPage = loginPage.login(driver, prop.getProperty("userID"), prop.getProperty("password"));
 		landingPage.getContinueBtn().click();
 		homePage.getViewAllTasksBtn().click();
-		homePage.getAllowBtn().click();
 		allTasksListPage.getViewTaskBtn().click();
 		String label = singleTaskDetailsPage.getOrderNumberLabel().getText();
 		System.out.println("Label is " + label);

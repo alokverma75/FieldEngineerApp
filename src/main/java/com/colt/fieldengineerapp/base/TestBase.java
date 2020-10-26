@@ -61,6 +61,8 @@ public class TestBase implements FieldEngineerAppConstants,PlannedWorksPageError
 		cap.setCapability(AndroidMobileCapabilityType.AVD, prop.getProperty("avdName"));
 		cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, prop.getProperty("automationName"));
 		cap.setCapability(MobileCapabilityType.PLATFORM_NAME, prop.getProperty("platformName"));
+		cap.setCapability(AndroidMobileCapabilityType.AUTO_GRANT_PERMISSIONS, prop.getProperty("autoGrantPermissions"));
+		cap.setCapability(AndroidMobileCapabilityType.IS_HEADLESS, prop.getProperty("isHeadless"));
 		cap.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, prop.getProperty("appActivity"));
 		cap.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, prop.getProperty("appPackage"));	
 
