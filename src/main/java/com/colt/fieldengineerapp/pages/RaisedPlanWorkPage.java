@@ -172,17 +172,9 @@ public class RaisedPlanWorkPage extends TestBase {
 	@AndroidFindBy(id = "com.colt.coltengineering:id/btn_cancel")
 	private AndroidElement cancelBtnForPopup;
 	
-	@AndroidFindBy(uiAutomator = "text(\"Empty order id\")")
-	private AndroidElement emptyOrderIdLabel;
-	
-	@AndroidFindBy(uiAutomator = "text(\"Please fill Order No.\")")
-	private AndroidElement instructionOrderNoLabel;
-	
 	@AndroidFindBy(uiAutomator = "text(\"Empty config id\")")
 	private AndroidElement instructionEmptyConfigLabel;
 	
-	@AndroidFindBy(uiAutomator = "text(\"Please fill Device ID\")")
-	private AndroidElement instructionEmptyDeviceIdLabel;
 	
 	@AndroidFindBy(uiAutomator = "text(\"Operational Categorization Tier 1\")")
 	private AndroidElement opertaionalCatTier1Label;
@@ -202,25 +194,6 @@ public class RaisedPlanWorkPage extends TestBase {
 	@AndroidFindBy(id = "com.colt.coltengineering:id/spin_operational_tier_3")
 	private AndroidElement opertaionalCatTier3DropDown;
 	
-	//Warning windows for above dropdowns
-	
-	@AndroidFindBy(uiAutomator = "text(\"Empty operation tier 1\")")
-	private AndroidElement emptyOperationTier1LabelPopUp;
-	
-	@AndroidFindBy(uiAutomator = "text(\"Please select a operational categorization tier 1\")")
-	private AndroidElement emptyOperationCatTier1LabelPopUp;
-	
-	@AndroidFindBy(uiAutomator = "text(\"Empty operation tier 2\")")
-	private AndroidElement emptyOperationTier2LabelPopUp;
-	
-	@AndroidFindBy(uiAutomator = "text(\"Please select a operational categorization tier 2\")")
-	private AndroidElement emptyOperationCatTier2LabelPopUp;
-
-	@AndroidFindBy(uiAutomator = "text(\"Empty operation tier 3\")")
-	private AndroidElement emptyOperationTier3LabelPopUp;
-	
-	@AndroidFindBy(uiAutomator = "text(\"Please select a operational categorization tier 3\")")
-	private AndroidElement emptyOperationCatTier3LabelPopUp;
 	
 		
 	//Page 6 Product Tier
@@ -245,23 +218,6 @@ public class RaisedPlanWorkPage extends TestBase {
 	@AndroidFindBy(id = "com.colt.coltengineering:id/btn_submit")
 	private AndroidElement finalSubmitButton;
 	
-	@AndroidFindBy(uiAutomator = "text(\"Empty product tier 1\")")
-	private AndroidElement emptyProductTier1LabelPopUp;
-	
-	@AndroidFindBy(uiAutomator = "text(\"Please select a product categorization tier 1\")")
-	private AndroidElement emptyProductCatTier1LabelPopUp;
-	
-	@AndroidFindBy(uiAutomator = "text(\"Empty product tier 2\")")
-	private AndroidElement emptyProductTier1Labe2PopUp;
-	
-	@AndroidFindBy(uiAutomator = "text(\"Please select a product categorization tier 2\")")
-	private AndroidElement emptyProductCatTier2LabelPopUp;
-	
-	@AndroidFindBy(uiAutomator = "text(\"Empty product tier 3\")")
-	private AndroidElement emptyProductTier3LabelPopUp;
-	
-	@AndroidFindBy(uiAutomator = "text(\"Please select a product categorization tier 3\")")
-	private AndroidElement emptyProductCatTier3LabelPopUp;
 	
 	@AndroidFindBy(id = "android:id/toggle_mode")
 	private AndroidElement dateToggleButton;
@@ -363,45 +319,26 @@ public class RaisedPlanWorkPage extends TestBase {
 	}
 
 
-	public AndroidElement getEmptyOrderIdLabel() {
-		return emptyOrderIdLabel;
-	}
-
-
-	public AndroidElement getInstructionOrderNoLabel() {
-		return instructionOrderNoLabel;
-	}
-
 
 	public AndroidElement getInstructionEmptyConfigLabel() {
 		return instructionEmptyConfigLabel;
 	}
 
-
-	public AndroidElement getInstructionEmptyDeviceIdLabel() {
-		return instructionEmptyDeviceIdLabel;
-	}
-
-
 	public AndroidElement getOpertaionalCatTier1Label() {
 		return opertaionalCatTier1Label;
 	}
-
 
 	public AndroidElement getOpertaionalCatTier1DropDown() {
 		return opertaionalCatTier1DropDown;
 	}
 
-
 	public AndroidElement getOpertaionalCatTier2Label() {
 		return opertaionalCatTier2Label;
 	}
 
-
 	public AndroidElement getOpertaionalCatTier2DropDown() {
 		return opertaionalCatTier2DropDown;
 	}
-
 
 	public AndroidElement getOpertaionalCatTier3Label() {
 		return opertaionalCatTier3Label;
@@ -410,36 +347,6 @@ public class RaisedPlanWorkPage extends TestBase {
 
 	public AndroidElement getOpertaionalCatTier3DropDown() {
 		return opertaionalCatTier3DropDown;
-	}
-
-
-	public AndroidElement getEmptyOperationTier1LabelPopUp() {
-		return emptyOperationTier1LabelPopUp;
-	}
-
-
-	public AndroidElement getEmptyOperationCatTier1LabelPopUp() {
-		return emptyOperationCatTier1LabelPopUp;
-	}
-
-
-	public AndroidElement getEmptyOperationTier2LabelPopUp() {
-		return emptyOperationTier2LabelPopUp;
-	}
-
-
-	public AndroidElement getEmptyOperationCatTier2LabelPopUp() {
-		return emptyOperationCatTier2LabelPopUp;
-	}
-
-
-	public AndroidElement getEmptyOperationTier3LabelPopUp() {
-		return emptyOperationTier3LabelPopUp;
-	}
-
-
-	public AndroidElement getEmptyOperationCatTier3LabelPopUp() {
-		return emptyOperationCatTier3LabelPopUp;
 	}
 
 
@@ -475,36 +382,6 @@ public class RaisedPlanWorkPage extends TestBase {
 
 	public AndroidElement getFinalSubmitButton() {
 		return finalSubmitButton;
-	}
-
-
-	public AndroidElement getEmptyProductTier1LabelPopUp() {
-		return emptyProductTier1LabelPopUp;
-	}
-
-
-	public AndroidElement getEmptyProductCatTier1LabelPopUp() {
-		return emptyProductCatTier1LabelPopUp;
-	}
-
-
-	public AndroidElement getEmptyProductTier1Labe2PopUp() {
-		return emptyProductTier1Labe2PopUp;
-	}
-
-
-	public AndroidElement getEmptyProductCatTier2LabelPopUp() {
-		return emptyProductCatTier2LabelPopUp;
-	}
-
-
-	public AndroidElement getEmptyProductTier3LabelPopUp() {
-		return emptyProductTier3LabelPopUp;
-	}
-
-
-	public AndroidElement getEmptyProductCatTier3LabelPopUp() {
-		return emptyProductCatTier3LabelPopUp;
 	}
 
 
@@ -709,8 +586,5 @@ public class RaisedPlanWorkPage extends TestBase {
 		return TestBase.getTouchActionForPress(driver, swipeFrom, swipeTo);
 		
 	}
-	
-	
-
 
 }

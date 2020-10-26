@@ -104,7 +104,7 @@ public class EndToEndTestForPlannedWorks extends TestBase {
 		Assert.assertEquals(categoryLabel,ELEMENT_PLANNED_WORKS_CATEGORY_LABEL );
 
 		String categoryValue = plannedWorksPage.getCategoryTextField().getText();		
-		Assert.assertFalse(categoryValue.isBlank(), ERROR_MESSAGE_EMPTY_CATEGORY);
+		Assert.assertFalse(categoryValue.isBlank(), ERROR_MESSAGE_EMPTY_CATEGORY_TEXT_FIELD);
 		
 		String siebelrefLabel = plannedWorksPage.getSiebelrefLabel().getText();
 		Assert.assertEquals(siebelrefLabel,ELEMENT_PLANNED_WORKS_SIEBEL_REF_LABEL);

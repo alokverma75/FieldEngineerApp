@@ -12,6 +12,7 @@ public interface FieldEngineerAppConstants {
 		
 		
 		public static final String ELEMENT_TEXT_WIDGET = "android.widget.TextView";
+		public static final String ELEMENT_ANDROID_ID_TEXT1 = "android:id/text1";
 		public static final String ELEMENT_BUTTON_WIDGET = "android.widget.Button";
 		public static final String ELEMENT_EDIT_TEXT_WIDGET = "android.widget.EditText";
 		public static final String ELEMENT_RELATIVE_LAYOUT_WIDGET = "android.widget.RelativeLayout";
