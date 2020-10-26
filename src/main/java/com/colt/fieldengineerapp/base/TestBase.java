@@ -1,5 +1,8 @@
 package com.colt.fieldengineerapp.base;
 
+import java.io.File;
+import java.io.FileOutputStream;
+
 /*
  * 
  * @author Alok Verma
@@ -7,10 +10,12 @@ package com.colt.fieldengineerapp.base;
 
 
 import java.io.IOException;
+import java.io.OutputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Base64;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -29,6 +34,7 @@ import com.colt.fieldengineerapp.util.ReadPropertyFile;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.android.AndroidStartScreenRecordingOptions;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.touch.LongPressOptions;
@@ -68,7 +74,7 @@ public class TestBase implements FieldEngineerAppConstants,PlannedWorksPageError
 
 		driver = new AndroidDriver<AndroidElement>(
 				new URL("http://127.0.0.1:4723/wd/hub"), cap);
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 		return driver;
 
@@ -403,7 +409,7 @@ public class TestBase implements FieldEngineerAppConstants,PlannedWorksPageError
 		int monthInCorrectValue = calendar.get(Calendar.MONTH);
 		monthInCorrectValue++;
 		System.out.println("month     = " + monthInCorrectValue);
-		System.out.println("hour     = " + calendar.get(Calendar.HOUR_OF_DAY));
+		System.out.println("hour     = " + calendar.get(Calendar.HOUR));
 		System.out.println("minute     = " + calendar.get(Calendar.MINUTE));
 
 		
@@ -412,15 +418,88 @@ public class TestBase implements FieldEngineerAppConstants,PlannedWorksPageError
 		dateTimeZonedMap.put(ELEMENT_YEAR_KEY, Integer.valueOf(calendar.get(Calendar.YEAR)));
 		dateTimeZonedMap.put(ELEMENT_MONTH_KEY, Integer.valueOf(monthInCorrectValue));
 		dateTimeZonedMap.put(ELEMENT_DAY_KEY, Integer.valueOf(calendar.get(Calendar.DAY_OF_MONTH)));
-		dateTimeZonedMap.put(ELEMENT_HOUR_KEY, Integer.valueOf(calendar.get(Calendar.HOUR_OF_DAY)));
+		dateTimeZonedMap.put(ELEMENT_HOUR_KEY, Integer.valueOf(calendar.get(Calendar.HOUR)));
 		dateTimeZonedMap.put(ELEMENT_MINUTE_KEY, Integer.valueOf(calendar.get(Calendar.MINUTE)));
 		
 		
 		return dateTimeZonedMap;
-		
-		
-		
+	}
+	
+	public static void startRecording(AndroidDriver<AndroidElement> driver) {
+		driver.startRecordingScreen(
+				new AndroidStartScreenRecordingOptions()
+                .withVideoSize("1280x720")
+                .withTimeLimit(TestBase.getDuration(300)));
 	}
 	
 	
-}
+	public static void SaveRecording(AndroidDriver<AndroidElement> driver, String className, String methodName) throws IOException {
+		
+		SimpleDateFormat dateFormat = new SimpleDateFormat(prop.getProperty("datePattern"));
+		 Date date = new Date();
+		
+		String dirPath = USRDIR;
+        String newDirName = "Recordings";
+        String newFileName = className+"."+methodName+ "."+ dateFormat.format(date)+ ".mp4"; 
+        
+        System.out.println(" File name is "+newFileName);
+        
+      //Create new directory under C:\nonExistedDirectory\directory
+        File oneMoreDirectory = new File(dirPath + File.separator + newDirName);
+        //Create directory for existed path.
+        boolean isCreated = false;
+        if(!oneMoreDirectory.exists()) {
+        	isCreated  = oneMoreDirectory.mkdir();
+	        if (isCreated) {
+	            System.out.printf("\n3. Successfully created new directory, path:%s",
+	                    oneMoreDirectory.getCanonicalPath());
+	        } else { //Directory may already exist
+	            System.out.printf("\n3. Already created directory");
+	        }
+        }
+ 
+        //Create file under new directory path C:\newDirectory\directory
+        File anotherNewFile = new File(oneMoreDirectory + File.separator + newFileName);
+ 
+        //Create new file under specified directory
+        isCreated = anotherNewFile.createNewFile();
+        if (isCreated) {
+            System.out.printf("\n4. Successfully created new file, path:%s",
+             anotherNewFile.getCanonicalPath());
+            System.out.println();
+             
+        } else { //File may already exist
+            System.out.printf("\n4. Unable to create new file");
+        }
+
+        String video = driver.stopRecordingScreen();
+		 byte[] decode = Base64.getDecoder().decode(video);
+			
+		 System.out.println(" Size of file i "+ decode.length);
+		 
+		 try { 
+			  
+	            // Initialize a pointer 
+	            // in file using OutputStream 
+	            OutputStream 
+	                os 
+	                = new FileOutputStream(anotherNewFile); 
+	  
+	            // Starts writing the bytes in it 
+	            os.write(decode); 
+	            System.out.println("Successfully"
+	                               + " byte inserted"); 
+	  
+	            // Close the file 
+	            os.close(); 
+	        } 
+	  
+	        catch (Exception e) { 
+	            System.out.println("Exception: " + e); 
+	        } 
+	    } 
+			 
+	}
+	
+	
+

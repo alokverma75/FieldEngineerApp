@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.List;
 import java.util.Map;
-import org.testng.annotations.AfterSuite;
+
+
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -54,6 +56,10 @@ public class EndToEndTestForRaisePlannedWorks extends TestBase {
 
 	@Test
 	public void endToEndTestForRaisePlanWork() throws MalformedURLException, IOException {
+		
+		if(prop.getProperty("recordingNeeded").equals("true")) {
+		TestBase.startRecording(driver);
+		}
 		landingPage = loginPage.login(driver, prop.getProperty("userID"), prop.getProperty("password"));
 		landingPage.getContinueBtn().click();
 		homePage.getRaisePlanWork().click();
@@ -140,6 +146,7 @@ public class EndToEndTestForRaisePlannedWorks extends TestBase {
 		
 		int hourCurrent = dateMap.get(ELEMENT_HOUR_KEY).intValue();
 		int hourToBeSet = hourCurrent + 2;
+		System.out.println(" hourToBeSet "+ hourToBeSet);
 		
 		if(hourToBeSet > 12) {
 			hourToBeSet = 1;
@@ -149,7 +156,7 @@ public class EndToEndTestForRaisePlannedWorks extends TestBase {
 		
 		setTimePage.getInPutHourTextField().clear();
 		setTimePage.getInPutHourTextField().sendKeys(String.valueOf(hourToBeSet));
-		System.out.println(" setTimePage minutes "+ setTimePage.getInPutHourTextField().getText());
+		System.out.println(" setTimePage hour "+ setTimePage.getInPutHourTextField().getText());
 		
 		int minutesCurrent = dateMap.get(ELEMENT_MINUTE_KEY).intValue();
 		int minutesToBeSet = minutesCurrent + 40;
@@ -280,13 +287,21 @@ public class EndToEndTestForRaisePlannedWorks extends TestBase {
 		
 		confirmPage.getOkButtonForCongratsPopUp().click();
 		
+		String nameofCurrMethod = new Throwable().getStackTrace()[0].getMethodName(); 
+		
+		if(prop.getProperty("recordingNeeded").equals("true")) {
+			TestBase.SaveRecording(driver, this.getClass().getSimpleName(),nameofCurrMethod);
+		}
+		
 	}
 
 	
 
-	@AfterSuite(alwaysRun = true)
+	@AfterTest(alwaysRun = true)
 	public void tearDown() throws IOException {
 		System.out.println("tearing down");
+				
+		
 		// landingPage = null;
 		// driver.quit();
 		// TestBase.shutDownAVD();

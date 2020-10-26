@@ -52,6 +52,7 @@ public class EndToEndTestForSingleTaskView extends TestBase {
 
 	@Test
 	public void endToEndTestTillSingleTaskView() throws MalformedURLException, IOException {
+		TestBase.startRecording(driver);
 		landingPage = loginPage.login(driver, prop.getProperty("userID"), prop.getProperty("password"));
 		landingPage.getContinueBtn().click();
 		homePage.getViewAllTasksBtn().click();
@@ -127,6 +128,8 @@ public class EndToEndTestForSingleTaskView extends TestBase {
 		for (int i = 0; i < listofTextView.size(); i++) {
 			System.out.println(" element at" + i + "th Index is " + listofTextView.get(i).getText());
 		}
+		
+		TestBase.SaveRecording(driver, this.getClass().getSimpleName(),new Throwable().getStackTrace()[0].getMethodName());
 
 	}
 

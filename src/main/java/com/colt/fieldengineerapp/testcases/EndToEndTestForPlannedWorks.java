@@ -53,19 +53,10 @@ public class EndToEndTestForPlannedWorks extends TestBase {
 
 	}
 
-//	@Test
-//	public void endToEndTestForRaisePlanWork() throws MalformedURLException, IOException {
-//		landingPage = loginPage.login(driver, prop.getProperty("userID"), prop.getProperty("password"));
-//		Assert.assertNotNull(landingPage);
-//		landingPage.getContinueBtn().click();
-//		//plannedWorksPage.getPlannedWorksBtn().click();
-//		plannedWorksPage.findAllElementsById(driver, ELEMENT_PLANNED_WORKS_IMAGE_OPTION).get(1).click();
-//		
-//	}
-	
-	
-	//@Test
-	public void validateAllLabelAndTextFields() {
+
+	@Test
+	public void validateAllLabelAndTextFields() throws IOException {
+		TestBase.startRecording(driver);
 		String pageTitle = plannedWorksPage.getTotalPlannedWorkListLabel().getText();
 		Assert.assertEquals(pageTitle, ELEMENT_PLANNED_WORKS_LABEL);
 		
@@ -117,16 +108,17 @@ public class EndToEndTestForPlannedWorks extends TestBase {
 
 		String descriptionValue = plannedWorksPage.getSiebelRefTextField().getText();		
 		Assert.assertFalse(descriptionValue.isBlank(), ERROR_MESSAGE_EMPTY_DESCRIPTION);
-		
+		TestBase.SaveRecording(driver, this.getClass().getSimpleName(),new Throwable().getStackTrace()[0].getMethodName());
 	}
 	
-	@Test
-	public void testPlannedWorkDetails() {
+	//@Test
+	public void testPlannedWorkDetails() throws IOException {
+		TestBase.startRecording(driver);
 		plannedWorksPage.getServiceCard().click();
 		
 		String pageTitle = plannedWorksPage.getPlannedWorksPageTitle().getText();
 		Assert.assertEquals(pageTitle, ELEMENT_PLANNED_WORKS_PAGE_TITLE);
-		
+		TestBase.SaveRecording(driver, this.getClass().getSimpleName(),new Throwable().getStackTrace()[0].getMethodName());
 		
 	}
 
@@ -136,6 +128,7 @@ public class EndToEndTestForPlannedWorks extends TestBase {
 	@AfterSuite(alwaysRun = true)
 	public void tearDown() throws IOException {
 		System.out.println("tearing down");
+		
 		// landingPage = null;
 		// driver.quit();
 		// TestBase.shutDownAVD();

@@ -215,7 +215,7 @@ public class RaisedPlanWorkPage extends TestBase {
 	@AndroidFindBy(id = "com.colt.coltengineering:id/spin_product_tier_3")
 	private AndroidElement productCatTier3DropDown;
 	
-	@AndroidFindBy(id = "com.colt.coltengineering:id/btn_submit")
+	@AndroidFindBy(uiAutomator = "text(\"Submit\")")
 	private AndroidElement finalSubmitButton;
 	
 	
