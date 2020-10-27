@@ -3,8 +3,6 @@ package com.colt.fieldengineerapp.testcases;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.Alert;
 import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
@@ -88,7 +86,7 @@ public class ErrorPopupsRaisePlannedWorksTest extends TestBase {
 	}
 	
 	
-	@Test
+	//@Test
 	public void alertsRaisePlanWorkOperationTierStep() throws MalformedURLException, IOException {
 		TestBase.startRecording(driver);
 		landingPage.getContinueBtn().click();
@@ -135,7 +133,7 @@ public class ErrorPopupsRaisePlannedWorksTest extends TestBase {
 		
 	}
 	
-	//@Test
+	@Test
 	public void alertsRaisePlanWorkPlannedScheduleStep() throws MalformedURLException, IOException, InterruptedException {
 		TestBase.startRecording(driver);
 		
@@ -257,19 +255,19 @@ public class ErrorPopupsRaisePlannedWorksTest extends TestBase {
 		
 		// Now try to move forward without entering Product tier1
 		raisedPlannedWorkPage.getFinalSubmitButton().click();
+		TestBase.wait(driver, 20);
 		Alert alertProductTier2 = driver.switchTo().alert();
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		String emptyProductTier2Label = raisePlanWorkWarningAlerts.getEmptyProductTier2Label().getText();
 		Assert.assertEquals(emptyProductTier2Label, ERROR_MESSAGE_EMPTY_PROD_TIER2);
-		//raisedPlannedWorkPage.getOkBtn().click();
+		
 		alertProductTier2.accept();	
 		
 		raisedPlannedWorkPage.getProductCatTier2DropDown().click();
 		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_DROP_DOWN_PRODCAT_TIER2_1).perform();
 		
-		// Now try to move forward without entering Product tier1
+		// Now try to move forward without entering Product tier2
 		raisedPlannedWorkPage.getFinalSubmitButton().click();
-		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		TestBase.wait(driver, 20);
 		Alert alertProductTier3 = driver.switchTo().alert();
 		String emptyProductTier3Label = raisePlanWorkWarningAlerts.getEmptyProductTier3Label().getText();
 		Assert.assertEquals(emptyProductTier3Label, ERROR_MESSAGE_EMPTY_PROD_TIER3);		
@@ -284,12 +282,12 @@ public class ErrorPopupsRaisePlannedWorksTest extends TestBase {
 		// Now scroll to end of page to confirm the details
 		
 		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_FINAL_CONFIRM_BUTTON).perform();
-		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);	
+		TestBase.wait(driver, 20);
 		Alert alertSaveTemplate = driver.switchTo().alert();
 		String saveTemplateLabel = raisePlanWorkWarningAlerts.getSaveTemplateConfirmLabel().getText();
 		Assert.assertEquals(saveTemplateLabel, ERROR_MESSAGE_SAVE_TEMPLATE);		
 		alertSaveTemplate.accept();
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		TestBase.wait(driver, 20);
 		Alert alertEnterTemplateName = driver.switchTo().alert();
 		String enterTemplateNameLabel = raisePlanWorkWarningAlerts.getEnterTemplateNameLabel().getText();
 		Assert.assertEquals(enterTemplateNameLabel, ERROR_MESSAGE_ENTER_TEMPLATE_NAME);
@@ -297,7 +295,7 @@ public class ErrorPopupsRaisePlannedWorksTest extends TestBase {
 		alertEnterTemplateName.accept();	
 		
 		
-		driver.manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
+		TestBase.wait(driver, 20);
 		Alert alertCongrats = driver.switchTo().alert();
 		String alertCongratsLabel = raisePlanWorkWarningAlerts.getCongratsLabel().getText();
 		Assert.assertEquals(alertCongratsLabel, MESSAGE_CONGRATS);		

@@ -120,10 +120,7 @@ public class EndToEndTestForPlannedWorks extends TestBase {
 		Assert.assertEquals(pageTitle, ELEMENT_PLANNED_WORKS_PAGE_TITLE);
 		TestBase.SaveRecording(driver, this.getClass().getSimpleName(),new Throwable().getStackTrace()[0].getMethodName());
 		
-	}
-
-
-	
+	}	
 
 	@AfterSuite(alwaysRun = true)
 	public void tearDown() throws IOException {

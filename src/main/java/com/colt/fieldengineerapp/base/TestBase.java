@@ -26,8 +26,10 @@ import java.util.Properties;
 import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.remote.DesiredCapabilities;
-
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.colt.fieldengineerapp.util.ReadPropertyFile;
 
@@ -385,7 +387,11 @@ public class TestBase implements FieldEngineerAppConstants,PlannedWorksPageError
 		return driver.findElementById(ELEMENT_ID_PREFIX+elementText);
 	}
 	
-	
+	/**
+	 * This method will return the date as per defined pattern
+	 * @param datePattern
+	 * @return
+	 */
 	public static String getDate(String datePattern) {
 		
 		String pattern = datePattern;
@@ -396,6 +402,13 @@ public class TestBase implements FieldEngineerAppConstants,PlannedWorksPageError
 		
 		return date;
 	}
+	
+	/**
+	 * This method will return time based on the timeZone selected from the screen i.e. GMT/BST and will create date/time 
+	 * based on that timeZone.
+	 * @param timeZoneID
+	 * @return
+	 */
 	
 	public static Map<String, Integer> getDateTimeBasedOnTimeZone(String timeZoneID){
 		TimeZone timeZone = TimeZone.getTimeZone(timeZoneID);
@@ -425,6 +438,10 @@ public class TestBase implements FieldEngineerAppConstants,PlannedWorksPageError
 		return dateTimeZonedMap;
 	}
 	
+	/**
+	 * This method will start recording using Android driver based on the recordingNeeded=true, will not work if false 
+	 * @param driver
+	 */
 	public static void startRecording(AndroidDriver<AndroidElement> driver) {
 		driver.startRecordingScreen(
 				new AndroidStartScreenRecordingOptions()
@@ -432,7 +449,16 @@ public class TestBase implements FieldEngineerAppConstants,PlannedWorksPageError
                 .withTimeLimit(TestBase.getDuration(300)));
 	}
 	
-	
+	/**
+	 * This method will save recording using Android driver based on the recordingNeeded=true, will not work if false
+	 * This will create new Folder Recordings under user.path, and if created will skip and create new video file
+	 * The file name is TestClassName.enclosingMethod+ dateTime+.mp4
+	 * datePattern is defined in config.properties and can be adjusted on the fly
+	 * @param driver
+	 * @param className
+	 * @param methodName
+	 * @throws IOException
+	 */
 	public static void SaveRecording(AndroidDriver<AndroidElement> driver, String className, String methodName) throws IOException {
 		
 		SimpleDateFormat dateFormat = new SimpleDateFormat(prop.getProperty("datePattern"));
@@ -444,7 +470,7 @@ public class TestBase implements FieldEngineerAppConstants,PlannedWorksPageError
         
         System.out.println(" File name is "+newFileName);
         
-      //Create new directory under C:\nonExistedDirectory\directory
+      //Create new directory under user.path
         File oneMoreDirectory = new File(dirPath + File.separator + newDirName);
         //Create directory for existed path.
         boolean isCreated = false;
@@ -498,8 +524,20 @@ public class TestBase implements FieldEngineerAppConstants,PlannedWorksPageError
 	            System.out.println("Exception: " + e); 
 	        } 
 	    } 
-			 
+	
+	/**
+	 * This method will explicitly wait till Alert is shown before we switch to it
+	 * @param driver
+	 * @param timeToWait
+	 * @return
+	 */
+	public static Alert wait(AndroidDriver<AndroidElement> driver, int timeToWait) {		
+		WebDriverWait wait = new WebDriverWait(driver, timeToWait);
+		return wait.until(ExpectedConditions.alertIsPresent());	
+		
 	}
+			 
+}
 	
 	
 
