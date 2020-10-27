@@ -174,6 +174,20 @@ public interface FieldEngineerAppConstants {
 		public static final String ELEMENT_CPD="CPD";
 		public static final String ELEMENT_JOB_REMARKS="Job Remarks";
 		public static final String ELEMENT_COOP_TECH_MAIL="Coop Tech Email";
+		public static final String ELEMENT_JOB_ID="Job ID";
+		public static final String ELEMENT_Activity_ID="Activity Id";
+		public static final String ELEMENT_BUTTON_ACTION="com.colt.coltengineering:id/btn_open_actions";
+		
+		
+		
+		
+		
+		
+		
+		
+		//Single Task Details Page Error messages
+		public static final String ERROR_MESSAGE_EMPTY_JOB_ID="Job ID Field is empty";
+		public static final String ERROR_MESSAGE_EMPTY_ACTIVITY_ID="Job ID Field is empty";
 		
 		//Planned Works Page
 		

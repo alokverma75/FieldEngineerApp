@@ -14,8 +14,10 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 public class SingleTaskDetailsPage extends TestBase {
 	
-	
-	@AndroidFindBy(uiAutomator = "text(\"Order Number\")")
+	@AndroidFindBy(uiAutomator = "text(\"Basic\")")
+	AndroidElement basicTextLabel;
+
+		@AndroidFindBy(uiAutomator = "text(\"Order Number\")")
 	AndroidElement orderNumberLabel;
 	
 	@AndroidFindBy(uiAutomator = "text(\"Customer\")")
@@ -35,7 +37,38 @@ public class SingleTaskDetailsPage extends TestBase {
 	
 	@AndroidFindBy(uiAutomator = "text(\"Coop Tech Email\")")
 	AndroidElement coopTechEmailLabel;
+	
+	@AndroidFindBy(uiAutomator = "text(\"Job ID\")")
+	AndroidElement jobIDLabel;
+	
+	@AndroidFindBy(id = "com.colt.coltengineering:id/tv_title")
+	private AndroidElement elementTextField;
+	
+	@AndroidFindBy(uiAutomator = "text(\"Activity Id\")")
+	private AndroidElement Label;
+	
+	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ImageButton")
+	private AndroidElement openActionsBtn;
+	
+	public AndroidElement getBasicTextLabel() {
+		return basicTextLabel;
+	}
 
+	public AndroidElement getJobIDLabel() {
+		return jobIDLabel;
+	}
+
+	public AndroidElement getElementTextField() {
+		return elementTextField;
+	}
+
+	public AndroidElement getLabel() {
+		return Label;
+	}
+
+	public AndroidElement getOpenActionsBtn() {
+		return openActionsBtn;
+	}
 
 	public AndroidElement getCoopTechEmailLabel() {
 		return coopTechEmailLabel;

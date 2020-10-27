@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.List;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
@@ -47,16 +48,20 @@ public class EndToEndTestForSingleTaskView extends TestBase {
 		homePage = new HomePage(driver);
 		allTasksListPage = new AllTasksListPage(driver);
 		singleTaskDetailsPage = new SingleTaskDetailsPage(driver);
-
-	}
-
-	@Test
-	public void endToEndTestTillSingleTaskView() throws MalformedURLException, IOException {
-		TestBase.startRecording(driver);
 		landingPage = loginPage.login(driver, prop.getProperty("userID"), prop.getProperty("password"));
 		landingPage.getContinueBtn().click();
 		homePage.getViewAllTasksBtn().click();
 		allTasksListPage.getViewTaskBtn().click();
+
+	}
+
+	//@Test
+	public void endToEndTestTillSingleTaskView() throws MalformedURLException, IOException {
+		TestBase.startRecording(driver);
+//		landingPage = loginPage.login(driver, prop.getProperty("userID"), prop.getProperty("password"));
+//		landingPage.getContinueBtn().click();
+//		homePage.getViewAllTasksBtn().click();
+//		allTasksListPage.getViewTaskBtn().click();
 		String label = singleTaskDetailsPage.getOrderNumberLabel().getText();
 		System.out.println("Label is " + label);
 
@@ -132,6 +137,37 @@ public class EndToEndTestForSingleTaskView extends TestBase {
 		TestBase.SaveRecording(driver, this.getClass().getSimpleName(),new Throwable().getStackTrace()[0].getMethodName());
 
 	}
+	
+	@Test
+	public void testNonNullJobIdField() {
+		String jobID = singleTaskDetailsPage.scrollToElement(driver, ELEMENT_JOB_ID).getText();
+		System.out.println("Label is " + jobID);
+
+		listofTextView = singleTaskDetailsPage.getTextElementsByResourceId(driver, ELEMENT_TV_VALUE);
+		System.out.println(" Size of list on scroll to Job ID "+ listofTextView.size());
+		for (int i = 0; i < listofTextView.size(); i++) {
+			System.out.println(" element at" + i + "th Index is " + listofTextView.get(i).getText());
+		}
+		String jobIDTextField = listofTextView.get(3).getText();		
+		Assert.assertFalse(jobIDTextField.isBlank(),ERROR_MESSAGE_EMPTY_JOB_ID);
+		
+	}
+	
+	@Test
+	public void testNonNullActivityIdField() {
+		String activityID = singleTaskDetailsPage.scrollToElement(driver, ELEMENT_Activity_ID).getText();
+		System.out.println("Label is " + activityID);
+
+		listofTextView = singleTaskDetailsPage.getTextElementsByResourceId(driver, ELEMENT_TV_VALUE);
+		System.out.println(" Size of list on scroll to Job ID "+ listofTextView.size());
+		for (int i = 0; i < listofTextView.size(); i++) {
+			System.out.println(" element at" + i + "th Index is " + listofTextView.get(i).getText());
+		}
+		String jobIDTextField = listofTextView.get(3).getText();		
+		Assert.assertFalse(jobIDTextField.isBlank(),ERROR_MESSAGE_EMPTY_ACTIVITY_ID);
+		
+	}
+
 
 	@AfterSuite(alwaysRun = true)
 	public void tearDown() throws IOException {

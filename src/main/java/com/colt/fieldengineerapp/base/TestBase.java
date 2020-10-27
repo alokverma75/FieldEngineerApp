@@ -1,14 +1,13 @@
 package com.colt.fieldengineerapp.base;
 
-import java.io.File;
-import java.io.FileOutputStream;
-
 /*
  * 
  * @author Alok Verma
  */
 
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.MalformedURLException;
@@ -27,6 +26,8 @@ import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -45,7 +46,9 @@ import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.ElementOption;
 import io.appium.java_client.touch.offset.PointOption;
 
-public class TestBase implements FieldEngineerAppConstants,PlannedWorksPageErrorMessages, AlertMessagesRaisePlanWork{
+public class TestBase implements FieldEngineerAppConstants,PlannedWorksPageErrorMessages, AlertMessagesRaisePlanWork,
+ActionsPageConstants
+{
 	
 	public static AndroidDriver<AndroidElement> driver;
 	private static DesiredCapabilities cap = new DesiredCapabilities();
@@ -536,6 +539,16 @@ public class TestBase implements FieldEngineerAppConstants,PlannedWorksPageError
 		return wait.until(ExpectedConditions.alertIsPresent());	
 		
 	}
+	
+	  public static AndroidElement waitForElement(By locator){	  
+		  try{
+			 return  driver.findElement(locator); // Returns when the object identified
+			 
+		  }catch(StaleElementReferenceException e){
+			  
+			  return waitForElement(locator); //recalls the function till the element on the page identified		  
+		  }
+	  }
 			 
 }
 	
