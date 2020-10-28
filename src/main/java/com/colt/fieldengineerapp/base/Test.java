@@ -28,8 +28,8 @@ public class Test extends TestBase{
 		 AndroidDriver<AndroidElement> driver = TestBase.getDriver();
 			
 		 //System.out.println(" Size of file i "+ decode.length);
-		 FileUtils.write(new File(USRDIR + "/"+prop.getProperty("recordings")+ new Test().printClassName()+ 
-				 dateFormat.format(date)+ ".text"), data);
+//		 FileUtils.writeLines(new File(USRDIR + "/"+prop.getProperty("recordings")+ new Test().printClassName()+ 
+//				 dateFormat.format(date)+ ".text"), data);
 		  
 
 	}

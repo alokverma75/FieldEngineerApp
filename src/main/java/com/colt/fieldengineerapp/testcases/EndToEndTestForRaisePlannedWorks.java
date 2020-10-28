@@ -40,8 +40,11 @@ public class EndToEndTestForRaisePlannedWorks extends TestBase {
 	}
 	
 	@BeforeTest(alwaysRun = true)
-	public void startServer() throws IOException {
-		TestBase.startAVD();		
+	public void startServices() throws IOException, InterruptedException {
+		TestBase.startAVD();
+		Thread.sleep(5000);
+		TestBase.startAppiumServer();
+				
 	}
 
 	@BeforeMethod(alwaysRun = true)
@@ -302,9 +305,10 @@ public class EndToEndTestForRaisePlannedWorks extends TestBase {
 		System.out.println("tearing down");
 				
 		
-		// landingPage = null;
-		// driver.quit();
-		// TestBase.shutDownAVD();
+		 landingPage = null;
+		 driver.quit();
+		 TestBase.shutDownAVD();
+		 TestBase.stopAppiumServer();
 	}
 
 }

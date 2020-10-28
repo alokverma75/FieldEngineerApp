@@ -41,7 +41,8 @@ public class EndToEndActionsPageTest extends TestBase {
 	}
 	
 	@BeforeTest(alwaysRun = true)
-	public void startServer() throws IOException {
+	public void startEmulator() throws IOException {
+		
 		TestBase.startAVD();		
 	}
 
