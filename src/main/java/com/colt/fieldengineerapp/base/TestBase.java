@@ -61,9 +61,10 @@ public class TestBase implements FieldEngineerAppConstants, PlannedWorksPageErro
 	public static AppiumDriverLocalService service;
 	
 
-	public static void startAppiumServer() {
-		//
-		boolean flag = checkIfServerIsRunnning(4723);
+	public static void startAppiumServer() throws IOException {
+		prop = ReadPropertyFile.readPropertiesFile("resources/config.properties");
+		String port = prop.getProperty("appiumServerPort");
+		boolean flag = checkIfServerIsRunnning(Integer.parseInt(port));
 		if (!flag) {
 
 			service = AppiumDriverLocalService.buildDefaultService();
@@ -116,7 +117,7 @@ public class TestBase implements FieldEngineerAppConstants, PlannedWorksPageErro
 
 	public static AndroidDriver<AndroidElement> getDriver() throws IOException, MalformedURLException {
 
-		prop = ReadPropertyFile.readPropertiesFile("resources/config.properties");
+		
 
 		cap.setCapability(MobileCapabilityType.DEVICE_NAME, prop.getProperty("deviceName"));
 		cap.setCapability(MobileCapabilityType.APP, USRDIR + prop.getProperty("app"));

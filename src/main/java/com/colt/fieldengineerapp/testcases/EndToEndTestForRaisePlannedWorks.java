@@ -42,7 +42,7 @@ public class EndToEndTestForRaisePlannedWorks extends TestBase {
 	@BeforeTest(alwaysRun = true)
 	public void startServices() throws IOException, InterruptedException {
 		TestBase.startAVD();
-		Thread.sleep(5000);
+		Thread.sleep(8000);
 		TestBase.startAppiumServer();
 				
 	}
