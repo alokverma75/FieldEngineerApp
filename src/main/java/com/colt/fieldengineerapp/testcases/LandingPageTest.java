@@ -24,11 +24,11 @@ public class LandingPageTest extends TestBase {
 			
 	}
 	
-	@BeforeSuite(alwaysRun = true)
-	public void startServer() throws IOException {
-		TestBase.startAVD();		
-	}
-	
+//	@BeforeSuite(alwaysRun = true)
+//	public void startServer() throws IOException {
+//		TestBase.startAVD();		
+//	}
+//	
 		
 	@BeforeMethod(alwaysRun = true)
 	public void setUp() throws MalformedURLException, IOException{

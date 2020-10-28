@@ -5,6 +5,7 @@ import java.net.MalformedURLException;
 import java.util.List;
 import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -35,9 +36,13 @@ public class EndToEndTestForPlannedWorks extends TestBase {
 	}
 	
 	@BeforeTest(alwaysRun = true)
-	public void startServer() throws IOException {
-		TestBase.startAVD();		
+	public void startServices() throws IOException, InterruptedException {
+		TestBase.startAVD();
+		Thread.sleep(20000);
+		TestBase.startAppiumServer();
+				
 	}
+
 
 	@BeforeMethod(alwaysRun = true)
 	public void setUp() throws MalformedURLException, IOException {
@@ -56,6 +61,9 @@ public class EndToEndTestForPlannedWorks extends TestBase {
 
 	@Test
 	public void validateAllLabelAndTextFields() throws IOException {
+		if(prop.getProperty("recordingNeeded").equals("true")) {
+			TestBase.startRecording(driver);
+			}
 		TestBase.startRecording(driver);
 		String pageTitle = plannedWorksPage.getTotalPlannedWorkListLabel().getText();
 		Assert.assertEquals(pageTitle, ELEMENT_PLANNED_WORKS_LABEL);
@@ -108,27 +116,33 @@ public class EndToEndTestForPlannedWorks extends TestBase {
 
 		String descriptionValue = plannedWorksPage.getSiebelRefTextField().getText();		
 		Assert.assertFalse(descriptionValue.isBlank(), ERROR_MESSAGE_EMPTY_DESCRIPTION);
-		TestBase.SaveRecording(driver, this.getClass().getSimpleName(),new Throwable().getStackTrace()[0].getMethodName());
+		if(prop.getProperty("recordingNeeded").equals("true")) {
+			TestBase.SaveRecording(driver, this.getClass().getSimpleName(),new Throwable().getStackTrace()[0].getMethodName());
+		}
 	}
 	
-	//@Test
+	@Test
 	public void testPlannedWorkDetails() throws IOException {
-		TestBase.startRecording(driver);
+		if(prop.getProperty("recordingNeeded").equals("true")) {
+			TestBase.startRecording(driver);
+			}
 		plannedWorksPage.getServiceCard().click();
 		
 		String pageTitle = plannedWorksPage.getPlannedWorksPageTitle().getText();
 		Assert.assertEquals(pageTitle, ELEMENT_PLANNED_WORKS_PAGE_TITLE);
-		TestBase.SaveRecording(driver, this.getClass().getSimpleName(),new Throwable().getStackTrace()[0].getMethodName());
+		if(prop.getProperty("recordingNeeded").equals("true")) {
+			TestBase.SaveRecording(driver, this.getClass().getSimpleName(),new Throwable().getStackTrace()[0].getMethodName());
+		}
 		
 	}	
 
-	@AfterSuite(alwaysRun = true)
-	public void tearDown() throws IOException {
+	@AfterTest(alwaysRun = true)
+	public void tearDown() throws IOException, InterruptedException {
 		System.out.println("tearing down");
-		
-		// landingPage = null;
-		// driver.quit();
-		// TestBase.shutDownAVD();
+		TestBase.shutDownAVD();
+		Thread.sleep(6000);
+		TestBase.stopAppiumServer();
+		Thread.sleep(10000);
 	}
 
 }

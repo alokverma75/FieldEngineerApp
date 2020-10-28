@@ -8,6 +8,7 @@ import java.util.Map;
 
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -42,7 +43,7 @@ public class EndToEndTestForRaisePlannedWorks extends TestBase {
 	@BeforeTest(alwaysRun = true)
 	public void startServices() throws IOException, InterruptedException {
 		TestBase.startAVD();
-		Thread.sleep(8000);
+		Thread.sleep(20000);
 		TestBase.startAppiumServer();
 				
 	}
@@ -290,10 +291,10 @@ public class EndToEndTestForRaisePlannedWorks extends TestBase {
 		
 		confirmPage.getOkButtonForCongratsPopUp().click();
 		
-		String nameofCurrMethod = new Throwable().getStackTrace()[0].getMethodName(); 
+		
 		
 		if(prop.getProperty("recordingNeeded").equals("true")) {
-			TestBase.SaveRecording(driver, this.getClass().getSimpleName(),nameofCurrMethod);
+			TestBase.SaveRecording(driver, this.getClass().getSimpleName(),new Throwable().getStackTrace()[0].getMethodName());
 		}
 		
 	}
@@ -301,14 +302,15 @@ public class EndToEndTestForRaisePlannedWorks extends TestBase {
 	
 
 	@AfterTest(alwaysRun = true)
-	public void tearDown() throws IOException {
+	public void tearDown() throws IOException, InterruptedException {
 		System.out.println("tearing down");
-				
+		TestBase.shutDownAVD();
+		Thread.sleep(6000);
+		TestBase.stopAppiumServer();
+		Thread.sleep(10000);
 		
-		 landingPage = null;
-		 driver.quit();
-		 TestBase.shutDownAVD();
-		 TestBase.stopAppiumServer();
+		
+		 
 	}
 
 }

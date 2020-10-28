@@ -22,10 +22,18 @@ public class Test extends TestBase{
 		 
 		 //String video = driver.stopRecordingScreen();
 		 //byte[] decode = Base64.getDecoder().decode(video);
-		 
+		 String nameofCurrMethod = new Throwable() 
+                 .getStackTrace()[0] 
+                 .getMethodName(); 
+		
+		System.out.println(nameofCurrMethod);
+		String directoryName = prop.getProperty("screenShots");
+		String finalPath = System.getProperty("user.dir")+File.separator+directoryName+File.separator+"test"+".png";
+		System.out.println(directoryName);
+		System.out.println(finalPath);
 		 String data = "test";
 		 
-		 AndroidDriver<AndroidElement> driver = TestBase.getDriver();
+		 //AndroidDriver<AndroidElement> driver = TestBase.getDriver();
 			
 		 //System.out.println(" Size of file i "+ decode.length);
 //		 FileUtils.writeLines(new File(USRDIR + "/"+prop.getProperty("recordings")+ new Test().printClassName()+ 
@@ -41,6 +49,7 @@ public class Test extends TestBase{
                  .getMethodName(); 
 		
 		System.out.println(nameofCurrMethod);
+		System.out.println(File.separator);
 		
 		return nameofCurrMethod;		
 	}

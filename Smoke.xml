@@ -12,6 +12,7 @@
 		<classes>
 			
 			<class name="com.colt.fieldengineerapp.testcases.LoginPageTest" />
+			<class name="com.colt.fieldengineerapp.testcases.LandingPageTest" />
 
 		</classes>
 

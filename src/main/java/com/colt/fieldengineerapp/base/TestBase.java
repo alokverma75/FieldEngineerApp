@@ -60,9 +60,23 @@ public class TestBase implements FieldEngineerAppConstants, PlannedWorksPageErro
 	static boolean started = false;
 	public static AppiumDriverLocalService service;
 	
-
-	public static void startAppiumServer() throws IOException {
-		prop = ReadPropertyFile.readPropertiesFile("resources/config.properties");
+	static {
+		try {
+			prop = ReadPropertyFile.readPropertiesFile("resources/config.properties");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * To start appium server programmatically
+	 * @throws IOException
+	 * @throws InterruptedException 
+	 */
+	public static void startAppiumServer() throws IOException, InterruptedException {
+		killAllNodes();
+		//prop = ReadPropertyFile.readPropertiesFile("resources/config.properties");
 		String port = prop.getProperty("appiumServerPort");
 		boolean flag = checkIfServerIsRunnning(Integer.parseInt(port));
 		if (!flag) {
@@ -75,14 +89,26 @@ public class TestBase implements FieldEngineerAppConstants, PlannedWorksPageErro
 	}
 	
 	public static void stopAppiumServer() {
-		
 		service.stop();
+		System.out.println("Appimum server stopped successfully");
+	}
+	
+	public static void killAllNodes() throws IOException, InterruptedException
+	{
+	//taskkill /F /IM node.exe
+		Runtime.getRuntime().exec("taskkill /F /IM node.exe");
+		Thread.sleep(3000);
+		
 	}
 	
 	
 	
-
-	public static boolean checkIfServerIsRunnning(int port) {
+	/**
+	 * To check if server is already running and use the same
+	 * @param port
+	 * @return
+	 */
+	private static boolean checkIfServerIsRunnning(int port) {
 
 		boolean isServerRunning = false;
 		ServerSocket serverSocket;
@@ -99,10 +125,12 @@ public class TestBase implements FieldEngineerAppConstants, PlannedWorksPageErro
 		return isServerRunning;
 	}
 
-	public void getScreenshot(String screenShot) throws IOException {
+	public static void getScreenshot(String screenShot) throws IOException {
+		
 		File scrfile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-		File directory = createNewDirectory(prop.getProperty("ScreenShots"));
-		FileUtils.copyFile(scrfile, new File(directory + "\\" + screenShot + ".png"));
+		String directoryName = prop.getProperty("screenShots");
+		//FileUtils.copyFile(scrfile, new File(directory) + "\\Screenshots" + screenShot + ".png"));
+		FileUtils.copyFile(scrfile,new File(System.getProperty("user.dir")+File.separator+directoryName+File.separator+screenShot+".png"));
 
 	}
 
@@ -113,11 +141,21 @@ public class TestBase implements FieldEngineerAppConstants, PlannedWorksPageErro
 	 * @return
 	 * @throws IOException
 	 * @throws MalformedURLException
+	 * @throws InterruptedException 
 	 */
 
 	public static AndroidDriver<AndroidElement> getDriver() throws IOException, MalformedURLException {
 
-		
+		if(!started) {
+			startAVD();
+			System.out.println(" Arre AVD stopped no worries starting again");
+			try {
+				Thread.sleep(6000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 
 		cap.setCapability(MobileCapabilityType.DEVICE_NAME, prop.getProperty("deviceName"));
 		cap.setCapability(MobileCapabilityType.APP, USRDIR + prop.getProperty("app"));
@@ -125,7 +163,7 @@ public class TestBase implements FieldEngineerAppConstants, PlannedWorksPageErro
 		cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, prop.getProperty("automationName"));
 		cap.setCapability(MobileCapabilityType.PLATFORM_NAME, prop.getProperty("platformName"));
 		cap.setCapability(AndroidMobileCapabilityType.AUTO_GRANT_PERMISSIONS, prop.getProperty("autoGrantPermissions"));
-		cap.setCapability(AndroidMobileCapabilityType.IS_HEADLESS, prop.getProperty("isHeadless"));
+		//cap.setCapability(AndroidMobileCapabilityType.IS_HEADLESS, prop.getProperty("isHeadless"));
 		cap.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, prop.getProperty("appActivity"));
 		cap.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, prop.getProperty("appPackage"));
 
@@ -623,7 +661,7 @@ public class TestBase implements FieldEngineerAppConstants, PlannedWorksPageErro
 		}
 	}
 	
-	private File createNewDirectory(String newDirectoryName) throws IOException {
+	private static File createNewDirectory(String newDirectoryName) throws IOException {
 		String dirPath = USRDIR;
 		
 		// Create new directory under user.path

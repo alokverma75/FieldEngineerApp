@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -37,8 +38,11 @@ public class EndToEndTestForSingleTaskView extends TestBase {
 	}
 	
 	@BeforeTest(alwaysRun = true)
-	public void startServer() throws IOException {
-		TestBase.startAVD();		
+	public void startServices() throws IOException, InterruptedException {
+		TestBase.startAVD();
+		Thread.sleep(20000);
+		TestBase.startAppiumServer();
+				
 	}
 
 	@BeforeMethod(alwaysRun = true)
@@ -55,9 +59,11 @@ public class EndToEndTestForSingleTaskView extends TestBase {
 
 	}
 
-	//@Test
+	@Test
 	public void endToEndTestTillSingleTaskView() throws MalformedURLException, IOException {
-		TestBase.startRecording(driver);
+		if(prop.getProperty("recordingNeeded").equals("true")) {
+			TestBase.startRecording(driver);
+			}
 //		landingPage = loginPage.login(driver, prop.getProperty("userID"), prop.getProperty("password"));
 //		landingPage.getContinueBtn().click();
 //		homePage.getViewAllTasksBtn().click();
@@ -134,12 +140,17 @@ public class EndToEndTestForSingleTaskView extends TestBase {
 			System.out.println(" element at" + i + "th Index is " + listofTextView.get(i).getText());
 		}
 		
-		TestBase.SaveRecording(driver, this.getClass().getSimpleName(),new Throwable().getStackTrace()[0].getMethodName());
+		if(prop.getProperty("recordingNeeded").equals("true")) {
+			TestBase.SaveRecording(driver, this.getClass().getSimpleName(),new Throwable().getStackTrace()[0].getMethodName());
+		}
 
 	}
 	
-	@Test
-	public void testNonNullJobIdField() {
+	//@Test
+	public void testNonNullJobIdField() throws IOException {
+		if(prop.getProperty("recordingNeeded").equals("true")) {
+			TestBase.startRecording(driver);
+			}
 		String jobID = singleTaskDetailsPage.scrollToElement(driver, ELEMENT_JOB_ID).getText();
 		System.out.println("Label is " + jobID);
 
@@ -150,11 +161,17 @@ public class EndToEndTestForSingleTaskView extends TestBase {
 		}
 		String jobIDTextField = listofTextView.get(3).getText();		
 		Assert.assertFalse(jobIDTextField.isBlank(),ERROR_MESSAGE_EMPTY_JOB_ID);
+		if(prop.getProperty("recordingNeeded").equals("true")) {
+			TestBase.SaveRecording(driver, this.getClass().getSimpleName(),new Throwable().getStackTrace()[0].getMethodName());
+		}
 		
 	}
 	
-	@Test
-	public void testNonNullActivityIdField() {
+	//@Test
+	public void testNonNullActivityIdField() throws IOException {
+		if(prop.getProperty("recordingNeeded").equals("true")) {
+			TestBase.startRecording(driver);
+			}
 		String activityID = singleTaskDetailsPage.scrollToElement(driver, ELEMENT_Activity_ID).getText();
 		System.out.println("Label is " + activityID);
 
@@ -165,16 +182,21 @@ public class EndToEndTestForSingleTaskView extends TestBase {
 		}
 		String jobIDTextField = listofTextView.get(3).getText();		
 		Assert.assertFalse(jobIDTextField.isBlank(),ERROR_MESSAGE_EMPTY_ACTIVITY_ID);
+		if(prop.getProperty("recordingNeeded").equals("true")) {
+			TestBase.SaveRecording(driver, this.getClass().getSimpleName(),new Throwable().getStackTrace()[0].getMethodName());
+		}
 		
 	}
 
 
-	@AfterSuite(alwaysRun = true)
-	public void tearDown() throws IOException {
+	@AfterTest(alwaysRun = true)
+	public void tearDown() throws IOException, InterruptedException {
+	
 		System.out.println("tearing down");
-		// landingPage = null;
-		// driver.quit();
-		// TestBase.shutDownAVD();
+		TestBase.shutDownAVD();
+		Thread.sleep(6000);
+		TestBase.stopAppiumServer();
+		Thread.sleep(10000);
 	}
 
 }

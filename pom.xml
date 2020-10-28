@@ -37,7 +37,7 @@
 									<suiteXmlFile>Smoke.xml</suiteXmlFile>
 								</suiteXmlFiles>
 								<!-- <testErrorIgnore>false</testErrorIgnore> -->
-								<testFailureIgnore>false</testFailureIgnore>
+								<testFailureIgnore>true</testFailureIgnore>
 							</configuration>
 						</plugin>
 					</plugins>
@@ -72,7 +72,7 @@
 									<suiteXmlFile>testng.xml</suiteXmlFile>
 								</suiteXmlFiles>
 								<!-- <testErrorIgnore>false</testErrorIgnore> -->
-								<testFailureIgnore>false</testFailureIgnore>
+								<testFailureIgnore>true</testFailureIgnore>
 							</configuration>
 						</plugin>
 					</plugins>
@@ -139,7 +139,7 @@
 		<dependency>
 			<groupId>com.aventstack</groupId>
 			<artifactId>extentreports</artifactId>
-			<version>5.0.4</version>
+			<version>4.0.0</version>
 		</dependency>
 
 

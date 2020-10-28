@@ -6,6 +6,7 @@ import java.util.List;
 import org.openqa.selenium.Alert;
 import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -38,8 +39,10 @@ public class ErrorPopupsRaisePlannedWorksTest extends TestBase {
 	}
 	
 	@BeforeTest(alwaysRun = true)
-	public void startServer() throws IOException {
-		TestBase.startAVD();		
+	public void startServer() throws IOException, InterruptedException {
+		TestBase.startAVD();
+		Thread.sleep(20000);
+		TestBase.startAppiumServer();		
 	}
 
 	@BeforeMethod(alwaysRun = true)
@@ -82,7 +85,9 @@ public class ErrorPopupsRaisePlannedWorksTest extends TestBase {
 		raisedPlannedWorkPage.getChangeDescriptionDropDown().click();
 		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_CHANGE_DESCRIPTION_DROPDOWN_1).perform();
 		raisedPlannedWorkPage.getNextBtn().click();
-		TestBase.SaveRecording(driver, this.getClass().getSimpleName(),new Throwable().getStackTrace()[0].getMethodName());
+		if(prop.getProperty("recordingNeeded").equals("true")) {
+			TestBase.SaveRecording(driver, this.getClass().getSimpleName(),new Throwable().getStackTrace()[0].getMethodName());
+		}
 	}
 	
 	
@@ -129,7 +134,9 @@ public class ErrorPopupsRaisePlannedWorksTest extends TestBase {
 		String emptySiteAddressLabel = raisePlanWorkWarningAlerts.getEmptySiteAddressLabel().getText();
 		Assert.assertEquals(emptySiteAddressLabel, ERROR_MESSAGE_EMPTY_SITE_ADDRESS);		
 		alertSiteAddress.accept();
-		TestBase.SaveRecording(driver, this.getClass().getSimpleName(),new Throwable().getStackTrace()[0].getMethodName());
+		if(prop.getProperty("recordingNeeded").equals("true")) {
+			TestBase.SaveRecording(driver, this.getClass().getSimpleName(),new Throwable().getStackTrace()[0].getMethodName());
+		}
 		
 	}
 	
@@ -139,19 +146,84 @@ public class ErrorPopupsRaisePlannedWorksTest extends TestBase {
 		
 		landingPage.getContinueBtn().click();
 		homePage.getRaisePlanWork().click();
+	
 		raisedPlannedWorkPage.getTemplateDropDown().click();
 		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_TEMPLATE_DROPDOWN_2).perform();
+		
+		raisedPlannedWorkPage.getNextBtn().click();
+		TestBase.wait(driver, 20);
+		//We need to switch to the opened Alert window before we read any value
+		Alert alert = driver.switchTo().alert();		
+		String emptyCategoryLabel = raisePlanWorkWarningAlerts.getEmptyCategoryLabel().getText();
+		Assert.assertEquals(emptyCategoryLabel, ERROR_MESSAGE_EMPTY_CATEGORY);
+		//OK Button not required for this as accept() to be used to click on OK.
+		alert.accept();		
+		
 		raisedPlannedWorkPage.getCategoryDropDown().click();
 		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_CATEGORY_DROPDOWN_1).perform();		
+		
+		raisedPlannedWorkPage.getNextBtn().click();
+		TestBase.wait(driver, 20);
+		Alert alertDesc = driver.switchTo().alert();
+		String emptyDescriptionLabel = raisePlanWorkWarningAlerts.getEmptyCategoryDescriptionLabel().getText();
+		Assert.assertEquals(emptyDescriptionLabel, ERROR_MESSAGE_EMPTY_CATEGORY_DESCRIPTION);		
+		alertDesc.accept();
+		
 		raisedPlannedWorkPage.getChangeDescriptionDropDown().click();
 		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_CHANGE_DESCRIPTION_DROPDOWN_1).perform();
 		raisedPlannedWorkPage.getNextBtn().click();
 		
-		//Location Tier
+//		landingPage.getContinueBtn().click();
+//		homePage.getRaisePlanWork().click();
+//		raisedPlannedWorkPage.getTemplateDropDown().click();
+//		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_TEMPLATE_DROPDOWN_2).perform();
+//		raisedPlannedWorkPage.getCategoryDropDown().click();
+//		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_CATEGORY_DROPDOWN_1).perform();		
+//		raisedPlannedWorkPage.getChangeDescriptionDropDown().click();
+//		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_CHANGE_DESCRIPTION_DROPDOWN_1).perform();
+//		raisedPlannedWorkPage.getNextBtn().click();
+		
+		//First Alert for Location Tier1
+		raisedPlannedWorkPage.getNextBtn().click();//try to move without selecting location tier1
+		TestBase.wait(driver, 20);
+		Alert alertLocTier1 = driver.switchTo().alert();
+		String emptyLocTier1Label = raisePlanWorkWarningAlerts.getEmptyLocTier1Label().getText();
+		Assert.assertEquals(emptyLocTier1Label, ERROR_MESSAGE_EMPTY_LOCATION_TIER1);		
+		alertLocTier1.accept();
+		
+		//Now select the drop down after validating Alert window label
 		raisedPlannedWorkPage.getLocationDetailsTier1DropDown().click();
 		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_LOCATION_TIER1_DROPDOWN_22).perform();
+		
+		raisedPlannedWorkPage.getNextBtn().click();//try to move without selecting location tier2
+		//First Alert for Location Tier2
+		Alert alertLocTier2 = driver.switchTo().alert();
+		TestBase.wait(driver, 20);
+		String emptyLocTier2Label = raisePlanWorkWarningAlerts.getEmptyLocTier2Label().getText();
+		Assert.assertEquals(emptyLocTier2Label, ERROR_MESSAGE_EMPTY_LOCATION_TIER2);		
+		alertLocTier2.accept();
+		
+		//Now select the drop down after validating Alert window label
 		raisedPlannedWorkPage.getLocationDetailsTier2DropDown().click();
 		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_LOCATION_TIER2_DROPDOWN_2).perform();
+
+		
+		raisedPlannedWorkPage.getNextBtn().click();
+
+		//First Alert for Site Address
+		Alert alertSiteAddress = driver.switchTo().alert();
+		TestBase.wait(driver, 20);
+		String emptySiteAddressLabel = raisePlanWorkWarningAlerts.getEmptySiteAddressLabel().getText();
+		Assert.assertEquals(emptySiteAddressLabel, ERROR_MESSAGE_EMPTY_SITE_ADDRESS);		
+		alertSiteAddress.accept();
+		
+		
+		
+		//Location Tier
+//		raisedPlannedWorkPage.getLocationDetailsTier1DropDown().click();
+//		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_LOCATION_TIER1_DROPDOWN_22).perform();
+//		raisedPlannedWorkPage.getLocationDetailsTier2DropDown().click();
+//		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_LOCATION_TIER2_DROPDOWN_2).perform();
 		raisedPlannedWorkPage.getSiteAddressTextField().sendKeys("12345");
 		raisedPlannedWorkPage.getNextBtn().click();
 
@@ -184,6 +256,7 @@ public class ErrorPopupsRaisePlannedWorksTest extends TestBase {
 		
 		//First Alert for Order No
 		raisedPlannedWorkPage.getNextBtn().click(); //try to move without entering order no
+		TestBase.wait(driver, 20);
 		Alert alertOrderNo = driver.switchTo().alert();
 		String emptyOrderIdLabel = raisePlanWorkWarningAlerts.getEmptyOrderIdLabel().getText();
 		Assert.assertEquals(emptyOrderIdLabel, ERROR_MESSAGE_EMPTY_ORDER_ID);		
@@ -195,6 +268,7 @@ public class ErrorPopupsRaisePlannedWorksTest extends TestBase {
 		//Empty config id
 		//First Alert for device id
 		raisedPlannedWorkPage.getNextBtn().click(); //try to move without entering device id
+		TestBase.wait(driver, 20);
 		Alert alertConfigId = driver.switchTo().alert();
 		String emptyConfigIdLabel = raisePlanWorkWarningAlerts.getEmptyConfigIdLabel().getText();
 		Assert.assertEquals(emptyConfigIdLabel, ERROR_MESSAGE_EMPTY_DEVICE_ID);		
@@ -210,7 +284,8 @@ public class ErrorPopupsRaisePlannedWorksTest extends TestBase {
 		raisedPlannedWorkPage.getNextBtn().click();	
 		
 		// Now try to move forward without entering Operation tier1
-		raisedPlannedWorkPage.getNextBtn().click();	
+		raisedPlannedWorkPage.getNextBtn().click();
+		TestBase.wait(driver, 20);
 		Alert alertOperationTier1Id = driver.switchTo().alert();
 		String emptyOperationTier1Label = raisePlanWorkWarningAlerts.getEmptyOperationTier1Label().getText();
 		Assert.assertEquals(emptyOperationTier1Label, ERROR_MESSAGE_EMPTY_OP_TIER1);		
@@ -220,7 +295,8 @@ public class ErrorPopupsRaisePlannedWorksTest extends TestBase {
 		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_DROP_DOWN_OPCAT_TIER1_8).perform();
 		
 		// Now try to move forward without entering Operation tier2
-		raisedPlannedWorkPage.getNextBtn().click();	
+		raisedPlannedWorkPage.getNextBtn().click();
+		TestBase.wait(driver, 20);
 		Alert alertOperationTier2Id = driver.switchTo().alert();
 		String emptyOperationTier2Label = raisePlanWorkWarningAlerts.getEmptyOperationTier2Label().getText();
 		Assert.assertEquals(emptyOperationTier2Label, ERROR_MESSAGE_EMPTY_OP_TIER2);		
@@ -230,7 +306,8 @@ public class ErrorPopupsRaisePlannedWorksTest extends TestBase {
 		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_DROP_DOWN_OPCAT_TIER2_6).perform();
 		
 		// Now try to move forward without entering Operation tier3
-		raisedPlannedWorkPage.getNextBtn().click();	
+		raisedPlannedWorkPage.getNextBtn().click();
+		TestBase.wait(driver, 20);
 		Alert alertOperationTier3Id = driver.switchTo().alert();
 		String emptyOperationTier3Label = raisePlanWorkWarningAlerts.getEmptyOperationTier2Label().getText();
 		Assert.assertEquals(emptyOperationTier3Label, ERROR_MESSAGE_EMPTY_OP_TIER2); //Defect found in testing	
@@ -243,6 +320,7 @@ public class ErrorPopupsRaisePlannedWorksTest extends TestBase {
 		
 		// Now try to move forward without entering Product tier1
 		raisedPlannedWorkPage.getFinalSubmitButton().click();
+		TestBase.wait(driver, 20);
 		Alert alertProductTier1 = driver.switchTo().alert();
 		String emptyProductTier1Label = raisePlanWorkWarningAlerts.getEmptyProductTier1Label().getText();
 		Assert.assertEquals(emptyProductTier1Label, ERROR_MESSAGE_EMPTY_PROD_TIER1);		
@@ -297,24 +375,23 @@ public class ErrorPopupsRaisePlannedWorksTest extends TestBase {
 		
 		TestBase.wait(driver, 20);
 		Alert alertCongrats = driver.switchTo().alert();
+		TestBase.wait(driver, 20);
 		String alertCongratsLabel = raisePlanWorkWarningAlerts.getCongratsLabel().getText();
 		Assert.assertEquals(alertCongratsLabel, MESSAGE_CONGRATS);		
 		alertCongrats.accept();
 		
-		TestBase.SaveRecording(driver, this.getClass().getSimpleName(),new Throwable().getStackTrace()[0].getMethodName());
+		if(prop.getProperty("recordingNeeded").equals("true")) {
+			TestBase.SaveRecording(driver, this.getClass().getSimpleName(),new Throwable().getStackTrace()[0].getMethodName());
+		}
 	}
 
-
-
-
-	
-
-	@AfterSuite(alwaysRun = true)
-	public void tearDown() throws IOException {
+	@AfterTest(alwaysRun = true)
+	public void tearDown() throws IOException, InterruptedException {
 		System.out.println("tearing down");
-		// landingPage = null;
-		// driver.quit();
-		// TestBase.shutDownAVD();
+		TestBase.shutDownAVD();
+		Thread.sleep(6000);
+		TestBase.stopAppiumServer();
+		Thread.sleep(10000);
 	}
 
 }

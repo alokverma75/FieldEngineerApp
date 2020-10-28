@@ -1,29 +1,117 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="6" passed="6" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-10-28T11:28:04 IST" name="Default suite" finished-at="2020-10-28T11:29:45 IST" duration-ms="100846">
+  <suite started-at="2020-10-28T19:43:55 IST" name="Suite" finished-at="2020-10-28T19:54:22 IST" duration-ms="626987">
     <groups>
     </groups>
-    <test started-at="2020-10-28T11:28:04 IST" name="Default test" finished-at="2020-10-28T11:29:45 IST" duration-ms="100846">
+    <test started-at="2020-10-28T19:43:55 IST" name="RaisePlanwork" finished-at="2020-10-28T19:46:17 IST" duration-ms="141973">
       <class name="com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks">
-        <test-method is-config="true" signature="startServices()[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks@62150f9e]" started-at="2020-10-28T11:28:04 IST" name="startServices" finished-at="2020-10-28T11:28:15 IST" duration-ms="10508" status="PASS">
+        <test-method is-config="true" signature="startServices()[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks@6dc17b83]" started-at="2020-10-28T19:43:55 IST" name="startServices" finished-at="2020-10-28T19:44:22 IST" duration-ms="27593" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startServices -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks@62150f9e]" started-at="2020-10-28T11:28:15 IST" name="setUp" finished-at="2020-10-28T11:28:27 IST" duration-ms="12127" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks@6dc17b83]" started-at="2020-10-28T19:44:22 IST" name="setUp" finished-at="2020-10-28T19:44:43 IST" duration-ms="21189" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="endToEndTestForRaisePlanWork()[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks@62150f9e]" started-at="2020-10-28T11:28:27 IST" name="endToEndTestForRaisePlanWork" finished-at="2020-10-28T11:29:45 IST" duration-ms="77604" status="PASS">
+        <test-method signature="endToEndTestForRaisePlanWork()[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks@6dc17b83]" started-at="2020-10-28T19:44:43 IST" name="endToEndTestForRaisePlanWork" finished-at="2020-10-28T19:46:07 IST" duration-ms="83086" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endToEndTestForRaisePlanWork -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks@62150f9e]" started-at="2020-10-28T11:29:45 IST" name="tearDown" finished-at="2020-10-28T11:29:45 IST" duration-ms="582" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks@6dc17b83]" started-at="2020-10-28T19:46:07 IST" name="tearDown" finished-at="2020-10-28T19:46:17 IST" duration-ms="10059" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- RaisePlanwork -->
+    <test started-at="2020-10-28T19:46:17 IST" name="AlertsRaisePlanWork" finished-at="2020-10-28T19:49:27 IST" duration-ms="190187">
+      <class name="com.colt.fieldengineerapp.testcases.ErrorPopupsRaisePlannedWorksTest">
+        <test-method is-config="true" signature="startServer()[pri:0, instance:com.colt.fieldengineerapp.testcases.ErrorPopupsRaisePlannedWorksTest@38c6f217]" started-at="2020-10-28T19:46:17 IST" name="startServer" finished-at="2020-10-28T19:46:44 IST" duration-ms="27428" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startServer -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.colt.fieldengineerapp.testcases.ErrorPopupsRaisePlannedWorksTest@38c6f217]" started-at="2020-10-28T19:46:44 IST" name="setUp" finished-at="2020-10-28T19:47:09 IST" duration-ms="25069" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="alertsRaisePlanWorkPlannedScheduleStep()[pri:0, instance:com.colt.fieldengineerapp.testcases.ErrorPopupsRaisePlannedWorksTest@38c6f217]" started-at="2020-10-28T19:47:09 IST" name="alertsRaisePlanWorkPlannedScheduleStep" finished-at="2020-10-28T19:49:12 IST" duration-ms="122617" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- alertsRaisePlanWorkPlannedScheduleStep -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.colt.fieldengineerapp.testcases.ErrorPopupsRaisePlannedWorksTest@38c6f217]" started-at="2020-10-28T19:49:12 IST" name="tearDown" finished-at="2020-10-28T19:49:27 IST" duration-ms="15071" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.colt.fieldengineerapp.testcases.ErrorPopupsRaisePlannedWorksTest -->
+    </test> <!-- AlertsRaisePlanWork -->
+    <test started-at="2020-10-28T19:49:27 IST" name="PlannedWork" finished-at="2020-10-28T19:51:13 IST" duration-ms="106608">
+      <class name="com.colt.fieldengineerapp.testcases.EndToEndTestForPlannedWorks">
+        <test-method is-config="true" signature="startServices()[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndTestForPlannedWorks@49ec71f8]" started-at="2020-10-28T19:49:27 IST" name="startServices" finished-at="2020-10-28T19:49:54 IST" duration-ms="27351" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startServices -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndTestForPlannedWorks@49ec71f8]" started-at="2020-10-28T19:49:54 IST" name="setUp" finished-at="2020-10-28T19:50:27 IST" duration-ms="32377" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testPlannedWorkDetails()[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndTestForPlannedWorks@49ec71f8]" started-at="2020-10-28T19:50:27 IST" name="testPlannedWorkDetails" finished-at="2020-10-28T19:50:32 IST" duration-ms="5179" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testPlannedWorkDetails -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndTestForPlannedWorks@49ec71f8]" started-at="2020-10-28T19:50:32 IST" name="setUp" finished-at="2020-10-28T19:50:54 IST" duration-ms="22454" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="validateAllLabelAndTextFields()[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndTestForPlannedWorks@49ec71f8]" started-at="2020-10-28T19:50:54 IST" name="validateAllLabelAndTextFields" finished-at="2020-10-28T19:50:58 IST" duration-ms="4159" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validateAllLabelAndTextFields -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndTestForPlannedWorks@49ec71f8]" started-at="2020-10-28T19:50:58 IST" name="tearDown" finished-at="2020-10-28T19:51:13 IST" duration-ms="15086" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.colt.fieldengineerapp.testcases.EndToEndTestForPlannedWorks -->
+    </test> <!-- PlannedWork -->
+    <test started-at="2020-10-28T19:51:13 IST" name="SingleTaskView" finished-at="2020-10-28T19:52:53 IST" duration-ms="99764">
+      <class name="com.colt.fieldengineerapp.testcases.EndToEndTestForSingleTaskView">
+        <test-method is-config="true" signature="startServices()[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndTestForSingleTaskView@77847718]" started-at="2020-10-28T19:51:13 IST" name="startServices" finished-at="2020-10-28T19:51:41 IST" duration-ms="27226" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startServices -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndTestForSingleTaskView@77847718]" started-at="2020-10-28T19:51:41 IST" name="setUp" finished-at="2020-10-28T19:52:15 IST" duration-ms="34128" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="endToEndTestTillSingleTaskView()[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndTestForSingleTaskView@77847718]" started-at="2020-10-28T19:52:15 IST" name="endToEndTestTillSingleTaskView" finished-at="2020-10-28T19:52:38 IST" duration-ms="23332" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endToEndTestTillSingleTaskView -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndTestForSingleTaskView@77847718]" started-at="2020-10-28T19:52:38 IST" name="tearDown" finished-at="2020-10-28T19:52:53 IST" duration-ms="15076" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.colt.fieldengineerapp.testcases.EndToEndTestForSingleTaskView -->
+    </test> <!-- SingleTaskView -->
+    <test started-at="2020-10-28T19:52:53 IST" name="ActionsPageTest" finished-at="2020-10-28T19:54:22 IST" duration-ms="88422">
+      <class name="com.colt.fieldengineerapp.testcases.EndToEndActionsPageTest">
+        <test-method is-config="true" signature="startServices()[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndActionsPageTest@4550bb58]" started-at="2020-10-28T19:52:53 IST" name="startServices" finished-at="2020-10-28T19:53:20 IST" duration-ms="27220" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startServices -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndActionsPageTest@4550bb58]" started-at="2020-10-28T19:53:20 IST" name="setUp" finished-at="2020-10-28T19:53:54 IST" duration-ms="33094" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testNonNullJobRemarksdField()[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndActionsPageTest@4550bb58]" started-at="2020-10-28T19:53:54 IST" name="testNonNullJobRemarksdField" finished-at="2020-10-28T19:54:07 IST" duration-ms="13019" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testNonNullJobRemarksdField -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndActionsPageTest@4550bb58]" started-at="2020-10-28T19:54:07 IST" name="tearDown" finished-at="2020-10-28T19:54:22 IST" duration-ms="15086" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.colt.fieldengineerapp.testcases.EndToEndActionsPageTest -->
+    </test> <!-- ActionsPageTest -->
+  </suite> <!-- Suite -->
 </testng-results>

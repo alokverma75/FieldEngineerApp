@@ -5,8 +5,9 @@
 	<listeners>
 		<listener
 			class-name="com.colt.fieldengineerapp.base.TestCaseListener" />
+			<listener class-name="com.colt.fieldengineerapp.reporting.ExtentReporterNG"/>
 	</listeners>
-	<test thread-count="5" name="Test">
+	<test thread-count="5" name="RaisePlanwork">
 		<!-- 
 		<groups>
 			<run>
@@ -17,10 +18,37 @@
 		<!-- <packages> <package name = "com.colt.fieldengineerapp.testcases"/> 
 			</packages> -->
 		<classes>
-			<class name="com.colt.fieldengineerapp.testcases.LandingPageTest" />
-			<class name="com.colt.fieldengineerapp.testcases.LoginPageTest" />
-
+				<class name="com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks" />	
 		</classes>
 
 	</test> <!-- Test -->
+	<test thread-count="5" name="AlertsRaisePlanWork">
+		
+		<classes>
+				<class name="com.colt.fieldengineerapp.testcases.ErrorPopupsRaisePlannedWorksTest" />
+			</classes>
+
+	</test> <!-- Test -->
+	<test thread-count="5" name="PlannedWork">
+		
+		<classes>
+				<class name="com.colt.fieldengineerapp.testcases.EndToEndTestForPlannedWorks" />
+	</classes>
+
+	</test> <!-- Test -->
+	<test thread-count="5" name="SingleTaskView">
+		
+		<classes>
+				<class name="com.colt.fieldengineerapp.testcases.EndToEndTestForSingleTaskView" />
+		</classes>
+
+	</test> <!-- Test -->
+	<test thread-count="5" name="ActionsPageTest">
+		
+		<classes>		
+			<class name="com.colt.fieldengineerapp.testcases.EndToEndActionsPageTest" />
+		</classes>
+
+	</test> <!-- Test -->
+	
 </suite> <!-- Suite -->

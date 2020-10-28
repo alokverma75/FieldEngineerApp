@@ -3,16 +3,30 @@
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <listeners>
     <listener class-name="com.colt.fieldengineerapp.base.TestCaseListener"/>
+    <listener class-name="com.colt.fieldengineerapp.reporting.ExtentReporterNG"/>
   </listeners>
-  <test thread-count="5" name="Test(failed)">
+  <test thread-count="5" name="RaisePlanwork(failed)">
     <classes>
-      <class name="com.colt.fieldengineerapp.testcases.LoginPageTest">
+      <class name="com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks">
         <methods>
-          <include name="loginTestWithMultiUsers"/>
-          <include name="tearDown"/>
+          <include name="startServices"/>
+          <include name="endToEndTestForRaisePlanWork"/>
           <include name="setUp"/>
+          <include name="tearDown"/>
         </methods>
-      </class> <!-- com.colt.fieldengineerapp.testcases.LoginPageTest -->
+      </class> <!-- com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks -->
     </classes>
-  </test> <!-- Test(failed) -->
+  </test> <!-- RaisePlanwork(failed) -->
+  <test thread-count="5" name="AlertsRaisePlanWork(failed)">
+    <classes>
+      <class name="com.colt.fieldengineerapp.testcases.ErrorPopupsRaisePlannedWorksTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="alertsRaisePlanWorkPlannedScheduleStep"/>
+          <include name="startServer"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.colt.fieldengineerapp.testcases.ErrorPopupsRaisePlannedWorksTest -->
+    </classes>
+  </test> <!-- AlertsRaisePlanWork(failed) -->
 </suite> <!-- Failed suite [Suite] -->

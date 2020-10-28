@@ -3,14 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks">
+      <class name="com.colt.fieldengineerapp.testcases.EndToEndTestForPlannedWorks">
         <methods>
-          <include name="startServices"/>
-          <include name="endToEndTestForRaisePlanWork"/>
+          <include name="validateAllLabelAndTextFields"/>
           <include name="setUp"/>
+          <include name="testPlannedWorkDetails"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks -->
+      </class> <!-- com.colt.fieldengineerapp.testcases.EndToEndTestForPlannedWorks -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

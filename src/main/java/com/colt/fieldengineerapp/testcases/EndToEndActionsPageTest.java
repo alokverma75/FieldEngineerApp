@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -41,13 +42,16 @@ public class EndToEndActionsPageTest extends TestBase {
 	}
 	
 	@BeforeTest(alwaysRun = true)
-	public void startEmulator() throws IOException {
-		
-		TestBase.startAVD();		
+	public void startServices() throws IOException, InterruptedException {
+		TestBase.startAVD();
+		Thread.sleep(20000);
+		TestBase.startAppiumServer();
+				
 	}
 
+
 	@BeforeMethod(alwaysRun = true)
-	public void setUp() throws MalformedURLException, IOException {
+	public void setUp() throws MalformedURLException, IOException, InterruptedException {
 		driver = getDriver();
 		loginPage = new LoginPage(driver);
 		homePage = new HomePage(driver);
@@ -65,7 +69,10 @@ public class EndToEndActionsPageTest extends TestBase {
 
 	
 	@Test
-	public void testNonNullJobRemarksdField() throws InterruptedException {
+	public void testNonNullJobRemarksdField() throws InterruptedException, IOException {
+		if(prop.getProperty("recordingNeeded").equals("true")) {
+			TestBase.startRecording(driver);
+			}
 		//singleTaskDetailsPage.scrollToElement(driver, ELEMENT_JOB_REMARKS);
   	    singleTaskDetailsPage.getOpenActionsBtn().click();  	    
   	    actionsPage.getEstimatedTimeToReachButton().click();
@@ -116,21 +123,19 @@ public class EndToEndActionsPageTest extends TestBase {
 		}
 		
 		setTimePage.getOkButton().click();
+		if(prop.getProperty("recordingNeeded").equals("true")) {
+			TestBase.SaveRecording(driver, this.getClass().getSimpleName(),new Throwable().getStackTrace()[0].getMethodName());
+		}
 		
 		}
 
-  	    
-  	    
-		
-	
-
-
-	@AfterSuite(alwaysRun = true)
-	public void tearDown() throws IOException {
+	@AfterTest(alwaysRun = true)
+	public void tearDown() throws IOException, InterruptedException {
 		System.out.println("tearing down");
-		// landingPage = null;
-		// driver.quit();
-		// TestBase.shutDownAVD();
+		TestBase.shutDownAVD();
+		Thread.sleep(6000);
+		TestBase.stopAppiumServer();
+		Thread.sleep(10000);
 	}
 
 }

@@ -1,5 +1,7 @@
 package com.colt.fieldengineerapp.base;
 
+import java.io.IOException;
+
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -23,6 +25,13 @@ public class TestCaseListener implements ITestListener{
 		// TODO Auto-generated method stub
 		ITestListener.super.onTestFailure(result);
 		System.out.println(" The test failed is ==" + result.getName() + " in class : "+ result.getTestClass());
+		String failedTestCaseName = result.getName() + " in class : "+ result.getTestClass();
+		try {
+			TestBase.getScreenshot(failedTestCaseName);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override
