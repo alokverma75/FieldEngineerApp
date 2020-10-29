@@ -147,16 +147,7 @@ public class TestBase implements FieldEngineerAppConstants, PlannedWorksPageErro
 
 	public static AndroidDriver<AndroidElement> getDriver() throws IOException, MalformedURLException {
 
-		if(!started) {
-			startAVD();
-			System.out.println(" Arre AVD stopped no worries starting again");
-			try {
-				Thread.sleep(6000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+		
 
 		cap.setCapability(MobileCapabilityType.DEVICE_NAME, prop.getProperty("deviceName"));
 		cap.setCapability(MobileCapabilityType.APP, USRDIR + prop.getProperty("app"));
