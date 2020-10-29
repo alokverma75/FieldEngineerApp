@@ -10,7 +10,7 @@
       <class name="com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks">
         <methods>
           <include name="startServices"/>
-          <include name="endToEndTestForRaisePlanWork"/>
+          <include name="endToEndTestForRaisePlanWork" invocation-numbers="0"/>
           <include name="setUp"/>
           <include name="tearDown"/>
         </methods>

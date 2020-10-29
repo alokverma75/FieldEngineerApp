@@ -45,8 +45,6 @@ import io.appium.java_client.android.AndroidStartScreenRecordingOptions;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
-import io.appium.java_client.service.local.AppiumServiceBuilder;
-import io.appium.java_client.service.local.flags.GeneralServerFlag;
 import io.appium.java_client.touch.LongPressOptions;
 import io.appium.java_client.touch.TapOptions;
 import io.appium.java_client.touch.WaitOptions;
@@ -82,17 +80,9 @@ public class TestBase implements FieldEngineerAppConstants, PlannedWorksPageErro
 		String port = prop.getProperty("appiumServerPort");
 		boolean flag = checkIfServerIsRunnning(Integer.parseInt(port));
 		if (!flag) {
-			//C:\Users\Medhansh\AppData\Roaming\npm\node_modules\appium\build\lib
-			//service = AppiumDriverLocalService.buildDefaultService();
-			AppiumServiceBuilder appiumServiceBuilder = new AppiumServiceBuilder();
-	        appiumServiceBuilder.usingPort(4824)
-	                .withIPAddress("127.0.0.1")
-	                .usingDriverExecutable(new File("D:/nodejs/node.exe"))
-	                .withAppiumJS(new File("C:/Users/Medhansh/AppData/Roaming/npm/node_modules/appium/build/lib/main.js"))
-	                .withArgument(GeneralServerFlag.SESSION_OVERRIDE);
-	                //.withLogFile(new File(System.getProperty("user.dir") + "/target/resources/appium_server_logs" + Thread.currentThread().getId()));
-	        AppiumDriverLocalService service = AppiumDriverLocalService.buildService(appiumServiceBuilder);
-				service.start();	
+			
+			service = AppiumDriverLocalService.buildDefaultService();
+			service.start();			
 		}
 		
 

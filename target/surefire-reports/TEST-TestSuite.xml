@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestSuite" time="145.66" tests="3" errors="0" skipped="1" failures="2">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestSuite" time="138.048" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="14.0.2+12"/>
@@ -60,33 +60,5 @@
     <property name="sun.stdout.encoding" value="cp437"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="startServices" classname="com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks" time="134.491">
-    <failure message="The local appium server has not been started. The given Node.js executable: D:\nodejs\node.exe Arguments: [C:\Users\Medhansh\AppData\Roaming\npm\node_modules\appium\build\lib\main.js, --port, 4823, --address, 127.0.0.1] &#10;" type="io.appium.java_client.service.local.AppiumServerHasNotBeenStartedLocallyException">io.appium.java_client.service.local.AppiumServerHasNotBeenStartedLocallyException: 
-The local appium server has not been started. The given Node.js executable: D:\nodejs\node.exe Arguments: [C:\Users\Medhansh\AppData\Roaming\npm\node_modules\appium\build\lib\main.js, --port, 4823, --address, 127.0.0.1] 
-
-	at com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks.startServices(EndToEndTestForRaisePlannedWorks.java:48)
-Caused by: org.openqa.selenium.net.UrlChecker$TimeoutException: Timed out waiting for [http://127.0.0.1:4823/wd/hub/status] to be available after 120016 ms
-	at com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks.startServices(EndToEndTestForRaisePlannedWorks.java:48)
-Caused by: java.util.concurrent.TimeoutException
-	at com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks.startServices(EndToEndTestForRaisePlannedWorks.java:48)
-</failure>
-    <system-out><![CDATA[This will start avd
-the avd is started successfully
-Starting Appium == com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks
-]]></system-out>
-  </testcase>
-  <testcase name="setUp" classname="com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks" time="137.05">
-    <failure message="Connection refused: no further information&#10;Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;&#10;System info: host: &apos;DESKTOP-K4MGEUM&apos;, ip: &apos;192.168.0.7&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;14.0.2&apos;&#10;Driver info: driver.version: AndroidDriver" type="org.openqa.selenium.WebDriverException">org.openqa.selenium.WebDriverException: 
-Connection refused: no further information
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-K4MGEUM', ip: '192.168.0.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '14.0.2'
-Driver info: driver.version: AndroidDriver
-	at com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks.setUp(EndToEndTestForRaisePlannedWorks.java:54)
-Caused by: java.net.ConnectException: Connection refused: no further information
-	at com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks.setUp(EndToEndTestForRaisePlannedWorks.java:54)
-</failure>
-  </testcase>
-  <testcase name="endToEndTestForRaisePlanWork" classname="com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks" time="0">
-    <skipped message="Connection refused: no further information&#10;Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;&#10;System info: host: &apos;DESKTOP-K4MGEUM&apos;, ip: &apos;192.168.0.7&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;14.0.2&apos;&#10;Driver info: driver.version: AndroidDriver"/>
-  </testcase>
+  <testcase name="endToEndTestForRaisePlanWork" classname="com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks" time="86.827"/>
 </testsuite>
