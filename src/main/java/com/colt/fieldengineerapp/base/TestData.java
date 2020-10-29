@@ -22,5 +22,17 @@ public class TestData {
 		
 		return dataObject;
 	}
+	
+	@DataProvider(name="TextFieldsData")
+	public Object[][] getDataForRaisePlannedWorksTest(){
+		
+		Object[][] dataObject = new Object[][] {
+			
+			{"12345", "1234","123456","Test_Alok"}
+			
+		};
+		
+		return dataObject;
+	}
 
 }

@@ -2,60 +2,36 @@
 <testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-10-29T16:37:39 IST" name="Default suite" finished-at="2020-10-29T16:39:19 IST" duration-ms="100323">
+  <suite started-at="2020-10-29T20:02:52 IST" name="Default suite" finished-at="2020-10-29T20:03:40 IST" duration-ms="47704">
     <groups>
     </groups>
-    <test started-at="2020-10-29T16:37:39 IST" name="Default test" finished-at="2020-10-29T16:39:19 IST" duration-ms="100323">
-      <class name="com.colt.fieldengineerapp.testcases.LoginPageTest">
-        <test-method is-config="true" signature="startServices()[pri:0, instance:com.colt.fieldengineerapp.testcases.LoginPageTest@2e005c4b]" started-at="2020-10-29T16:37:39 IST" name="startServices" finished-at="2020-10-29T16:38:05 IST" duration-ms="26424" status="PASS">
+    <test started-at="2020-10-29T20:02:52 IST" name="Default test" finished-at="2020-10-29T20:03:40 IST" duration-ms="47704">
+      <class name="com.colt.fieldengineerapp.testcases.LandingPageTest">
+        <test-method is-config="true" signature="startServices()[pri:0, instance:com.colt.fieldengineerapp.testcases.LandingPageTest@5e0826e7]" started-at="2020-10-29T20:02:52 IST" name="startServices" finished-at="2020-10-29T20:02:58 IST" duration-ms="5521" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startServices -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.colt.fieldengineerapp.testcases.LoginPageTest@2e005c4b]" started-at="2020-10-29T16:38:05 IST" name="setUp" finished-at="2020-10-29T16:38:43 IST" duration-ms="37483" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.colt.fieldengineerapp.testcases.LandingPageTest@5e0826e7]" started-at="2020-10-29T20:02:58 IST" name="setUp" finished-at="2020-10-29T20:03:15 IST" duration-ms="17076" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="loginTest(java.lang.String, java.lang.String)[pri:0, instance:com.colt.fieldengineerapp.testcases.LoginPageTest@2e005c4b]" started-at="2020-10-29T16:38:43 IST" name="loginTest" data-provider="InputData" finished-at="2020-10-29T16:38:50 IST" duration-ms="7693" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[coltonlinedcp]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Colt@1234]]>
-              </value>
-            </param>
-          </params>
+        <test-method signature="continueTest()[pri:0, instance:com.colt.fieldengineerapp.testcases.LandingPageTest@5e0826e7]" started-at="2020-10-29T20:03:15 IST" name="continueTest" finished-at="2020-10-29T20:03:19 IST" duration-ms="4326" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginTest -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.colt.fieldengineerapp.testcases.LoginPageTest@2e005c4b]" started-at="2020-10-29T16:38:50 IST" name="setUp" finished-at="2020-10-29T16:39:11 IST" duration-ms="20827" status="PASS">
+        </test-method> <!-- continueTest -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.colt.fieldengineerapp.testcases.LandingPageTest@5e0826e7]" started-at="2020-10-29T20:03:19 IST" name="setUp" finished-at="2020-10-29T20:03:35 IST" duration-ms="16183" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="loginTest(java.lang.String, java.lang.String)[pri:0, instance:com.colt.fieldengineerapp.testcases.LoginPageTest@2e005c4b]" started-at="2020-10-29T16:39:11 IST" name="loginTest" data-provider="InputData" finished-at="2020-10-29T16:39:19 IST" duration-ms="7850" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[coltonlinedcp]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Colt@1234]]>
-              </value>
-            </param>
-          </params>
+        <test-method signature="homePageTasksTitleTest()[pri:1, instance:com.colt.fieldengineerapp.testcases.LandingPageTest@5e0826e7]" started-at="2020-10-29T20:03:35 IST" name="homePageTasksTitleTest" finished-at="2020-10-29T20:03:40 IST" duration-ms="4510" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.colt.fieldengineerapp.testcases.LoginPageTest@2e005c4b]" started-at="2020-10-29T16:39:19 IST" name="tearDown" finished-at="2020-10-29T16:39:35 IST" duration-ms="16062" status="PASS">
+        </test-method> <!-- homePageTasksTitleTest -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.colt.fieldengineerapp.testcases.LandingPageTest@5e0826e7]" started-at="2020-10-29T20:03:40 IST" name="tearDown" finished-at="2020-10-29T20:03:40 IST" duration-ms="63" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.colt.fieldengineerapp.testcases.LoginPageTest -->
+      </class> <!-- com.colt.fieldengineerapp.testcases.LandingPageTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

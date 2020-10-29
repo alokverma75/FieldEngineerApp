@@ -3,18 +3,37 @@
 <suite name="Failed suite [Command line suite]" verbose="0">
   <test thread-count="5" name="Command line test(failed)" verbose="0">
     <classes>
+      <class name="com.colt.fieldengineerapp.testcases.EndToEndActionsPageTest">
+        <methods>
+          <include name="startServices"/>
+          <include name="testNonNullJobRemarksdField"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.colt.fieldengineerapp.testcases.EndToEndActionsPageTest -->
       <class name="com.colt.fieldengineerapp.testcases.ErrorPopupsRaisePlannedWorksTest">
         <methods>
+          <include name="startServices"/>
           <include name="setUp"/>
           <include name="alertsRaisePlanWorkPlannedScheduleStep"/>
-          <include name="startServer"/>
           <include name="tearDown"/>
         </methods>
       </class> <!-- com.colt.fieldengineerapp.testcases.ErrorPopupsRaisePlannedWorksTest -->
+      <class name="com.colt.fieldengineerapp.testcases.LoginPageTest">
+        <methods>
+          <include name="loginTest"/>
+          <include name="tearDown"/>
+          <include name="startServices"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.colt.fieldengineerapp.testcases.LoginPageTest -->
       <class name="com.colt.fieldengineerapp.testcases.LandingPageTest">
         <methods>
           <include name="setUp"/>
           <include name="homePageTasksTitleTest"/>
+          <include name="tearDown"/>
+          <include name="continueTest"/>
+          <include name="startServices"/>
         </methods>
       </class> <!-- com.colt.fieldengineerapp.testcases.LandingPageTest -->
     </classes>

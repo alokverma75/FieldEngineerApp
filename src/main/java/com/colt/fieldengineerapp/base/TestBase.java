@@ -65,7 +65,7 @@ public class TestBase implements FieldEngineerAppConstants, PlannedWorksPageErro
 		try {
 			prop = ReadPropertyFile.readPropertiesFile("resources/config.properties");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			System.out.println(" Property file not found");
 			e.printStackTrace();
 		}
 	}
@@ -77,13 +77,12 @@ public class TestBase implements FieldEngineerAppConstants, PlannedWorksPageErro
 	 */
 	public static void startAppiumServer() throws IOException, InterruptedException {
 		killAllNodes();
-		//prop = ReadPropertyFile.readPropertiesFile("resources/config.properties");
 		String port = prop.getProperty("appiumServerPort");
 		boolean flag = checkIfServerIsRunnning(Integer.parseInt(port));
 		if (!flag) {
 
 			service = AppiumDriverLocalService.buildDefaultService();
-			service.start();
+			service.start();			
 		}
 		
 
@@ -96,9 +95,8 @@ public class TestBase implements FieldEngineerAppConstants, PlannedWorksPageErro
 	
 	public static void killAllNodes() throws IOException, InterruptedException
 	{
-	//taskkill /F /IM node.exe
+	
 		Runtime.getRuntime().exec("taskkill /F /IM node.exe");
-		Thread.sleep(3000);
 		
 	}
 	
@@ -127,11 +125,11 @@ public class TestBase implements FieldEngineerAppConstants, PlannedWorksPageErro
 	}
 
 	public static void getScreenshot(String screenShot) throws IOException {
-		
+		SimpleDateFormat dateFormat = new SimpleDateFormat(prop.getProperty("datePattern"));
 		File scrfile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		String directoryName = prop.getProperty("screenShots");
 		//FileUtils.copyFile(scrfile, new File(directory) + "\\Screenshots" + screenShot + ".png"));
-		FileUtils.copyFile(scrfile,new File(System.getProperty("user.dir")+File.separator+directoryName+File.separator+screenShot+".png"));
+		FileUtils.copyFile(scrfile,new File(System.getProperty("user.dir")+File.separator+directoryName+File.separator+screenShot+dateFormat.format(new Date())+".png"));
 
 	}
 
@@ -145,12 +143,17 @@ public class TestBase implements FieldEngineerAppConstants, PlannedWorksPageErro
 	 * @throws InterruptedException 
 	 */
 
-	public static AndroidDriver<AndroidElement> getDriver() throws IOException, MalformedURLException {
+	public static AndroidDriver<AndroidElement> getDriver() throws IOException, MalformedURLException, InterruptedException {
 
-		
+	  //This will be used in Jenkins and will be passed as dropdown
+        String device= System.getProperty("deviceName");
+        if(device == null || device.equals("")) {
+        	device = prop.getProperty("deviceName");
+        }
 
-		cap.setCapability(MobileCapabilityType.DEVICE_NAME, prop.getProperty("deviceName"));
+		cap.setCapability(MobileCapabilityType.DEVICE_NAME, device);
 		cap.setCapability(MobileCapabilityType.APP, USRDIR + prop.getProperty("app"));
+		cap.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT,14);
 		cap.setCapability(AndroidMobileCapabilityType.AVD, prop.getProperty("avdName"));
 		cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, prop.getProperty("automationName"));
 		cap.setCapability(MobileCapabilityType.PLATFORM_NAME, prop.getProperty("platformName"));
@@ -171,20 +174,15 @@ public class TestBase implements FieldEngineerAppConstants, PlannedWorksPageErro
 	 * Usually with BeforeSuite method tag
 	 * 
 	 * @throws IOException
+	 * @throws InterruptedException 
 	 */
 
-	public static void startAVD() throws IOException {
+	public static void startAVD() throws IOException, InterruptedException {
 
 		System.out.println("This will start avd");
-//		
-//		if(started) {
-//			System.out.println(" Already started so shutting down");
-//		shutDownAVD();
-//		}
-//	
-		//This requires adb and emulator's bin folder point to path via Env variables
-		Runtime.getRuntime().exec("adb start-server");
-		Runtime.getRuntime().exec("emulator -avd pixel2");
+		Runtime.getRuntime().exec(System.getProperty("user.dir")+"\\resources\\startEmulator.bat");
+		Thread.sleep(6000);
+		
 		started = true;
 
 		System.out.println("the avd is started successfully");
@@ -200,8 +198,7 @@ public class TestBase implements FieldEngineerAppConstants, PlannedWorksPageErro
 	public static void shutDownAVD() throws IOException {
 
 		System.out.println("This will close the avd");
-		Runtime.getRuntime().exec("adb shell reboot -p");
-		started = false;
+		Runtime.getRuntime().exec(System.getProperty("user.dir")+"\\resources\\stopEmulator.bat");
 		System.out.println("the avd is closed successfully");
 
 	}
@@ -653,26 +650,26 @@ public class TestBase implements FieldEngineerAppConstants, PlannedWorksPageErro
 		}
 	}
 	
-	private static File createNewDirectory(String newDirectoryName) throws IOException {
-		String dirPath = USRDIR;
-		
-		// Create new directory under user.path
-		File oneMoreDirectory = new File(dirPath + File.separator + newDirectoryName);
-		// Create directory for existed path.
-		boolean isCreated = false;
-		if (!oneMoreDirectory.exists()) {
-			isCreated = oneMoreDirectory.mkdir();
-			if (isCreated) {
-				System.out.printf("\n3. Successfully created new directory, path:%s",
-						oneMoreDirectory.getCanonicalPath());
-			} else { // Directory may already exist
-				System.out.printf("\n3. Already created directory");
-			}
-		}
-		
-		return oneMoreDirectory;
-
-	}
+//	private static File createNewDirectory(String newDirectoryName) throws IOException {
+//		String dirPath = USRDIR;
+//		
+//		// Create new directory under user.path
+//		File oneMoreDirectory = new File(dirPath + File.separator + newDirectoryName);
+//		// Create directory for existed path.
+//		boolean isCreated = false;
+//		if (!oneMoreDirectory.exists()) {
+//			isCreated = oneMoreDirectory.mkdir();
+//			if (isCreated) {
+//				System.out.printf("\n3. Successfully created new directory, path:%s",
+//						oneMoreDirectory.getCanonicalPath());
+//			} else { // Directory may already exist
+//				System.out.printf("\n3. Already created directory");
+//			}
+//		}
+//		
+//		return oneMoreDirectory;
+//
+//	}
 
 	/**
 	 * This method will explicitly wait till Alert is shown before we switch to it

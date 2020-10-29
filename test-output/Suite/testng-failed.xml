@@ -29,4 +29,41 @@
       </class> <!-- com.colt.fieldengineerapp.testcases.ErrorPopupsRaisePlannedWorksTest -->
     </classes>
   </test> <!-- AlertsRaisePlanWork(failed) -->
+  <test thread-count="5" name="PlannedWork(failed)">
+    <classes>
+      <class name="com.colt.fieldengineerapp.testcases.EndToEndTestForPlannedWorks">
+        <methods>
+          <include name="validateAllLabelAndTextFields"/>
+          <include name="setUp"/>
+          <include name="startServices"/>
+          <include name="testPlannedWorkDetails"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.colt.fieldengineerapp.testcases.EndToEndTestForPlannedWorks -->
+    </classes>
+  </test> <!-- PlannedWork(failed) -->
+  <test thread-count="5" name="SingleTaskView(failed)">
+    <classes>
+      <class name="com.colt.fieldengineerapp.testcases.EndToEndTestForSingleTaskView">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+          <include name="startServices"/>
+          <include name="endToEndTestTillSingleTaskView"/>
+        </methods>
+      </class> <!-- com.colt.fieldengineerapp.testcases.EndToEndTestForSingleTaskView -->
+    </classes>
+  </test> <!-- SingleTaskView(failed) -->
+  <test thread-count="5" name="ActionsPageTest(failed)">
+    <classes>
+      <class name="com.colt.fieldengineerapp.testcases.EndToEndActionsPageTest">
+        <methods>
+          <include name="startServices"/>
+          <include name="testNonNullJobRemarksdField"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.colt.fieldengineerapp.testcases.EndToEndActionsPageTest -->
+    </classes>
+  </test> <!-- ActionsPageTest(failed) -->
 </suite> <!-- Failed suite [Suite] -->

@@ -8,11 +8,11 @@ import java.util.Map;
 
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.colt.fieldengineerapp.base.TestBase;
+import com.colt.fieldengineerapp.base.TestData;
 import com.colt.fieldengineerapp.pages.ConfirmPage;
 import com.colt.fieldengineerapp.pages.HomePage;
 import com.colt.fieldengineerapp.pages.LandingPage;
@@ -43,13 +43,14 @@ public class EndToEndTestForRaisePlannedWorks extends TestBase {
 	@BeforeTest(alwaysRun = true)
 	public void startServices() throws IOException, InterruptedException {
 		TestBase.startAVD();
-		Thread.sleep(20000);
+		Thread.sleep(8000);
+		System.out.println("Starting Appium == " +this.getClass().getName());
 		TestBase.startAppiumServer();
 				
 	}
 
 	@BeforeMethod(alwaysRun = true)
-	public void setUp() throws MalformedURLException, IOException {
+	public void setUp() throws MalformedURLException, IOException, InterruptedException {
 		driver = getDriver();
 		loginPage = new LoginPage(driver);
 		homePage = new HomePage(driver);
@@ -58,8 +59,8 @@ public class EndToEndTestForRaisePlannedWorks extends TestBase {
 		confirmPage = new ConfirmPage(driver);
 	}
 
-	@Test
-	public void endToEndTestForRaisePlanWork() throws MalformedURLException, IOException {
+	@Test(dataProvider = "TextFieldsData", dataProviderClass = TestData.class)
+	public void endToEndTestForRaisePlanWork(String siteAddress, String orderNumber, String inputTextField,String templateName) throws MalformedURLException, IOException {
 		
 		if(prop.getProperty("recordingNeeded").equals("true")) {
 		TestBase.startRecording(driver);
@@ -122,7 +123,7 @@ public class EndToEndTestForRaisePlannedWorks extends TestBase {
 		raisedPlannedWorkPage.getLocationDetailsTier2DropDown().click();
 		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_LOCATION_TIER2_DROPDOWN_2).perform();
 		
-		raisedPlannedWorkPage.getSiteAddressTextField().sendKeys("12345");
+		raisedPlannedWorkPage.getSiteAddressTextField().sendKeys(siteAddress);
 		
 		raisedPlannedWorkPage.getNextBtn().click();
 		
@@ -134,9 +135,6 @@ public class EndToEndTestForRaisePlannedWorks extends TestBase {
 		raisedPlannedWorkPage.getPlannedStartDateSelector().click();
 		String timeZoneID = raisedPlannedWorkPage.getZoneGMTBtn().getText(); 
 		raisedPlannedWorkPage.getZoneGMTBtn().click();
-		//get current date time details as per timezone selected 
-		//int currentDate = Integer.parseInt(raisedPlannedWorkPage.getDateAsPerPattern("dd"));
-		
 		Map<String,Integer> dateMap = raisedPlannedWorkPage.timeDateMapAsPerTimezone(timeZoneID);
 		System.out.println(" Current day in dd is "+ dateMap.get(ELEMENT_DAY_KEY));
 		
@@ -176,8 +174,7 @@ public class EndToEndTestForRaisePlannedWorks extends TestBase {
 		
 		System.out.println(" setTimePage minutes "+ setTimePage.getInPutMinuteTextField().getText());
 		String currentAMPMValue = setTimePage.getCurrentAMPMValue().getText();
-		setTimePage.getAmPMDropDown().click();
-		
+		setTimePage.getAmPMDropDown().click();		
 		
 		System.out.println("Current APPM Value is "+currentAMPMValue);
 		
@@ -188,19 +185,6 @@ public class EndToEndTestForRaisePlannedWorks extends TestBase {
 		}
 		
 		setTimePage.getOkButton().click();
-	
-		//Using Swipe mode to set time
-		
-		//raisedPlannedWorkPage.getHourActionSwipe(driver, ELEMENT_CLOCK_DIGIT_NINE).perform();
-		//raisedPlannedWorkPage.getMinuteActionSwipeTo(driver, ELEMENT_CLOCK_MINUTE_FORTY_FIVE);
-		System.out.println("Hour in Map is "+ dateMap.get(ELEMENT_HOUR_KEY).toString());
-//		raisedPlannedWorkPage.moveHourMinuteFromTillTo(
-//				driver,dateMap.get(ELEMENT_HOUR_KEY).toString(), ELEMENT_CLOCK_DIGIT_NINE).perform();
-//		raisedPlannedWorkPage.moveHourMinuteFromTillTo(
-//				driver,dateMap.get(ELEMENT_MINUTE_KEY).toString(), ELEMENT_CLOCK_MINUTE_FORTY_FIVE).perform();
-		
-		//raisedPlannedWorkPage.getOkBtn().click();
-		
 		String plannedStartTextField = raisedPlannedWorkPage.getPlannedStartTextField().getText();
 		System.out.println("plannedStartTextField "+plannedStartTextField);
 		
@@ -214,41 +198,19 @@ public class EndToEndTestForRaisePlannedWorks extends TestBase {
 		//set to a particular hour and time
 		raisedPlannedWorkPage.getHourActionSwipe(driver, ELEMENT_CLOCK_DIGIT_HOUR_SEVEN_END).perform();
 		raisedPlannedWorkPage.getMinuteActionSwipeTo(driver, ELEMENT_CLOCK_MINUTE_TWENTY_END);
-		
-//		raisedPlannedWorkPage.moveHourMinuteFromTillTo(
-//				driver,dateMap.get(ELEMENT_HOUR_KEY).toString(), ELEMENT_CLOCK_DIGIT_HOUR_SEVEN_END).perform();
-//		raisedPlannedWorkPage.moveHourMinuteFromTillTo(
-//				driver,dateMap.get(ELEMENT_MINUTE_KEY).toString(), ELEMENT_CLOCK_MINUTE_TWENTY_END).perform();
 		raisedPlannedWorkPage.getOkBtn().click();
 		
 		String plannedEndTextField = raisedPlannedWorkPage.getPlannedEndTextField().getText();
 		System.out.println("plannedEndTextField "+plannedEndTextField);
-
-		
-		//Read the Planned Start Text Field
-//		raisedPlannedWorkPage.getBackoutStartDateSelector().click();
-//		//raisedPlannedWorkPage.getZoneGMTBtn().click();
-//		//String dateCurrent = raisedPlannedWorkPage.getDateAsPerPattern("dd");
-////		int plannedEndDate = Integer.parseInt(raisedPlannedWorkPage.getDateAsPerPattern("dd"));
-////		System.out.println(" Current date in dd is "+ plannedEndDate);
-//						
-//		raisedPlannedWorkPage.moveToScrollToElement(driver, String.valueOf(currentDate+2)).perform();
-//		raisedPlannedWorkPage.getOkBtn().click();
-		
-		
-		//raisedPlannedWorkPage.getHourActionSwipe(driver, ELEMENT_CLOCK_HOUR_EIGHT_BACKOUT).perform();
-		//raisedPlannedWorkPage.getMinuteActionSwipeTo(driver, ELEMENT_CLOCK_MINUTE_FORTY_BACKOUT);
-		//raisedPlannedWorkPage.getOkBtn().click();
-		
 		String backOutTextField = raisedPlannedWorkPage.getBackoutStartTextField().getText();
 		System.out.println("backOutTextField "+backOutTextField);
 		
 		raisedPlannedWorkPage.getNextBtn().click();
 		
 		//Next Page
-		raisedPlannedWorkPage.getOrderNumberTextField().sendKeys("1234");
+		raisedPlannedWorkPage.getOrderNumberTextField().sendKeys(orderNumber);
 		raisedPlannedWorkPage.getDeviceIdAddBtn().click();
-		raisedPlannedWorkPage.getInputTextField().sendKeys("123456");
+		raisedPlannedWorkPage.getInputTextField().sendKeys(inputTextField);
 		raisedPlannedWorkPage.getAddBtnForPopup().click();
 		raisedPlannedWorkPage.getNextBtn().click();
 		
@@ -280,17 +242,12 @@ public class EndToEndTestForRaisePlannedWorks extends TestBase {
 		raisedPlannedWorkPage.getFinalSubmitButton().click();
 		
 		//Confirm Page elements
-		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_FINAL_CONFIRM_BUTTON).perform();
+		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_FINAL_CONFIRM_BUTTON).perform();	
 		
-		
-		confirmPage.getOkButton().click();
-		
-		confirmPage.getEnterTemplateNameTextField().sendKeys("Test_Alok");
-		
-		confirmPage.getOkButton().click();
-		
-		confirmPage.getOkButtonForCongratsPopUp().click();
-		
+		confirmPage.getOkButton().click();		
+		confirmPage.getEnterTemplateNameTextField().sendKeys(templateName);		
+		confirmPage.getOkButton().click();		
+		confirmPage.getOkButtonForCongratsPopUp().click();	
 		
 		
 		if(prop.getProperty("recordingNeeded").equals("true")) {
@@ -303,14 +260,16 @@ public class EndToEndTestForRaisePlannedWorks extends TestBase {
 
 	@AfterTest(alwaysRun = true)
 	public void tearDown() throws IOException, InterruptedException {
-		System.out.println("tearing down");
 		TestBase.shutDownAVD();
-		Thread.sleep(6000);
+		Thread.sleep(3000);
+		System.out.println("Tearing  down == " +this.getClass().getName());
 		TestBase.stopAppiumServer();
-		Thread.sleep(10000);
+		Thread.sleep(5000);
+	}
+
 		
 		
 		 
 	}
 
-}
+

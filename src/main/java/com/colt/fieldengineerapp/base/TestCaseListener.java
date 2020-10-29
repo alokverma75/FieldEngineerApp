@@ -19,7 +19,7 @@ public class TestCaseListener implements ITestListener{
 		// TODO Auto-generated method stub
 		ITestListener.super.onTestSuccess(result);
 		System.out.println(" The test passed is ==" + result.getName() + " in class : "+ result.getTestClass());
-		String passedTestCaseName = result.getName() + " in class : "+ result.getTestClass();
+		String passedTestCaseName = result.getName() + "-in class-"+ result.getTestClass().getName();
 		try {
 			TestBase.getScreenshot(passedTestCaseName);
 		} catch (IOException e) {
@@ -34,7 +34,7 @@ public class TestCaseListener implements ITestListener{
 		// TODO Auto-generated method stub
 		ITestListener.super.onTestFailure(result);
 		System.out.println(" The test failed is ==" + result.getName() + " in class : "+ result.getTestClass());
-		String failedTestCaseName = result.getName() + " in class : "+ result.getTestClass();
+		String failedTestCaseName = result.getName() + "- in class- "+ result.getTestClass();
 		try {
 			TestBase.getScreenshot(failedTestCaseName);
 		} catch (IOException e) {

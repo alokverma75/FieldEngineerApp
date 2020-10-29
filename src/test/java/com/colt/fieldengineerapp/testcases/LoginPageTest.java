@@ -5,6 +5,7 @@ import java.net.MalformedURLException;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
@@ -33,14 +34,13 @@ public class LoginPageTest extends TestBase {
 	
 	@BeforeTest(alwaysRun = true)
 	public void startServices() throws IOException, InterruptedException {
-		TestBase.startAVD();
-		Thread.sleep(20000);
+		System.out.println("Starting Appium == " +this.getClass().getName());
 		TestBase.startAppiumServer();
 				
 	}
 	
 	@BeforeMethod(alwaysRun = true)
-	public void setUp() throws MalformedURLException, IOException{
+	public void setUp() throws MalformedURLException, IOException, InterruptedException{
 		driver = getDriver();
 		loginPage = new LoginPage(driver);
 		
@@ -85,14 +85,12 @@ public class LoginPageTest extends TestBase {
 		return data;
 	}
 	
-	
-	@AfterSuite(alwaysRun = true)
-	public void tearDown() throws IOException, InterruptedException{
-		System.out.println("tearing down");
-		TestBase.shutDownAVD();
-		Thread.sleep(6000);
-		TestBase.stopAppiumServer();
-		Thread.sleep(10000);
+	@AfterTest(alwaysRun = true)
+	public void tearDown() throws IOException, InterruptedException {
+		System.out.println("Tearing  down == " +this.getClass().getName());
+		TestBase.stopAppiumServer();		
 	}
+
+
 
 }

@@ -3,13 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.colt.fieldengineerapp.testcases.LoginPageTest">
+      <class name="com.colt.fieldengineerapp.testcases.LandingPageTest">
         <methods>
-          <include name="loginTest" invocation-numbers="0 1"/>
-          <include name="tearDown"/>
           <include name="setUp"/>
+          <include name="homePageTasksTitleTest"/>
+          <include name="tearDown"/>
+          <include name="startServices"/>
         </methods>
-      </class> <!-- com.colt.fieldengineerapp.testcases.LoginPageTest -->
+      </class> <!-- com.colt.fieldengineerapp.testcases.LandingPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

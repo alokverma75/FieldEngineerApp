@@ -44,7 +44,8 @@ public class EndToEndActionsPageTest extends TestBase {
 	@BeforeTest(alwaysRun = true)
 	public void startServices() throws IOException, InterruptedException {
 		TestBase.startAVD();
-		Thread.sleep(20000);
+		Thread.sleep(8000);
+		System.out.println("Starting Appium == " +this.getClass().getName());
 		TestBase.startAppiumServer();
 				
 	}
@@ -131,11 +132,8 @@ public class EndToEndActionsPageTest extends TestBase {
 
 	@AfterTest(alwaysRun = true)
 	public void tearDown() throws IOException, InterruptedException {
-		System.out.println("tearing down");
-		TestBase.shutDownAVD();
-		Thread.sleep(6000);
-		TestBase.stopAppiumServer();
-		Thread.sleep(10000);
+		System.out.println("Tearing  down == " +this.getClass().getName());
+		TestBase.stopAppiumServer();		
 	}
 
 }

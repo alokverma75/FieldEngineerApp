@@ -4,8 +4,10 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.colt.fieldengineerapp.base.TestBase;
@@ -24,14 +26,15 @@ public class LandingPageTest extends TestBase {
 			
 	}
 	
-//	@BeforeSuite(alwaysRun = true)
-//	public void startServer() throws IOException {
-//		TestBase.startAVD();		
-//	}
-//	
+	@BeforeTest(alwaysRun = true)
+	public void startServices() throws IOException, InterruptedException {
+		System.out.println("Starting Appium == " +this.getClass().getName());
+		TestBase.startAppiumServer();
+				
+	}
 		
 	@BeforeMethod(alwaysRun = true)
-	public void setUp() throws MalformedURLException, IOException{
+	public void setUp() throws MalformedURLException, IOException, InterruptedException{
 		driver = getDriver();
 		loginPage = new LoginPage(driver);
 		homePage = new HomePage(driver);
@@ -42,7 +45,7 @@ public class LandingPageTest extends TestBase {
 	@Test(priority=1)
 	public void homePageTasksTitleTest() throws MalformedURLException, IOException{
 		landingPage.getContinueBtn().click();		
-		boolean hasTasksTitle = homePage.validateHomePageTasksTitle(ELEMENT_HOMEPAGE_TASKS_LABEL);
+		boolean hasTasksTitle = homePage.validateHomePageTitle(ELEMENT_HOMEPAGE_LABEL);
 		Assert.assertTrue(hasTasksTitle);
 	}
 	
@@ -51,7 +54,14 @@ public class LandingPageTest extends TestBase {
 		landingPage.getContinueBtn().click();
 		boolean pageHasTitle = homePage.validateHomePageTitle(ELEMENT_HOMEPAGE_LABEL);
 		Assert.assertTrue(pageHasTitle);
-	}	
+	}
+	@AfterTest(alwaysRun = true)
+	public void tearDown() throws IOException, InterruptedException {
+		System.out.println("Tearing  down == " +this.getClass().getName());
+		TestBase.stopAppiumServer();		
+	}
+
+
 	
 	
 

@@ -3,16 +3,18 @@
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT" verbose="0">
   <listeners>
     <listener class-name="com.colt.fieldengineerapp.base.TestCaseListener"/>
+    <listener class-name="com.colt.fieldengineerapp.reporting.ExtentReporterNG"/>
   </listeners>
-  <test thread-count="5" name="Test(failed)" verbose="0">
+  <test thread-count="5" name="RaisePlanwork(failed)" verbose="0">
     <classes>
-      <class name="com.colt.fieldengineerapp.testcases.LoginPageTest">
+      <class name="com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks">
         <methods>
-          <include name="loginTestWithMultiUsers" invocation-numbers="1"/>
-          <include name="tearDown"/>
+          <include name="startServices"/>
+          <include name="endToEndTestForRaisePlanWork"/>
           <include name="setUp"/>
+          <include name="tearDown"/>
         </methods>
-      </class> <!-- com.colt.fieldengineerapp.testcases.LoginPageTest -->
+      </class> <!-- com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks -->
     </classes>
-  </test> <!-- Test(failed) -->
+  </test> <!-- RaisePlanwork(failed) -->
 </suite> <!-- Failed suite [Suite] -->

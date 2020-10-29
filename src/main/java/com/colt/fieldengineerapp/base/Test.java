@@ -14,7 +14,7 @@ import io.appium.java_client.android.AndroidElement;
 public class Test extends TestBase{
 
 	@SuppressWarnings("deprecation")
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, InterruptedException {
 		// TODO Auto-generated method stub
 		
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yy/MM/dd HH/mm/ss");
@@ -29,7 +29,9 @@ public class Test extends TestBase{
 		System.out.println(nameofCurrMethod);
 		String directoryName = prop.getProperty("screenShots");
 		String finalPath = System.getProperty("user.dir")+File.separator+directoryName+File.separator+"test"+".png";
-		System.out.println(directoryName);
+		//String finalPath = System.getProperty("user.dir");
+		
+		//System.out.println(directoryName);
 		System.out.println(finalPath);
 		 String data = "test";
 		 
@@ -38,7 +40,7 @@ public class Test extends TestBase{
 		 //System.out.println(" Size of file i "+ decode.length);
 //		 FileUtils.writeLines(new File(USRDIR + "/"+prop.getProperty("recordings")+ new Test().printClassName()+ 
 //				 dateFormat.format(date)+ ".text"), data);
-		  
+		 //startEmulator(); 
 
 	}
 	
@@ -53,5 +55,13 @@ public class Test extends TestBase{
 		
 		return nameofCurrMethod;		
 	}
+	
+	public static void startEmulator() throws IOException, InterruptedException
+	{
+		System.out.println("Inside Start emulator");
+		Runtime.getRuntime().exec(System.getProperty("user.dir")+"\\resources\\startEmulator.bat");
+		Thread.sleep(6000);
+	}
+
 
 }
