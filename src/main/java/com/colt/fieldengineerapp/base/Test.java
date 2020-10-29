@@ -10,6 +10,9 @@ import org.apache.commons.io.FileUtils;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.service.local.AppiumDriverLocalService;
+import io.appium.java_client.service.local.AppiumServiceBuilder;
+import io.appium.java_client.service.local.flags.GeneralServerFlag;
 
 public class Test extends TestBase{
 
@@ -41,6 +44,7 @@ public class Test extends TestBase{
 //		 FileUtils.writeLines(new File(USRDIR + "/"+prop.getProperty("recordings")+ new Test().printClassName()+ 
 //				 dateFormat.format(date)+ ".text"), data);
 		 //startEmulator(); 
+		 startAppiumServer();
 
 	}
 	
@@ -62,6 +66,26 @@ public class Test extends TestBase{
 		Runtime.getRuntime().exec(System.getProperty("user.dir")+"\\resources\\startEmulator.bat");
 		Thread.sleep(6000);
 	}
+	
+	public static void startAppiumServer() throws IOException, InterruptedException {
+			
+		
+//			//C:\Users\Medhansh\AppData\Roaming\npm\node_modules\appium\build\lib
+//			//service = AppiumDriverLocalService.buildDefaultService();
+//		AppiumDriverLocalService service = AppiumDriverLocalService.buildService(new AppiumServiceBuilder()
+//				.withAppiumJS(new File("C:/Users/Medhansh/AppData/Roaming/npm/node_modules/appium/build/lib/main.js"))
+//				.withIPAddress("127.0.0.1").usingPort(4923));
+		AppiumServiceBuilder appiumServiceBuilder = new AppiumServiceBuilder();
+        appiumServiceBuilder.usingPort(4824)
+                .withIPAddress("127.0.0.1")
+                .usingDriverExecutable(new File("D:/nodejs/node.exe"))
+                .withAppiumJS(new File("C:/Users/Medhansh/AppData/Roaming/npm/node_modules/appium/build/lib/main.js"))
+                .withArgument(GeneralServerFlag.SESSION_OVERRIDE);
+                //.withLogFile(new File(System.getProperty("user.dir") + "/target/resources/appium_server_logs" + Thread.currentThread().getId()));
+        AppiumDriverLocalService service = AppiumDriverLocalService.buildService(appiumServiceBuilder);
+			service.start();	
+	}
+		
 
 
 }

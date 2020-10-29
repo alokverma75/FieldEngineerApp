@@ -263,7 +263,7 @@ public class EndToEndTestForRaisePlannedWorks extends TestBase {
 		TestBase.shutDownAVD();
 		Thread.sleep(3000);
 		System.out.println("Tearing  down == " +this.getClass().getName());
-		TestBase.stopAppiumServer();
+		//TestBase.stopAppiumServer();
 		Thread.sleep(5000);
 	}
 
