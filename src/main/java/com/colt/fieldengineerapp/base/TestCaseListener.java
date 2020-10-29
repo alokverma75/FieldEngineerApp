@@ -18,6 +18,15 @@ public class TestCaseListener implements ITestListener{
 	public void onTestSuccess(ITestResult result) {
 		// TODO Auto-generated method stub
 		ITestListener.super.onTestSuccess(result);
+		System.out.println(" The test passed is ==" + result.getName() + " in class : "+ result.getTestClass());
+		String passedTestCaseName = result.getName() + " in class : "+ result.getTestClass();
+		try {
+			TestBase.getScreenshot(passedTestCaseName);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
 
 	@Override

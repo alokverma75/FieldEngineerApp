@@ -31,6 +31,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -694,6 +695,13 @@ public class TestBase implements FieldEngineerAppConstants, PlannedWorksPageErro
 		return wait.until(ExpectedConditions.alertIsPresent());
 
 	}
+	
+	 
+		public static WebElement waitForElement(AndroidDriver<AndroidElement> driver, int timeToWait,String expression) {
+			WebDriverWait wait = new WebDriverWait(driver, timeToWait);
+			return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(expression)));
+
+		}
 
 	public static AndroidElement waitForElement(By locator) {
 		try {
