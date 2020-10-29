@@ -8,11 +8,16 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>FieldEngineerApp</name>
 	<description>FieldEngineerApp </description>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
+	</properties>
 
 	<build>
 		<resources>
 			<resource>
-				<directory>src/main/java</directory>
+				<directory>src/main/java/resources</directory>
 				<filtering>true</filtering>
 			</resource>
 
