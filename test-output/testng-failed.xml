@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Default test(failed)">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="com.colt.fieldengineerapp.base.TestCaseListener"/>
+    <listener class-name="com.colt.fieldengineerapp.reporting.ExtentReporterNG"/>
+  </listeners>
+  <test thread-count="5" name="RaisePlanwork(failed)">
     <classes>
-      <class name="com.colt.fieldengineerapp.testcases.LandingPageTest">
+      <class name="com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks">
         <methods>
-          <include name="setUp"/>
-          <include name="homePageTasksTitleTest"/>
-          <include name="tearDown"/>
           <include name="startServices"/>
+          <include name="endToEndTestForRaisePlanWork" invocation-numbers="0"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
         </methods>
-      </class> <!-- com.colt.fieldengineerapp.testcases.LandingPageTest -->
+      </class> <!-- com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- RaisePlanwork(failed) -->
+</suite> <!-- Failed suite [Suite] -->

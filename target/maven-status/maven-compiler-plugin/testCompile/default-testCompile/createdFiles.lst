@@ -1,0 +1,8 @@
+com\colt\fieldengineerapp\testcases\EndToEndTestForRaisePlannedWorks.class
+com\colt\fieldengineerapp\testcases\EndToEndTestForPlannedWorks.class
+com\colt\fieldengineerapp\testcases\EndToEndTestForSingleTaskView.class
+com\colt\fieldengineerapp\testcases\TestCase_2.class
+com\colt\fieldengineerapp\testcases\ErrorPopupsRaisePlannedWorksTest.class
+com\colt\fieldengineerapp\testcases\LandingPageTest.class
+com\colt\fieldengineerapp\testcases\LoginPageTest.class
+com\colt\fieldengineerapp\testcases\EndToEndActionsPageTest.class

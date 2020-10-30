@@ -45,7 +45,7 @@ public class EndToEndTestForRaisePlannedWorks extends TestBase {
 		TestBase.startAVD();
 		Thread.sleep(8000);
 		System.out.println("Starting Appium == " +this.getClass().getName());
-		TestBase.startAppiumServer();
+		//TestBase.startAppiumServer();
 				
 	}
 
@@ -140,7 +140,7 @@ public class EndToEndTestForRaisePlannedWorks extends TestBase {
 		
 		int currentDate = dateMap.get(ELEMENT_DAY_KEY).intValue();
 						
-		raisedPlannedWorkPage.moveToScrollToElement(driver, String.valueOf(currentDate+1)).perform();
+		raisedPlannedWorkPage.moveToScrollToElement(driver, String.valueOf(currentDate)).perform();
 		raisedPlannedWorkPage.getOkBtn().click();
 		
 		//Using other keyboard with edit text to enter time
@@ -191,8 +191,13 @@ public class EndToEndTestForRaisePlannedWorks extends TestBase {
 		
 		//for end date
 		raisedPlannedWorkPage.getPlannedEndDateSelector().click();
+		int nextDatePlusTwo = currentDate+2;
+		
+		if(nextDatePlusTwo > 31) {
+			nextDatePlusTwo = 31;
+		}
 							
-		raisedPlannedWorkPage.moveToScrollToElement(driver, String.valueOf(currentDate+2)).perform();
+		raisedPlannedWorkPage.moveToScrollToElement(driver, String.valueOf(nextDatePlusTwo)).perform();
 		raisedPlannedWorkPage.getOkBtn().click();
 		
 		//set to a particular hour and time

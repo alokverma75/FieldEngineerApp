@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT" verbose="0">
+<suite guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [Suite]">
   <listeners>
     <listener class-name="com.colt.fieldengineerapp.base.TestCaseListener"/>
     <listener class-name="com.colt.fieldengineerapp.reporting.ExtentReporterNG"/>
   </listeners>
-  <test thread-count="5" name="RaisePlanwork(failed)" verbose="0">
+  <test thread-count="5" verbose="0" name="RaisePlanwork(failed)">
     <classes>
       <class name="com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks">
         <methods>

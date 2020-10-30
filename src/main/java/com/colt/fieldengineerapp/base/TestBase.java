@@ -181,7 +181,7 @@ public class TestBase implements FieldEngineerAppConstants, PlannedWorksPageErro
 
 		System.out.println("This will start avd");
 		Runtime.getRuntime().exec(System.getProperty("user.dir")+"\\resources\\startEmulator.bat");
-		Thread.sleep(6000);
+		Thread.sleep(7000);
 		
 		started = true;
 
