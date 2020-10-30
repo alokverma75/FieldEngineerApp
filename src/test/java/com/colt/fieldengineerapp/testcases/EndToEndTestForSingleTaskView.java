@@ -161,7 +161,7 @@ public class EndToEndTestForSingleTaskView extends TestBase {
 			System.out.println(" element at" + i + "th Index is " + listofTextView.get(i).getText());
 		}
 		String jobIDTextField = listofTextView.get(3).getText();		
-		Assert.assertFalse(jobIDTextField.isBlank(),ERROR_MESSAGE_EMPTY_JOB_ID);
+		Assert.assertFalse(jobIDTextField.equals(""),ERROR_MESSAGE_EMPTY_JOB_ID);
 		if(prop.getProperty("recordingNeeded").equals("true")) {
 			TestBase.SaveRecording(driver, this.getClass().getSimpleName(),new Throwable().getStackTrace()[0].getMethodName());
 		}
@@ -182,7 +182,7 @@ public class EndToEndTestForSingleTaskView extends TestBase {
 			System.out.println(" element at" + i + "th Index is " + listofTextView.get(i).getText());
 		}
 		String jobIDTextField = listofTextView.get(3).getText();		
-		Assert.assertFalse(jobIDTextField.isBlank(),ERROR_MESSAGE_EMPTY_ACTIVITY_ID);
+		Assert.assertFalse(jobIDTextField.equals(""),ERROR_MESSAGE_EMPTY_ACTIVITY_ID);
 		if(prop.getProperty("recordingNeeded").equals("true")) {
 			TestBase.SaveRecording(driver, this.getClass().getSimpleName(),new Throwable().getStackTrace()[0].getMethodName());
 		}
