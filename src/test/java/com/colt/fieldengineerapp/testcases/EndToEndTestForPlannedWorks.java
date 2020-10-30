@@ -73,7 +73,7 @@ public class EndToEndTestForPlannedWorks extends TestBase {
 		Assert.assertEquals(totalWorksTitle,ELEMENT_TOTAL_PLANNED_WORKS_LABEL );
 		
 		String totalWorksValue = plannedWorksPage.getTotalPlannedWorks().getText();
-		Assert.assertFalse(totalWorksValue.isBlank(), ERROR_MESSAGE_EMPTY_ID);
+		Assert.assertFalse(totalWorksValue.equals(""), ERROR_MESSAGE_EMPTY_ID);
 		
 		String ID = plannedWorksPage.getIdTitle().getText();		
 		Assert.assertEquals(ID,ELEMENT_PLANNED_WORKS_ID_LABEL );
@@ -85,38 +85,38 @@ public class EndToEndTestForPlannedWorks extends TestBase {
 		boolean isInt = idValueInt instanceof Integer;
 		Assert.assertTrue(isInt, ERROR_MESSAGE_ID_NOT_INTEGER);
 		
-		Assert.assertFalse(idValue.isBlank(), ERROR_MESSAGE_EMPTY_ID);
+		Assert.assertFalse(idValue.equals(""), ERROR_MESSAGE_EMPTY_ID);
 		Assert.assertTrue(idValue.length() == ERROR_MESSAGE_ID_FIELD_LENGTH, ERROR_MESSAGE_ID_FIELD_LENGTH_ERROR);		
 		
 		String startDateLabel = plannedWorksPage.getStartDateTitle().getText();
 		Assert.assertEquals(startDateLabel,ELEMENT_PLANNED_WORKS_START_DATE_LABEL );
 
 		String startDateValue = plannedWorksPage.getStartDateValue().getText();
-		Assert.assertFalse(startDateValue.isBlank(), ERROR_MESSAGE_EMPTY_START_DATE);
+		Assert.assertFalse(startDateValue.equals(""), ERROR_MESSAGE_EMPTY_START_DATE);
 
 		String endDateLabel = plannedWorksPage.getEndDateTitle().getText();
 		Assert.assertEquals(endDateLabel,ELEMENT_PLANNED_WORKS_END_DATE_LABEL );
 
 		String endDateValue = plannedWorksPage.getEndDateValue().getText();
-		Assert.assertFalse(endDateValue.isBlank(),ERROR_MESSAGE_EMPTY_END_DATE);
+		Assert.assertFalse(endDateValue.equals(""),ERROR_MESSAGE_EMPTY_END_DATE);
 		
 		String categoryLabel = plannedWorksPage.getCategoryLabel().getText();
 		Assert.assertEquals(categoryLabel,ELEMENT_PLANNED_WORKS_CATEGORY_LABEL );
 
 		String categoryValue = plannedWorksPage.getCategoryTextField().getText();		
-		Assert.assertFalse(categoryValue.isBlank(), ERROR_MESSAGE_EMPTY_CATEGORY_TEXT_FIELD);
+		Assert.assertFalse(categoryValue.equals(""), ERROR_MESSAGE_EMPTY_CATEGORY_TEXT_FIELD);
 		
 		String siebelrefLabel = plannedWorksPage.getSiebelrefLabel().getText();
 		Assert.assertEquals(siebelrefLabel,ELEMENT_PLANNED_WORKS_SIEBEL_REF_LABEL);
 
 		String siebelrefValue = plannedWorksPage.getSiebelRefTextField().getText();		
-		Assert.assertFalse(siebelrefValue.isBlank(), ERROR_MESSAGE_EMPTY_SIEBEL_REF);
+		Assert.assertFalse(siebelrefValue.equals(""), ERROR_MESSAGE_EMPTY_SIEBEL_REF);
 	
 		String descriptionLabel = plannedWorksPage.getDescriptionLabel().getText();
 		Assert.assertEquals(descriptionLabel,ELEMENT_PLANNED_WORKS_DESCRIPTION_LABEL);
 
 		String descriptionValue = plannedWorksPage.getSiebelRefTextField().getText();		
-		Assert.assertFalse(descriptionValue.isBlank(), ERROR_MESSAGE_EMPTY_DESCRIPTION);
+		Assert.assertFalse(descriptionValue.equals(""), ERROR_MESSAGE_EMPTY_DESCRIPTION);
 		if(prop.getProperty("recordingNeeded").equals("true")) {
 			TestBase.SaveRecording(driver, this.getClass().getSimpleName(),new Throwable().getStackTrace()[0].getMethodName());
 		}

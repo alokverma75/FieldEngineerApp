@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestSuite" time="28.588" tests="2" errors="0" skipped="1" failures="1">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestSuite" time="26.473" tests="2" errors="0" skipped="1" failures="1">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="14.0.2+12"/>
@@ -58,16 +58,14 @@
     <property name="java.vendor.version" value="AdoptOpenJDK"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="setUp" classname="com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks" time="19.376">
-    <failure message="Unable to create a new remote session. Original error: Connection reset&#10;Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;&#10;System info: host: &apos;DESKTOP-K4MGEUM&apos;, ip: &apos;192.168.0.7&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;14.0.2&apos;&#10;Driver info: driver.version: AndroidDriver" type="org.openqa.selenium.SessionNotCreatedException">org.openqa.selenium.SessionNotCreatedException: 
-Unable to create a new remote session. Original error: Connection reset
+  <testcase name="setUp" classname="com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks" time="17.85">
+    <failure message="Connection refused: no further information&#10;Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;&#10;System info: host: &apos;DESKTOP-K4MGEUM&apos;, ip: &apos;192.168.0.7&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;14.0.2&apos;&#10;Driver info: driver.version: AndroidDriver" type="org.openqa.selenium.WebDriverException">org.openqa.selenium.WebDriverException: 
+Connection refused: no further information
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
 System info: host: 'DESKTOP-K4MGEUM', ip: '192.168.0.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '14.0.2'
 Driver info: driver.version: AndroidDriver
 	at com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks.setUp(EndToEndTestForRaisePlannedWorks.java:54)
-Caused by: java.lang.reflect.InvocationTargetException
-	at com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks.setUp(EndToEndTestForRaisePlannedWorks.java:54)
-Caused by: java.net.SocketException: Connection reset
+Caused by: java.net.ConnectException: Connection refused: no further information
 	at com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks.setUp(EndToEndTestForRaisePlannedWorks.java:54)
 </failure>
     <system-out><![CDATA[This will start avd
@@ -76,6 +74,6 @@ Starting Appium == com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlann
 ]]></system-out>
   </testcase>
   <testcase name="endToEndTestForRaisePlanWork" classname="com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks" time="0">
-    <skipped message="Unable to create a new remote session. Original error: Connection reset&#10;Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;&#10;System info: host: &apos;DESKTOP-K4MGEUM&apos;, ip: &apos;192.168.0.7&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;14.0.2&apos;&#10;Driver info: driver.version: AndroidDriver"/>
+    <skipped message="Connection refused: no further information&#10;Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;&#10;System info: host: &apos;DESKTOP-K4MGEUM&apos;, ip: &apos;192.168.0.7&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;14.0.2&apos;&#10;Driver info: driver.version: AndroidDriver"/>
   </testcase>
 </testsuite>

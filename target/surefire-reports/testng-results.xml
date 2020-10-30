@@ -2,31 +2,31 @@
 <testng-results ignored="0" total="1" passed="0" failed="0" skipped="1">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-10-30T12:44:14 IST" name="Suite" finished-at="2020-10-30T12:44:41 IST" duration-ms="26909">
+  <suite started-at="2020-10-30T14:06:40 IST" name="Suite" finished-at="2020-10-30T14:07:06 IST" duration-ms="25577">
     <groups>
     </groups>
-    <test started-at="2020-10-30T12:44:14 IST" name="RaisePlanwork" finished-at="2020-10-30T12:44:41 IST" duration-ms="26909">
+    <test started-at="2020-10-30T14:06:40 IST" name="RaisePlanwork" finished-at="2020-10-30T14:07:06 IST" duration-ms="25577">
       <class name="com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks">
-        <test-method is-config="true" signature="startServices()[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks@fdefd3f]" started-at="2020-10-30T12:44:14 IST" name="startServices" finished-at="2020-10-30T12:44:29 IST" duration-ms="15028" status="PASS">
+        <test-method is-config="true" signature="startServices()[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks@fdefd3f]" started-at="2020-10-30T14:06:40 IST" name="startServices" finished-at="2020-10-30T14:06:55 IST" duration-ms="15031" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startServices -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks@fdefd3f]" started-at="2020-10-30T12:44:29 IST" name="setUp" finished-at="2020-10-30T12:44:33 IST" duration-ms="3815" status="FAIL">
-          <exception class="org.openqa.selenium.SessionNotCreatedException">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks@fdefd3f]" started-at="2020-10-30T14:06:55 IST" name="setUp" finished-at="2020-10-30T14:06:58 IST" duration-ms="2476" status="FAIL">
+          <exception class="org.openqa.selenium.WebDriverException">
             <message>
-              <![CDATA[Unable to create a new remote session. Original error: Connection reset
+              <![CDATA[Connection refused: no further information
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
 System info: host: 'DESKTOP-K4MGEUM', ip: '192.168.0.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '14.0.2'
 Driver info: driver.version: AndroidDriver]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.SessionNotCreatedException: Unable to create a new remote session. Original error: Connection reset
+              <![CDATA[org.openqa.selenium.WebDriverException: Connection refused: no further information
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
 System info: host: 'DESKTOP-K4MGEUM', ip: '192.168.0.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '14.0.2'
 Driver info: driver.version: AndroidDriver
-at io.appium.java_client.remote.AppiumCommandExecutor$1.createSession(AppiumCommandExecutor.java:208)
-at io.appium.java_client.remote.AppiumCommandExecutor.createSession(AppiumCommandExecutor.java:217)
-at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:239)
+at io.appium.java_client.remote.AppiumCommandExecutor.lambda$5(AppiumCommandExecutor.java:251)
+at java.base/java.util.Optional.orElseGet(Optional.java:362)
+at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:250)
 at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
 at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:41)
 at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
@@ -75,30 +75,20 @@ at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:12
 at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:290)
 at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:242)
 at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:121)
-Caused by: java.lang.reflect.InvocationTargetException
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:564)
-at io.appium.java_client.remote.AppiumCommandExecutor$1.createSession(AppiumCommandExecutor.java:186)
-... 50 more
-Caused by: java.net.SocketException: Connection reset
-at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:323)
-at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:350)
-at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:803)
-at java.base/java.net.Socket$SocketInputStream.read(Socket.java:982)
-at okio.Okio$2.read(Okio.java:140)
-at okio.AsyncTimeout$2.read(AsyncTimeout.java:237)
-at okio.RealBufferedSource.indexOf(RealBufferedSource.java:355)
-at okio.RealBufferedSource.readUtf8LineStrict(RealBufferedSource.java:227)
-at okhttp3.internal.http1.Http1Codec.readHeaderLine(Http1Codec.java:215)
-at okhttp3.internal.http1.Http1Codec.readResponseHeaders(Http1Codec.java:189)
-at okhttp3.internal.http.CallServerInterceptor.intercept(CallServerInterceptor.java:88)
-at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:147)
-at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:121)
-at org.openqa.selenium.remote.internal.OkHttpClient$Factory$1.lambda$createClient$1(OkHttpClient.java:152)
-at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:147)
-at okhttp3.internal.connection.ConnectInterceptor.intercept(ConnectInterceptor.java:45)
+Caused by: java.net.ConnectException: Connection refused: no further information
+at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:589)
+at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549)
+at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597)
+at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:333)
+at java.base/java.net.Socket.connect(Socket.java:648)
+at okhttp3.internal.platform.Platform.connectSocket(Platform.java:129)
+at okhttp3.internal.connection.RealConnection.connectSocket(RealConnection.java:245)
+at okhttp3.internal.connection.RealConnection.connect(RealConnection.java:165)
+at okhttp3.internal.connection.StreamAllocation.findConnection(StreamAllocation.java:257)
+at okhttp3.internal.connection.StreamAllocation.findHealthyConnection(StreamAllocation.java:135)
+at okhttp3.internal.connection.StreamAllocation.newStream(StreamAllocation.java:114)
+at okhttp3.internal.connection.ConnectInterceptor.intercept(ConnectInterceptor.java:42)
 at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:147)
 at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:121)
 at okhttp3.internal.cache.CacheInterceptor.intercept(CacheInterceptor.java:93)
@@ -113,14 +103,21 @@ at okhttp3.RealCall.getResponseWithInterceptorChain(RealCall.java:200)
 at okhttp3.RealCall.execute(RealCall.java:77)
 at org.openqa.selenium.remote.internal.OkHttpClient.execute(OkHttpClient.java:103)
 at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:105)
-... 55 more
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+at io.appium.java_client.remote.AppiumCommandExecutor$1.createSession(AppiumCommandExecutor.java:186)
+at io.appium.java_client.remote.AppiumCommandExecutor.createSession(AppiumCommandExecutor.java:217)
+at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:239)
+... 48 more
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.SessionNotCreatedException -->
+          </exception> <!-- org.openqa.selenium.WebDriverException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="endToEndTestForRaisePlanWork(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks@fdefd3f]" started-at="2020-10-30T12:44:33 IST" name="endToEndTestForRaisePlanWork" data-provider="TextFieldsData" finished-at="2020-10-30T12:44:33 IST" duration-ms="0" status="SKIP">
+        <test-method signature="endToEndTestForRaisePlanWork(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks@fdefd3f]" started-at="2020-10-30T14:06:58 IST" name="endToEndTestForRaisePlanWork" data-provider="TextFieldsData" finished-at="2020-10-30T14:06:58 IST" duration-ms="0" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -143,21 +140,21 @@ at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.
               </value>
             </param>
           </params>
-          <exception class="org.openqa.selenium.SessionNotCreatedException">
+          <exception class="org.openqa.selenium.WebDriverException">
             <message>
-              <![CDATA[Unable to create a new remote session. Original error: Connection reset
+              <![CDATA[Connection refused: no further information
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
 System info: host: 'DESKTOP-K4MGEUM', ip: '192.168.0.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '14.0.2'
 Driver info: driver.version: AndroidDriver]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.SessionNotCreatedException: Unable to create a new remote session. Original error: Connection reset
+              <![CDATA[org.openqa.selenium.WebDriverException: Connection refused: no further information
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
 System info: host: 'DESKTOP-K4MGEUM', ip: '192.168.0.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '14.0.2'
 Driver info: driver.version: AndroidDriver
-at io.appium.java_client.remote.AppiumCommandExecutor$1.createSession(AppiumCommandExecutor.java:208)
-at io.appium.java_client.remote.AppiumCommandExecutor.createSession(AppiumCommandExecutor.java:217)
-at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:239)
+at io.appium.java_client.remote.AppiumCommandExecutor.lambda$5(AppiumCommandExecutor.java:251)
+at java.base/java.util.Optional.orElseGet(Optional.java:362)
+at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:250)
 at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
 at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:41)
 at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
@@ -206,30 +203,20 @@ at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:12
 at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:290)
 at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:242)
 at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:121)
-Caused by: java.lang.reflect.InvocationTargetException
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:564)
-at io.appium.java_client.remote.AppiumCommandExecutor$1.createSession(AppiumCommandExecutor.java:186)
-... 50 more
-Caused by: java.net.SocketException: Connection reset
-at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:323)
-at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:350)
-at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:803)
-at java.base/java.net.Socket$SocketInputStream.read(Socket.java:982)
-at okio.Okio$2.read(Okio.java:140)
-at okio.AsyncTimeout$2.read(AsyncTimeout.java:237)
-at okio.RealBufferedSource.indexOf(RealBufferedSource.java:355)
-at okio.RealBufferedSource.readUtf8LineStrict(RealBufferedSource.java:227)
-at okhttp3.internal.http1.Http1Codec.readHeaderLine(Http1Codec.java:215)
-at okhttp3.internal.http1.Http1Codec.readResponseHeaders(Http1Codec.java:189)
-at okhttp3.internal.http.CallServerInterceptor.intercept(CallServerInterceptor.java:88)
-at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:147)
-at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:121)
-at org.openqa.selenium.remote.internal.OkHttpClient$Factory$1.lambda$createClient$1(OkHttpClient.java:152)
-at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:147)
-at okhttp3.internal.connection.ConnectInterceptor.intercept(ConnectInterceptor.java:45)
+Caused by: java.net.ConnectException: Connection refused: no further information
+at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:589)
+at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549)
+at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597)
+at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:333)
+at java.base/java.net.Socket.connect(Socket.java:648)
+at okhttp3.internal.platform.Platform.connectSocket(Platform.java:129)
+at okhttp3.internal.connection.RealConnection.connectSocket(RealConnection.java:245)
+at okhttp3.internal.connection.RealConnection.connect(RealConnection.java:165)
+at okhttp3.internal.connection.StreamAllocation.findConnection(StreamAllocation.java:257)
+at okhttp3.internal.connection.StreamAllocation.findHealthyConnection(StreamAllocation.java:135)
+at okhttp3.internal.connection.StreamAllocation.newStream(StreamAllocation.java:114)
+at okhttp3.internal.connection.ConnectInterceptor.intercept(ConnectInterceptor.java:42)
 at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:147)
 at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:121)
 at okhttp3.internal.cache.CacheInterceptor.intercept(CacheInterceptor.java:93)
@@ -244,14 +231,21 @@ at okhttp3.RealCall.getResponseWithInterceptorChain(RealCall.java:200)
 at okhttp3.RealCall.execute(RealCall.java:77)
 at org.openqa.selenium.remote.internal.OkHttpClient.execute(OkHttpClient.java:103)
 at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:105)
-... 55 more
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+at io.appium.java_client.remote.AppiumCommandExecutor$1.createSession(AppiumCommandExecutor.java:186)
+at io.appium.java_client.remote.AppiumCommandExecutor.createSession(AppiumCommandExecutor.java:217)
+at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:239)
+... 48 more
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.SessionNotCreatedException -->
+          </exception> <!-- org.openqa.selenium.WebDriverException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endToEndTestForRaisePlanWork -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks@fdefd3f]" started-at="2020-10-30T12:44:33 IST" name="tearDown" finished-at="2020-10-30T12:44:41 IST" duration-ms="8016" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks@fdefd3f]" started-at="2020-10-30T14:06:58 IST" name="tearDown" finished-at="2020-10-30T14:07:06 IST" duration-ms="8020" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
