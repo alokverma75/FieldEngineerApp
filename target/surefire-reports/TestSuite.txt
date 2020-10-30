@@ -1,14 +1,14 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 1, Errors: 0, Skipped: 1, Time elapsed: 26.473 sec <<< FAILURE! - in TestSuite
-setUp(com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks)  Time elapsed: 17.85 sec  <<< FAILURE!
+Tests run: 2, Failures: 1, Errors: 0, Skipped: 1, Time elapsed: 28.216 sec <<< FAILURE! - in TestSuite
+setUp(com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks)  Time elapsed: 19.654 sec  <<< FAILURE!
 org.openqa.selenium.WebDriverException: 
-Connection refused: no further information
+Connection refused: connect
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-K4MGEUM', ip: '192.168.0.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '14.0.2'
+System info: host: 'DESKTOP-K4MGEUM', ip: '192.168.0.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_251'
 Driver info: driver.version: AndroidDriver
 	at com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks.setUp(EndToEndTestForRaisePlannedWorks.java:54)
-Caused by: java.net.ConnectException: Connection refused: no further information
+Caused by: java.net.ConnectException: Connection refused: connect
 	at com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks.setUp(EndToEndTestForRaisePlannedWorks.java:54)
 

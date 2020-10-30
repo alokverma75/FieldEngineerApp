@@ -1,71 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestSuite" time="26.473" tests="2" errors="0" skipped="1" failures="1">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestSuite" time="28.216" tests="2" errors="0" skipped="1" failures="1">
   <properties>
-    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
-    <property name="java.vm.version" value="14.0.2+12"/>
-    <property name="sun.boot.library.path" value="D:\TechSoftwares\Openjdk14\bin"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="D:\jdk1.8\jre\bin"/>
+    <property name="java.vm.version" value="25.251-b08"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="maven.multiModuleProjectDirectory" value="D:\TechPractice\Appium\FieldEngineerApp"/>
-    <property name="java.vm.vendor" value="AdoptOpenJDK"/>
-    <property name="java.vendor.url" value="https://adoptopenjdk.net/"/>
-    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
     <property name="path.separator" value=";"/>
-    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
-    <property name="sun.os.patch.level" value=""/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
     <property name="user.script" value=""/>
     <property name="user.country" value="IN"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value=""/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="user.dir" value="D:\TechPractice\Appium\FieldEngineerApp"/>
-    <property name="java.vm.compressedOopsMode" value="Zero based"/>
-    <property name="java.runtime.version" value="14.0.2+12"/>
+    <property name="java.runtime.version" value="1.8.0_251-b08"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="D:\jdk1.8\jre\lib\endorsed"/>
     <property name="os.arch" value="amd64"/>
-    <property name="java.io.tmpdir" value="C:\WINDOWS\TEMP\"/>
+    <property name="java.io.tmpdir" value="C:\Users\Medhansh\AppData\Local\Temp\"/>
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 10"/>
     <property name="classworlds.conf" value="D:\apache-maven-3.6.3\bin\..\bin\m2.conf"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.library.path" value="D:\TechSoftwares\Openjdk14\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;D:\apache-maven-3.6.3/bin;D:\TechSoftwares\Python3.9\Scripts\;D:\TechSoftwares\Python3.9\;D:\TechSoftwares\Openjdk14\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\wbin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\Go\bin;D:\GCloud\google-cloud-sdk\bin;D:\Terraform;D:\AWSCLIV2\;C:\ProgramData\chocolatey\bin;D:\RabbitMQ\rabbitmq_server-3.8.3\sbin;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\Microsoft VS Code\bin;D:\nodejs\;C:\Program Files\Git\cmd;D:\TechSoftwares\flutter\bin;D:\TechSoftwares\MongoDB;D:\TechSoftwares\OpenSSL-Win64\bin;D:\TechSoftwares\proto3\bin;D:\TechSoftwares\vertx\bin;D:\TechSoftwares\AndroidSDK\tools\bin;D:\TechSoftwares\AndroidSDK\build-tools\30.0.2;D:\TechSoftwares\AndroidSDK\platform-tools;D:\apache-maven-3.6.3\bin;C:\Program Files\Git\cmd;C:\Program Files\Git\bin;C:\WINDOWS\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps;."/>
+    <property name="java.library.path" value="D:\jdk1.8\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;D:\TechSoftwares\Python3.9\Scripts\;D:\TechSoftwares\Python3.9\;D:\TechSoftwares\Openjdk14\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\wbin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\Go\bin;D:\GCloud\google-cloud-sdk\bin;D:\Terraform;D:\AWSCLIV2\;C:\ProgramData\chocolatey\bin;D:\RabbitMQ\rabbitmq_server-3.8.3\sbin;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\Microsoft VS Code\bin;D:\nodejs\;C:\Program Files\Git\cmd;D:\TechSoftwares\flutter\bin;D:\TechSoftwares\MongoDB;D:\TechSoftwares\OpenSSL-Win64\bin;D:\TechSoftwares\proto3\bin;D:\TechSoftwares\vertx\bin;D:\TechSoftwares\AndroidSDK\tools\bin;D:\TechSoftwares\AndroidSDK\build-tools\30.0.2;D:\TechSoftwares\AndroidSDK\platform-tools;D:\apache-maven-3.6.3\bin;C:\Program Files\Git\cmd;C:\Program Files\Git\bin;D:\nodejs\node_modules\npm\bin;C:\Users\Medhansh\AppData\Roaming\npm;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\Medhansh\AppData\Local\Microsoft\WindowsApps;D:\IntelliJ\bin;;D:\VS Code\bin;D:\Salesforce CLI\bin;C:\Users\Medhansh\go\bin;%WebStorm%;D:\PyCharm\bin;;C:\Users\Medhansh\AppData\Local\Programs\Python\Python39\Lib;D:\apache-maven-3.6.3\bin;C:\Users\Medhansh\AppData\Roaming\npm;D:\TechSoftwares\flutter\bin;D:\TechSoftwares\AndroidStudio\bin;D:\TechSoftwares\AndroidSDK\emulator;D:\TechSoftwares\MongoDB\mongosh.exe;;."/>
     <property name="maven.conf" value="D:\apache-maven-3.6.3\bin\../conf"/>
-    <property name="jdk.debug" value="release"/>
-    <property name="java.class.version" value="58.0"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="os.version" value="10.0"/>
     <property name="library.jansi.path" value="D:\apache-maven-3.6.3\bin\..\lib\jansi-native"/>
-    <property name="user.home" value="C:\WINDOWS\system32\config\systemprofile"/>
+    <property name="user.home" value="C:\Users\Medhansh"/>
     <property name="user.timezone" value="Asia/Calcutta"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="java.specification.version" value="1.8"/>
     <property name="file.encoding" value="Cp1252"/>
-    <property name="java.specification.version" value="14"/>
-    <property name="user.name" value="DESKTOP-K4MGEUM$"/>
+    <property name="user.name" value="Medhansh"/>
     <property name="java.class.path" value="D:\apache-maven-3.6.3\bin\..\boot\plexus-classworlds-2.6.0.jar"/>
-    <property name="java.vm.specification.version" value="14"/>
+    <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -f pom.xml clean test -PRegression"/>
-    <property name="java.home" value="D:\TechSoftwares\Openjdk14"/>
-    <property name="user.language" value="en"/>
+    <property name="java.home" value="D:\jdk1.8\jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher test -PRegression"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
-    <property name="java.vm.info" value="mixed mode, sharing"/>
-    <property name="java.version" value="14.0.2"/>
-    <property name="java.vendor" value="AdoptOpenJDK"/>
+    <property name="user.language" value="en"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_251"/>
+    <property name="java.ext.dirs" value="D:\jdk1.8\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/>
+    <property name="sun.boot.class.path" value="D:\jdk1.8\jre\lib\resources.jar;D:\jdk1.8\jre\lib\rt.jar;D:\jdk1.8\jre\lib\sunrsasign.jar;D:\jdk1.8\jre\lib\jsse.jar;D:\jdk1.8\jre\lib\jce.jar;D:\jdk1.8\jre\lib\charsets.jar;D:\jdk1.8\jre\lib\jfr.jar;D:\jdk1.8\jre\classes"/>
+    <property name="sun.stderr.encoding" value="cp437"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
     <property name="maven.home" value="D:\apache-maven-3.6.3\bin\.."/>
     <property name="file.separator" value="\"/>
-    <property name="java.version.date" value="2020-07-14"/>
-    <property name="java.vendor.url.bug" value="https://github.com/AdoptOpenJDK/openjdk-support/issues"/>
-    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
     <property name="sun.cpu.endian" value="little"/>
-    <property name="java.vendor.version" value="AdoptOpenJDK"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.stdout.encoding" value="cp437"/>
+    <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="setUp" classname="com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks" time="17.85">
-    <failure message="Connection refused: no further information&#10;Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;&#10;System info: host: &apos;DESKTOP-K4MGEUM&apos;, ip: &apos;192.168.0.7&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;14.0.2&apos;&#10;Driver info: driver.version: AndroidDriver" type="org.openqa.selenium.WebDriverException">org.openqa.selenium.WebDriverException: 
-Connection refused: no further information
+  <testcase name="setUp" classname="com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks" time="19.654">
+    <failure message="Connection refused: connect&#10;Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;&#10;System info: host: &apos;DESKTOP-K4MGEUM&apos;, ip: &apos;192.168.0.7&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_251&apos;&#10;Driver info: driver.version: AndroidDriver" type="org.openqa.selenium.WebDriverException">org.openqa.selenium.WebDriverException: 
+Connection refused: connect
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-K4MGEUM', ip: '192.168.0.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '14.0.2'
+System info: host: 'DESKTOP-K4MGEUM', ip: '192.168.0.7', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_251'
 Driver info: driver.version: AndroidDriver
 	at com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks.setUp(EndToEndTestForRaisePlannedWorks.java:54)
-Caused by: java.net.ConnectException: Connection refused: no further information
+Caused by: java.net.ConnectException: Connection refused: connect
 	at com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks.setUp(EndToEndTestForRaisePlannedWorks.java:54)
 </failure>
     <system-out><![CDATA[This will start avd
@@ -74,6 +80,6 @@ Starting Appium == com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlann
 ]]></system-out>
   </testcase>
   <testcase name="endToEndTestForRaisePlanWork" classname="com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks" time="0">
-    <skipped message="Connection refused: no further information&#10;Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;&#10;System info: host: &apos;DESKTOP-K4MGEUM&apos;, ip: &apos;192.168.0.7&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;14.0.2&apos;&#10;Driver info: driver.version: AndroidDriver"/>
+    <skipped message="Connection refused: connect&#10;Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;&#10;System info: host: &apos;DESKTOP-K4MGEUM&apos;, ip: &apos;192.168.0.7&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_251&apos;&#10;Driver info: driver.version: AndroidDriver"/>
   </testcase>
 </testsuite>
