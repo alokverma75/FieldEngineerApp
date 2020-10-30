@@ -45,7 +45,7 @@ public class EndToEndTestForRaisePlannedWorks extends TestBase {
 		TestBase.startAVD();
 		Thread.sleep(8000);
 		System.out.println("Starting Appium == " +this.getClass().getName());
-		TestBase.startAppiumServer();
+		//TestBase.startAppiumServer();
 				
 	}
 
