@@ -2,6 +2,8 @@ package com.colt.fieldengineerapp.base;
 
 public interface FieldEngineerAppConstants {
 	
+		public static final String ELEMENT_EMPTY_STRING="";
+	
 	//Tap options
 	
 		public static final String ELEMENT_ATTRIBUTE_TEXT = "text(\"";
@@ -44,6 +46,7 @@ public interface FieldEngineerAppConstants {
 		
 		//HomePage: Page 3
 		public static final String ELEMENT_HOMEPAGE_LABEL="Field Experts";
+		public static final String ELEMENT_HOMEPAGE_LABEL_MSG="Home page label should be Field Experts";
 		public static final String ELEMENT_HOMEPAGE_TASKS_LABEL="Tasks";
 		
 		//Raise Planned Work Page - 1
@@ -104,6 +107,16 @@ public interface FieldEngineerAppConstants {
 		public static final String ELEMENT_AM = "AM";
 		public static final String ELEMENT_PM = "PM";
 		
+		//Error messages
+		
+		public static final String ELEMENT_INVALID_END_DATE = "Invalid planned start date";
+		public static final String START_DATE_ERROR_MESSAGE = "Incorrect Start Planned Date. It should be greater than 3 minutes from Current time.";
+		public static final String START_DATE_ERROR_MESSAGE_Label = "Incorrect label found correct is-. It should be greater than 3 minutes from Current time.";
+		public static final String ELEMENT_ERROR_ALERT = "Error";
+		public static final String ERROR_MESSAGE_END_DATE = "Incorrect End Planned Date. It should be greater than Start Planned Date.";
+		public static final String ERROR_MESSAGE_END_DATE_LABEL = "Incorrect label found correct is- Incorrect End Planned Date. It should be greater than Start Planned Date ";
+		public static final String START_TIME_ERROR_MESSAGE = "Incorrect planned start time. It should be greater than 3 minutes from Current time.";
+		public static final String START_TIME_ERROR_MESSAGE_LABEL = "Incorrect label found correct is- Incorrect planned start time. It should be greater than 3 minutes from Current time.";
 		
 		//Operation Tier dropdowns
 		public static final String ELEMENT_DROP_DOWN_OPCAT_TIER1_1 = "Shift";
@@ -177,14 +190,7 @@ public interface FieldEngineerAppConstants {
 		public static final String ELEMENT_JOB_ID="Job ID";
 		public static final String ELEMENT_Activity_ID="Activity Id";
 		public static final String ELEMENT_BUTTON_ACTION="com.colt.coltengineering:id/btn_open_actions";
-		
-		
-		
-		
-		
-		
-		
-		
+			
 		//Single Task Details Page Error messages
 		public static final String ERROR_MESSAGE_EMPTY_JOB_ID="Job ID Field is empty";
 		public static final String ERROR_MESSAGE_EMPTY_ACTIVITY_ID="Job ID Field is empty";
@@ -202,6 +208,11 @@ public interface FieldEngineerAppConstants {
 		public static final String ELEMENT_PLANNED_WORKS_DESCRIPTION_LABEL="Description";
 		public static final String ELEMENT_PLANNED_WORKS_IMAGE_OPTION="com.colt.coltengineering:id/img_option_icon";
 		public static final String ELEMENT_PLANNED_ID_TITLE="com.colt.coltengineering:id/id_title";
+		
+		//Constants for prop file
+		public static final String ELEMENT_TRUE="true";
+		public static final String ELEMENT_RECORDING_NEEDED="recordingNeeded";
+		
 		
 
 		

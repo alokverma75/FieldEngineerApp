@@ -2,7 +2,7 @@ package com.colt.fieldengineerapp.base;
 
 /*
  * 
- * @author Alok Verma
+ *@author Alok Verma
  */
 
 import java.io.File;
@@ -52,7 +52,7 @@ import io.appium.java_client.touch.offset.ElementOption;
 import io.appium.java_client.touch.offset.PointOption;
 
 public class TestBase implements FieldEngineerAppConstants, PlannedWorksPageErrorMessages, AlertMessagesRaisePlanWork,
-		ActionsPageConstants {
+		ActionsPageConstants,ConfirmPageConstants, OpenDrawerAndSettingsPageConstants {
 
 	public static AndroidDriver<AndroidElement> driver;
 	private static DesiredCapabilities cap = new DesiredCapabilities();
@@ -153,7 +153,6 @@ public class TestBase implements FieldEngineerAppConstants, PlannedWorksPageErro
 
 		cap.setCapability(MobileCapabilityType.DEVICE_NAME, device);
 		cap.setCapability(MobileCapabilityType.APP, USRDIR + prop.getProperty("app"));
-		cap.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT,14);
 		cap.setCapability(AndroidMobileCapabilityType.AVD, prop.getProperty("avdName"));
 		cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, prop.getProperty("automationName"));
 		cap.setCapability(MobileCapabilityType.PLATFORM_NAME, prop.getProperty("platformName"));

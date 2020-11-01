@@ -50,6 +50,20 @@
 		</classes>
 
 	</test> <!-- Test -->
-	
+	<test thread-count="5" name="OpenDrawerPageTest">
+		
+		<classes>		
+			<class name="com.colt.fieldengineerapp.testcases.OpenDrawerPageTest" />
+		</classes>
+
+	</test> <!-- Test -->
+	<test thread-count="5" name="SettingsPageTest">
+		
+		<classes>		
+			<class name="com.colt.fieldengineerapp.testcases.SettingsrPageTest" />
+		</classes>
+
+	</test> <!-- Test -->
+
 	
 </suite> <!-- Suite -->

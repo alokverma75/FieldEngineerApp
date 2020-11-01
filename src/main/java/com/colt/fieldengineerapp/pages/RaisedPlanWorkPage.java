@@ -194,6 +194,11 @@ public class RaisedPlanWorkPage extends TestBase {
 	@AndroidFindBy(id = "com.colt.coltengineering:id/spin_operational_tier_3")
 	private AndroidElement opertaionalCatTier3DropDown;
 	
+	@AndroidFindBy(uiAutomator = "text(\"Incorrect Start Planned Date. It should be greater than 3 minutes from Current time.\")")
+	private AndroidElement inavlalidDateLabel;
+	
+	@AndroidFindBy(uiAutomator = "text(\"Incorrect planned start time. It should be greater than 3 minutes from Current time.\")")
+	private AndroidElement inavlalidPlannedStartTime;
 	
 		
 	//Page 6 Product Tier
@@ -218,12 +223,30 @@ public class RaisedPlanWorkPage extends TestBase {
 	@AndroidFindBy(uiAutomator = "text(\"Submit\")")
 	private AndroidElement finalSubmitButton;
 	
+	@AndroidFindBy(uiAutomator = "text(\"Incorrect End Planned Date. It should be greater than Start Planned Date.\")")
+	private AndroidElement errorLabel;
 	
+
 	@AndroidFindBy(id = "android:id/toggle_mode")
 	private AndroidElement dateToggleButton;
+	
+	
+
+	public AndroidElement getInavlalidPlannedStartTime() {
+		return inavlalidPlannedStartTime;
+	}
+
+
+	public AndroidElement getErrorLabel() {
+		return errorLabel;
+	}
 
 	
-	
+	public AndroidElement getInavlalidDateLabel() {
+		return inavlalidDateLabel;
+	}
+
+
 	public AndroidElement getDateToggleButton() {
 		return dateToggleButton;
 	}

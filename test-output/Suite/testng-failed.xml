@@ -5,16 +5,28 @@
     <listener class-name="com.colt.fieldengineerapp.base.TestCaseListener"/>
     <listener class-name="com.colt.fieldengineerapp.reporting.ExtentReporterNG"/>
   </listeners>
-  <test thread-count="5" name="RaisePlanwork(failed)">
+  <test thread-count="5" name="OpenDrawerPageTest(failed)">
     <classes>
-      <class name="com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks">
+      <class name="com.colt.fieldengineerapp.testcases.OpenDrawerPageTest">
         <methods>
-          <include name="startServices"/>
-          <include name="endToEndTestForRaisePlanWork"/>
+          <include name="openDrawerPageTest"/>
           <include name="setUp"/>
+          <include name="startServices"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks -->
+      </class> <!-- com.colt.fieldengineerapp.testcases.OpenDrawerPageTest -->
     </classes>
-  </test> <!-- RaisePlanwork(failed) -->
+  </test> <!-- OpenDrawerPageTest(failed) -->
+  <test thread-count="5" name="SettingsPageTest(failed)">
+    <classes>
+      <class name="com.colt.fieldengineerapp.testcases.SettingsrPageTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="settingsPageTest"/>
+          <include name="tearDown"/>
+          <include name="startServices"/>
+        </methods>
+      </class> <!-- com.colt.fieldengineerapp.testcases.SettingsrPageTest -->
+    </classes>
+  </test> <!-- SettingsPageTest(failed) -->
 </suite> <!-- Failed suite [Suite] -->

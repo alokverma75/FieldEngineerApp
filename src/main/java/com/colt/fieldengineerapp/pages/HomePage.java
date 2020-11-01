@@ -11,6 +11,9 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 public class HomePage extends TestBase {
 	
+	public HomePage(AndroidDriver<AndroidElement> driver) {
+		PageFactory.initElements(new AppiumFieldDecorator(driver, getDuration(30)), this);
+	}
 	
 	@AndroidFindBy(uiAutomator = "text(\"Tasks\")")
 	AndroidElement homePageTasksTitle;
@@ -31,10 +34,20 @@ public class HomePage extends TestBase {
 	@AndroidFindBy(id = "com.colt.coltengineering:id/img_option_icon")
 	AndroidElement raisePlanWorkIcon;
 	
-	public HomePage(AndroidDriver<AndroidElement> driver) {
-		PageFactory.initElements(new AppiumFieldDecorator(driver, getDuration(30)), this);
-	}
+	@AndroidFindBy(uiAutomator = "text(\"フィールド専門家\")") 
+	AndroidElement japaneseLanguaLabel;
 	
+	@AndroidFindBy(xpath = "//android.widget.ImageButton[@content-desc=\"Open navigation drawer\"]")
+	private AndroidElement drawerButton;
+
+	public AndroidElement getDrawerButton() {
+		return drawerButton;
+	}
+
+	public AndroidElement getJapaneseLanguaLabel() {
+		return japaneseLanguaLabel;
+	}
+
 	public AndroidElement getViewAllTasksBtn() {
 		return viewAllTasksBtn;
 	}

@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 
 import org.testng.Assert;
-import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
@@ -58,8 +57,22 @@ public class LoginPageTest extends TestBase {
 	//@Test(groups = {"smoke"})
 	@Test(dataProvider = "InputData", dataProviderClass = TestData.class)
 	public void loginTest(String userName, String password) throws MalformedURLException, IOException{				
+		if(prop.getProperty(ELEMENT_RECORDING_NEEDED) != null) {
+			if(prop.getProperty(ELEMENT_RECORDING_NEEDED).equals(ELEMENT_TRUE)) {
+				TestBase.startRecording(driver);
+			}
+		}
+
 		landingPage = loginPage.login(driver, prop.getProperty("userID"), prop.getProperty("password"));
-		Assert.assertNotNull(landingPage);		
+		Assert.assertNotNull(landingPage);
+		
+		if(prop.getProperty(ELEMENT_RECORDING_NEEDED) != null) {
+			if(prop.getProperty(ELEMENT_RECORDING_NEEDED).equals(ELEMENT_TRUE)) {
+				TestBase.SaveRecording(driver, this.getClass().getSimpleName(),new Throwable().getStackTrace()[0].getMethodName());
+			}
+			
+		}
+
 	}	
 	
 	//@Test(dataProvider = "getData")
@@ -88,7 +101,11 @@ public class LoginPageTest extends TestBase {
 	@AfterTest(alwaysRun = true)
 	public void tearDown() throws IOException, InterruptedException {
 		System.out.println("Tearing  down == " +this.getClass().getName());
-		TestBase.stopAppiumServer();		
+		TestBase.shutDownAVD();
+		Thread.sleep(3000);
+		//System.out.println("Tearing  down == " +this.getClass().getName());
+		//TestBase.stopAppiumServer();
+		//Thread.sleep(5000);
 	}
 
 

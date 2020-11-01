@@ -5,7 +5,7 @@ import java.net.MalformedURLException;
 import java.util.List;
 import java.util.Map;
 
-
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
@@ -43,7 +43,7 @@ public class EndToEndTestForRaisePlannedWorks extends TestBase {
 	@BeforeTest(alwaysRun = true)
 	public void startServices() throws IOException, InterruptedException {
 		TestBase.startAVD();
-		Thread.sleep(8000);
+		Thread.sleep(12000);
 		System.out.println("Starting Appium == " +this.getClass().getName());
 		TestBase.startAppiumServer();
 				
@@ -62,8 +62,11 @@ public class EndToEndTestForRaisePlannedWorks extends TestBase {
 	@Test(dataProvider = "TextFieldsData", dataProviderClass = TestData.class)
 	public void endToEndTestForRaisePlanWork(String siteAddress, String orderNumber, String inputTextField,String templateName) throws MalformedURLException, IOException {
 		
-		if(prop.getProperty("recordingNeeded").equals("true")) {
-		TestBase.startRecording(driver);
+		if(prop.getProperty(ELEMENT_RECORDING_NEEDED) != null) {
+			if(prop.getProperty(ELEMENT_RECORDING_NEEDED).equals(ELEMENT_TRUE)) {
+				TestBase.startRecording(driver);
+			}
+			
 		}
 		landingPage = loginPage.login(driver, prop.getProperty("userID"), prop.getProperty("password"));
 		landingPage.getContinueBtn().click();
@@ -138,13 +141,54 @@ public class EndToEndTestForRaisePlannedWorks extends TestBase {
 		Map<String,Integer> dateMap = raisedPlannedWorkPage.timeDateMapAsPerTimezone(timeZoneID);
 		System.out.println(" Current day in dd is "+ dateMap.get(ELEMENT_DAY_KEY));
 		
+		
 		int currentDate = dateMap.get(ELEMENT_DAY_KEY).intValue();
+		
+		//check if we can set date previous to current
+		if((currentDate-1) != 0) {
+		 raisedPlannedWorkPage.moveToScrollToElement(driver, String.valueOf(currentDate-1)).perform();
+		raisedPlannedWorkPage.getOkBtn().click();
+		raisedPlannedWorkPage.getOkBtn().click();
+		
+		//Alert alertBackDate = driver.switchTo().alert();
+		String errorMessage = raisedPlannedWorkPage.getInavlalidDateLabel().getText();
+		Assert.assertEquals(errorMessage, START_DATE_ERROR_MESSAGE, START_DATE_ERROR_MESSAGE_Label);
+		raisedPlannedWorkPage.getOkBtn().click();
+
+		raisedPlannedWorkPage.getPlannedStartDateSelector().click();
+		raisedPlannedWorkPage.getZoneGMTBtn().click();
+		
+		
+		//check if we can set date previous to current
+		raisedPlannedWorkPage.moveToScrollToElement(driver, String.valueOf(currentDate)).perform();
+		raisedPlannedWorkPage.getOkBtn().click();
+		raisedPlannedWorkPage.getOkBtn().click();
+		
+		
+		String errorTime = raisedPlannedWorkPage.getInavlalidDateLabel().getText();
+		Assert.assertEquals(errorTime, START_DATE_ERROR_MESSAGE, START_DATE_ERROR_MESSAGE_Label);
+		raisedPlannedWorkPage.getOkBtn().click();
+		raisedPlannedWorkPage.getPlannedStartDateSelector().click();
+		raisedPlannedWorkPage.getZoneGMTBtn().click();
+
+		}
+		
+
+		//To take care or corner cases as calendar next button is not working so adjusting last month dates			
+		if(currentDate  == 30 || currentDate == 31 || currentDate == 28 || currentDate == 29) {
+			currentDate = currentDate + 0 ;
+		}else {
+			currentDate = currentDate + 1;
+		}		
 						
 		raisedPlannedWorkPage.moveToScrollToElement(driver, String.valueOf(currentDate)).perform();
 		raisedPlannedWorkPage.getOkBtn().click();
 		
+		
 		//Using other keyboard with edit text to enter time
 		raisedPlannedWorkPage.getDateToggleButton().click();
+		
+		
 		
 		int hourCurrent = dateMap.get(ELEMENT_HOUR_KEY).intValue();
 		int hourToBeSet = hourCurrent + 2;
@@ -179,9 +223,9 @@ public class EndToEndTestForRaisePlannedWorks extends TestBase {
 		System.out.println("Current APPM Value is "+currentAMPMValue);
 		
 		if(currentAMPMValue.equals(ELEMENT_PM)) {
-			setTimePage.moveToScrollToElement(driver, ELEMENT_AM);
-		}else {
 			setTimePage.moveToScrollToElement(driver, ELEMENT_PM);
+		}else {
+			setTimePage.moveToScrollToElement(driver, ELEMENT_AM);
 		}
 		
 		setTimePage.getOkButton().click();
@@ -189,26 +233,68 @@ public class EndToEndTestForRaisePlannedWorks extends TestBase {
 		System.out.println("plannedStartTextField "+plannedStartTextField);
 		
 		
-		//for end date
+		//for end date check and try to set to previous date 
+		if(currentDate-1 != 0) {
 		raisedPlannedWorkPage.getPlannedEndDateSelector().click();
-		int nextDatePlusTwo = currentDate+2;
 		
-		if(nextDatePlusTwo > 31) {
-			nextDatePlusTwo = 31;
+		raisedPlannedWorkPage.moveToScrollToElement(driver, String.valueOf(currentDate-1)).perform();
+		raisedPlannedWorkPage.getOkBtn().click();
+		raisedPlannedWorkPage.getOkBtn().click();
+		//Alert alertBackDate = driver.switchTo().alert();
+		String errorMessageEnd = raisedPlannedWorkPage.getErrorLabel().getText();
+		Assert.assertEquals(errorMessageEnd, ERROR_MESSAGE_END_DATE, ERROR_MESSAGE_END_DATE_LABEL);
+		raisedPlannedWorkPage.getOkBtn().click();
+		String errorMessageEndDate = raisedPlannedWorkPage.getErrorLabel().getText();
+		Assert.assertEquals(errorMessageEndDate, ERROR_MESSAGE_END_DATE, ERROR_MESSAGE_END_DATE_LABEL);
+		raisedPlannedWorkPage.getOkBtn().click();
 		}
-							
-		raisedPlannedWorkPage.moveToScrollToElement(driver, String.valueOf(nextDatePlusTwo)).perform();
+		//alertBackDate.accept();
+		
+		raisedPlannedWorkPage.getPlannedEndDateSelector().click();				
+		raisedPlannedWorkPage.moveToScrollToElement(driver, String.valueOf(currentDate)).perform();
 		raisedPlannedWorkPage.getOkBtn().click();
 		
-		//set to a particular hour and time
-		raisedPlannedWorkPage.getHourActionSwipe(driver, ELEMENT_CLOCK_DIGIT_HOUR_SEVEN_END).perform();
-		raisedPlannedWorkPage.getMinuteActionSwipeTo(driver, ELEMENT_CLOCK_MINUTE_TWENTY_END);
-		raisedPlannedWorkPage.getOkBtn().click();
+		raisedPlannedWorkPage.getDateToggleButton().click();
 		
-		String plannedEndTextField = raisedPlannedWorkPage.getPlannedEndTextField().getText();
-		System.out.println("plannedEndTextField "+plannedEndTextField);
-		String backOutTextField = raisedPlannedWorkPage.getBackoutStartTextField().getText();
-		System.out.println("backOutTextField "+backOutTextField);
+		int hourCurrentEnd = dateMap.get(ELEMENT_HOUR_KEY).intValue();
+		int hourToBeSetEnd = hourCurrentEnd + 2;
+		System.out.println(" hourToBeSetEnd "+ hourToBeSetEnd);
+		
+		if(hourToBeSet > 12) {
+			hourToBeSet = 1;
+		}else if(hourToBeSet == 12) {
+			hourToBeSet = 12;
+		}
+		
+		setTimePage.getInPutHourTextField().clear();
+		setTimePage.getInPutHourTextField().sendKeys(String.valueOf(hourToBeSet));
+		System.out.println(" setTimePage hour "+ setTimePage.getInPutHourTextField().getText());
+		
+		int minutesCurrentEnd = dateMap.get(ELEMENT_MINUTE_KEY).intValue();
+		int minutesToBeSetEnd = minutesCurrentEnd + 40;
+		
+		if(minutesToBeSetEnd > 60) {
+			minutesToBeSetEnd = 10;
+		}else if(minutesToBeSetEnd == 60) {
+			minutesToBeSetEnd = 60;
+		}
+		
+		setTimePage.getInPutMinuteTextField().clear();
+		setTimePage.getInPutMinuteTextField().sendKeys(String.valueOf(minutesToBeSetEnd));
+		
+		System.out.println(" setTimePage minutes "+ setTimePage.getInPutMinuteTextField().getText());
+		String currentAMPMValueEnd = setTimePage.getCurrentAMPMValue().getText();
+		setTimePage.getAmPMDropDown().click();		
+		
+		System.out.println("Current APPM Value is "+currentAMPMValue);
+		
+		if(currentAMPMValueEnd.equals(ELEMENT_PM)) {
+			setTimePage.moveToScrollToElement(driver, ELEMENT_PM);
+		}else {
+			setTimePage.moveToScrollToElement(driver, ELEMENT_AM);
+		}
+		
+		setTimePage.getOkButton().click();
 		
 		raisedPlannedWorkPage.getNextBtn().click();
 		
@@ -255,8 +341,11 @@ public class EndToEndTestForRaisePlannedWorks extends TestBase {
 		confirmPage.getOkButtonForCongratsPopUp().click();	
 		
 		
-		if(prop.getProperty("recordingNeeded").equals("true")) {
-			TestBase.SaveRecording(driver, this.getClass().getSimpleName(),new Throwable().getStackTrace()[0].getMethodName());
+		if(prop.getProperty(ELEMENT_RECORDING_NEEDED) != null) {
+			if(prop.getProperty(ELEMENT_RECORDING_NEEDED).equals(ELEMENT_TRUE)) {
+				TestBase.SaveRecording(driver, this.getClass().getSimpleName(),new Throwable().getStackTrace()[0].getMethodName());
+			}
+			
 		}
 		
 	}
@@ -265,10 +354,11 @@ public class EndToEndTestForRaisePlannedWorks extends TestBase {
 
 	@AfterTest(alwaysRun = true)
 	public void tearDown() throws IOException, InterruptedException {
+		System.out.println("Tearing  down AVD== " +this.getClass().getName());
 		TestBase.shutDownAVD();
 		Thread.sleep(3000);
-		System.out.println("Tearing  down == " +this.getClass().getName());
-		//TestBase.stopAppiumServer();
+		System.out.println("Tearing  down Appium== " +this.getClass().getName());
+		TestBase.stopAppiumServer();
 		Thread.sleep(5000);
 	}
 

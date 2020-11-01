@@ -5,7 +5,6 @@ import java.net.MalformedURLException;
 import java.util.List;
 
 import org.testng.Assert;
-import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
@@ -40,7 +39,7 @@ public class EndToEndTestForSingleTaskView extends TestBase {
 	@BeforeTest(alwaysRun = true)
 	public void startServices() throws IOException, InterruptedException {
 		TestBase.startAVD();
-		Thread.sleep(8000);
+		Thread.sleep(12000);
 		System.out.println("Starting Appium == " +this.getClass().getName());
 		TestBase.startAppiumServer();
 				
@@ -62,13 +61,12 @@ public class EndToEndTestForSingleTaskView extends TestBase {
 
 	@Test
 	public void endToEndTestTillSingleTaskView() throws MalformedURLException, IOException {
-		if(prop.getProperty("recordingNeeded").equals("true")) {
-			TestBase.startRecording(driver);
+		if(prop.getProperty(ELEMENT_RECORDING_NEEDED) != null) {
+			if(prop.getProperty(ELEMENT_RECORDING_NEEDED).equals(ELEMENT_TRUE)) {
+				TestBase.startRecording(driver);
 			}
-//		landingPage = loginPage.login(driver, prop.getProperty("userID"), prop.getProperty("password"));
-//		landingPage.getContinueBtn().click();
-//		homePage.getViewAllTasksBtn().click();
-//		allTasksListPage.getViewTaskBtn().click();
+			
+		}
 		String label = singleTaskDetailsPage.getOrderNumberLabel().getText();
 		System.out.println("Label is " + label);
 
@@ -78,10 +76,6 @@ public class EndToEndTestForSingleTaskView extends TestBase {
 		}
 
 		// ScrollTo Job status kept as reference as both methods will work
-		//singleTaskDetailsPage.moveToScrollToElement(driver, ELEMENT_JOB_STATUS).perform();
-
-		//String labelCustomer = singleTaskDetailsPage.getJobStatusLabel().getText();
-		
 		String labelJobStatus = singleTaskDetailsPage.scrollToElement(driver, ELEMENT_JOB_STATUS).getText();
 		System.out.println("Label is " + labelJobStatus);
 
@@ -91,9 +85,6 @@ public class EndToEndTestForSingleTaskView extends TestBase {
 		}
 
 		// ScrollTo PLanned Start Date
-		//singleTaskDetailsPage.moveToScrollToElement(driver, ELEMENT_PLANNED_START_DATE).perform();
-
-		//String labelPlannedStartDate = singleTaskDetailsPage.getPlannedStartLabel().getText();
 		String labelPlannedStartDate = singleTaskDetailsPage.scrollToElement(driver, ELEMENT_PLANNED_START_DATE).getText();
 		System.out.println("Label is " + labelPlannedStartDate);
 
@@ -103,9 +94,6 @@ public class EndToEndTestForSingleTaskView extends TestBase {
 		}
 		
 		// ScrollTo CPD
-		//singleTaskDetailsPage.moveToScrollToElement(driver, ELEMENT_CPD).perform();
-
-		//String labelCPD = singleTaskDetailsPage.getCpdLabel().getText();
 		String labelCPD = singleTaskDetailsPage.scrollToElement(driver, ELEMENT_CPD).getText();
 		System.out.println("Label is " + labelCPD);
 
@@ -115,9 +103,6 @@ public class EndToEndTestForSingleTaskView extends TestBase {
 		}
 
 		// ScrollTo Job Remarks
-		//singleTaskDetailsPage.moveToScrollToElement(driver, ELEMENT_JOB_REMARKS).perform();
-
-		//String labelJobRemarks = singleTaskDetailsPage.getJobRemarksLabel().getText();
 		String labelJobRemarks =  singleTaskDetailsPage.scrollToElement(driver, ELEMENT_JOB_REMARKS).getText();
 		System.out.println("Label is " + labelJobRemarks);
 
@@ -129,10 +114,6 @@ public class EndToEndTestForSingleTaskView extends TestBase {
 
 		// Now scroll to end element and capture values of all elements on screen view 
 
-		//singleTaskDetailsPage.moveToScrollToElement(driver, ELEMENT_COOP_TECH_MAIL).perform();
-
-		//String labelCoopTech = singleTaskDetailsPage.getCoopTechEmailLabel().getText();
-		
 		String labelCoopTech = singleTaskDetailsPage.scrollToElement(driver, ELEMENT_COOP_TECH_MAIL).getText();
 		System.out.println("Label is " + labelCoopTech);
 
@@ -141,8 +122,11 @@ public class EndToEndTestForSingleTaskView extends TestBase {
 			System.out.println(" element at" + i + "th Index is " + listofTextView.get(i).getText());
 		}
 		
-		if(prop.getProperty("recordingNeeded").equals("true")) {
-			TestBase.SaveRecording(driver, this.getClass().getSimpleName(),new Throwable().getStackTrace()[0].getMethodName());
+		if(prop.getProperty(ELEMENT_RECORDING_NEEDED) != null) {
+			if(prop.getProperty(ELEMENT_RECORDING_NEEDED).equals(ELEMENT_TRUE)) {
+				TestBase.SaveRecording(driver, this.getClass().getSimpleName(),new Throwable().getStackTrace()[0].getMethodName());
+			}
+			
 		}
 
 	}
@@ -192,8 +176,12 @@ public class EndToEndTestForSingleTaskView extends TestBase {
 
 	@AfterTest(alwaysRun = true)
 	public void tearDown() throws IOException, InterruptedException {
-		System.out.println("Tearing  down == " +this.getClass().getName());
-		TestBase.stopAppiumServer();		
+		System.out.println("Tearing  down AVD== " +this.getClass().getName());
+		TestBase.shutDownAVD();
+		Thread.sleep(3000);
+		System.out.println("Tearing  down Appium== " +this.getClass().getName());
+		TestBase.stopAppiumServer();
+		Thread.sleep(5000);
 	}
 
 

@@ -6,7 +6,6 @@ import java.net.MalformedURLException;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -43,22 +42,35 @@ public class LandingPageTest extends TestBase {
 	}
 	
 	@Test(priority=1)
-	public void homePageTasksTitleTest() throws MalformedURLException, IOException{
+	public void landingPageTest() throws MalformedURLException, IOException{
+		if(prop.getProperty(ELEMENT_RECORDING_NEEDED) != null) {
+			if(prop.getProperty(ELEMENT_RECORDING_NEEDED).equals(ELEMENT_TRUE)) {
+				TestBase.startRecording(driver);
+			}
+			
+		}
+
 		landingPage.getContinueBtn().click();		
-		boolean hasTasksTitle = homePage.validateHomePageTitle(ELEMENT_HOMEPAGE_LABEL);
-		Assert.assertTrue(hasTasksTitle);
-	}
-	
-	@Test
-	public void continueTest() throws MalformedURLException, IOException{
-		landingPage.getContinueBtn().click();
-		boolean pageHasTitle = homePage.validateHomePageTitle(ELEMENT_HOMEPAGE_LABEL);
-		Assert.assertTrue(pageHasTitle);
+		String homepagesTitle = homePage.getHomePageTasksTitle().getText();
+		Assert.assertEquals(homepagesTitle, ELEMENT_HOMEPAGE_LABEL,ELEMENT_HOMEPAGE_LABEL_MSG );
+
+		if(prop.getProperty(ELEMENT_RECORDING_NEEDED) != null) {
+			if(prop.getProperty(ELEMENT_RECORDING_NEEDED).equals(ELEMENT_TRUE)) {
+				TestBase.SaveRecording(driver, this.getClass().getSimpleName(),new Throwable().getStackTrace()[0].getMethodName());
+			}
+			
+		}
+
+
 	}
 	@AfterTest(alwaysRun = true)
 	public void tearDown() throws IOException, InterruptedException {
 		System.out.println("Tearing  down == " +this.getClass().getName());
-		TestBase.stopAppiumServer();		
+		TestBase.shutDownAVD();
+		Thread.sleep(3000);
+		//System.out.println("Tearing  down == " +this.getClass().getName());
+		//TestBase.stopAppiumServer();
+		//Thread.sleep(5000);
 	}
 
 

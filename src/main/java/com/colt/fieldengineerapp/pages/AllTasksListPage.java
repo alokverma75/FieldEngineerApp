@@ -20,19 +20,9 @@ public class AllTasksListPage extends TestBase {
 		return viewTaskBtn;
 	}
 
-
-
-
-
-
 	public AllTasksListPage(AndroidDriver<AndroidElement> driver) {
 		PageFactory.initElements(new AppiumFieldDecorator(driver, getDuration(30)), this);
 	}
 	
 	
-
-
-
-	
-
 }

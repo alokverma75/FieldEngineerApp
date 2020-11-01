@@ -382,7 +382,11 @@ public class ConfirmPage extends TestBase {
 		return okButton;
 	}
 	
-	
-	
+	//We can scroll to element without tap option
+	public AndroidElement scrollToElement(AndroidDriver<AndroidElement> driver, String elementTextScrollTo) {
+		return TestBase.getElementByAutomatorForScroll(driver, elementTextScrollTo);
+
+	}
+
 
 }

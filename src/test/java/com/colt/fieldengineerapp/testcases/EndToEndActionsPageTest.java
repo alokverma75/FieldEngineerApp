@@ -5,7 +5,6 @@ import java.net.MalformedURLException;
 import java.util.List;
 import java.util.Map;
 
-import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
@@ -44,7 +43,7 @@ public class EndToEndActionsPageTest extends TestBase {
 	@BeforeTest(alwaysRun = true)
 	public void startServices() throws IOException, InterruptedException {
 		TestBase.startAVD();
-		Thread.sleep(8000);
+		Thread.sleep(12000);
 		System.out.println("Starting Appium == " +this.getClass().getName());
 		TestBase.startAppiumServer();
 				
@@ -63,7 +62,7 @@ public class EndToEndActionsPageTest extends TestBase {
 		landingPage = loginPage.login(driver, prop.getProperty("userID"), prop.getProperty("password"));
 		landingPage.getContinueBtn().click();
 		homePage.getViewAllTasksBtn().click();
-		allTasksListPage.getViewTaskBtn().click();
+		
 
 	}
 
@@ -71,17 +70,19 @@ public class EndToEndActionsPageTest extends TestBase {
 	
 	@Test
 	public void testNonNullJobRemarksdField() throws InterruptedException, IOException {
-		if(prop.getProperty("recordingNeeded").equals("true")) {
-			TestBase.startRecording(driver);
+		if(prop.getProperty(ELEMENT_RECORDING_NEEDED) != null) {
+			if(prop.getProperty(ELEMENT_RECORDING_NEEDED).equals(ELEMENT_TRUE)) {
+				TestBase.startRecording(driver);
 			}
+			
+		}
+		allTasksListPage.getViewTaskBtn().click();
 		//singleTaskDetailsPage.scrollToElement(driver, ELEMENT_JOB_REMARKS);
   	    singleTaskDetailsPage.getOpenActionsBtn().click();  	    
   	    actionsPage.getEstimatedTimeToReachButton().click();
   	    setTimePage.getDateToggleButton().click();
   	    
-  	    //actionsPage.getHourActionSwipe(driver, ELEMENT_CLOCK_DIGIT_HOUR_SEVEN_END);
-  	   //actionsPage.getMinuteActionSwipeTo(driver, ELEMENT_CLOCK_MINUTE_TWENTY_END);
-  	    Map<String,Integer> dateMap = actionsPage.timeDateMapAsPerTimezone("BST");
+   	    Map<String,Integer> dateMap = actionsPage.timeDateMapAsPerTimezone("BST");
 		System.out.println(" Current day in dd is "+ dateMap.get(ELEMENT_DAY_KEY));
 		
     	int hourCurrent = dateMap.get(ELEMENT_HOUR_KEY).intValue();
@@ -124,16 +125,22 @@ public class EndToEndActionsPageTest extends TestBase {
 		}
 		
 		setTimePage.getOkButton().click();
-		if(prop.getProperty("recordingNeeded").equals("true")) {
-			TestBase.SaveRecording(driver, this.getClass().getSimpleName(),new Throwable().getStackTrace()[0].getMethodName());
+		if(prop.getProperty(ELEMENT_RECORDING_NEEDED) != null) {
+			if(prop.getProperty(ELEMENT_RECORDING_NEEDED).equals(ELEMENT_TRUE)) {
+				TestBase.SaveRecording(driver, this.getClass().getSimpleName(),new Throwable().getStackTrace()[0].getMethodName());
+			}
+			
 		}
-		
-		}
+	}
 
 	@AfterTest(alwaysRun = true)
 	public void tearDown() throws IOException, InterruptedException {
 		System.out.println("Tearing  down == " +this.getClass().getName());
-		TestBase.stopAppiumServer();		
+		TestBase.shutDownAVD();
+		Thread.sleep(3000);
+		System.out.println("Tearing  down Appium == " +this.getClass().getName());
+		TestBase.stopAppiumServer();
+		Thread.sleep(5000);
 	}
 
 }

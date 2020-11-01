@@ -3,9 +3,10 @@ package com.colt.fieldengineerapp.testcases;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.List;
+import java.util.Map;
+
 import org.openqa.selenium.Alert;
 import org.testng.Assert;
-import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
@@ -18,6 +19,8 @@ import com.colt.fieldengineerapp.pages.LandingPage;
 import com.colt.fieldengineerapp.pages.LoginPage;
 import com.colt.fieldengineerapp.pages.RaisePlanWorkWarningAlerts;
 import com.colt.fieldengineerapp.pages.RaisedPlanWorkPage;
+import com.colt.fieldengineerapp.pages.SetTimePage;
+
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 
@@ -28,6 +31,7 @@ public class ErrorPopupsRaisePlannedWorksTest extends TestBase {
 	HomePage homePage;
 	RaisedPlanWorkPage raisedPlannedWorkPage;
 	RaisePlanWorkWarningAlerts raisePlanWorkWarningAlerts;
+	SetTimePage setTimePage;
 	ConfirmPage confirmPage;
 	AndroidDriver<AndroidElement> driver;
 	List<AndroidElement> listofTextView;
@@ -41,7 +45,7 @@ public class ErrorPopupsRaisePlannedWorksTest extends TestBase {
 	@BeforeTest(alwaysRun = true)
 	public void startServices() throws IOException, InterruptedException {
 		TestBase.startAVD();
-		Thread.sleep(8000);
+		Thread.sleep(12000);
 		System.out.println("Starting Appium == " +this.getClass().getName());
 		TestBase.startAppiumServer();
 				
@@ -53,6 +57,7 @@ public class ErrorPopupsRaisePlannedWorksTest extends TestBase {
 		loginPage = new LoginPage(driver);
 		homePage = new HomePage(driver);
 		raisedPlannedWorkPage = new RaisedPlanWorkPage(driver);
+		setTimePage = new SetTimePage(driver);
 		landingPage = loginPage.login(driver, prop.getProperty("userID"), prop.getProperty("password"));
 		raisePlanWorkWarningAlerts = new RaisePlanWorkWarningAlerts(driver);
 		confirmPage = new ConfirmPage(driver);
@@ -144,7 +149,12 @@ public class ErrorPopupsRaisePlannedWorksTest extends TestBase {
 	
 	@Test
 	public void alertsRaisePlanWorkPlannedScheduleStep() throws MalformedURLException, IOException, InterruptedException {
-		TestBase.startRecording(driver);
+		if(prop.getProperty(ELEMENT_RECORDING_NEEDED) != null) {
+			if(prop.getProperty(ELEMENT_RECORDING_NEEDED).equals(ELEMENT_TRUE)) {
+				TestBase.startRecording(driver);
+			}
+			
+		}
 		
 		landingPage.getContinueBtn().click();
 		homePage.getRaisePlanWork().click();
@@ -175,17 +185,7 @@ public class ErrorPopupsRaisePlannedWorksTest extends TestBase {
 		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_CHANGE_DESCRIPTION_DROPDOWN_1).perform();
 		raisedPlannedWorkPage.getNextBtn().click();
 		
-//		landingPage.getContinueBtn().click();
-//		homePage.getRaisePlanWork().click();
-//		raisedPlannedWorkPage.getTemplateDropDown().click();
-//		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_TEMPLATE_DROPDOWN_2).perform();
-//		raisedPlannedWorkPage.getCategoryDropDown().click();
-//		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_CATEGORY_DROPDOWN_1).perform();		
-//		raisedPlannedWorkPage.getChangeDescriptionDropDown().click();
-//		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_CHANGE_DESCRIPTION_DROPDOWN_1).perform();
-//		raisedPlannedWorkPage.getNextBtn().click();
-		
-		//First Alert for Location Tier1
+	//First Alert for Location Tier1
 		raisedPlannedWorkPage.getNextBtn().click();//try to move without selecting location tier1
 		TestBase.wait(driver, 20);
 		Alert alertLocTier1 = driver.switchTo().alert();
@@ -217,15 +217,9 @@ public class ErrorPopupsRaisePlannedWorksTest extends TestBase {
 		TestBase.wait(driver, 20);
 		String emptySiteAddressLabel = raisePlanWorkWarningAlerts.getEmptySiteAddressLabel().getText();
 		Assert.assertEquals(emptySiteAddressLabel, ERROR_MESSAGE_EMPTY_SITE_ADDRESS);		
-		alertSiteAddress.accept();
-		
-		
+		alertSiteAddress.accept();		
 		
 		//Location Tier
-//		raisedPlannedWorkPage.getLocationDetailsTier1DropDown().click();
-//		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_LOCATION_TIER1_DROPDOWN_22).perform();
-//		raisedPlannedWorkPage.getLocationDetailsTier2DropDown().click();
-//		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_LOCATION_TIER2_DROPDOWN_2).perform();
 		raisedPlannedWorkPage.getSiteAddressTextField().sendKeys("12345");
 		raisedPlannedWorkPage.getNextBtn().click();
 
@@ -233,26 +227,112 @@ public class ErrorPopupsRaisePlannedWorksTest extends TestBase {
 		//Planned Schedule
 		
 		raisedPlannedWorkPage.getPlannedStartDateSelector().click();
+		String timeZoneID = raisedPlannedWorkPage.getZoneGMTBtn().getText(); 
 		raisedPlannedWorkPage.getZoneGMTBtn().click();
+		Map<String,Integer> dateMap = raisedPlannedWorkPage.timeDateMapAsPerTimezone(timeZoneID);
+		int currentDate = dateMap.get(ELEMENT_DAY_KEY).intValue();
 		
-		int currentDate = Integer.parseInt(raisedPlannedWorkPage.getDateAsPerPattern("dd"));
-		raisedPlannedWorkPage.moveToScrollToElement(driver, String.valueOf(currentDate+1)).perform();
+		//To take care or corner cases as calendar next button is not working so adjusting last month dates		
+		if(currentDate  == 30 || currentDate == 31 || currentDate == 28 || currentDate == 29) {
+			currentDate = currentDate + 0 ;
+		}else {
+			currentDate = currentDate + 1;
+		}		
+						
+		raisedPlannedWorkPage.moveToScrollToElement(driver, String.valueOf(currentDate)).perform();
 		raisedPlannedWorkPage.getOkBtn().click();
 		
-		raisedPlannedWorkPage.getHourActionSwipe(driver, ELEMENT_CLOCK_DIGIT_NINE).perform();
-		raisedPlannedWorkPage.getMinuteActionSwipeTo(driver, ELEMENT_CLOCK_MINUTE_FORTY_FIVE);
+		
+		//Using other keyboard with edit text to enter time
+		raisedPlannedWorkPage.getDateToggleButton().click();
+		
+		int hourCurrent = dateMap.get(ELEMENT_HOUR_KEY).intValue();
+		int hourToBeSet = hourCurrent + 2;
+		System.out.println(" hourToBeSet "+ hourToBeSet);
+		
+		if(hourToBeSet > 12) {
+			hourToBeSet = 1;
+		}else if(hourToBeSet == 12) {
+			hourToBeSet = 12;
+		}
+		
+		setTimePage.getInPutHourTextField().clear();
+		setTimePage.getInPutHourTextField().sendKeys(String.valueOf(hourToBeSet));
+		System.out.println(" setTimePage hour "+ setTimePage.getInPutHourTextField().getText());
+		
+		int minutesCurrent = dateMap.get(ELEMENT_MINUTE_KEY).intValue();
+		int minutesToBeSet = minutesCurrent + 40;
+		
+		if(minutesToBeSet > 60) {
+			minutesToBeSet = 10;
+		}else if(minutesToBeSet == 60) {
+			minutesToBeSet = 60;
+		}
+		
+		setTimePage.getInPutMinuteTextField().clear();
+		setTimePage.getInPutMinuteTextField().sendKeys(String.valueOf(minutesToBeSet));
+		
+		System.out.println(" setTimePage minutes "+ setTimePage.getInPutMinuteTextField().getText());
+		String currentAMPMValue = setTimePage.getCurrentAMPMValue().getText();
+		setTimePage.getAmPMDropDown().click();		
+		
+		System.out.println("Current APPM Value is "+currentAMPMValue);
+		
+		if(currentAMPMValue.equals(ELEMENT_PM)) {
+			setTimePage.moveToScrollToElement(driver, ELEMENT_PM);
+		}else {
+			setTimePage.moveToScrollToElement(driver, ELEMENT_AM);
+		}
+		
+		setTimePage.getOkButton().click();
+
+		
+		raisedPlannedWorkPage.getPlannedEndDateSelector().click();				
+		raisedPlannedWorkPage.moveToScrollToElement(driver, String.valueOf(currentDate)).perform();
 		raisedPlannedWorkPage.getOkBtn().click();
 		
-		//for end date
-		raisedPlannedWorkPage.getPlannedEndDateSelector().click();
-							
-		raisedPlannedWorkPage.moveToScrollToElement(driver, String.valueOf(currentDate+2)).perform();
-		raisedPlannedWorkPage.getOkBtn().click();
+		raisedPlannedWorkPage.getDateToggleButton().click();
 		
-		//set to a particular hour and time
-		raisedPlannedWorkPage.getHourActionSwipe(driver, ELEMENT_CLOCK_DIGIT_HOUR_SEVEN_END).perform();
-		raisedPlannedWorkPage.getMinuteActionSwipeTo(driver, ELEMENT_CLOCK_MINUTE_TWENTY_END);
-		raisedPlannedWorkPage.getOkBtn().click();
+		int hourCurrentEnd = dateMap.get(ELEMENT_HOUR_KEY).intValue();
+		int hourToBeSetEnd = hourCurrentEnd + 2;
+		System.out.println(" hourToBeSetEnd "+ hourToBeSetEnd);
+		
+		if(hourToBeSet > 12) {
+			hourToBeSet = 1;
+		}else if(hourToBeSet == 12) {
+			hourToBeSet = 12;
+		}
+		
+		setTimePage.getInPutHourTextField().clear();
+		setTimePage.getInPutHourTextField().sendKeys(String.valueOf(hourToBeSet));
+		System.out.println(" setTimePage hour "+ setTimePage.getInPutHourTextField().getText());
+		
+		int minutesCurrentEnd = dateMap.get(ELEMENT_MINUTE_KEY).intValue();
+		int minutesToBeSetEnd = minutesCurrentEnd + 40;
+		
+		if(minutesToBeSetEnd > 60) {
+			minutesToBeSetEnd = 10;
+		}else if(minutesToBeSetEnd == 60) {
+			minutesToBeSetEnd = 60;
+		}
+		
+		setTimePage.getInPutMinuteTextField().clear();
+		setTimePage.getInPutMinuteTextField().sendKeys(String.valueOf(minutesToBeSetEnd));
+		
+		System.out.println(" setTimePage minutes "+ setTimePage.getInPutMinuteTextField().getText());
+		String currentAMPMValueEnd = setTimePage.getCurrentAMPMValue().getText();
+		setTimePage.getAmPMDropDown().click();		
+		
+		System.out.println("Current APPM Value is "+currentAMPMValue);
+		
+		if(currentAMPMValueEnd.equals(ELEMENT_PM)) {
+			setTimePage.moveToScrollToElement(driver, ELEMENT_PM);
+		}else {
+			setTimePage.moveToScrollToElement(driver, ELEMENT_AM);
+		}
+		
+		setTimePage.getOkButton().click();
+		
 		//move to next page
 		raisedPlannedWorkPage.getNextBtn().click();
 		
@@ -382,15 +462,22 @@ public class ErrorPopupsRaisePlannedWorksTest extends TestBase {
 		Assert.assertEquals(alertCongratsLabel, MESSAGE_CONGRATS);		
 		alertCongrats.accept();
 		
-		if(prop.getProperty("recordingNeeded").equals("true")) {
-			TestBase.SaveRecording(driver, this.getClass().getSimpleName(),new Throwable().getStackTrace()[0].getMethodName());
+		if(prop.getProperty(ELEMENT_RECORDING_NEEDED) != null) {
+			if(prop.getProperty(ELEMENT_RECORDING_NEEDED).equals(ELEMENT_TRUE)) {
+				TestBase.SaveRecording(driver, this.getClass().getSimpleName(),new Throwable().getStackTrace()[0].getMethodName());
+			}
+			
 		}
 	}
 
 	@AfterTest(alwaysRun = true)
 	public void tearDown() throws IOException, InterruptedException {
-		System.out.println("Tearing  down == " +this.getClass().getName());
-		TestBase.stopAppiumServer();		
+		System.out.println("Tearing  down AVD== " +this.getClass().getName());
+		TestBase.shutDownAVD();
+		Thread.sleep(3000);
+		System.out.println("Tearing  down Appium== " +this.getClass().getName());
+		TestBase.stopAppiumServer();
+		Thread.sleep(5000);
 	}
 
 
