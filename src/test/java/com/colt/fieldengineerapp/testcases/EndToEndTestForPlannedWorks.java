@@ -38,7 +38,7 @@ public class EndToEndTestForPlannedWorks extends TestBase {
 	@BeforeTest(alwaysRun = true)
 	public void startServices() throws IOException, InterruptedException {
 		TestBase.startAVD();
-		Thread.sleep(12000);
+		Thread.sleep(15000);
 		System.out.println("Starting Appium == " +this.getClass().getName());
 		TestBase.startAppiumServer();
 				
@@ -215,6 +215,13 @@ public class EndToEndTestForPlannedWorks extends TestBase {
 		String implementerEmailIdTextFieldConfirmPage = confirmPage.getImplementerEmailIDTextField().getText();
 		Assert.assertFalse(ELEMENT_EMPTY_STRING.equals(implementerEmailIdTextFieldConfirmPage.trim()), ELEMENT_IMPLEM_EMAIL_ID_MSG);
 
+		String implementerMobConfirmPage = confirmPage.getImplementerMobileLabel().getText();
+		Assert.assertEquals(implementerMobConfirmPage,ELEMENT_IMPLEM_MOBILE);
+		
+		String implementerMobTextFieldConfirmPage = confirmPage.getImplementerMobileTextField().getText();
+		Assert.assertFalse(ELEMENT_EMPTY_STRING.equals(implementerMobTextFieldConfirmPage.trim()), ELEMENT_IMPLEM_MOBILE_MSG);
+
+		
 		String configIdLabelConfirmPage = confirmPage.getConfigurationIDLabel().getText();
 		Assert.assertEquals(configIdLabelConfirmPage,ELEMENT_CONFIG_ID);
 		

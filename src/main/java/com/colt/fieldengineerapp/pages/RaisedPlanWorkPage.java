@@ -26,7 +26,7 @@ public class RaisedPlanWorkPage extends TestBase {
 	@AndroidFindBy(id = "com.colt.coltengineering:id/spin_template")
 	private AndroidElement templateDropDown;
 	
-	@AndroidFindBy(uiAutomator = "text(\"Standard SD\")")
+	@AndroidFindBy(uiAutomator = "text(\"Template\")")
 	private AndroidElement templateDropDownLabel;	
 
 	@AndroidFindBy(uiAutomator = "text(\"Category\")")
@@ -75,6 +75,8 @@ public class RaisedPlanWorkPage extends TestBase {
 	@AndroidFindBy(id = "com.colt.coltengineering:id/et_site_address")
 	private AndroidElement siteAddressTextField;
 	
+	@AndroidFindBy(uiAutomator = "text(\"Site Address\")")
+	private AndroidElement siteAddressLabel;	
 	
 	@AndroidFindBy(uiAutomator = "text(\"Planned Start\")")
 	private AndroidElement plannedStartDateLabel;
@@ -230,7 +232,35 @@ public class RaisedPlanWorkPage extends TestBase {
 	@AndroidFindBy(id = "android:id/toggle_mode")
 	private AndroidElement dateToggleButton;
 	
+	@AndroidFindBy(id = "com.colt.coltengineering:id/snackbar_text")
+	private AndroidElement errorSnackbarMessage;
 	
+	@AndroidFindBy(id = "android:id/text1")
+	private List<AndroidElement> dropDownsValue;
+	
+	@AndroidFindBy(className = "android.widget.TextView")
+	private List<AndroidElement> dropDownsLOCValue;
+
+			
+	public List<AndroidElement> getDropDownsLOCValue() {
+		return dropDownsLOCValue;
+	}
+
+
+	public List<AndroidElement> getDropDownsValue() {
+		return dropDownsValue;
+	}
+
+
+	public AndroidElement getErrorSnackbarMessage() {
+		return errorSnackbarMessage;
+	}
+
+
+	public AndroidElement getSiteAddressLabel() {
+		return siteAddressLabel;
+	}
+
 
 	public AndroidElement getInavlalidPlannedStartTime() {
 		return inavlalidPlannedStartTime;

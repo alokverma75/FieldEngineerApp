@@ -43,7 +43,7 @@ public class EndToEndTestForRaisePlannedWorks extends TestBase {
 	@BeforeTest(alwaysRun = true)
 	public void startServices() throws IOException, InterruptedException {
 		TestBase.startAVD();
-		Thread.sleep(12000);
+		Thread.sleep(15000);
 		System.out.println("Starting Appium == " +this.getClass().getName());
 		TestBase.startAppiumServer();
 				
@@ -91,7 +91,7 @@ public class EndToEndTestForRaisePlannedWorks extends TestBase {
 		String changeDescriptionlabel = raisedPlannedWorkPage.getChangeDescriptionLabel().getText();
 		System.out.println("Label is " + changeDescriptionlabel);
 		raisedPlannedWorkPage.getChangeDescriptionDropDown().click();
-		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_CHANGE_DESCRIPTION_DROPDOWN_1).perform();
+		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_CHANGE_DESCRIPTION_DROPDOWN_10).perform();
 		
 		String changeCatalogeLabel = raisedPlannedWorkPage.getChangeCatalogeLabel().getText();
 		System.out.println("Change catalogue label is "+ changeCatalogeLabel);
@@ -208,9 +208,9 @@ public class EndToEndTestForRaisePlannedWorks extends TestBase {
 		int minutesToBeSet = minutesCurrent + 40;
 		
 		if(minutesToBeSet > 60) {
-			minutesToBeSet = 10;
+			minutesToBeSet = 40;
 		}else if(minutesToBeSet == 60) {
-			minutesToBeSet = 60;
+			minutesToBeSet = 50;
 		}
 		
 		setTimePage.getInPutMinuteTextField().clear();
@@ -274,9 +274,9 @@ public class EndToEndTestForRaisePlannedWorks extends TestBase {
 		int minutesToBeSetEnd = minutesCurrentEnd + 40;
 		
 		if(minutesToBeSetEnd > 60) {
-			minutesToBeSetEnd = 10;
+			minutesToBeSetEnd = 40;
 		}else if(minutesToBeSetEnd == 60) {
-			minutesToBeSetEnd = 60;
+			minutesToBeSetEnd = 50;
 		}
 		
 		setTimePage.getInPutMinuteTextField().clear();

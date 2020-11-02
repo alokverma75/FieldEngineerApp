@@ -5,28 +5,28 @@
     <listener class-name="com.colt.fieldengineerapp.base.TestCaseListener"/>
     <listener class-name="com.colt.fieldengineerapp.reporting.ExtentReporterNG"/>
   </listeners>
-  <test thread-count="5" name="OpenDrawerPageTest(failed)">
+  <test thread-count="5" name="AlertsRaisePlanWork(failed)">
     <classes>
-      <class name="com.colt.fieldengineerapp.testcases.OpenDrawerPageTest">
+      <class name="com.colt.fieldengineerapp.testcases.ErrorPopupsRaisePlannedWorksTest">
         <methods>
-          <include name="openDrawerPageTest"/>
-          <include name="setUp"/>
           <include name="startServices"/>
+          <include name="setUp"/>
+          <include name="alertsRaisePlanWorkPlannedScheduleStep"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- com.colt.fieldengineerapp.testcases.OpenDrawerPageTest -->
+      </class> <!-- com.colt.fieldengineerapp.testcases.ErrorPopupsRaisePlannedWorksTest -->
     </classes>
-  </test> <!-- OpenDrawerPageTest(failed) -->
-  <test thread-count="5" name="SettingsPageTest(failed)">
+  </test> <!-- AlertsRaisePlanWork(failed) -->
+  <test thread-count="5" name="ActionsPageTest(failed)">
     <classes>
-      <class name="com.colt.fieldengineerapp.testcases.SettingsrPageTest">
+      <class name="com.colt.fieldengineerapp.testcases.EndToEndActionsPageTest">
         <methods>
-          <include name="setUp"/>
-          <include name="settingsPageTest"/>
-          <include name="tearDown"/>
           <include name="startServices"/>
+          <include name="testNonNullJobRemarksdField"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
         </methods>
-      </class> <!-- com.colt.fieldengineerapp.testcases.SettingsrPageTest -->
+      </class> <!-- com.colt.fieldengineerapp.testcases.EndToEndActionsPageTest -->
     </classes>
-  </test> <!-- SettingsPageTest(failed) -->
+  </test> <!-- ActionsPageTest(failed) -->
 </suite> <!-- Failed suite [Suite] -->

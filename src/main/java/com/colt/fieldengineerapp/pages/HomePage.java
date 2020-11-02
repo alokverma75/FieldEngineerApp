@@ -28,7 +28,7 @@ public class HomePage extends TestBase {
 	AndroidElement raisePlanWork;
 	
 	@AndroidFindBy(uiAutomator = "text(\"Templates\")") 
-	AndroidElement plannedlanWorks;
+	AndroidElement templatesButton;
 
 	
 	@AndroidFindBy(id = "com.colt.coltengineering:id/img_option_icon")
@@ -68,13 +68,11 @@ public class HomePage extends TestBase {
 
 	public AndroidElement getHomePageTitle() {
 		return homePageTitle;
+	}	
+
+	public AndroidElement getTemplatesButton() {
+		return templatesButton;
 	}
-
-
-	public AndroidElement getPlannedlanWorks() {
-		return plannedlanWorks;
-	}
-
 
 	public boolean validateHomePageTasksTitle(String element){
 		return homePageTasksTitle.getText().equals(element);

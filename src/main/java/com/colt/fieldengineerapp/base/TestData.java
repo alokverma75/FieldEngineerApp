@@ -34,5 +34,17 @@ public class TestData {
 		
 		return dataObject;
 	}
+	
+	@DataProvider(name="TextFieldsDataForTemplates")
+	public Object[][] getDataForTemplatesTest(){
+		
+		Object[][] dataObject = new Object[][] {
+			
+			{"1234","123456","Test_Alok"}
+			
+		};
+		
+		return dataObject;
+	}
 
 }

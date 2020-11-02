@@ -52,7 +52,7 @@ import io.appium.java_client.touch.offset.ElementOption;
 import io.appium.java_client.touch.offset.PointOption;
 
 public class TestBase implements FieldEngineerAppConstants, PlannedWorksPageErrorMessages, AlertMessagesRaisePlanWork,
-		ActionsPageConstants,ConfirmPageConstants, OpenDrawerAndSettingsPageConstants {
+		ActionsPageConstants,ConfirmPageConstants, OpenDrawerAndSettingsPageConstants,TemplatesConstants,RaisePlannedWorkConstants {
 
 	public static AndroidDriver<AndroidElement> driver;
 	private static DesiredCapabilities cap = new DesiredCapabilities();
@@ -89,7 +89,10 @@ public class TestBase implements FieldEngineerAppConstants, PlannedWorksPageErro
 	}
 	
 	public static void stopAppiumServer() {
-		service.stop();
+		if(service != null) {
+			service.stop();
+		}
+			
 		System.out.println("Appimum server stopped successfully");
 	}
 	

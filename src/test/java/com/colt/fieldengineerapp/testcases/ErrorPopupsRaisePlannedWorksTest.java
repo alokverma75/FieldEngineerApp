@@ -45,7 +45,7 @@ public class ErrorPopupsRaisePlannedWorksTest extends TestBase {
 	@BeforeTest(alwaysRun = true)
 	public void startServices() throws IOException, InterruptedException {
 		TestBase.startAVD();
-		Thread.sleep(12000);
+		Thread.sleep(15000);
 		System.out.println("Starting Appium == " +this.getClass().getName());
 		TestBase.startAppiumServer();
 				
@@ -182,7 +182,7 @@ public class ErrorPopupsRaisePlannedWorksTest extends TestBase {
 		alertDesc.accept();
 		
 		raisedPlannedWorkPage.getChangeDescriptionDropDown().click();
-		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_CHANGE_DESCRIPTION_DROPDOWN_1).perform();
+		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_CHANGE_DESCRIPTION_DROPDOWN_10).perform();
 		raisedPlannedWorkPage.getNextBtn().click();
 		
 	//First Alert for Location Tier1

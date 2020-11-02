@@ -50,6 +50,8 @@ public interface FieldEngineerAppConstants {
 		public static final String ELEMENT_HOMEPAGE_TASKS_LABEL="Tasks";
 		
 		//Raise Planned Work Page - 1
+		public static final String ELEMENT_RAISEPLAN_WORK_LABEL="Raise Planned Work";
+		public static final String ELEMENT_RAISEPLAN_WORK_LABEL_MSG="Raise Planned Work";
 		public static final String ELEMENT_TEMPLATE_DROPDOWN_1="Please Select";
 		public static final String ELEMENT_TEMPLATE_DROPDOWN_2="Standard SD";
 		

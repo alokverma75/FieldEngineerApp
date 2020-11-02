@@ -43,13 +43,7 @@
 		</classes>
 
 	</test> <!-- Test -->
-	<test thread-count="5" name="ActionsPageTest">
-		
-		<classes>		
-			<class name="com.colt.fieldengineerapp.testcases.EndToEndActionsPageTest" />
-		</classes>
-
-	</test> <!-- Test -->
+	
 	<test thread-count="5" name="OpenDrawerPageTest">
 		
 		<classes>		
@@ -61,6 +55,20 @@
 		
 		<classes>		
 			<class name="com.colt.fieldengineerapp.testcases.SettingsrPageTest" />
+		</classes>
+
+	</test> <!-- Test -->
+	<test thread-count="5" name="TemplatesLinkTest">
+		
+		<classes>		
+			<class name="com.colt.fieldengineerapp.testcases.TemplatesPageTest" />
+		</classes>
+
+	</test> <!-- Test -->
+	<test thread-count="5" name="ActionsPageTest">
+		
+		<classes>		
+			<class name="com.colt.fieldengineerapp.testcases.EndToEndActionsPageTest" />
 		</classes>
 
 	</test> <!-- Test -->
