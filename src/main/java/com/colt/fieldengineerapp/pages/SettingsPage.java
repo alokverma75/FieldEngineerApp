@@ -12,7 +12,7 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 public class SettingsPage extends TestBase {
 	
 	public SettingsPage(AndroidDriver<AndroidElement> driver) {
-		PageFactory.initElements(new AppiumFieldDecorator(driver, getDuration(30)), this);
+		PageFactory.initElements(new AppiumFieldDecorator(driver, getDuration(50)), this);
 	}
 	
 	@AndroidFindBy(uiAutomator = "text(\"Settings\")")
@@ -92,7 +92,6 @@ public class SettingsPage extends TestBase {
 	}
 
 	public AndroidElement getJapaneseLanguageButton() {
-		System.out.println("Inside getJapaneseLanguageButton()");
 		return japaneseLanguageButton;
 	}
 

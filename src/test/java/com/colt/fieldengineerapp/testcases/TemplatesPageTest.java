@@ -43,7 +43,7 @@ public class TemplatesPageTest extends TestBase {
 	public void startServices() throws IOException, InterruptedException {
 		System.out.println("Starting AVD == " +this.getClass().getName());
 		TestBase.startAVD();
-		Thread.sleep(15000);
+		Thread.sleep(20000);
 		System.out.println("Starting Appium == " +this.getClass().getName());
 		TestBase.startAppiumServer();				
 		
@@ -462,7 +462,7 @@ public class TemplatesPageTest extends TestBase {
 		Thread.sleep(3000);
 		System.out.println("Tearing  down Appium== " +this.getClass().getName());
 		TestBase.stopAppiumServer();
-		Thread.sleep(5000);
+		Thread.sleep(8000);
 	}
 
 

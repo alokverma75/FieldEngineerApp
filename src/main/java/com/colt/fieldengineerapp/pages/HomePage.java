@@ -34,8 +34,8 @@ public class HomePage extends TestBase {
 	@AndroidFindBy(id = "com.colt.coltengineering:id/img_option_icon")
 	AndroidElement raisePlanWorkIcon;
 	
-	@AndroidFindBy(uiAutomator = "text(\"フィールド専門家\")") 
-	AndroidElement japaneseLanguaLabel;
+	@AndroidFindBy(uiAutomator = "text(\"フィールド専門家\")")
+	private AndroidElement japaneseLanguaLabel;
 	
 	@AndroidFindBy(xpath = "//android.widget.ImageButton[@content-desc=\"Open navigation drawer\"]")
 	private AndroidElement drawerButton;

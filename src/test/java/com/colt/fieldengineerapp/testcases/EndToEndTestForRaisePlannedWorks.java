@@ -43,7 +43,7 @@ public class EndToEndTestForRaisePlannedWorks extends TestBase {
 	@BeforeTest(alwaysRun = true)
 	public void startServices() throws IOException, InterruptedException {
 		TestBase.startAVD();
-		Thread.sleep(15000);
+		Thread.sleep(20000);
 		System.out.println("Starting Appium == " +this.getClass().getName());
 		TestBase.startAppiumServer();
 				
@@ -60,7 +60,7 @@ public class EndToEndTestForRaisePlannedWorks extends TestBase {
 	}
 
 	@Test(dataProvider = "TextFieldsData", dataProviderClass = TestData.class)
-	public void endToEndTestForRaisePlanWork(String siteAddress, String orderNumber, String inputTextField,String templateName) throws MalformedURLException, IOException {
+	public void endToEndTestForRaisePlanWork(String siteAddress, String orderNumber, String inputTextField,String templateName) throws MalformedURLException, IOException, InterruptedException {
 		
 		if(prop.getProperty(ELEMENT_RECORDING_NEEDED) != null) {
 			if(prop.getProperty(ELEMENT_RECORDING_NEEDED).equals(ELEMENT_TRUE)) {
@@ -70,8 +70,9 @@ public class EndToEndTestForRaisePlannedWorks extends TestBase {
 		}
 		landingPage = loginPage.login(driver, prop.getProperty("userID"), prop.getProperty("password"));
 		landingPage.getContinueBtn().click();
+		Thread.sleep(3000);
 		homePage.getRaisePlanWork().click();
-		
+			
 		String label = raisedPlannedWorkPage.getTemplateLabel().getText();
 		System.out.println("Label is " + label);
 		
@@ -91,11 +92,10 @@ public class EndToEndTestForRaisePlannedWorks extends TestBase {
 		String changeDescriptionlabel = raisedPlannedWorkPage.getChangeDescriptionLabel().getText();
 		System.out.println("Label is " + changeDescriptionlabel);
 		raisedPlannedWorkPage.getChangeDescriptionDropDown().click();
-		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_CHANGE_DESCRIPTION_DROPDOWN_10).perform();
+		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_CHANGE_DESCRIPTION_DROPDOWN_1).perform();
 		
 		String changeCatalogeLabel = raisedPlannedWorkPage.getChangeCatalogeLabel().getText();
-		System.out.println("Change catalogue label is "+ changeCatalogeLabel);
-		
+		System.out.println("Change catalogue label is "+ changeCatalogeLabel);		
 		String changeCatalogeTextField = raisedPlannedWorkPage.getChangeCatalogeTextField().getText();
 		System.out.println("Change catalogue Text Field is "+ changeCatalogeTextField);
 		
@@ -310,25 +310,25 @@ public class EndToEndTestForRaisePlannedWorks extends TestBase {
 		System.out.println("labelOpCatTier1 "+labelOpCatTier1);
 		
 		raisedPlannedWorkPage.getOpertaionalCatTier1DropDown().click();
-		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_DROP_DOWN_OPCAT_TIER1_8).perform();
+		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_DROP_DOWN_OPCAT_TIER1_1).perform();
 		
 		raisedPlannedWorkPage.getOpertaionalCatTier2DropDown().click();
-		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_DROP_DOWN_OPCAT_TIER2_6).perform();
+		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_DROP_DOWN_OPCAT_TIER2_2).perform();
 		
 		raisedPlannedWorkPage.getOpertaionalCatTier3DropDown().click();
-		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_DROP_DOWN_OPCAT_TIER3_3).perform();
+		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_DROP_DOWN_OPCAT_TIER3_1).perform();
 		
 		raisedPlannedWorkPage.getNextBtn().click();
 		
 		//Next Page
 		raisedPlannedWorkPage.getProductCatTier1DropDown().click();
-		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_DROP_DOWN_PRODCAT_TIER1_1).perform();
+		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_DROP_DOWN_PRODCAT_TIER1_2).perform();
 		
 		raisedPlannedWorkPage.getProductCatTier2DropDown().click();
-		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_DROP_DOWN_PRODCAT_TIER2_1).perform();
+		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_DROP_DOWN_PRODCAT_TIER2_3).perform();
 		
 		raisedPlannedWorkPage.getProductCatTier3DropDown().click();
-		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_DROP_DOWN_PRODCAT_TIER3_1).perform();
+		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_DROP_DOWN_PRODCAT_TIER3_2).perform();
 		
 		raisedPlannedWorkPage.getFinalSubmitButton().click();
 		
@@ -359,7 +359,7 @@ public class EndToEndTestForRaisePlannedWorks extends TestBase {
 		Thread.sleep(3000);
 		System.out.println("Tearing  down Appium== " +this.getClass().getName());
 		TestBase.stopAppiumServer();
-		Thread.sleep(5000);
+		Thread.sleep(8000);
 	}
 
 		

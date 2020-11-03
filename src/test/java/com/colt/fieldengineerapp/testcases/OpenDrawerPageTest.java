@@ -32,7 +32,7 @@ public class OpenDrawerPageTest extends TestBase {
 	@BeforeTest(alwaysRun = true)
 	public void startServices() throws IOException, InterruptedException {
 		TestBase.startAVD();
-		Thread.sleep(15000);
+		Thread.sleep(20000);
 		System.out.println("Starting Appium == " +this.getClass().getName());
 		TestBase.startAppiumServer();				
 	}
@@ -91,7 +91,7 @@ public class OpenDrawerPageTest extends TestBase {
 		Thread.sleep(3000);
 		System.out.println("Tearing  down Appium== " +this.getClass().getName());
 		TestBase.stopAppiumServer();
-		Thread.sleep(5000);
+		Thread.sleep(8000);
 	}
 
 

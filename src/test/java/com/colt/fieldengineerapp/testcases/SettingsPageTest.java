@@ -34,7 +34,7 @@ public class SettingsPageTest extends TestBase {
 	@BeforeTest(alwaysRun = true)
 	public void startServices() throws IOException, InterruptedException {
 		TestBase.startAVD();
-		Thread.sleep(15000);
+		Thread.sleep(20000);
 		System.out.println("Starting Appium == " +this.getClass().getName());
 		TestBase.startAppiumServer();				
 	}
@@ -52,7 +52,7 @@ public class SettingsPageTest extends TestBase {
 	}
 	
 	@Test(priority=1)
-	public void settingsPageTest() throws MalformedURLException, IOException{
+	public void settingsPageTest() throws MalformedURLException, IOException, InterruptedException{
 		if(prop.getProperty(ELEMENT_RECORDING_NEEDED) != null) {
 			if(prop.getProperty(ELEMENT_RECORDING_NEEDED).equals(ELEMENT_TRUE)) {
 				TestBase.startRecording(driver);
@@ -99,10 +99,13 @@ public class SettingsPageTest extends TestBase {
 		
 		settingsPage.getJapaneseLanguageButton().click();
 		
+		
 		String homePageLabelinJapanese = homePage.getJapaneseLanguaLabel().getText();
-		Assert.assertEquals(homePageLabelinJapanese,ELEMENT_JAPANESE_LABEL_HOME_PAGE,ELEMENT_JAPANESE_LABEL_HOME_PAGE_MSG);
+		System.out.println("homePageLabelinJapanese "+homePageLabelinJapanese);
+		Assert.assertEquals(homePageLabelinJapanese.trim(),ELEMENT_JAPANESE_LABEL_HOME_PAGE,ELEMENT_JAPANESE_LABEL_HOME_PAGE_MSG);
 		
 		homePage.getDrawerButton().click();
+		Thread.sleep(2000);
 		openDrawerPage.getSettingsPageButton().click();
 		
 		//Try to check Notification button in Japanese click
@@ -147,7 +150,7 @@ public class SettingsPageTest extends TestBase {
 		Thread.sleep(3000);
 		System.out.println("Tearing  down Appium== " +this.getClass().getName());
 		TestBase.stopAppiumServer();
-		Thread.sleep(5000);
+		Thread.sleep(8000);
 	}
 
 

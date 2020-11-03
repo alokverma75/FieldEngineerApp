@@ -45,7 +45,7 @@ public class ErrorPopupsRaisePlannedWorksTest extends TestBase {
 	@BeforeTest(alwaysRun = true)
 	public void startServices() throws IOException, InterruptedException {
 		TestBase.startAVD();
-		Thread.sleep(15000);
+		Thread.sleep(20000);
 		System.out.println("Starting Appium == " +this.getClass().getName());
 		TestBase.startAppiumServer();
 				
@@ -157,6 +157,7 @@ public class ErrorPopupsRaisePlannedWorksTest extends TestBase {
 		}
 		
 		landingPage.getContinueBtn().click();
+		Thread.sleep(3000);
 		homePage.getRaisePlanWork().click();
 	
 		raisedPlannedWorkPage.getTemplateDropDown().click();
@@ -264,9 +265,9 @@ public class ErrorPopupsRaisePlannedWorksTest extends TestBase {
 		int minutesToBeSet = minutesCurrent + 40;
 		
 		if(minutesToBeSet > 60) {
-			minutesToBeSet = 10;
+			minutesToBeSet = 40;
 		}else if(minutesToBeSet == 60) {
-			minutesToBeSet = 60;
+			minutesToBeSet = 50;
 		}
 		
 		setTimePage.getInPutMinuteTextField().clear();
@@ -311,9 +312,9 @@ public class ErrorPopupsRaisePlannedWorksTest extends TestBase {
 		int minutesToBeSetEnd = minutesCurrentEnd + 40;
 		
 		if(minutesToBeSetEnd > 60) {
-			minutesToBeSetEnd = 10;
+			minutesToBeSetEnd = 40;
 		}else if(minutesToBeSetEnd == 60) {
-			minutesToBeSetEnd = 60;
+			minutesToBeSetEnd = 50;
 		}
 		
 		setTimePage.getInPutMinuteTextField().clear();
@@ -374,7 +375,7 @@ public class ErrorPopupsRaisePlannedWorksTest extends TestBase {
 		alertOperationTier1Id.accept();
 		
 		raisedPlannedWorkPage.getOpertaionalCatTier1DropDown().click();
-		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_DROP_DOWN_OPCAT_TIER1_8).perform();
+		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_DROP_DOWN_OPCAT_TIER1_1).perform();
 		
 		// Now try to move forward without entering Operation tier2
 		raisedPlannedWorkPage.getNextBtn().click();
@@ -385,7 +386,7 @@ public class ErrorPopupsRaisePlannedWorksTest extends TestBase {
 		alertOperationTier2Id.accept();	
 		
 		raisedPlannedWorkPage.getOpertaionalCatTier2DropDown().click();
-		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_DROP_DOWN_OPCAT_TIER2_6).perform();
+		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_DROP_DOWN_OPCAT_TIER2_2).perform();
 		
 		// Now try to move forward without entering Operation tier3
 		raisedPlannedWorkPage.getNextBtn().click();
@@ -396,7 +397,7 @@ public class ErrorPopupsRaisePlannedWorksTest extends TestBase {
 		alertOperationTier3Id.accept();
 		
 		raisedPlannedWorkPage.getOpertaionalCatTier3DropDown().click();
-		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_DROP_DOWN_OPCAT_TIER3_3).perform();
+		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_DROP_DOWN_OPCAT_TIER3_1).perform();
 		
 		raisedPlannedWorkPage.getNextBtn().click();
 		
@@ -410,7 +411,7 @@ public class ErrorPopupsRaisePlannedWorksTest extends TestBase {
 		
 		
 		raisedPlannedWorkPage.getProductCatTier1DropDown().click();
-		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_DROP_DOWN_PRODCAT_TIER1_1).perform();
+		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_DROP_DOWN_PRODCAT_TIER1_2).perform();
 		
 		
 		// Now try to move forward without entering Product tier1
@@ -423,7 +424,7 @@ public class ErrorPopupsRaisePlannedWorksTest extends TestBase {
 		alertProductTier2.accept();	
 		
 		raisedPlannedWorkPage.getProductCatTier2DropDown().click();
-		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_DROP_DOWN_PRODCAT_TIER2_1).perform();
+		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_DROP_DOWN_PRODCAT_TIER2_3).perform();
 		
 		// Now try to move forward without entering Product tier2
 		raisedPlannedWorkPage.getFinalSubmitButton().click();
@@ -435,7 +436,7 @@ public class ErrorPopupsRaisePlannedWorksTest extends TestBase {
 
 		
 		raisedPlannedWorkPage.getProductCatTier3DropDown().click();
-		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_DROP_DOWN_PRODCAT_TIER3_1).perform();
+		raisedPlannedWorkPage.moveToScrollToElement(driver, ELEMENT_DROP_DOWN_PRODCAT_TIER3_2).perform();
 		
 		raisedPlannedWorkPage.getFinalSubmitButton().click();
 	

@@ -1,6 +1,6 @@
 eclipse.preferences.version=1
 encoding//src/main/java/com/colt/fieldengineerapp/base/OpenDrawerAndSettingsPageConstants.java=UTF-8
-encoding//src/main/java/com/colt/fieldengineerapp/pages/HomePage.java=UTF-8
+encoding//src/main/java/com/colt/fieldengineerapp/base/Test.java=UTF-8
 encoding//src/main/java/com/colt/fieldengineerapp/pages/SetTimePage.java=UTF-8
 encoding//src/main/java/com/colt/fieldengineerapp/pages/SettingsPage.java=UTF-8
-encoding/<project>=ISO-8859-1
+encoding//src/test/java/com/colt/fieldengineerapp/testcases/SettingsPageTest.java=US-ASCII

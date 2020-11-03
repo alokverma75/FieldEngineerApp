@@ -17,16 +17,4 @@
       </class> <!-- com.colt.fieldengineerapp.testcases.ErrorPopupsRaisePlannedWorksTest -->
     </classes>
   </test> <!-- AlertsRaisePlanWork(failed) -->
-  <test thread-count="5" name="ActionsPageTest(failed)">
-    <classes>
-      <class name="com.colt.fieldengineerapp.testcases.EndToEndActionsPageTest">
-        <methods>
-          <include name="startServices"/>
-          <include name="testNonNullJobRemarksdField"/>
-          <include name="setUp"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.colt.fieldengineerapp.testcases.EndToEndActionsPageTest -->
-    </classes>
-  </test> <!-- ActionsPageTest(failed) -->
 </suite> <!-- Failed suite [Suite] -->

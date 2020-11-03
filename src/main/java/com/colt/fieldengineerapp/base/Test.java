@@ -20,31 +20,34 @@ public class Test extends TestBase{
 	public static void main(String[] args) throws IOException, InterruptedException {
 		// TODO Auto-generated method stub
 		
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yy/MM/dd HH/mm/ss");
-		 Date date = new Date();
-		 
-		 //String video = driver.stopRecordingScreen();
-		 //byte[] decode = Base64.getDecoder().decode(video);
-		 String nameofCurrMethod = new Throwable() 
-                 .getStackTrace()[0] 
-                 .getMethodName(); 
+//		SimpleDateFormat dateFormat = new SimpleDateFormat("yy/MM/dd HH/mm/ss");
+//		 Date date = new Date();
+//		 
+//		 //String video = driver.stopRecordingScreen();
+//		 //byte[] decode = Base64.getDecoder().decode(video);
+//		 String nameofCurrMethod = new Throwable() 
+//                 .getStackTrace()[0] 
+//                 .getMethodName(); 
+//		
+//		System.out.println(nameofCurrMethod);
+//		String directoryName = prop.getProperty("screenShots");
+//		String finalPath = System.getProperty("user.dir")+File.separator+directoryName+File.separator+"test"+".png";
+//		//String finalPath = System.getProperty("user.dir");
+//		
+//		//System.out.println(directoryName);
+//		System.out.println(finalPath);
+//		 String data = "test";
+//		 
+//		 //AndroidDriver<AndroidElement> driver = TestBase.getDriver();
+//			
+//		 //System.out.println(" Size of file i "+ decode.length);
+////		 FileUtils.writeLines(new File(USRDIR + "/"+prop.getProperty("recordings")+ new Test().printClassName()+ 
+////				 dateFormat.format(date)+ ".text"), data);
+//		 //startEmulator(); 
+//		 startAppiumServer();
 		
-		System.out.println(nameofCurrMethod);
-		String directoryName = prop.getProperty("screenShots");
-		String finalPath = System.getProperty("user.dir")+File.separator+directoryName+File.separator+"test"+".png";
-		//String finalPath = System.getProperty("user.dir");
-		
-		//System.out.println(directoryName);
-		System.out.println(finalPath);
-		 String data = "test";
-		 
-		 //AndroidDriver<AndroidElement> driver = TestBase.getDriver();
-			
-		 //System.out.println(" Size of file i "+ decode.length);
-//		 FileUtils.writeLines(new File(USRDIR + "/"+prop.getProperty("recordings")+ new Test().printClassName()+ 
-//				 dateFormat.format(date)+ ".text"), data);
-		 //startEmulator(); 
-		 startAppiumServer();
+		String japan = "フィールド専門家";
+		System.out.println(" Japanese "+ japan);
 
 	}
 	

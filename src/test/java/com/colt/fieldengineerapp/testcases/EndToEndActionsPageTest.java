@@ -43,7 +43,7 @@ public class EndToEndActionsPageTest extends TestBase {
 	@BeforeTest(alwaysRun = true)
 	public void startServices() throws IOException, InterruptedException {
 		TestBase.startAVD();
-		Thread.sleep(15000);
+		Thread.sleep(20000);
 		System.out.println("Starting Appium == " +this.getClass().getName());
 		TestBase.startAppiumServer();
 				
@@ -61,8 +61,9 @@ public class EndToEndActionsPageTest extends TestBase {
 		singleTaskDetailsPage = new SingleTaskDetailsPage(driver);
 		landingPage = loginPage.login(driver, prop.getProperty("userID"), prop.getProperty("password"));
 		landingPage.getContinueBtn().click();
+		Thread.sleep(3000);
 		homePage.getViewAllTasksBtn().click();
-		
+		allTasksListPage.getViewTaskBtn().click();
 
 	}
 
@@ -76,7 +77,7 @@ public class EndToEndActionsPageTest extends TestBase {
 			}
 			
 		}
-		allTasksListPage.getViewTaskBtn().click();
+		
 		//singleTaskDetailsPage.scrollToElement(driver, ELEMENT_JOB_REMARKS);
   	    singleTaskDetailsPage.getOpenActionsBtn().click();  	    
   	    actionsPage.getEstimatedTimeToReachButton().click();
@@ -140,7 +141,7 @@ public class EndToEndActionsPageTest extends TestBase {
 		Thread.sleep(3000);
 		System.out.println("Tearing  down Appium == " +this.getClass().getName());
 		TestBase.stopAppiumServer();
-		Thread.sleep(5000);
+		Thread.sleep(8000);
 	}
 
 }

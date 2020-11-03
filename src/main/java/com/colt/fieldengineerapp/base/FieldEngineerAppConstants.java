@@ -64,11 +64,11 @@ public interface FieldEngineerAppConstants {
 		public static final String ELEMENT_CATEGORY_DROPDOWN_6="Fibre Works";
 		
 		//Change description dropdown values for selection
-		public static final String ELEMENT_CHANGE_DESCRIPTION_DROPDOWN_1="Cabling/removal of cabling to live equipment in nodes – ADVA FSP3000";
-		public static final String ELEMENT_CHANGE_DESCRIPTION_DROPDOWN_2="Cabling/removal of cabling to live equipment in nodes – Atrica";
-		public static final String ELEMENT_CHANGE_DESCRIPTION_DROPDOWN_3="Cabling/removal of cabling to live equipment – IQ Net 6500";
-		public static final String ELEMENT_CHANGE_DESCRIPTION_DROPDOWN_4="Cabling/removal of cabling to live equipment – Infinera";
-		public static final String ELEMENT_CHANGE_DESCRIPTION_DROPDOWN_5="Cabling/removal of cabling to live equipment – WDM Nortel LDN";
+		public static final String ELEMENT_CHANGE_DESCRIPTION_DROPDOWN_1="Cabling/removal of cabling to live equipment in nodes â€“ ADVA FSP3000";
+		public static final String ELEMENT_CHANGE_DESCRIPTION_DROPDOWN_2="Cabling/removal of cabling to live equipment in nodes â€“ Atrica";
+		public static final String ELEMENT_CHANGE_DESCRIPTION_DROPDOWN_3="Cabling/removal of cabling to live equipment - IQ Net 6500";
+		public static final String ELEMENT_CHANGE_DESCRIPTION_DROPDOWN_4="Cabling/removal of cabling to live equipment - Infinera";
+		public static final String ELEMENT_CHANGE_DESCRIPTION_DROPDOWN_5="Cabling/removal of cabling to live equipment - WDM Nortel LDN";
 		public static final String ELEMENT_CHANGE_DESCRIPTION_DROPDOWN_6="Cyan Z77 CORE devices - Card insertion/removal to live equipment in nodes MSP SDH WDM devices routers switch";
 		public static final String ELEMENT_CHANGE_DESCRIPTION_DROPDOWN_7="Decommissioned Equipment uninstallation in nodes";
 		public static final String ELEMENT_CHANGE_DESCRIPTION_DROPDOWN_8="IQ Net 6500 - New card in live mux EXCLUDING OTR/ MOTR and CXN";
@@ -77,7 +77,7 @@ public interface FieldEngineerAppConstants {
 		public static final String ELEMENT_CHANGE_DESCRIPTION_DROPDOWN_11="IQ Net 6500 CIENA - Insert/Remove OTR/MOTR cards in existing chassis configuration and run optical patchcords to CCMD ports";
 		public static final String ELEMENT_CHANGE_DESCRIPTION_DROPDOWN_12="Infinera LDN - Insert/ Remove any Cards";
 		public static final String ELEMENT_CHANGE_DESCRIPTION_DROPDOWN_13="Jumpering/removal of jumpering in DDF's ODF's RDF's";
-		public static final String ELEMENT_CHANGE_DESCRIPTION_DROPDOWN_14="Jumpering/removal of jumpering to DDF; ODFs and insert/remove cards; SFP’s; Cabling on IQ Net 6500 & Infinera Equipment or Insert/remove SFP & Cabling on Cisco Equipment";
+		public static final String ELEMENT_CHANGE_DESCRIPTION_DROPDOWN_14="Jumpering/removal of jumpering to DDF; ODFs and insert/remove cards; SFPï¿½s; Cabling on IQ Net 6500 & Infinera Equipment or Insert/remove SFP & Cabling on Cisco Equipment";
 		public static final String ELEMENT_CHANGE_DESCRIPTION_DROPDOWN_15="LTS order - DC power cabling; patching to ODF and IQ Net; Infinera or Cisco Equipment";
 		public static final String ELEMENT_CHANGE_DESCRIPTION_DROPDOWN_16="Node - Cisco routers card installs";
 		public static final String ELEMENT_CHANGE_DESCRIPTION_DROPDOWN_17="Node - Infinera - New TAM / TIM / TOM Installs";
@@ -173,8 +173,21 @@ public interface FieldEngineerAppConstants {
 		public static final String ELEMENT_DROP_DOWN_PRODCAT_TIER2_1 = "External";
 		public static final String ELEMENT_DROP_DOWN_PRODCAT_TIER2_2 = "Internal";
 		
+		//for voice selection
+		public static final String ELEMENT_DROP_DOWN_PRODCAT_TIER2_3 = "Core";
+		
+		public static final String ELEMENT_DROP_DOWN_PRODCAT_TIER2_4 = "Tool";
+		
 		//Product Cat Tier 3
 		public static final String ELEMENT_DROP_DOWN_PRODCAT_TIER3_1 = "Civil Authority";
+		
+		//for core
+		public static final String ELEMENT_DROP_DOWN_PRODCAT_TIER3_2 = "IVR";
+		
+		//for tool
+		public static final String ELEMENT_DROP_DOWN_PRODCAT_TIER3_3 = "Monitoring";
+		
+		
 		
 		//confirm button
 		public static final String ELEMENT_FINAL_CONFIRM_BUTTON = "Confirm";

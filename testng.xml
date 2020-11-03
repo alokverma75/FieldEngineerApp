@@ -54,7 +54,7 @@
 	<test thread-count="5" name="SettingsPageTest">
 		
 		<classes>		
-			<class name="com.colt.fieldengineerapp.testcases.SettingsrPageTest" />
+			<class name="com.colt.fieldengineerapp.testcases.SettingsPageTest" />
 		</classes>
 
 	</test> <!-- Test -->
