@@ -7,6 +7,14 @@
 			class-name="com.colt.fieldengineerapp.base.TestCaseListener" />
 			<listener class-name="com.colt.fieldengineerapp.reporting.ExtentReporterNG"/>
 	</listeners>
+		<test thread-count="5" name="HomePageTest">
+		
+		<classes>
+				<class name="com.colt.fieldengineerapp.testcases.HomePageTest" />
+			</classes>
+
+	</test> <!-- Test -->
+	
 	<test thread-count="5" name="RaisePlanwork">
 		<!-- 
 		<groups>

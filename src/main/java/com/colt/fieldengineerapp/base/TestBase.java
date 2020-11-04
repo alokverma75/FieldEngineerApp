@@ -36,6 +36,17 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.colt.fieldengineerapp.constants.ActionsPageConstants;
+import com.colt.fieldengineerapp.constants.AlertMessagesRaisePlanWorkConstants;
+import com.colt.fieldengineerapp.constants.ConfirmPageConstants;
+import com.colt.fieldengineerapp.constants.FieldEngineerAppConstants;
+import com.colt.fieldengineerapp.constants.HomePageConstants;
+import com.colt.fieldengineerapp.constants.NewTasksPageConstants;
+import com.colt.fieldengineerapp.constants.OpenDrawerAndSettingsPageConstants;
+import com.colt.fieldengineerapp.constants.PlannedWorksPageErrorMessages;
+import com.colt.fieldengineerapp.constants.RaisePlannedWorkConstants;
+import com.colt.fieldengineerapp.constants.SingleTaskPageConstants;
+import com.colt.fieldengineerapp.constants.TemplatesConstants;
 import com.colt.fieldengineerapp.util.ReadPropertyFile;
 
 import io.appium.java_client.TouchAction;
@@ -51,8 +62,9 @@ import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.ElementOption;
 import io.appium.java_client.touch.offset.PointOption;
 
-public class TestBase implements FieldEngineerAppConstants, PlannedWorksPageErrorMessages, AlertMessagesRaisePlanWork,
-		ActionsPageConstants,ConfirmPageConstants, OpenDrawerAndSettingsPageConstants,TemplatesConstants,RaisePlannedWorkConstants {
+public class TestBase implements FieldEngineerAppConstants, PlannedWorksPageErrorMessages, AlertMessagesRaisePlanWorkConstants,
+		ActionsPageConstants,ConfirmPageConstants, OpenDrawerAndSettingsPageConstants,TemplatesConstants,RaisePlannedWorkConstants,
+		HomePageConstants,NewTasksPageConstants,SingleTaskPageConstants{
 
 	public static AndroidDriver<AndroidElement> driver;
 	private static DesiredCapabilities cap = new DesiredCapabilities();

@@ -67,8 +67,9 @@ public class EndToEndTestForSingleTaskView extends TestBase {
 			}
 			
 		}
-		String label = singleTaskDetailsPage.getOrderNumberLabel().getText();
-		System.out.println("Label is " + label);
+		String orderLabel = singleTaskDetailsPage.getOrderNumberLabel().getText();
+		Assert.assertEquals(orderLabel,ELEMENT_ORDER_NUMBER_TITLE,ELEMENT_ORDER_NUMBER_TITLE_MSG);
+		
 
 		listofTextView = singleTaskDetailsPage.getTextElementsByResourceId(driver, ELEMENT_TV_VALUE);
 		for (int i = 0; i < listofTextView.size(); i++) {

@@ -3,14 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.colt.fieldengineerapp.testcases.EndToEndActionsPageTest">
+      <class name="com.colt.fieldengineerapp.testcases.EndToEndTestForSingleTaskView">
         <methods>
-          <include name="startServices"/>
-          <include name="testNonNullJobRemarksdField"/>
-          <include name="setUp"/>
           <include name="tearDown"/>
+          <include name="setUp"/>
+          <include name="startServices"/>
+          <include name="endToEndTestTillSingleTaskView"/>
         </methods>
-      </class> <!-- com.colt.fieldengineerapp.testcases.EndToEndActionsPageTest -->
+      </class> <!-- com.colt.fieldengineerapp.testcases.EndToEndTestForSingleTaskView -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
