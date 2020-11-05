@@ -1,5 +1,7 @@
 package com.colt.fieldengineerapp.pages;
 
+import java.util.List;
+
 import org.openqa.selenium.support.PageFactory;
 
 import com.colt.fieldengineerapp.base.TestBase;
@@ -9,9 +11,9 @@ import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
-public class NewTasksPage extends TestBase {
+public class AllTasksPage extends TestBase {
 	
-	public NewTasksPage(AndroidDriver<AndroidElement> driver) {
+	public AllTasksPage(AndroidDriver<AndroidElement> driver) {
 		PageFactory.initElements(new AppiumFieldDecorator(driver, getDuration(30)), this);
 	}
 	
@@ -21,8 +23,11 @@ public class NewTasksPage extends TestBase {
 	@AndroidFindBy(id = "com.colt.coltengineering:id/img_location")
 	private AndroidElement imageLocation;
 
-	@AndroidFindBy(uiAutomator = "text(\"DESCRIPTION\")") 
+	@AndroidFindBy(uiAutomator = "text(\"DESCRIPTION\")")
 	private AndroidElement descriptionTitle;
+	
+	@AndroidFindBy(id = "com.colt.coltengineering:id/tv_description_value")
+	private AndroidElement descriptionValue;	
 	
 	@AndroidFindBy(uiAutomator = "text(\"TYPE\")") 
 	private AndroidElement typeTitle;
@@ -43,6 +48,10 @@ public class NewTasksPage extends TestBase {
 	@AndroidFindBy(id = "com.colt.coltengineering:id/tv_status_value")
 	private AndroidElement statusValue;
 	
+	@AndroidFindBy(id = "com.colt.coltengineering:id/tv_status_value")
+	private List<AndroidElement> statusValuesList;
+
+	
 	@AndroidFindBy(id = "com.colt.coltengineering:id/tv_date_no")
 	private AndroidElement dateValue;
 
@@ -54,6 +63,38 @@ public class NewTasksPage extends TestBase {
 	
 	@AndroidFindBy(id = "com.colt.coltengineering:id/img_next")
 	private AndroidElement imageNext;
+	
+	@AndroidFindBy(id = "com.colt.coltengineering:id/chk_select")
+	private List<AndroidElement> checkBox;
+	
+	//For Completed Page separate elements
+	@AndroidFindBy(uiAutomator = "text(\"SUBJECT\")")
+	private AndroidElement subjectTitle;
+	
+	@AndroidFindBy(uiAutomator = "text(\"PRODUCT\")")
+	private AndroidElement productTitle;
+	
+	
+
+	public List<AndroidElement> getStatusValuesList() {
+		return statusValuesList;
+	}
+
+	public AndroidElement getProductTitle() {
+		return productTitle;
+	}
+
+	public AndroidElement getSubjectTitle() {
+		return subjectTitle;
+	}
+	
+	public List<AndroidElement> getCheckBox() {
+		return checkBox;
+	}	
+	
+	public AndroidElement getDescriptionValue() {
+		return descriptionValue;
+	}
 
 	public AndroidElement getActivityIDValue() {
 		return activityIDValue;

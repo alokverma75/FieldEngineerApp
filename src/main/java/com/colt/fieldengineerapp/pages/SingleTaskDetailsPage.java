@@ -55,6 +55,9 @@ public class SingleTaskDetailsPage extends TestBase {
 
 	@AndroidFindBy(uiAutomator = "text(\"Job ID\")")
 	AndroidElement jobIDLabel;
+	
+	@AndroidFindBy(uiAutomator = "text(\"Job Reference\")")
+	AndroidElement jobReferenceLabel;
 
 	@AndroidFindBy(uiAutomator = "text(\"Activity Id\")")
 	AndroidElement activityIDLabel;
@@ -145,6 +148,9 @@ public class SingleTaskDetailsPage extends TestBase {
 	private List<AndroidElement> textFieldValue;
 	
 	
+	public AndroidElement getJobReferenceLabel() {
+		return jobReferenceLabel;
+	}
 
 	public AndroidElement getProductNameLabel() {
 		return productNameLabel;

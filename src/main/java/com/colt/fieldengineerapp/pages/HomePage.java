@@ -56,7 +56,7 @@ public class HomePage extends TestBase {
 	private AndroidElement inprogressTasksTitle;
 	
 	@AndroidFindBy(id = "com.colt.coltengineering:id/img_inprogress")
-	private AndroidElement inrogressTasksImageBtn;
+	private AndroidElement inProgressTasksImageBtn;
 	
 	@AndroidFindBy(id = "com.colt.coltengineering:id/closed_count")
 	private AndroidElement completedTasksCount;
@@ -129,8 +129,9 @@ public class HomePage extends TestBase {
 		return inprogressTasksTitle;
 	}
 
-	public AndroidElement getInrogressTasksImageBtn() {
-		return inrogressTasksImageBtn;
+	
+	public AndroidElement getInProgressTasksImageBtn() {
+		return inProgressTasksImageBtn;
 	}
 
 	public AndroidElement getCompletedTasksCount() {

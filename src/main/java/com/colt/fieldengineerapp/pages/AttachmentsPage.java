@@ -18,43 +18,19 @@ public class AttachmentsPage extends TestBase {
 	@AndroidFindBy(uiAutomator = "text(\"Downloads\")") 
 	private AndroidElement downloadsTitle;
 	
-	@AndroidFindBy(id = "com.colt.coltengineering:id/btn_add_comment")
-	private AndroidElement addCommentButton;
-	
+
 	@AndroidFindBy(uiAutomator = "text(\"Uploaded\")") 
 	private AndroidElement uploadedTitle;
 	
-	@AndroidFindBy(id = "com.colt.coltengineering:id/et_message")
-	private AndroidElement addMessageTextField;
-
-	@AndroidFindBy(uiAutomator = "text(\"Cancel\")") 
-	private AndroidElement cancelButton;
-
-	@AndroidFindBy(uiAutomator = "text(\"Send\")") 
-	private AndroidElement sendButton;
 
 	public AndroidElement getDownloadsTitle() {
 		return downloadsTitle;
 	}
 
-	public AndroidElement getAddCommentButton() {
-		return addCommentButton;
-	}
 
 	public AndroidElement getUploadedTitle() {
 		return uploadedTitle;
 	}
 
-	public AndroidElement getAddMessageTextField() {
-		return addMessageTextField;
-	}
-
-	public AndroidElement getCancelButton() {
-		return cancelButton;
-	}
-
-	public AndroidElement getSendButton() {
-		return sendButton;
-	}	
 
 }

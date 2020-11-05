@@ -50,9 +50,9 @@ public interface SingleTaskPageConstants {
 	public static final String ELEMENT_ADDRESS_TITLE_MSG="Address title not matching with defined- Address";
 	public static final String ELEMENT_ADDRESS_TITLE_VALUE="Address field value is mandatory and can't be blank";
 
-	public static final String ELEMENT_JOB_OWNDER_ID_TITLE="Job Owner ID";
-	public static final String ELEMENT_JOB_OWNDER_ID_TITLE_MSG="Job Owner ID title not matching with defined- Job Owner ID";
-	public static final String ELEMENT_JOB_OWNDER_ID_TITLE_VALUE="Job Owner ID field value is mandatory and can't be blank";
+	public static final String ELEMENT_JOB_OWNER_ID_TITLE="Job Owner ID";
+	public static final String ELEMENT_JOB_OWNER_ID_TITLE_MSG="Job Owner ID title not matching with defined- Job Owner ID";
+	public static final String ELEMENT_JOB_OWNER_ID_TITLE_VALUE="Job Owner ID field value is mandatory and can't be blank";
 
 	public static final String ELEMENT_JOB_ID_TITLE="Job ID";
 	public static final String ELEMENT_JOB_ID_TITLE_MSG="Job ID title not matching with defined- Job ID";
@@ -61,6 +61,12 @@ public interface SingleTaskPageConstants {
 	public static final String ELEMENT_ACTIVITY_ID_TITLE="Activity Id";
 	public static final String ELEMENT_ACTIVITY_ID_TITLE_MSG="Activity Id title not matching with defined- Activity Id";
 	public static final String ELEMENT_ACTIVITY_ID_TITLE_VALUE="Activity Id field value is mandatory and can't be blank";
+	
+	//completed page only
+	public static final String ELEMENT_JOB_REFERENCE_TITLE="Job Reference";
+	public static final String ELEMENT_JOB_REFERENCE_TITLE_MSG="Job Reference title not matching with defined- Job Reference";
+	public static final String ELEMENT_JOB_REFERENCE_TITLE_VALUE="Job Reference field value is mandatory and can't be blank";
+
 
 	public static final String ELEMENT_CATEGORY_TITLE="Category";
 	public static final String ELEMENT_CATEGORY_TITLE_MSG="Category title not matching with defined- Category";
@@ -78,7 +84,7 @@ public interface SingleTaskPageConstants {
 	public static final String ELEMENT_PLANNED_START_DATE_TITLE_MSG="Planned Start Date/Time title not matching with defined- Planned Start Date/Time";
 	public static final String ELEMENT_PLANNED_START_DATE_TITLE_VALUE="Planned Start Date/Time field value is mandatory and can't be blank";
 
-	public static final String ELEMENT_PLANNED_END_DATE_TITLE="Planned Start Date/Time";
+	public static final String ELEMENT_PLANNED_END_DATE_TITLE="Planned End Date/Time";
 	public static final String ELEMENT_PLANNED_END_DATE_TITLE_MSG="Planned End Date/Time title not matching with defined- Planned End Date/Time";
 	public static final String ELEMENT_PLANNED_END_DATE_TITLE_VALUE="Planned End Date/Time field value is mandatory and can't be blank";
 	
@@ -158,6 +164,7 @@ public interface SingleTaskPageConstants {
 	public static final String ELEMENT_COOP_TECH_EMAIL_TITLE_MSG="Coop Tech Email title not matching with defined- Coop Tech Email";
 	public static final String ELEMENT_COOP_TECH_EMAIL_TITLE_VALUE="Coop Tech Email field value is mandatory and can't be blank";
 
+	//Scroll to elements
 
 
 

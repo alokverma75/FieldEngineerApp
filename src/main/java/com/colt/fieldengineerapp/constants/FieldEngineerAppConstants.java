@@ -3,6 +3,23 @@ package com.colt.fieldengineerapp.constants;
 public interface FieldEngineerAppConstants {
 	
 		public static final String ELEMENT_EMPTY_STRING="";
+		//Constants to get dropdwon values in order shown on page
+		public static final int ELEMENT_FIRST=0;
+		public static final int ELEMENT_SECOND=1;
+		public static final int ELEMENT_THIRD=2;
+		public static final int ELEMENT_FOURTH=3;
+		public static final int ELEMENT_FIFTH=4;
+		public static final int ELEMENT_SIXTH=5;
+		public static final int ELEMENT_SEVENTH=6;
+		public static final String ELEMENT_FALSE="false";
+		
+		//Constants for prop file
+		public static final String ELEMENT_TRUE="true";
+		public static final String ELEMENT_RECORDING_NEEDED="recordingNeeded";
+		
+		//attributes for checkbox
+		public static final String ELEMENT_CHECKED="checked";
+		
 	
 	//Tap options
 	
@@ -23,6 +40,9 @@ public interface FieldEngineerAppConstants {
 		public static final String ELEMENT_XPATH_PREFIX = "//";
 		public static final String ELEMENT_XPATH__TEXT_PREFIX = "[@text='";
 		public static final String ELEMENT_XPATH__DESCRIPTION_PREFIX = "*[@content-desc='";
+		public static final String ELEMENT_XPATH__ATTRIBUTE_PREFIX = "*[@";
+		public static final String ELEMENT_XPATH__ATTRIBUTE_SUFFIX = "='";
+		
 		public static final String ELEMENT_XPATH__TEXT_SUFFIX = "']";
 		public static final String ELEMENT_CHECKBOX = "checkbox";
 		
@@ -196,6 +216,8 @@ public interface FieldEngineerAppConstants {
 		
 		public static final String ELEMENT_TEXT_VIEW="android.widget.TextView";
 		public static final String ELEMENT_TV_VALUE="com.colt.coltengineering:id/tv_value";
+		public static final String ELEMENT_BUTTON_ACTION="com.colt.coltengineering:id/btn_open_actions";
+		public static final String ELEMENT_CUSTOMER="Customer";
 		public static final String ELEMENT_JOB_STATUS="Job Status";
 		public static final String ELEMENT_JOB_OWNER="Job Owner";
 		public static final String ELEMENT_PLANNED_START_DATE="Planned Start Date/Time";
@@ -204,7 +226,7 @@ public interface FieldEngineerAppConstants {
 		public static final String ELEMENT_COOP_TECH_MAIL="Coop Tech Email";
 		public static final String ELEMENT_JOB_ID="Job ID";
 		public static final String ELEMENT_Activity_ID="Activity Id";
-		public static final String ELEMENT_BUTTON_ACTION="com.colt.coltengineering:id/btn_open_actions";
+
 			
 		//Single Task Details Page Error messages
 		public static final String ERROR_MESSAGE_EMPTY_JOB_ID="Job ID Field is empty";
@@ -224,10 +246,7 @@ public interface FieldEngineerAppConstants {
 		public static final String ELEMENT_PLANNED_WORKS_IMAGE_OPTION="com.colt.coltengineering:id/img_option_icon";
 		public static final String ELEMENT_PLANNED_ID_TITLE="com.colt.coltengineering:id/id_title";
 		
-		//Constants for prop file
-		public static final String ELEMENT_TRUE="true";
-		public static final String ELEMENT_RECORDING_NEEDED="recordingNeeded";
-		
+	
 		
 
 		

@@ -46,5 +46,18 @@ public class TestData {
 		
 		return dataObject;
 	}
+	
+	@DataProvider(name="InputDataForAllTasks")
+	public Object[][] getDataForCompletedTestTest(){
+		
+		Object[][] dataObject = new Object[][] {
+			
+			{"alok.verma@colt.net"}
+			
+		};
+		
+		return dataObject;
+	}
+
 
 }

@@ -2,16 +2,7 @@ package com.colt.fieldengineerapp.constants;
 
 public interface RaisePlannedWorkConstants {
 	
-	//Constants to get dropdwon values in order shown on page
-	public static final int ELEMENT_FIRST=0;
-	public static final int ELEMENT_SECOND=1;
-	public static final int ELEMENT_THIRD=2;
-	public static final int ELEMENT_FOURTH=3;
-	public static final int ELEMENT_FIFTH=4;
-	public static final int ELEMENT_SIXTH=5;
-	public static final int ELEMENT_SEVENTH=6;
-	
-	
+
 	public static final String ELEMENT_TEMPLATE_DD_LABEL="Template";
 	public static final String ELEMENT_TEMPLATE_DD_LABEL_MSG="Template title is not matching as defined- Template";
 	public static final String ELEMENT_TEMPLATE_TF_LABEL_MSG="Template field value cannot be blank";

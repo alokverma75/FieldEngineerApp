@@ -71,7 +71,7 @@ public class EndToEndTestForSingleTaskView extends TestBase {
 		Assert.assertEquals(orderLabel,ELEMENT_ORDER_NUMBER_TITLE,ELEMENT_ORDER_NUMBER_TITLE_MSG);
 		
 
-		listofTextView = singleTaskDetailsPage.getTextElementsByResourceId(driver, ELEMENT_TV_VALUE);
+		listofTextView = singleTaskDetailsPage.getTextFieldValue();
 		for (int i = 0; i < listofTextView.size(); i++) {
 			System.out.println(" element at" + i + "th Index is " + listofTextView.get(i).getText());
 		}
@@ -80,7 +80,7 @@ public class EndToEndTestForSingleTaskView extends TestBase {
 		String labelJobStatus = singleTaskDetailsPage.scrollToElement(driver, ELEMENT_JOB_STATUS).getText();
 		System.out.println("Label is " + labelJobStatus);
 
-		listofTextView = singleTaskDetailsPage.getTextElementsByResourceId(driver, ELEMENT_TV_VALUE);
+		listofTextView = singleTaskDetailsPage.getTextFieldValue();
 		for (int i = 0; i < listofTextView.size(); i++) {
 			System.out.println(" element at" + i + "th Index is " + listofTextView.get(i).getText());
 		}
@@ -89,7 +89,7 @@ public class EndToEndTestForSingleTaskView extends TestBase {
 		String labelPlannedStartDate = singleTaskDetailsPage.scrollToElement(driver, ELEMENT_PLANNED_START_DATE).getText();
 		System.out.println("Label is " + labelPlannedStartDate);
 
-		listofTextView = singleTaskDetailsPage.getTextElementsByResourceId(driver, ELEMENT_TV_VALUE);
+		listofTextView = singleTaskDetailsPage.getTextFieldValue();
 		for (int i = 0; i < listofTextView.size(); i++) {
 			System.out.println(" element at" + i + "th Index is " + listofTextView.get(i).getText());
 		}
@@ -98,7 +98,7 @@ public class EndToEndTestForSingleTaskView extends TestBase {
 		String labelCPD = singleTaskDetailsPage.scrollToElement(driver, ELEMENT_CPD).getText();
 		System.out.println("Label is " + labelCPD);
 
-		listofTextView = singleTaskDetailsPage.getTextElementsByResourceId(driver, ELEMENT_TV_VALUE);
+		listofTextView = singleTaskDetailsPage.getTextFieldValue();
 		for (int i = 0; i < listofTextView.size(); i++) {
 			System.out.println(" element at" + i + "th Index is " + listofTextView.get(i).getText());
 		}
@@ -107,7 +107,7 @@ public class EndToEndTestForSingleTaskView extends TestBase {
 		String labelJobRemarks =  singleTaskDetailsPage.scrollToElement(driver, ELEMENT_JOB_REMARKS).getText();
 		System.out.println("Label is " + labelJobRemarks);
 
-		listofTextView = singleTaskDetailsPage.getTextElementsByResourceId(driver, ELEMENT_TV_VALUE);
+		listofTextView = singleTaskDetailsPage.getTextFieldValue();
 		for (int i = 0; i < listofTextView.size(); i++) {
 			System.out.println(" element at" + i + "th Index is " + listofTextView.get(i).getText());
 		}
@@ -118,7 +118,7 @@ public class EndToEndTestForSingleTaskView extends TestBase {
 		String labelCoopTech = singleTaskDetailsPage.scrollToElement(driver, ELEMENT_COOP_TECH_MAIL).getText();
 		System.out.println("Label is " + labelCoopTech);
 
-		listofTextView = singleTaskDetailsPage.getTextElementsByResourceId(driver, ELEMENT_TV_VALUE);
+		listofTextView = singleTaskDetailsPage.getTextFieldValue();
 		for (int i = 0; i < listofTextView.size(); i++) {
 			System.out.println(" element at" + i + "th Index is " + listofTextView.get(i).getText());
 		}
@@ -140,7 +140,7 @@ public class EndToEndTestForSingleTaskView extends TestBase {
 		String jobID = singleTaskDetailsPage.scrollToElement(driver, ELEMENT_JOB_ID).getText();
 		System.out.println("Label is " + jobID);
 
-		listofTextView = singleTaskDetailsPage.getTextElementsByResourceId(driver, ELEMENT_TV_VALUE);
+		listofTextView = singleTaskDetailsPage.getTextFieldValue();
 		System.out.println(" Size of list on scroll to Job ID "+ listofTextView.size());
 		for (int i = 0; i < listofTextView.size(); i++) {
 			System.out.println(" element at" + i + "th Index is " + listofTextView.get(i).getText());
@@ -161,7 +161,7 @@ public class EndToEndTestForSingleTaskView extends TestBase {
 		String activityID = singleTaskDetailsPage.scrollToElement(driver, ELEMENT_Activity_ID).getText();
 		System.out.println("Label is " + activityID);
 
-		listofTextView = singleTaskDetailsPage.getTextElementsByResourceId(driver, ELEMENT_TV_VALUE);
+		listofTextView = singleTaskDetailsPage.getTextFieldValue();
 		System.out.println(" Size of list on scroll to Job ID "+ listofTextView.size());
 		for (int i = 0; i < listofTextView.size(); i++) {
 			System.out.println(" element at" + i + "th Index is " + listofTextView.get(i).getText());

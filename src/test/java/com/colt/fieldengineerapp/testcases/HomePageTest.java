@@ -82,7 +82,7 @@ public class HomePageTest extends TestBase {
 		String inProgressTasksValue = homePage.getInprogressTasksCount().getText();
 		Assert.assertNotNull(inProgressTasksValue, ELEMENT_INPROGRESS_TASKS_TITLE_VALUE);
 		
-		String inProgressTasksImageBtn = homePage.getInrogressTasksImageBtn().getText();
+		String inProgressTasksImageBtn = homePage.getInProgressTasksImageBtn().getText();
 		Assert.assertNotNull(inProgressTasksImageBtn, ELEMENT_NEW_TASKS_IMAGE_BTN_VALUE);
 
 

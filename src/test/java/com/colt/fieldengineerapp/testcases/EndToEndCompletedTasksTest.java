@@ -29,7 +29,7 @@ import com.colt.fieldengineerapp.pages.SingleTaskDetailsPage;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 
-public class EndToEndNewTasksPageTest extends TestBase {
+public class EndToEndCompletedTasksTest extends TestBase {
 
 	LoginPage loginPage;
 	LandingPage landingPage;
@@ -37,7 +37,7 @@ public class EndToEndNewTasksPageTest extends TestBase {
 	AllTasksListPage allTasksListPage;
 	SingleTaskDetailsPage singleTaskDetailsPage;
 	ActionsPage actionsPage;
-	AllTasksPage newTasksPage;
+	AllTasksPage completedPage;
 	HeaderPage headerPage;
 	LocationPage locationPage;
 	CommunicationPage communicationPage;
@@ -48,7 +48,7 @@ public class EndToEndNewTasksPageTest extends TestBase {
 	List<AndroidElement> listofTextView;
 	
 
-	public EndToEndNewTasksPageTest() throws MalformedURLException, IOException {
+	public EndToEndCompletedTasksTest() throws MalformedURLException, IOException {
 		super();
 
 	}
@@ -69,15 +69,15 @@ public class EndToEndNewTasksPageTest extends TestBase {
 		loginPage = new LoginPage(driver);
 		homePage = new HomePage(driver);
 		actionsPage = new ActionsPage(driver);
-		newTasksPage = new AllTasksPage(driver);
+		completedPage = new AllTasksPage(driver);
 		headerPage = new HeaderPage(driver);
 		locationPage = new LocationPage(driver);
 		communicationPage = new CommunicationPage(driver);
 		attachmentsPage = new AttachmentsPage(driver);
 		allTasksListPage = new AllTasksListPage(driver);
+		filterPage = new FilterPage(driver);
 		singleTaskDetailsPage = new SingleTaskDetailsPage(driver);
 		alertPage = new AlertPage(driver);
-		filterPage = new FilterPage(driver);
 		landingPage = loginPage.login(driver, prop.getProperty("userID"), prop.getProperty("password"));
 		Thread.sleep(2000);
 		landingPage.getContinueBtn().click();
@@ -88,7 +88,7 @@ public class EndToEndNewTasksPageTest extends TestBase {
 
 	
 	@Test(dataProvider = "InputDataForAllTasks", dataProviderClass = TestData.class)
-	public void testNewTasksPageEndToEnd(String userEmail) throws InterruptedException, IOException {
+	public void testcompletedPageEndToEnd(String userEmail) throws InterruptedException, IOException {
 		if(prop.getProperty(ELEMENT_RECORDING_NEEDED) != null) {
 			if(prop.getProperty(ELEMENT_RECORDING_NEEDED).equals(ELEMENT_TRUE)) {
 				TestBase.startRecording(driver);
@@ -96,37 +96,34 @@ public class EndToEndNewTasksPageTest extends TestBase {
 			
 		}
 		
-		homePage.getNewTasksImageBtn().click();
+		homePage.getCompletedTasksImageBtn().click();
 		//First Check all elements on New Tasks Page for first task
 		
 		//Activity ID
 		
-		String activityIDValue = newTasksPage.getActivityIDValue().getText();
+		String activityIDValue = completedPage.getActivityIDValue().getText();
 		Assert.assertNotNull(activityIDValue,ELEMENT_ACTIVITY_ID_TF_VALUE);
 		
-		String imageLocation = newTasksPage.getActivityIDValue().getText();
-		Assert.assertNotNull(imageLocation,ELEMENT_ACTIVITY_ID_TF_VALUE);
+		String imageLocation = completedPage.getImageLocation().getText();
+		Assert.assertNotNull(imageLocation,ELEMENT_IMAGE_LOC_VALUE);
 
 		
-		String descriptionLabel = newTasksPage.getDescriptionTitle().getText();
-		Assert.assertEquals(descriptionLabel,ELEMENT_DESCRIPTION_TITLE,ELEMENT_DESCRIPTION_TITLE_MSG);
+		String subjectLabel = completedPage.getSubjectTitle().getText();
+		Assert.assertEquals(subjectLabel,ELEMENT_SUBJECT_LABEL,ELEMENT_SUBJECT_LABEL_MSG);
 		
-//		String descriptionValue = newTasksPage.getDescriptionValue().getText();
-//		Assert.assertNotNull(descriptionValue,ELEMENT_DESCRIPTION_TF_VALUE);
-		
-		String typeLabel = newTasksPage.getTypeTitle().getText();
+		String typeLabel = completedPage.getTypeTitle().getText();
 		Assert.assertEquals(typeLabel,ELEMENT_TYPE_NEW_TASK_TITLE,ELEMENT_TYPE_NEW_TASK_TITLE_MSG);
-		String typeTFValue = newTasksPage.getTypeValue().getText();
+		String typeTFValue = completedPage.getTypeValue().getText();
 		Assert.assertNotNull(typeTFValue,ELEMENT_TYPE_NEW_TASK_TITLE_TF_VALUE);
 
-		String priotityLabel = newTasksPage.getPriorityTitle().getText();
-		Assert.assertEquals(priotityLabel,ELEMENT_PRIORITY_TITLE,ELEMENT_PRIORITY_TITLE_MSG);
-		String priorityTFValue = newTasksPage.getPriorityValue().getText();
-		Assert.assertNotNull(priorityTFValue,ELEMENT_PRIORITY_TITLE_TF_VALUE);
+		String priotityLabel = completedPage.getProductTitle().getText();
+		Assert.assertEquals(priotityLabel,ELEMENT_PRODUCT_LABEL,ELEMENT_PRODUCT_LABEL_MSG);
+		String priorityTFValue = completedPage.getPriorityValue().getText();
+		Assert.assertNotNull(priorityTFValue,ELEMENT_PRODUCT_LABEL_TF_VALUE);
 		
-		String statusLabel = newTasksPage.getStatusTitle().getText();
+		String statusLabel = completedPage.getStatusTitle().getText();
 		Assert.assertEquals(statusLabel,ELEMENT_STATUS_TITLE,ELEMENT_STATUS_TITLE_MSG);
-		String statusTFValue = newTasksPage.getStatusValue().getText();
+		String statusTFValue = completedPage.getTypeValue().getText();
 		Assert.assertNotNull(statusTFValue,ELEMENT_STATUS_TITLE_TF_VALUE);
 
 		//Check for filter option 
@@ -163,78 +160,100 @@ public class EndToEndNewTasksPageTest extends TestBase {
 		Assert.assertEquals(nextTendaysCheckbox,ELEMENT_NEXT_TEN_DAYS,ELEMENT_NEXT_TEN_DAYS_MSG);
 			
 		String newChkBoxAlreadySelected =  filterPage.getNewChkBox().getAttribute(ELEMENT_CHECKED);
-		Assert.assertTrue(ELEMENT_TRUE.equals(newChkBoxAlreadySelected));
+		Assert.assertTrue(ELEMENT_FALSE.equals(newChkBoxAlreadySelected));
 		
 		String inProgressChkBoxAlreadySelected =  filterPage.getInProgressChkBox().getAttribute(ELEMENT_CHECKED);
 		Assert.assertTrue(ELEMENT_FALSE.equals(inProgressChkBoxAlreadySelected));
 
 		String doneChkBoxAlreadySelected =  filterPage.getDoneChkBox().getAttribute(ELEMENT_CHECKED);
-		Assert.assertTrue(ELEMENT_FALSE.equals(doneChkBoxAlreadySelected));
+		Assert.assertTrue(ELEMENT_TRUE.equals(doneChkBoxAlreadySelected));
 		
 		//Now click on InPregress chk box and apply
-		filterPage.getInProgressChkBox().click();
+		filterPage.getNewChkBox().click();
 		filterPage.getApplyButton().click();
 		
 		//Open filter again and chk if it is still selected
 		headerPage.getFilterTasks().click();
-		String inProgressChkBoxStillSelected =  filterPage.getInProgressChkBox().getAttribute(ELEMENT_CHECKED);
-		Assert.assertTrue(ELEMENT_TRUE.equals(inProgressChkBoxStillSelected));
+		String newChkBoxStillSelected =  filterPage.getNewChkBox().getAttribute(ELEMENT_CHECKED);
+		Assert.assertTrue(ELEMENT_TRUE.equals(newChkBoxStillSelected));
 		
 		filterPage.getCancelButton().click();
 		
 		//Now chk status of first ask if it is In Progress as all in progress too will be loaded
-				
+		
 		
 		//scroll till the first Task with New status appears in view
-		singleTaskDetailsPage.scrollToElement(driver, ELEMENT_IN_PROGRESS);
+		singleTaskDetailsPage.scrollToElement(driver, ELEMENT_NEW);
 		
 		
 		//Get list of statuses of all Tasks from the view and check the one with Status=New
-		List<AndroidElement> statusValues = newTasksPage.getStatusValuesList();
+		List<AndroidElement> statusValues = completedPage.getStatusValuesList();
 			
 			for(int i = 0; i < statusValues.size(); i++) {
 				String statusValueOnFilter = statusValues.get(i).getText();				
-				if(ELEMENT_IN_PROGRESS.equals(statusValueOnFilter)) {
+				if(ELEMENT_NEW.equals(statusValueOnFilter)) {
 					System.out.println("statusTFValueAfterApplyFilter  "+ statusValueOnFilter + "at index "+ i);
-					Assert.assertEquals(statusValueOnFilter,ELEMENT_IN_PROGRESS);
+					Assert.assertEquals(statusValueOnFilter,ELEMENT_STATUS_VALUE_NEW_TASK);
 					break;
-					
 					}
 					
 				}
+				
+		homePage.getBackButton().click();
+		homePage.getNewTasksImageBtn().click();
 
 		
+		//Lets try to assign this task to some user before moving on
+//		
+//		headerPage.getAssignTaskIcon().click();
+//		
+//		String checkBoxValueBeforeClick = completedPage.getCheckBox().get(ELEMENT_FIRST).getAttribute(ELEMENT_CHECKED);		
+//		Assert.assertTrue(ELEMENT_FALSE.equals(checkBoxValueBeforeClick));
+//		
+//		completedPage.getCheckBox().get(ELEMENT_FIRST).click();
+//		
+//		headerPage.getAssignButton().click();
+//		
+//		String alertPageTitle = alertPage.getAssignTaskAlertWindowTitle().getText();
+//		Assert.assertEquals(alertPageTitle,ELEMENT_ALERT_TITLE,ELEMENT_ALERT_TITLE_MSG);
+//		
+//		alertPage.getUserNameTextField().sendKeys(userEmail);
+//		alertPage.getSubmitButton().click();
+//		
+//		String checkBoxValueAfterClick = completedPage.getCheckBox().get(ELEMENT_FIRST).getAttribute(ELEMENT_CHECKED);	
+//		Assert.assertTrue(ELEMENT_TRUE.equals(checkBoxValueAfterClick));
+//		
+//		homePage.getBackButton().click();
+//		homePage.getCompletedTasksImageBtn().click();
+
 		//Lets try to assign this task to some user before moving on
 		
 		headerPage.getAssignTaskIcon().click();
 		
-		String checkBoxValueBeforeClick = newTasksPage.getCheckBox().get(ELEMENT_FIRST).getAttribute(ELEMENT_CHECKED);		
-		Assert.assertTrue(ELEMENT_FALSE.equals(checkBoxValueBeforeClick));
-		
-		newTasksPage.getCheckBox().get(ELEMENT_FIRST).click();
+		completedPage.getCheckBox().get(ELEMENT_FIRST).click();
 		
 		headerPage.getAssignButton().click();
 		
-		String alertPageTitle = alertPage.getAssignTaskAlertWindowTitle().getText();
-		Assert.assertEquals(alertPageTitle,ELEMENT_ALERT_TITLE,ELEMENT_ALERT_TITLE_MSG);
+		String assignPageTitle = alertPage.getAssignTaskAlertWindowTitle().getText();
+		Assert.assertEquals(assignPageTitle,ELEMENT_ALERT_TITLE,ELEMENT_ALERT_TITLE_MSG);
 		
 		alertPage.getUserNameTextField().sendKeys(userEmail);
 		alertPage.getSubmitButton().click();
 		
-		String checkBoxValueAfterClick = newTasksPage.getCheckBox().get(ELEMENT_FIRST).getAttribute(ELEMENT_CHECKED);	
-		Assert.assertTrue(ELEMENT_TRUE.equals(checkBoxValueAfterClick));
+		String checkBoxAfterClick = completedPage.getCheckBox().get(ELEMENT_FIRST).getAttribute(ELEMENT_CHECKED);	
+		Assert.assertTrue(ELEMENT_TRUE.equals(checkBoxAfterClick));
 		
-		homePage.getBackButton().click();
-		homePage.getNewTasksImageBtn().click();
-		
-		String activityIDValueNew = newTasksPage.getActivityIDValue().getText();
-		newTasksPage.getImageNext().click();
+		String activityIDValueNew = completedPage.getActivityIDValue().getText();
+		completedPage.getImageNext().click();
 		Thread.sleep(2000);
-		
 		
 		//compare page title with activity id captured in previous page
 		String pageTitle = headerPage.getPageTitle().getText();
 		Assert.assertEquals(pageTitle,activityIDValueNew,ELEMENT_TITLE_VALUES);
+		
+		String startDate = headerPage.getStartDateTask().getText();
+		Assert.assertNotNull(startDate,ELEMENT_START_DATE_TF_VALUE);
+		
 		
 		headerPage.getDetailsTab().click();
 		
@@ -246,10 +265,6 @@ public class EndToEndNewTasksPageTest extends TestBase {
 		Assert.assertEquals(orderlabel,ELEMENT_ORDER_NUMBER_TITLE,ELEMENT_ORDER_NUMBER_TITLE_MSG);
 		//System.out.println("Label is " + orderlabel);
 				
-		String providerlabel = singleTaskDetailsPage.getProviderLabel().getText();
-		Assert.assertEquals(providerlabel,ELEMENT_PROVIDER_TITLE,ELEMENT_PROVIDER_TITLE_MSG);
-		//System.out.println("Label is " + providerlabel);
-		
 		String productNamelabel = singleTaskDetailsPage.getProductNameLabel().getText();
 		Assert.assertEquals(productNamelabel,ELEMENT_PRODUCT_NAME_TITLE,ELEMENT_PRODUCT_NAME_TITLE_MSG);
 		//System.out.println("Label is " + orderlabel);
@@ -274,19 +289,21 @@ public class EndToEndNewTasksPageTest extends TestBase {
 		Assert.assertEquals(postCodelabel,ELEMENT_POST_CODE_TITLE,ELEMENT_POST_CODE_TITLE_MSG);
 		//System.out.println("Label is " + postCodelabel);
 		
+//		String customerlabel = singleTaskDetailsPage.getCustomerLabel().getText();
+//		Assert.assertEquals(customerlabel,ELEMENT_CUSTOMER_TITLE,ELEMENT_CUSTOMER_TITLE_MSG);
+//		System.out.println("Label is " + customerlabel);
+
+		
 		// Till Post code one page we can check all elements for this page
 //		listofTextView = singleTaskDetailsPage.getTextFieldValue();
 //		for (int i = 0; i < listofTextView.size(); i++) {
 //			System.out.println(" element at" + i + "th Index is " + listofTextView.get(i).getText());
 //		}
 		
-		//Now scroll to customer
+		//Now scroll to Address
 		
 		singleTaskDetailsPage.scrollToElement(driver, ELEMENT_COUNTRY_TITLE);
 		//Thread.sleep(2000);
-//		String customerlabel = singleTaskDetailsPage.getCustomerLabel().getText();
-//		Assert.assertEquals(customerlabel,ELEMENT_CUSTOMER_TITLE,ELEMENT_CUSTOMER_TITLE_MSG);
-//		System.out.println("Label is " + customerlabel);
 		
 		//singleTaskDetailsPage.scrollToElement(driver, ELEMENT_COUNTRY_TITLE);
 		String countrylabel = singleTaskDetailsPage.getCountryLabel().getText();
@@ -307,8 +324,8 @@ public class EndToEndNewTasksPageTest extends TestBase {
 		Assert.assertEquals(jobIDlabel,ELEMENT_JOB_ID_TITLE,ELEMENT_JOB_ID_TITLE_MSG);
 		//System.out.println("Label is " + jobIDlabel);
 		
-		String activityIDlabel = singleTaskDetailsPage.getActivityIDLabel().getText();
-		Assert.assertEquals(activityIDlabel,ELEMENT_ACTIVITY_ID_TITLE,ELEMENT_ACTIVITY_ID_TITLE_MSG);
+//		String jobReflabel = singleTaskDetailsPage.getJobReferenceLabel().getText();
+//		Assert.assertEquals(jobReflabel,ELEMENT_JOB_REFERENCE_TITLE,ELEMENT_JOB_REFERENCE_TITLE_MSG);
 		//System.out.println("Label is " + activityIDlabel);
 
 		String categorylabel = singleTaskDetailsPage.getCategoryLabel().getText();
@@ -425,15 +442,17 @@ public class EndToEndNewTasksPageTest extends TestBase {
 		Assert.assertEquals(coopTechLabel,ELEMENT_COOP_TECH_TITLE,ELEMENT_COOP_TECH_TITLE_MSG);
 		//System.out.println("Label is " + coopTechLabel);
 		
-//		String coopTechMobLabel = singleTaskDetailsPage.getCoopTechMobileLabel().getText();
-//		Assert.assertEquals(coopTechMobLabel,ELEMENT_COOP_TECH_MOB_TITLE,ELEMENT_COOP_TECH_MOB_TITLE_MSG);
-//		System.out.println("Label is " + coopTechLabel);
-//		
+		
 		singleTaskDetailsPage.scrollToElement(driver, ELEMENT_COOP_TECH_EMAIL_TITLE);
 		String coopTechEmailLabel = singleTaskDetailsPage.getCoopTechEmailLabel().getText();
 		Assert.assertEquals(coopTechEmailLabel,ELEMENT_COOP_TECH_EMAIL_TITLE,ELEMENT_COOP_TECH_EMAIL_TITLE_MSG);
 		//System.out.println("Label is " + coopTechEmailLabel);
+		
+		String coopTechMobLabel = singleTaskDetailsPage.getCoopTechMobileLabel().getText();
+		Assert.assertEquals(coopTechMobLabel,ELEMENT_COOP_TECH_MOB_TITLE,ELEMENT_COOP_TECH_MOB_TITLE_MSG);
+		System.out.println("Label is " + coopTechLabel);
 
+		
 		//Now validate Location Page, first use header page to click on Location tab
 		headerPage.getLocationTab().click();
 		
@@ -465,7 +484,6 @@ public class EndToEndNewTasksPageTest extends TestBase {
 		headerPage.getAttachmentsTab().click();
 		attachmentsPage.getDownloadsTitle().click();
 		attachmentsPage.getUploadedTitle().click();
-		
 		
 		//Now got back to previous page
 		homePage.getBackButton().click();

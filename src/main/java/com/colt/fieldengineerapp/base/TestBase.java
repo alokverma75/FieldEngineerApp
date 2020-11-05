@@ -38,10 +38,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.colt.fieldengineerapp.constants.ActionsPageConstants;
 import com.colt.fieldengineerapp.constants.AlertMessagesRaisePlanWorkConstants;
+import com.colt.fieldengineerapp.constants.AlertPageConstants;
+import com.colt.fieldengineerapp.constants.AllTasksPageConstants;
 import com.colt.fieldengineerapp.constants.ConfirmPageConstants;
 import com.colt.fieldengineerapp.constants.FieldEngineerAppConstants;
+import com.colt.fieldengineerapp.constants.FilterPageConstants;
+import com.colt.fieldengineerapp.constants.HeaderPageConstants;
 import com.colt.fieldengineerapp.constants.HomePageConstants;
-import com.colt.fieldengineerapp.constants.NewTasksPageConstants;
+import com.colt.fieldengineerapp.constants.LocationPageConstants;
 import com.colt.fieldengineerapp.constants.OpenDrawerAndSettingsPageConstants;
 import com.colt.fieldengineerapp.constants.PlannedWorksPageErrorMessages;
 import com.colt.fieldengineerapp.constants.RaisePlannedWorkConstants;
@@ -64,7 +68,8 @@ import io.appium.java_client.touch.offset.PointOption;
 
 public class TestBase implements FieldEngineerAppConstants, PlannedWorksPageErrorMessages, AlertMessagesRaisePlanWorkConstants,
 		ActionsPageConstants,ConfirmPageConstants, OpenDrawerAndSettingsPageConstants,TemplatesConstants,RaisePlannedWorkConstants,
-		HomePageConstants,NewTasksPageConstants,SingleTaskPageConstants{
+		HomePageConstants, LocationPageConstants,SingleTaskPageConstants,AllTasksPageConstants,HeaderPageConstants,AlertPageConstants,
+		FilterPageConstants{
 
 	public static AndroidDriver<AndroidElement> driver;
 	private static DesiredCapabilities cap = new DesiredCapabilities();
@@ -515,6 +520,18 @@ public class TestBase implements FieldEngineerAppConstants, PlannedWorksPageErro
 
 		return driver.findElementByXPath(xPath.trim());
 	}
+	
+	public static AndroidElement getElementByXpathUsingAttribute(AndroidDriver<AndroidElement> driver,
+			String attributeText, String attributeValue) {
+
+		String xPath = ELEMENT_XPATH_PREFIX +ELEMENT_XPATH__ATTRIBUTE_PREFIX + attributeText+ ELEMENT_XPATH__ATTRIBUTE_SUFFIX+attributeValue
+				+ ELEMENT_XPATH__TEXT_SUFFIX;
+
+		System.out.println(" xpath is >>>> " + xPath);
+
+		return driver.findElementByXPath(xPath.trim());
+	}
+
 
 	/**
 	 * This method will return an element by using provided id of element

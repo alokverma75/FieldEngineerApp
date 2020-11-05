@@ -15,6 +15,9 @@ public class HeaderPage extends TestBase {
 		PageFactory.initElements(new AppiumFieldDecorator(driver, getDuration(30)), this);
 	}
 	
+	@AndroidFindBy(id = "com.colt.coltengineering:id/tv_title")
+	private AndroidElement pageTitle;
+	
 	@AndroidFindBy(uiAutomator = "text(\"Details\")") 
 	private AndroidElement detailsTab;
 	
@@ -22,7 +25,7 @@ public class HeaderPage extends TestBase {
 	private AndroidElement homeIcon;
 
 	@AndroidFindBy(id = "com.colt.coltengineering:id/task_select")
-	private AndroidElement assignTask;
+	private AndroidElement assignTaskIcon;
 
 	@AndroidFindBy(id = "com.colt.coltengineering:id/task_filter")
 	private AndroidElement filterTasks;
@@ -35,6 +38,32 @@ public class HeaderPage extends TestBase {
 
 	@AndroidFindBy(uiAutomator = "text(\"Attachments\")") 
 	private AndroidElement attachmentsTab;
+	
+	@AndroidFindBy(uiAutomator = "text(\"Assign\")")
+	private AndroidElement assignButton;
+	
+	@AndroidFindBy(uiAutomator = "text(\"Cancel\")")
+	private AndroidElement cancelButton;
+	
+	@AndroidFindBy(id = "com.colt.coltengineering:id/tv_task_start_time")
+	private AndroidElement startDateTask;
+	
+	
+	public AndroidElement getStartDateTask() {
+		return startDateTask;
+	}
+
+	public AndroidElement getAssignButton() {
+		return assignButton;
+	}
+
+	public AndroidElement getCancelButton() {
+		return cancelButton;
+	}
+
+	public AndroidElement getPageTitle() {
+		return pageTitle;
+	}
 
 	public AndroidElement getDetailsTab() {
 		return detailsTab;
@@ -44,9 +73,11 @@ public class HeaderPage extends TestBase {
 		return homeIcon;
 	}
 
-	public AndroidElement getAssignTask() {
-		return assignTask;
+	
+	public AndroidElement getAssignTaskIcon() {
+		return assignTaskIcon;
 	}
+
 
 	public AndroidElement getFilterTasks() {
 		return filterTasks;
