@@ -14,6 +14,7 @@ import java.net.ServerSocket;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Arrays;
 import java.util.Base64;
 import java.util.Calendar;
 import java.util.Date;
@@ -75,7 +76,6 @@ public class TestBase implements FieldEngineerAppConstants, PlannedWorksPageErro
 	private static DesiredCapabilities cap = new DesiredCapabilities();
 	public static String USRDIR = System.getProperty("user.dir");
 	public static Properties prop;
-	static boolean started = false;
 	public static AppiumDriverLocalService service;
 	
 	static {
@@ -202,8 +202,6 @@ public class TestBase implements FieldEngineerAppConstants, PlannedWorksPageErro
 		Runtime.getRuntime().exec(System.getProperty("user.dir")+"\\resources\\startEmulator.bat");
 		Thread.sleep(7000);
 		
-		started = true;
-
 		System.out.println("the avd is started successfully");
 
 	}
@@ -217,7 +215,7 @@ public class TestBase implements FieldEngineerAppConstants, PlannedWorksPageErro
 	public static void shutDownAVD() throws IOException {
 
 		System.out.println("This will close the avd");
-		Runtime.getRuntime().exec(System.getProperty("user.dir")+"\\resources\\stopEmulator.bat");
+		Runtime.getRuntime().exec(System.getProperty("user.dir")+"\\resources\\stopEmulator.bat");		
 		System.out.println("the avd is closed successfully");
 
 	}
@@ -521,18 +519,6 @@ public class TestBase implements FieldEngineerAppConstants, PlannedWorksPageErro
 		return driver.findElementByXPath(xPath.trim());
 	}
 	
-	public static AndroidElement getElementByXpathUsingAttribute(AndroidDriver<AndroidElement> driver,
-			String attributeText, String attributeValue) {
-
-		String xPath = ELEMENT_XPATH_PREFIX +ELEMENT_XPATH__ATTRIBUTE_PREFIX + attributeText+ ELEMENT_XPATH__ATTRIBUTE_SUFFIX+attributeValue
-				+ ELEMENT_XPATH__TEXT_SUFFIX;
-
-		System.out.println(" xpath is >>>> " + xPath);
-
-		return driver.findElementByXPath(xPath.trim());
-	}
-
-
 	/**
 	 * This method will return an element by using provided id of element
 	 * 
@@ -626,7 +612,7 @@ public class TestBase implements FieldEngineerAppConstants, PlannedWorksPageErro
 
 		String dirPath = USRDIR;
 		String newDirName = "Recordings";
-		String newFileName = className + "." + methodName + "." + dateFormat.format(date) + ".mp4";
+		String newFileName = className + "-" + methodName + "-" + dateFormat.format(date) + ".mp4";
 
 		System.out.println(" File name is " + newFileName);
 
@@ -643,6 +629,11 @@ public class TestBase implements FieldEngineerAppConstants, PlannedWorksPageErro
 				System.out.printf("\n3. Already created directory");
 			}
 		}
+		
+		//Lets first empty the folder before starting again		
+		 deleteDirectory(oneMoreDirectory);
+		 System.out.println("deelting oneMoreDirectory with path "+ oneMoreDirectory);
+		
 
 		// Create file under new directory path C:\newDirectory\directory
 		File anotherNewFile = new File(oneMoreDirectory + File.separator + newFileName);
@@ -661,7 +652,30 @@ public class TestBase implements FieldEngineerAppConstants, PlannedWorksPageErro
 		byte[] decode = Base64.getDecoder().decode(video);
 
 		System.out.println(" Size of file i " + decode.length);
-
+		
+		// Now try to mark it
+		
+		String ffmpegPath = prop.getProperty("ffmpegPath");
+		String separator = "-i";
+		String waterMarkImage = prop.getProperty("waterMarkImage");
+		String fileNameToBeConverted = anotherNewFile.getAbsolutePath();
+		String fileSpecifierForWaterMark= prop.getProperty("fileSpecifier");
+		String filterComplex = prop.getProperty("filterComplex");
+		String overLay = prop.getProperty("overlay");
+		String recordingsFolder = prop.getProperty("recordingFolder");
+		//String nameOfWaterMarkedFile = "D:\\TechPractice\\Appium\\FieldEngineerApp\\Recordings\\"+className + "-" + methodName + "-" + fileSpecifierForWaterMark +dateFormat.format(date) + ".mp4";
+		String nameOfWaterMarkedFile = USRDIR + File.separator+recordingsFolder + File.separator+className + "-" + methodName + "-" + fileSpecifierForWaterMark +"-"+dateFormat.format(date) + ".mp4";
+		System.out.println(" fileNameToBeConverted is == "+ fileNameToBeConverted);
+		System.out.println("nameOfWaterMarkedFile =="+nameOfWaterMarkedFile);
+		
+		
+		String[] cmd = {
+				ffmpegPath,separator, 
+				fileNameToBeConverted,  
+				separator,waterMarkImage,
+				filterComplex,overLay,
+				nameOfWaterMarkedFile
+				 };
 		try {
 
 			// Initialize a pointer
@@ -674,11 +688,33 @@ public class TestBase implements FieldEngineerAppConstants, PlannedWorksPageErro
 
 			// Close the file
 			os.close();
+			new ProcessBuilder(Arrays.asList(cmd)).start();
+			
+			
 		}
 
 		catch (Exception e) {
 			System.out.println("Exception: " + e);
 		}
+			
+		
+		
+	}
+	
+	static public void deleteDirectory(File path) {
+	    if (path.exists()) {
+	        File[] files = path.listFiles();
+	        System.out.println(" list of file is== "+files.length);
+	        for (int i = 0; i < files.length; i++) {
+	            if (files[i].isDirectory()) {
+	                deleteDirectory(files[i]);
+	            } else {
+	                files[i].delete();
+	                System.out.println("Inside file delete "+  files[i].getName() );
+	            }
+	        }
+	    }
+	    //return (path.delete());
 	}
 	
 //	private static File createNewDirectory(String newDirectoryName) throws IOException {

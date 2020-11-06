@@ -1,5 +1,6 @@
 package com.colt.fieldengineerapp.testcases;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 
@@ -11,10 +12,9 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.colt.fieldengineerapp.base.TestBase;
-import com.colt.fieldengineerapp.base.TestData;
 import com.colt.fieldengineerapp.pages.LandingPage;
 import com.colt.fieldengineerapp.pages.LoginPage;
-
+import com.colt.fieldengineerapp.util.TestData;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
@@ -34,7 +34,9 @@ public class LoginPageTest extends TestBase {
 	@BeforeTest(alwaysRun = true)
 	public void startServices() throws IOException, InterruptedException {
 		System.out.println("Starting Appium == " +this.getClass().getName());
+		TestBase.startAVD();
 		TestBase.startAppiumServer();
+
 				
 	}
 	
@@ -103,6 +105,7 @@ public class LoginPageTest extends TestBase {
 		System.out.println("Tearing  down == " +this.getClass().getName());
 		TestBase.shutDownAVD();
 		Thread.sleep(3000);
+
 		//System.out.println("Tearing  down == " +this.getClass().getName());
 		//TestBase.stopAppiumServer();
 		//Thread.sleep(5000);

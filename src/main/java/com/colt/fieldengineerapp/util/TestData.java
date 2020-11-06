@@ -1,4 +1,4 @@
-package com.colt.fieldengineerapp.base;
+package com.colt.fieldengineerapp.util;
 
 import org.testng.annotations.DataProvider;
 
@@ -52,7 +52,7 @@ public class TestData {
 		
 		Object[][] dataObject = new Object[][] {
 			
-			{"alok.verma@colt.net"}
+			{"alok.verma@colt.net","This is test message from Alok"}
 			
 		};
 		

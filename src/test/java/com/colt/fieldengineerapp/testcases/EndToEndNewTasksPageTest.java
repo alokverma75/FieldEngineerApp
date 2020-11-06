@@ -11,7 +11,6 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.colt.fieldengineerapp.base.TestBase;
-import com.colt.fieldengineerapp.base.TestData;
 import com.colt.fieldengineerapp.pages.ActionsPage;
 import com.colt.fieldengineerapp.pages.AlertPage;
 import com.colt.fieldengineerapp.pages.AllTasksListPage;
@@ -25,6 +24,7 @@ import com.colt.fieldengineerapp.pages.LandingPage;
 import com.colt.fieldengineerapp.pages.LocationPage;
 import com.colt.fieldengineerapp.pages.LoginPage;
 import com.colt.fieldengineerapp.pages.SingleTaskDetailsPage;
+import com.colt.fieldengineerapp.util.TestData;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
@@ -88,7 +88,7 @@ public class EndToEndNewTasksPageTest extends TestBase {
 
 	
 	@Test(dataProvider = "InputDataForAllTasks", dataProviderClass = TestData.class)
-	public void testNewTasksPageEndToEnd(String userEmail) throws InterruptedException, IOException {
+	public void testNewTasksPageEndToEnd(String userEmail, String chatText) throws InterruptedException, IOException {
 		if(prop.getProperty(ELEMENT_RECORDING_NEEDED) != null) {
 			if(prop.getProperty(ELEMENT_RECORDING_NEEDED).equals(ELEMENT_TRUE)) {
 				TestBase.startRecording(driver);
@@ -458,7 +458,7 @@ public class EndToEndNewTasksPageTest extends TestBase {
 		headerPage.getCommunicationTab().click();
 		
 		communicationPage.getAddCommentButton().click();
-		communicationPage.getAddMessageTextField().sendKeys("This is test message from Alok");
+		communicationPage.getAddMessageTextField().sendKeys(chatText);
 		communicationPage.getSendButton().click();
 		
 		//Now validate Attachments page

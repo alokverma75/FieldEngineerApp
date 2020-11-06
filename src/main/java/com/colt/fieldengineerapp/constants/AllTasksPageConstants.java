@@ -38,7 +38,9 @@ public interface AllTasksPageConstants {
 	public static final String ELEMENT_PRODUCT_LABEL_MSG="PRODUCT title not matching with defined- PRODUCT";
 	public static final String ELEMENT_PRODUCT_LABEL_TF_VALUE="PRODUCT field value is mandatory and can't be blank";
 
-
+	//For Maintenance
+	public static final String ELEMENT_TYPE_VALUE_MAINTENANCE="Maintainance"; //spell check to be corrected
+	public static final String ELEMENT_TYPE_VALUE_MAINTENANCE_MSG="Maintainence type link should have only Maintainece kind of tasks"; 
 	
 	
 

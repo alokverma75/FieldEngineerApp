@@ -28,7 +28,8 @@ public class HomePageTest extends TestBase {
 	@BeforeTest(alwaysRun = true)
 	public void startServices() throws IOException, InterruptedException {
 		System.out.println("Starting Appium == " +this.getClass().getName());
-		TestBase.startAppiumServer();
+		TestBase.startAVD();
+		//TestBase.startAppiumServer();
 				
 	}
 		

@@ -12,13 +12,13 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.colt.fieldengineerapp.base.TestBase;
-import com.colt.fieldengineerapp.base.TestData;
 import com.colt.fieldengineerapp.pages.ConfirmPage;
 import com.colt.fieldengineerapp.pages.HomePage;
 import com.colt.fieldengineerapp.pages.LandingPage;
 import com.colt.fieldengineerapp.pages.LoginPage;
 import com.colt.fieldengineerapp.pages.RaisedPlanWorkPage;
 import com.colt.fieldengineerapp.pages.SetTimePage;
+import com.colt.fieldengineerapp.util.TestData;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;

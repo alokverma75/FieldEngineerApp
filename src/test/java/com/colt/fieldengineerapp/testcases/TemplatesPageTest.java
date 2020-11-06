@@ -12,7 +12,6 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.colt.fieldengineerapp.base.TestBase;
-import com.colt.fieldengineerapp.base.TestData;
 import com.colt.fieldengineerapp.pages.ConfirmPage;
 import com.colt.fieldengineerapp.pages.HomePage;
 import com.colt.fieldengineerapp.pages.LandingPage;
@@ -21,6 +20,7 @@ import com.colt.fieldengineerapp.pages.RaisePlanWorkWarningAlerts;
 import com.colt.fieldengineerapp.pages.RaisedPlanWorkPage;
 import com.colt.fieldengineerapp.pages.SetTimePage;
 import com.colt.fieldengineerapp.pages.TemplatesPage;
+import com.colt.fieldengineerapp.util.TestData;
 
 public class TemplatesPageTest extends TestBase {
 	

@@ -32,6 +32,10 @@ public interface FilterPageConstants {
 	
 	public static final String ELEMENT_RESOLVED="Archived";
 	
+	public static final String ELEMENT_TYPE_INSTALLATION="Installation";
+	public static final String ELEMENT_TYPE_INSTALLATION_MSG="Maintainence type dont have Installation type of tasks";
+
+	
 	
 	
 
