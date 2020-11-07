@@ -42,7 +42,9 @@ public interface AllTasksPageConstants {
 	public static final String ELEMENT_TYPE_VALUE_MAINTENANCE="Maintainance"; //spell check to be corrected
 	public static final String ELEMENT_TYPE_VALUE_MAINTENANCE_MSG="Maintainence type link should have only Maintainece kind of tasks"; 
 	
-	
+	public static final String ELEMENT_TYPE_VALUE_INSTALLATION="Installation"; //spell check to be corrected
+	public static final String ELEMENT_TYPE_VALUE_INSTALLATION_MSG="Installation type link should have only Installation kind of tasks"; 
+
 
 
 }

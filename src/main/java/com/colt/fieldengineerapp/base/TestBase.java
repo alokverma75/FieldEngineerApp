@@ -322,7 +322,8 @@ public class TestBase implements FieldEngineerAppConstants, PlannedWorksPageErro
 
 		return driver.findElementByAndroidUIAutomator(searchWebElement);
 	}
-
+	
+	
 	/**
 	 * This method will return TouchAction object for a given element after
 	 * searching an element and tapping on the same
@@ -631,8 +632,8 @@ public class TestBase implements FieldEngineerAppConstants, PlannedWorksPageErro
 		}
 		
 		//Lets first empty the folder before starting again		
-		 deleteDirectory(oneMoreDirectory);
-		 System.out.println("deelting oneMoreDirectory with path "+ oneMoreDirectory);
+		 emptyDirectory(oneMoreDirectory);
+		 System.out.println("deleting oneMoreDirectory with path "+ oneMoreDirectory);
 		
 
 		// Create file under new directory path C:\newDirectory\directory
@@ -665,9 +666,11 @@ public class TestBase implements FieldEngineerAppConstants, PlannedWorksPageErro
 		String recordingsFolder = prop.getProperty("recordingFolder");
 		//String nameOfWaterMarkedFile = "D:\\TechPractice\\Appium\\FieldEngineerApp\\Recordings\\"+className + "-" + methodName + "-" + fileSpecifierForWaterMark +dateFormat.format(date) + ".mp4";
 		String nameOfWaterMarkedFile = USRDIR + File.separator+recordingsFolder + File.separator+className + "-" + methodName + "-" + fileSpecifierForWaterMark +"-"+dateFormat.format(date) + ".mp4";
+		
 		System.out.println(" fileNameToBeConverted is == "+ fileNameToBeConverted);
 		System.out.println("nameOfWaterMarkedFile =="+nameOfWaterMarkedFile);
-		
+		//Create WaterMarked directory if not created
+		createNewDirectory(recordingsFolder);
 		
 		String[] cmd = {
 				ffmpegPath,separator, 
@@ -688,6 +691,7 @@ public class TestBase implements FieldEngineerAppConstants, PlannedWorksPageErro
 
 			// Close the file
 			os.close();
+			
 			new ProcessBuilder(Arrays.asList(cmd)).start();
 			
 			
@@ -701,42 +705,54 @@ public class TestBase implements FieldEngineerAppConstants, PlannedWorksPageErro
 		
 	}
 	
-	static public void deleteDirectory(File path) {
+	/**
+	 * This method will empty files in a folder and subfolders in recursive mode 
+	 * @param path
+	 */
+	static public void emptyDirectory(File path) {
 	    if (path.exists()) {
 	        File[] files = path.listFiles();
 	        System.out.println(" list of file is== "+files.length);
 	        for (int i = 0; i < files.length; i++) {
 	            if (files[i].isDirectory()) {
-	                deleteDirectory(files[i]);
+	                emptyDirectory(files[i]);
 	            } else {
 	                files[i].delete();
 	                System.out.println("Inside file delete "+  files[i].getName() );
 	            }
 	        }
 	    }
-	    //return (path.delete());
+	   
 	}
 	
-//	private static File createNewDirectory(String newDirectoryName) throws IOException {
-//		String dirPath = USRDIR;
-//		
-//		// Create new directory under user.path
-//		File oneMoreDirectory = new File(dirPath + File.separator + newDirectoryName);
-//		// Create directory for existed path.
-//		boolean isCreated = false;
-//		if (!oneMoreDirectory.exists()) {
-//			isCreated = oneMoreDirectory.mkdir();
-//			if (isCreated) {
-//				System.out.printf("\n3. Successfully created new directory, path:%s",
-//						oneMoreDirectory.getCanonicalPath());
-//			} else { // Directory may already exist
-//				System.out.printf("\n3. Already created directory");
-//			}
-//		}
-//		
-//		return oneMoreDirectory;
-//
-//	}
+	/**
+	 * This method will create a new folder under user.dir/newFolderName, where user.dir=System.get("user.dir) i.e.
+	 * D:\TechPractice\Appium\FieldEngineerApp in my case, so new folder say WaterMarkRecordings String will be passed in this
+	 * method to be created and it will check if such directory dont exist then it will create else it will return and new folder
+	 * will be D:\TechPractice\Appium\FieldEngineerApp\WaterMarkRecordings. The name of folder is passed from property file 
+	 * which can be anything.
+	 * @param newDirectoryName
+	 * @throws IOException
+	 */
+	private static void createNewDirectory(String newDirectoryName) throws IOException {
+		String dirPath = USRDIR;
+		
+		// Create new directory under user.path
+		File oneMoreDirectory = new File(dirPath + File.separator + newDirectoryName);
+		// Create directory for existed path.
+		boolean isCreated = false;
+		if (!oneMoreDirectory.exists()) {
+			isCreated = oneMoreDirectory.mkdir();
+			if (isCreated) {
+				System.out.printf("\n3. Successfully created new directory, path:%s",
+						oneMoreDirectory.getCanonicalPath());
+			} else { // Directory may already exist
+				System.out.printf("\n3. Already created directory");
+			}
+		}
+		
+		
+	}
 
 	/**
 	 * This method will explicitly wait till Alert is shown before we switch to it

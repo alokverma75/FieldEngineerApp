@@ -112,9 +112,6 @@ public class EndToEndMaintenanceTasksPageTest extends TestBase {
 		String descriptionLabel = newTasksPage.getDescriptionTitle().getText();
 		Assert.assertEquals(descriptionLabel,ELEMENT_DESCRIPTION_TITLE,ELEMENT_DESCRIPTION_TITLE_MSG);
 		
-//		String descriptionValue = newTasksPage.getDescriptionValue().getText();
-//		Assert.assertNotNull(descriptionValue,ELEMENT_DESCRIPTION_TF_VALUE);
-		
 		String typeLabel = newTasksPage.getTypeTitle().getText();
 		Assert.assertEquals(typeLabel,ELEMENT_TYPE_NEW_TASK_TITLE,ELEMENT_TYPE_NEW_TASK_TITLE_MSG);
 		String typeTFValue = newTasksPage.getTypeValue().getText();
@@ -132,16 +129,16 @@ public class EndToEndMaintenanceTasksPageTest extends TestBase {
 		Assert.assertNotNull(statusTFValue,ELEMENT_STATUS_TITLE_TF_VALUE);
 		
 		// Try to search for say Installation Type tasks in list
-//		String typeInstalltion = "";
-//		try {
-//		typeInstalltion = singleTaskDetailsPage.scrollToElement(driver, ELEMENT_TYPE_INSTALLATION).getText();
-//		
-//		}catch(NoSuchElementException e) {
-//			//As there should be no element with TYPE=Installtion, an exception will be thrown
-//			Assert.assertFalse(ELEMENT_TYPE_INSTALLATION.equals(typeInstalltion));
-//		}
-//		
-//		Assert.assertFalse(ELEMENT_TYPE_INSTALLATION.equals(typeInstalltion));
+		String typeInstalltion = "";
+		try {
+		typeInstalltion = singleTaskDetailsPage.scrollToElement(driver, ELEMENT_TYPE_INSTALLATION).getText();
+		
+		}catch(NoSuchElementException e) {
+			//As there should be no element with TYPE=Installtion, an exception will be thrown
+			Assert.assertFalse(ELEMENT_TYPE_INSTALLATION.equals(typeInstalltion));
+		}
+		
+		Assert.assertFalse(ELEMENT_TYPE_INSTALLATION.equals(typeInstalltion));
 		
 		homePage.getBackButton().click();
 		homePage.getNewTasksImageBtn().click();
@@ -262,7 +259,7 @@ public class EndToEndMaintenanceTasksPageTest extends TestBase {
 		Assert.assertTrue(ELEMENT_TRUE.equals(checkBoxValueAfterClick));
 		
 		homePage.getBackButton().click();
-		homePage.getNewTasksImageBtn().click();
+		homePage.getMaintainenaceTasksImageBtn().click();
 		
 		String activityIDValueNew = newTasksPage.getActivityIDValue().getText();
 		newTasksPage.getImageNext().click();

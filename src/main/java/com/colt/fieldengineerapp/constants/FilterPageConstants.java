@@ -30,10 +30,14 @@ public interface FilterPageConstants {
 	public static final String ELEMENT_NEXT_TEN_DAYS="Next 10 days";
 	public static final String ELEMENT_NEXT_TEN_DAYS_MSG="Next 10 days title not matching with defined- Next 10 days";
 	
-	public static final String ELEMENT_RESOLVED="Archived";
+	public static final String ELEMENT_RESOLVED="Archived(success)";
 	
 	public static final String ELEMENT_TYPE_INSTALLATION="Installation";
-	public static final String ELEMENT_TYPE_INSTALLATION_MSG="Maintainence type dont have Installation type of tasks";
+	public static final String ELEMENT_TYPE_INSTALLATION_MSG="Maintainence type should not dont have Installation type of tasks";
+	
+	public static final String ELEMENT_TYPE_MAINTENANCE="Maintenance";
+	public static final String ELEMENT_TYPE_MAINTENANCE_MSG="Installation type tasks list should not have Maintenance type of tasks";
+
 
 	
 	
