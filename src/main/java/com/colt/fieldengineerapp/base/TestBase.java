@@ -656,9 +656,10 @@ public class TestBase implements FieldEngineerAppConstants, PlannedWorksPageErro
 		
 		// Now try to mark it
 		
-		String ffmpegPath = prop.getProperty("ffmpegPath");
+		
+		String ffmpegPath = USRDIR + File.separator+ prop.getProperty("resources")+File.separator+ prop.getProperty("ffmpegFileName");
+		String waterMarkImage = USRDIR + File.separator+ prop.getProperty("resources")+File.separator+prop.getProperty("waterMarkImage");
 		String separator = "-i";
-		String waterMarkImage = prop.getProperty("waterMarkImage");
 		String fileNameToBeConverted = anotherNewFile.getAbsolutePath();
 		String fileSpecifierForWaterMark= prop.getProperty("fileSpecifier");
 		String filterComplex = prop.getProperty("filterComplex");

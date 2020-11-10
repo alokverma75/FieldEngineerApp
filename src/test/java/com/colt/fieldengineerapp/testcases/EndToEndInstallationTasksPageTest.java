@@ -257,7 +257,7 @@ public class EndToEndInstallationTasksPageTest extends TestBase {
 		Assert.assertTrue(ELEMENT_TRUE.equals(checkBoxValueAfterClick));
 		
 		homePage.getBackButton().click();
-		homePage.getNewTasksImageBtn().click();
+		homePage.getInstallationTasksImageBtn().click();
 		
 		String activityIDValueNew = installationPage.getActivityIDValue().getText();
 		installationPage.getImageNext().click();
@@ -278,9 +278,6 @@ public class EndToEndInstallationTasksPageTest extends TestBase {
 		Assert.assertEquals(orderlabel,ELEMENT_ORDER_NUMBER_TITLE,ELEMENT_ORDER_NUMBER_TITLE_MSG);
 		//System.out.println("Label is " + orderlabel);
 				
-		String providerlabel = singleTaskDetailsPage.getProviderLabel().getText();
-		Assert.assertEquals(providerlabel,ELEMENT_PROVIDER_TITLE,ELEMENT_PROVIDER_TITLE_MSG);
-		//System.out.println("Label is " + providerlabel);
 		
 		String productNamelabel = singleTaskDetailsPage.getProductNameLabel().getText();
 		Assert.assertEquals(productNamelabel,ELEMENT_PRODUCT_NAME_TITLE,ELEMENT_PRODUCT_NAME_TITLE_MSG);
@@ -306,6 +303,10 @@ public class EndToEndInstallationTasksPageTest extends TestBase {
 		Assert.assertEquals(postCodelabel,ELEMENT_POST_CODE_TITLE,ELEMENT_POST_CODE_TITLE_MSG);
 		//System.out.println("Label is " + postCodelabel);
 		
+		String customerlabel = singleTaskDetailsPage.getCustomerLabel().getText();
+		Assert.assertEquals(customerlabel,ELEMENT_CUSTOMER_TITLE,ELEMENT_CUSTOMER_TITLE_MSG);
+
+		
 		// Till Post code one page we can check all elements for this page
 //		listofTextView = singleTaskDetailsPage.getTextFieldValue();
 //		for (int i = 0; i < listofTextView.size(); i++) {
@@ -314,15 +315,13 @@ public class EndToEndInstallationTasksPageTest extends TestBase {
 		
 		//Now scroll to customer
 		
-		singleTaskDetailsPage.scrollToElement(driver, ELEMENT_COUNTRY_TITLE);
+		singleTaskDetailsPage.scrollToElement(driver, ELEMENT_ADDRESS_TITLE);
 		//Thread.sleep(2000);
-//		String customerlabel = singleTaskDetailsPage.getCustomerLabel().getText();
-//		Assert.assertEquals(customerlabel,ELEMENT_CUSTOMER_TITLE,ELEMENT_CUSTOMER_TITLE_MSG);
 //		System.out.println("Label is " + customerlabel);
 		
 		//singleTaskDetailsPage.scrollToElement(driver, ELEMENT_COUNTRY_TITLE);
-		String countrylabel = singleTaskDetailsPage.getCountryLabel().getText();
-		Assert.assertEquals(countrylabel,ELEMENT_COUNTRY_TITLE,ELEMENT_COUNTRY_TITLE_MSG);
+//		String countrylabel = singleTaskDetailsPage.getCountryLabel().getText();
+//		Assert.assertEquals(countrylabel,ELEMENT_COUNTRY_TITLE,ELEMENT_COUNTRY_TITLE_MSG);
 		//System.out.println("Label is " + countrylabel);
 		
 		String addresslabel = singleTaskDetailsPage.getAddressLabel().getText();
@@ -339,8 +338,8 @@ public class EndToEndInstallationTasksPageTest extends TestBase {
 		Assert.assertEquals(jobIDlabel,ELEMENT_JOB_ID_TITLE,ELEMENT_JOB_ID_TITLE_MSG);
 		//System.out.println("Label is " + jobIDlabel);
 		
-		String activityIDlabel = singleTaskDetailsPage.getActivityIDLabel().getText();
-		Assert.assertEquals(activityIDlabel,ELEMENT_ACTIVITY_ID_TITLE,ELEMENT_ACTIVITY_ID_TITLE_MSG);
+		String jobReflabel = singleTaskDetailsPage.getJobReferenceLabel().getText();
+		Assert.assertEquals(jobReflabel,ELEMENT_JOB_REFERENCE_TITLE,ELEMENT_JOB_REFERENCE_TITLE_MSG);
 		//System.out.println("Label is " + activityIDlabel);
 
 		String categorylabel = singleTaskDetailsPage.getCategoryLabel().getText();
@@ -359,6 +358,10 @@ public class EndToEndInstallationTasksPageTest extends TestBase {
 		Assert.assertEquals(plannedStartlabel,ELEMENT_PLANNED_START_DATE_TITLE,ELEMENT_PLANNED_START_DATE_TITLE_MSG);
 		//System.out.println("Label is " + plannedStartlabel);
 		
+		String plannedEndlabel = singleTaskDetailsPage.getPlannedEndDateLabel().getText();
+		Assert.assertEquals(plannedEndlabel,ELEMENT_PLANNED_END_DATE_TITLE,ELEMENT_PLANNED_END_DATE_TITLE_MSG);
+
+		
 //		listofTextView = singleTaskDetailsPage.getTextFieldValue();
 //		for (int i = 0; i < listofTextView.size(); i++) {
 //			System.out.println(" element at" + i + "th Index is " + listofTextView.get(i).getText());
@@ -366,10 +369,8 @@ public class EndToEndInstallationTasksPageTest extends TestBase {
 
 		
 			
-		singleTaskDetailsPage.scrollToElement(driver, ELEMENT_JOB_LINK_TITLE);
+		singleTaskDetailsPage.scrollToElement(driver, ELEMENT_JOB_LINK_STATUS_TITLE);
 		
-//		String plannedEndlabel = singleTaskDetailsPage.getPlannedEndDateLabel().getText();
-//		Assert.assertEquals(plannedEndlabel,ELEMENT_PLANNED_END_DATE_TITLE,ELEMENT_PLANNED_END_DATE_TITLE_MSG);
 //		System.out.println("Label is " + plannedEndlabel);
 
 		String jobLinklabel = singleTaskDetailsPage.getJobLinkLabel().getText();

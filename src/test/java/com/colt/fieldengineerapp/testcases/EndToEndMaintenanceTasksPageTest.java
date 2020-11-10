@@ -141,7 +141,7 @@ public class EndToEndMaintenanceTasksPageTest extends TestBase {
 		Assert.assertFalse(ELEMENT_TYPE_INSTALLATION.equals(typeInstalltion));
 		
 		homePage.getBackButton().click();
-		homePage.getNewTasksImageBtn().click();
+		homePage.getMaintainenaceTasksImageBtn().click();
 
 
 		//Check for filter option 
@@ -178,13 +178,13 @@ public class EndToEndMaintenanceTasksPageTest extends TestBase {
 		Assert.assertEquals(nextTendaysCheckbox,ELEMENT_NEXT_TEN_DAYS,ELEMENT_NEXT_TEN_DAYS_MSG);
 			
 		String pomChkBoxNotSelected =  filterPage.getPomChkBox().getAttribute(ELEMENT_CHECKED);
-		//Assert.assertTrue(ELEMENT_FALSE.equals(pomChkBoxNotSelected));
+		Assert.assertTrue(ELEMENT_FALSE.equals(pomChkBoxNotSelected));
 		
-		String sblChkBoxNotSelected =  filterPage.getSblChkBox().getAttribute(ELEMENT_CHECKED);
-		//Assert.assertTrue(ELEMENT_FALSE.equals(sblChkBoxNotSelected));
+		String sblChkBoxSelected =  filterPage.getSblChkBox().getAttribute(ELEMENT_CHECKED);
+	    Assert.assertTrue(ELEMENT_TRUE.equals(sblChkBoxSelected));
 
 		String statusChkBoxNotSelected =  filterPage.getStatusChkBox().getAttribute(ELEMENT_CHECKED);
-		//Assert.assertTrue(ELEMENT_TRUE.equals(statusChkBoxNotSelected));
+		Assert.assertTrue(ELEMENT_FALSE.equals(statusChkBoxNotSelected));
 		
 		String nextFiveChkBoxNotSelected =  filterPage.getNextFiveDaysChkBox().getAttribute(ELEMENT_CHECKED);
 		Assert.assertTrue(ELEMENT_FALSE.equals(nextFiveChkBoxNotSelected));
@@ -192,14 +192,12 @@ public class EndToEndMaintenanceTasksPageTest extends TestBase {
 		String nextTenChkBoxNotSelected =  filterPage.getNextTenDaysChkBox().getAttribute(ELEMENT_CHECKED);
 		Assert.assertTrue(ELEMENT_FALSE.equals(nextTenChkBoxNotSelected));
 		
-		String newCheckbox = filterPage.getNewChkBox().getAttribute(ELEMENT_CHECKED);
-
-
-		
+				
 		//Now click on InPregress chk box and apply
 		if(!(ELEMENT_TRUE.equals(statusChkBoxNotSelected))) {
 			filterPage.getStatusChkBox().click();
 		}
+		String newCheckbox = filterPage.getNewChkBox().getAttribute(ELEMENT_CHECKED);
 		
 		if(!(ELEMENT_TRUE.equals(newCheckbox))) {
 			filterPage.getNewChkBox().click();

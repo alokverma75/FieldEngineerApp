@@ -7,13 +7,55 @@
 			class-name="com.colt.fieldengineerapp.base.TestCaseListener" />
 			<listener class-name="com.colt.fieldengineerapp.reporting.ExtentReporterNG"/>
 	</listeners>
-		<test thread-count="5" name="HomePageTest">
+	<test thread-count="5" name="HomePageTest">
 		
 		<classes>
 				<class name="com.colt.fieldengineerapp.testcases.HomePageTest" />
 			</classes>
 
 	</test> <!-- Test -->
+	
+	<test thread-count="5" name="EndToEndNewTasksPageTest">
+		
+		<classes>
+				<class name="com.colt.fieldengineerapp.testcases.EndToEndNewTasksPageTest" />
+			</classes>
+
+	</test> <!-- Test -->
+	
+	<test thread-count="5" name="EndToEndInProgressTasksTest">
+		
+		<classes>
+				<class name="com.colt.fieldengineerapp.testcases.EndToEndInProgressTasksTest" />
+			</classes>
+
+	</test> <!-- Test -->
+	
+	<test thread-count="5" name="EndToEndCompletedTasksTest">
+		
+		<classes>
+				<class name="com.colt.fieldengineerapp.testcases.EndToEndCompletedTasksTest" />
+			</classes>
+
+	</test> <!-- Test -->
+	
+	<test thread-count="5" name="EndToEndMaintenanceTasksPageTest">
+		
+		<classes>
+				<class name="com.colt.fieldengineerapp.testcases.EndToEndMaintenanceTasksPageTest" />
+			</classes>
+
+	</test> <!-- Test -->
+	
+	<test thread-count="5" name="EndToEndInstallationTasksPageTest">
+		
+		<classes>
+				<class name="com.colt.fieldengineerapp.testcases.EndToEndInstallationTasksPageTest" />
+			</classes>
+
+	</test> <!-- Test -->
+	
+	
 	
 	<test thread-count="5" name="RaisePlanwork">
 		<!-- 
