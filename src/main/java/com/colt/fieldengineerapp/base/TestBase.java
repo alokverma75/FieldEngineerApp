@@ -38,6 +38,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.colt.fieldengineerapp.constants.ActionsPageConstants;
+import com.colt.fieldengineerapp.constants.AddEditImageConstants;
 import com.colt.fieldengineerapp.constants.AlertMessagesRaisePlanWorkConstants;
 import com.colt.fieldengineerapp.constants.AlertPageConstants;
 import com.colt.fieldengineerapp.constants.AllTasksPageConstants;
@@ -70,7 +71,7 @@ import io.appium.java_client.touch.offset.PointOption;
 public class TestBase implements FieldEngineerAppConstants, PlannedWorksPageErrorMessages, AlertMessagesRaisePlanWorkConstants,
 		ActionsPageConstants,ConfirmPageConstants, OpenDrawerAndSettingsPageConstants,TemplatesConstants,RaisePlannedWorkConstants,
 		HomePageConstants, LocationPageConstants,SingleTaskPageConstants,AllTasksPageConstants,HeaderPageConstants,AlertPageConstants,
-		FilterPageConstants{
+		FilterPageConstants,AddEditImageConstants{
 
 	public static AndroidDriver<AndroidElement> driver;
 	private static DesiredCapabilities cap = new DesiredCapabilities();
@@ -366,6 +367,31 @@ public class TestBase implements FieldEngineerAppConstants, PlannedWorksPageErro
 		return action.press(TestBase.getPointOption(driver, ELEMENT_ATTRIBUTE_CONTENT_DESC, swipeFrom))
 				.waitAction(WaitOptions.waitOptions(TestBase.getDuration(2)))
 				.moveTo(TestBase.getPointOption(driver, ELEMENT_ATTRIBUTE_CONTENT_DESC, swipeTo)).release().perform();
+
+	}
+	
+	/**
+	 * This method can be used to swipe from one point to another point based on provided draw area and required x,y points to
+	 * as initial x,y are found from element center itself. 
+	 * @param driver
+	 * @param drawingArea
+	 * @param xWidth
+	 * @param yLength
+	 * @return
+	 */
+	
+	public static TouchAction<?> drawLineOnArea(AndroidDriver<AndroidElement> driver, AndroidElement drawingArea, int xWidth, int yLength) {
+
+		TouchAction<?> action = new TouchAction<>(driver);
+		
+		PointOption<?> swipefrom = PointOption.point(drawingArea.getCenter().getX(), drawingArea.getCenter().getY());
+		System.out.println(" Inside draw line swipe from "+ swipefrom + " and x is "+drawingArea.getCenter().getX() + " and y "+ drawingArea.getCenter().getY());
+		PointOption<?> swipeTo = PointOption.point(drawingArea.getCenter().getX() + xWidth, drawingArea.getCenter().getY() + yLength);
+		System.out.println(" Inside draw line swipe To "+ swipeTo);
+
+		return action.press(swipefrom)
+				.waitAction(WaitOptions.waitOptions(TestBase.getDuration(2)))
+				.moveTo(swipeTo).release().perform();
 
 	}
 

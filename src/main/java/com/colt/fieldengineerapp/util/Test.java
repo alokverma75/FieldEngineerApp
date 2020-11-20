@@ -54,7 +54,7 @@ public class Test extends TestBase{
 		//ffmpeg -i inVideo.mp4 -i coltSmall.png -filter_complex "overlay=2:20" Colt-WaterMarked.mp4
 		SimpleDateFormat dateFormat = new SimpleDateFormat(prop.getProperty("datePattern"));
 		Date date = new Date();
-		System.out.println("Date format new is "+ dateFormat.format(date));
+		//System.out.println("Date format new is "+ dateFormat.format(date));
 		//public static String USRDIR = System.getProperty("user.dir");
 		String dirPath = System.getProperty("user.dir");
 		String videoNameB4 = " inVideo.mp4";
@@ -76,7 +76,11 @@ public class Test extends TestBase{
 		//startEmu();
 		String path = "D:\\TechPractice\\Appium\\FieldEngineerApp\\Recordings";
 		//createFile();
-		deleteDirectoryTest(new File(path));
+		//deleteDirectoryTest(new File(path));
+		
+        String s1= "Images/Documents";
+		
+		System.out.println(" Test if equal "+ s1.equals(ELEMENT_ADD_ATTACMENTS_TITLE));
 
 	}
 	

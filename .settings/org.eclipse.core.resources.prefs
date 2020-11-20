@@ -1,5 +1,9 @@
 eclipse.preferences.version=1
 encoding//src/main/java/com/colt/fieldengineerapp/constants/OpenDrawerAndSettingsPageConstants.java=UTF-8
+encoding//src/main/java/com/colt/fieldengineerapp/pages/AddAttachmentsPage.java=UTF-8
+encoding//src/main/java/com/colt/fieldengineerapp/pages/AddEditDocument.java=UTF-8
+encoding//src/main/java/com/colt/fieldengineerapp/pages/AddEditImage.java=UTF-8
+encoding//src/main/java/com/colt/fieldengineerapp/pages/JobStatusPage.java=UTF-8
 encoding//src/main/java/com/colt/fieldengineerapp/pages/SetTimePage.java=UTF-8
 encoding//src/main/java/com/colt/fieldengineerapp/pages/SettingsPage.java=UTF-8
 encoding//src/main/java/com/colt/fieldengineerapp/util/Test.java=UTF-8

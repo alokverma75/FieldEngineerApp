@@ -2,19 +2,91 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <listeners>
-    <listener class-name="com.colt.fieldengineerapp.base.TestCaseListener"/>
+    <listener class-name="com.colt.fieldengineerapp.util.TestCaseListener"/>
     <listener class-name="com.colt.fieldengineerapp.reporting.ExtentReporterNG"/>
   </listeners>
-  <test thread-count="5" name="AlertsRaisePlanWork(failed)">
+  <test thread-count="5" name="HomePageTest(failed)">
     <classes>
-      <class name="com.colt.fieldengineerapp.testcases.ErrorPopupsRaisePlannedWorksTest">
+      <class name="com.colt.fieldengineerapp.testcases.HomePageTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="homePageTest"/>
+          <include name="tearDown"/>
+          <include name="startServices"/>
+        </methods>
+      </class> <!-- com.colt.fieldengineerapp.testcases.HomePageTest -->
+    </classes>
+  </test> <!-- HomePageTest(failed) -->
+  <test thread-count="5" name="EndToEndNewTasksPageTest(failed)">
+    <classes>
+      <class name="com.colt.fieldengineerapp.testcases.EndToEndNewTasksPageTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="startServices"/>
+          <include name="testNewTasksPageEndToEnd" invocation-numbers="0"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.colt.fieldengineerapp.testcases.EndToEndNewTasksPageTest -->
+    </classes>
+  </test> <!-- EndToEndNewTasksPageTest(failed) -->
+  <test thread-count="5" name="EndToEndInProgressTasksTest(failed)">
+    <classes>
+      <class name="com.colt.fieldengineerapp.testcases.EndToEndInProgressTasksTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="testinProgressPageEndToEnd"/>
+          <include name="setUp"/>
+          <include name="startServices"/>
+        </methods>
+      </class> <!-- com.colt.fieldengineerapp.testcases.EndToEndInProgressTasksTest -->
+    </classes>
+  </test> <!-- EndToEndInProgressTasksTest(failed) -->
+  <test thread-count="5" name="EndToEndCompletedTasksTest(failed)">
+    <classes>
+      <class name="com.colt.fieldengineerapp.testcases.EndToEndCompletedTasksTest">
+        <methods>
+          <include name="testcompletedPageEndToEnd" invocation-numbers="0"/>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+          <include name="startServices"/>
+        </methods>
+      </class> <!-- com.colt.fieldengineerapp.testcases.EndToEndCompletedTasksTest -->
+    </classes>
+  </test> <!-- EndToEndCompletedTasksTest(failed) -->
+  <test thread-count="5" name="EndToEndMaintenanceTasksPageTest(failed)">
+    <classes>
+      <class name="com.colt.fieldengineerapp.testcases.EndToEndMaintenanceTasksPageTest">
         <methods>
           <include name="startServices"/>
+          <include name="testNewTasksPageEndToEnd"/>
           <include name="setUp"/>
-          <include name="alertsRaisePlanWorkPlannedScheduleStep"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- com.colt.fieldengineerapp.testcases.ErrorPopupsRaisePlannedWorksTest -->
+      </class> <!-- com.colt.fieldengineerapp.testcases.EndToEndMaintenanceTasksPageTest -->
     </classes>
-  </test> <!-- AlertsRaisePlanWork(failed) -->
+  </test> <!-- EndToEndMaintenanceTasksPageTest(failed) -->
+  <test thread-count="5" name="EndToEndInstallationTasksPageTest(failed)">
+    <classes>
+      <class name="com.colt.fieldengineerapp.testcases.EndToEndInstallationTasksPageTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="testinstallationPageEndToEnd" invocation-numbers="0"/>
+          <include name="tearDown"/>
+          <include name="startServices"/>
+        </methods>
+      </class> <!-- com.colt.fieldengineerapp.testcases.EndToEndInstallationTasksPageTest -->
+    </classes>
+  </test> <!-- EndToEndInstallationTasksPageTest(failed) -->
+  <test thread-count="5" name="RaisePlanwork(failed)">
+    <classes>
+      <class name="com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks">
+        <methods>
+          <include name="startServices"/>
+          <include name="endToEndTestForRaisePlanWork"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.colt.fieldengineerapp.testcases.EndToEndTestForRaisePlannedWorks -->
+    </classes>
+  </test> <!-- RaisePlanwork(failed) -->
 </suite> <!-- Failed suite [Suite] -->

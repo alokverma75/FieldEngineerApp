@@ -177,12 +177,17 @@ public class EndToEndTestForSingleTaskView extends TestBase {
 
 	@AfterTest(alwaysRun = true)
 	public void tearDown() throws IOException, InterruptedException {
-		System.out.println("Tearing  down AVD== " +this.getClass().getName());
-		TestBase.shutDownAVD();
-		Thread.sleep(3000);
-		System.out.println("Tearing  down Appium== " +this.getClass().getName());
-		TestBase.stopAppiumServer();
-		Thread.sleep(5000);
+		
+		if(prop.getProperty("stopAVD").equals("true")) {
+			System.out.println("Tearing  down == " +this.getClass().getName());
+			TestBase.shutDownAVD();
+			Thread.sleep(3000);
+		}		
+		
+		if(prop.getProperty("stopAppiumServer").equals("true")) {
+			System.out.println("Tearing  down == " +this.getClass().getName());
+			TestBase.stopAppiumServer();
+			Thread.sleep(5000);		}
 	}
 
 

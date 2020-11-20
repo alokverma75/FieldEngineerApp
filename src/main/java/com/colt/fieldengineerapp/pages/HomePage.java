@@ -15,6 +15,9 @@ public class HomePage extends TestBase {
 		PageFactory.initElements(new AppiumFieldDecorator(driver, getDuration(30)), this);
 	}
 	
+	@AndroidFindBy(id = "android:id/button1")
+	private AndroidElement okButton;
+	
 	@AndroidFindBy(id = "com.colt.coltengineering:id/tv_title")
 	private AndroidElement homePageTasksTitle;
 	
@@ -101,6 +104,10 @@ public class HomePage extends TestBase {
 	@AndroidFindBy(id = "com.colt.coltengineering:id/tv_total_value")
 	private AndroidElement myTasksCount;
 	
+	public AndroidElement getOkButton() {
+		return okButton;
+	}
+
 	public AndroidElement getMyTasksTitle() {
 		return myTasksTitle;
 	}
@@ -222,6 +229,10 @@ public class HomePage extends TestBase {
 	
 	public boolean validateHomePageTitle(String element){
 		return homePageTitle.getText().equals(element);
+	}
+	
+	public void backButtonUsingDevice() {
+	   driver.navigate().back();
 	}
 	
 

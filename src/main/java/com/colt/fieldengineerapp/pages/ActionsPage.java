@@ -22,20 +22,45 @@ public class ActionsPage extends TestBase {
 	@AndroidFindBy(uiAutomator = "text(\"Actions\")")
 	private AndroidElement actionsLabel;
 	
+	@AndroidFindBy(uiAutomator = "text(\"Expected Time To Reach Customer\")")
+	private AndroidElement expectedTimeToReachLabel;	
+	
 	@AndroidFindBy(id = "com.colt.coltengineering:id/tv_eta_time")
 	private AndroidElement estimatedArrivalTextField;
+	
+	@AndroidFindBy(uiAutomator = "text(\"Start Travel To Customer\")")
+	private AndroidElement startTimeToTravelLabel;
 	
 	@AndroidFindBy(id = "com.colt.coltengineering:id/tv_start_time")
 	private AndroidElement startTravelToCustomerTextField;
 	
+	@AndroidFindBy(uiAutomator = "text(\"Reached Site\")")
+	private AndroidElement reachedSiteLabel;	
+	
 	@AndroidFindBy(id = "com.colt.coltengineering:id/tv_reached_time")
 	private AndroidElement reachedTimeTextField;
+	
+	@AndroidFindBy(uiAutomator = "text(\"Add Attachments\")")
+	private AndroidElement addAttachmentsLabel;	
 	
 	@AndroidFindBy(id = "com.colt.coltengineering:id/tv_attachments_number")
 	private AndroidElement addAttachmentsTextField;
 	
+	@AndroidFindBy(uiAutomator = "text(\"Closure Notes\")")
+	private AndroidElement closureNotesLabel;
+	
 	@AndroidFindBy(id = "com.colt.coltengineering:id/img_feedback_check")
 	private AndroidElement closureNotesTextField;
+	
+	@AndroidFindBy(id = "com.colt.coltengineering:id/et_feedback_text")
+	private AndroidElement feedbackTextField;
+
+	@AndroidFindBy(uiAutomator = "text(\"Submit\")")
+	private AndroidElement submitButton;
+	
+	@AndroidFindBy(uiAutomator = "text(\"Left Site ?\")")
+	private AndroidElement leftSitesLabel;	
+
 	
 	@AndroidFindBy(id = "com.colt.coltengineering:id/tv_job_completed_time")
 	private AndroidElement leftSiteTextField;
@@ -63,6 +88,70 @@ public class ActionsPage extends TestBase {
 	@AndroidFindBy(
  xpath = "/hierarchy/android.widget.FrameLayout/android.view.ViewGroup/android.widget.RelativeLayout[2]/android.widget.ImageView[12]")
 	private AndroidElement leftSiteButton;
+	
+	@AndroidFindBy(uiAutomator = "text(\"Enter correct time\")")
+	private AndroidElement enterCorrectTimeLabel;
+	
+	@AndroidFindBy(id = "com.colt.coltengineering:id/img_hide")
+	private AndroidElement hideActionsScreenButton;
+
+		
+	public AndroidElement getHideActionsScreenButton() {
+		return hideActionsScreenButton;
+	}
+
+
+	public AndroidElement getEnterCorrectTimeLabel() {
+		return enterCorrectTimeLabel;
+	}
+
+
+	public AndroidElement getFeedbackTextField() {
+		return feedbackTextField;
+	}
+
+
+	public AndroidElement getSubmitButton() {
+		return submitButton;
+	}
+
+
+
+	public AndroidElement getExpectedTimeToReachLabel() {
+		return expectedTimeToReachLabel;
+	}
+
+
+
+	public AndroidElement getStartTimeToTravelLabel() {
+		return startTimeToTravelLabel;
+	}
+
+
+
+	public AndroidElement getReachedSiteLabel() {
+		return reachedSiteLabel;
+	}
+
+
+
+	public AndroidElement getAddAttachmentsLabel() {
+		return addAttachmentsLabel;
+	}
+
+
+
+	public AndroidElement getClosureNotesLabel() {
+		return closureNotesLabel;
+	}
+
+
+
+	public AndroidElement getLeftSitesLabel() {
+		return leftSitesLabel;
+	}
+
+
 
 	public AndroidElement getEstimatedTimeToReachButton() {
 		return estimatedTimeToReachButton;
@@ -151,13 +240,6 @@ public class ActionsPage extends TestBase {
 	public Map<String,Integer> timeDateMapAsPerTimezone(String timeZoneID){
 		return TestBase.getDateTimeBasedOnTimeZone(timeZoneID);
 	}
-
 	
-
-	
-	
-	
-	
-
 
 }
