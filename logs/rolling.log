@@ -1,0 +1,54 @@
+2020-11-25 01:19:29.147 FATAL [main] FATAL com.colt.fieldengineerapp.util.Log4J2PropertiesConf - This is a fatal message
+2020-11-25 01:19:29.150 FATAL [main] FATAL com.colt.fieldengineerapp.util.Log4J2PropertiesConf - This is a fatal message
+2020-11-25 01:19:29.150 FATAL [main] FATAL com.colt.fieldengineerapp.util.Log4J2PropertiesConf - This is a fatal message
+2020-11-25 01:19:29.150 FATAL [main] FATAL com.colt.fieldengineerapp.util.Log4J2PropertiesConf - This is a fatal message
+2020-11-25 01:19:29.150 FATAL [main] FATAL com.colt.fieldengineerapp.util.Log4J2PropertiesConf - This is a fatal message
+2020-11-25 01:19:29.151 FATAL [main] FATAL com.colt.fieldengineerapp.util.Log4J2PropertiesConf - This is a fatal message
+2020-11-25 01:25:58.878 DEBUG [main] DEBUG com.colt.fieldengineerapp.util.Log4J2PropertiesConf - This is a debug message
+2020-11-25 01:25:58.880 INFO [main] INFO  com.colt.fieldengineerapp.util.Log4J2PropertiesConf - This is an info message
+2020-11-25 01:25:58.880 WARN [main] WARN  com.colt.fieldengineerapp.util.Log4J2PropertiesConf - This is a warn message
+2020-11-25 01:25:58.880 ERROR [main] ERROR com.colt.fieldengineerapp.util.Log4J2PropertiesConf - This is an error message
+2020-11-25 01:25:58.881 FATAL [main] FATAL com.colt.fieldengineerapp.util.Log4J2PropertiesConf - This is a fatal message
+2020-11-25 01:25:58.881 DEBUG [main] DEBUG com.colt.fieldengineerapp.util.Log4J2PropertiesConf - Hello from Log4j 2
+2020-11-25 01:25:58.881 DEBUG [main] DEBUG com.colt.fieldengineerapp.util.Log4J2PropertiesConf - This is a Debug Message!
+2020-11-25 01:25:58.881 INFO [main] INFO  com.colt.fieldengineerapp.util.Log4J2PropertiesConf - This is an Info Message!
+2020-11-25 01:25:58.881 DEBUG [main] DEBUG com.colt.fieldengineerapp.util.Log4J2PropertiesConf - This is a debug message
+2020-11-25 01:25:58.881 INFO [main] INFO  com.colt.fieldengineerapp.util.Log4J2PropertiesConf - This is an info message
+2020-11-25 01:25:58.881 WARN [main] WARN  com.colt.fieldengineerapp.util.Log4J2PropertiesConf - This is a warn message
+2020-11-25 01:25:58.881 ERROR [main] ERROR com.colt.fieldengineerapp.util.Log4J2PropertiesConf - This is an error message
+2020-11-25 01:25:58.881 FATAL [main] FATAL com.colt.fieldengineerapp.util.Log4J2PropertiesConf - This is a fatal message
+2020-11-25 01:25:58.882 DEBUG [main] DEBUG com.colt.fieldengineerapp.util.Log4J2PropertiesConf - Hello from Log4j 2
+2020-11-25 01:25:58.882 DEBUG [main] DEBUG com.colt.fieldengineerapp.util.Log4J2PropertiesConf - This is a Debug Message!
+2020-11-25 01:25:58.882 INFO [main] INFO  com.colt.fieldengineerapp.util.Log4J2PropertiesConf - This is an Info Message!
+2020-11-25 01:25:58.882 DEBUG [main] DEBUG com.colt.fieldengineerapp.util.Log4J2PropertiesConf - This is a debug message
+2020-11-25 01:25:58.882 INFO [main] INFO  com.colt.fieldengineerapp.util.Log4J2PropertiesConf - This is an info message
+2020-11-25 01:25:58.882 WARN [main] WARN  com.colt.fieldengineerapp.util.Log4J2PropertiesConf - This is a warn message
+2020-11-25 01:25:58.882 ERROR [main] ERROR com.colt.fieldengineerapp.util.Log4J2PropertiesConf - This is an error message
+2020-11-25 01:25:58.882 FATAL [main] FATAL com.colt.fieldengineerapp.util.Log4J2PropertiesConf - This is a fatal message
+2020-11-25 01:25:58.882 DEBUG [main] DEBUG com.colt.fieldengineerapp.util.Log4J2PropertiesConf - Hello from Log4j 2
+2020-11-25 01:25:58.882 DEBUG [main] DEBUG com.colt.fieldengineerapp.util.Log4J2PropertiesConf - This is a Debug Message!
+2020-11-25 01:25:58.883 INFO [main] INFO  com.colt.fieldengineerapp.util.Log4J2PropertiesConf - This is an Info Message!
+2020-11-25 01:25:58.883 DEBUG [main] DEBUG com.colt.fieldengineerapp.util.Log4J2PropertiesConf - This is a debug message
+2020-11-25 01:25:58.883 INFO [main] INFO  com.colt.fieldengineerapp.util.Log4J2PropertiesConf - This is an info message
+2020-11-25 01:25:58.883 WARN [main] WARN  com.colt.fieldengineerapp.util.Log4J2PropertiesConf - This is a warn message
+2020-11-25 01:25:58.883 ERROR [main] ERROR com.colt.fieldengineerapp.util.Log4J2PropertiesConf - This is an error message
+2020-11-25 01:25:58.883 FATAL [main] FATAL com.colt.fieldengineerapp.util.Log4J2PropertiesConf - This is a fatal message
+2020-11-25 01:25:58.883 DEBUG [main] DEBUG com.colt.fieldengineerapp.util.Log4J2PropertiesConf - Hello from Log4j 2
+2020-11-25 01:25:58.883 DEBUG [main] DEBUG com.colt.fieldengineerapp.util.Log4J2PropertiesConf - This is a Debug Message!
+2020-11-25 01:25:58.883 INFO [main] INFO  com.colt.fieldengineerapp.util.Log4J2PropertiesConf - This is an Info Message!
+2020-11-25 01:25:58.884 DEBUG [main] DEBUG com.colt.fieldengineerapp.util.Log4J2PropertiesConf - This is a debug message
+2020-11-25 01:25:58.884 INFO [main] INFO  com.colt.fieldengineerapp.util.Log4J2PropertiesConf - This is an info message
+2020-11-25 01:25:58.884 WARN [main] WARN  com.colt.fieldengineerapp.util.Log4J2PropertiesConf - This is a warn message
+2020-11-25 01:25:58.884 ERROR [main] ERROR com.colt.fieldengineerapp.util.Log4J2PropertiesConf - This is an error message
+2020-11-25 01:25:58.884 FATAL [main] FATAL com.colt.fieldengineerapp.util.Log4J2PropertiesConf - This is a fatal message
+2020-11-25 01:25:58.884 DEBUG [main] DEBUG com.colt.fieldengineerapp.util.Log4J2PropertiesConf - Hello from Log4j 2
+2020-11-25 01:25:58.885 DEBUG [main] DEBUG com.colt.fieldengineerapp.util.Log4J2PropertiesConf - This is a Debug Message!
+2020-11-25 01:25:58.885 INFO [main] INFO  com.colt.fieldengineerapp.util.Log4J2PropertiesConf - This is an Info Message!
+2020-11-25 01:25:58.885 DEBUG [main] DEBUG com.colt.fieldengineerapp.util.Log4J2PropertiesConf - This is a debug message
+2020-11-25 01:25:58.885 INFO [main] INFO  com.colt.fieldengineerapp.util.Log4J2PropertiesConf - This is an info message
+2020-11-25 01:25:58.885 WARN [main] WARN  com.colt.fieldengineerapp.util.Log4J2PropertiesConf - This is a warn message
+2020-11-25 01:25:58.885 ERROR [main] ERROR com.colt.fieldengineerapp.util.Log4J2PropertiesConf - This is an error message
+2020-11-25 01:25:58.885 FATAL [main] FATAL com.colt.fieldengineerapp.util.Log4J2PropertiesConf - This is a fatal message
+2020-11-25 01:25:58.885 DEBUG [main] DEBUG com.colt.fieldengineerapp.util.Log4J2PropertiesConf - Hello from Log4j 2
+2020-11-25 01:25:58.886 DEBUG [main] DEBUG com.colt.fieldengineerapp.util.Log4J2PropertiesConf - This is a Debug Message!
+2020-11-25 01:25:58.886 INFO [main] INFO  com.colt.fieldengineerapp.util.Log4J2PropertiesConf - This is an Info Message!

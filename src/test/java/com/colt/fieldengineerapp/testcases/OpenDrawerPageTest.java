@@ -69,7 +69,8 @@ public class OpenDrawerPageTest extends TestBase {
 		String userNameLabel = openDrawerPage.getUserNameLabel().getText();
 		Assert.assertFalse(ELEMENT_EMPTY_STRING.equals(userNameLabel.trim()), ELEMENT_USERNAME_MSG);
 		
-		openDrawerPage.getSettingsPageButton().click();
+		//openDrawerPage.getSettingsPageButton().click();
+		openDrawerPage.getAllDrawerButtons().get(2).click();
 		
 		String settingsPageLabel = settingsPage.getSettingsLabel().getText();
 		Assert.assertEquals(settingsPageLabel,ELEMENT_SETTINGS,ELEMENT_SETTINGS_MSG);

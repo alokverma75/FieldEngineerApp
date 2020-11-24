@@ -2,28 +2,28 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-11-20T21:29:15 IST" name="Default suite" finished-at="2020-11-20T21:30:56 IST" duration-ms="100372">
+  <suite started-at="2020-11-24T20:46:47 IST" name="Default suite" finished-at="2020-11-24T20:47:49 IST" duration-ms="62147">
     <groups>
     </groups>
-    <test started-at="2020-11-20T21:29:15 IST" name="Default test" finished-at="2020-11-20T21:30:56 IST" duration-ms="100372">
-      <class name="com.colt.fieldengineerapp.testcases.EndToEndActionsPageTest">
-        <test-method is-config="true" signature="startServices()[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndActionsPageTest@359f7cdf]" started-at="2020-11-20T21:29:15 IST" name="startServices" finished-at="2020-11-20T21:29:42 IST" duration-ms="27053" status="PASS">
+    <test started-at="2020-11-24T20:46:47 IST" name="Default test" finished-at="2020-11-24T20:47:49 IST" duration-ms="62147">
+      <class name="com.colt.fieldengineerapp.testcases.ProfilePageTest">
+        <test-method is-config="true" signature="startServices()[pri:0, instance:com.colt.fieldengineerapp.testcases.ProfilePageTest@1fa268de]" started-at="2020-11-24T20:46:47 IST" name="startServices" finished-at="2020-11-24T20:47:14 IST" duration-ms="27405" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startServices -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndActionsPageTest@359f7cdf]" started-at="2020-11-20T21:29:42 IST" name="setUp" finished-at="2020-11-20T21:30:11 IST" duration-ms="28782" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.colt.fieldengineerapp.testcases.ProfilePageTest@1fa268de]" started-at="2020-11-24T20:47:14 IST" name="setUp" finished-at="2020-11-24T20:47:29 IST" duration-ms="15363" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="testActionsPage()[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndActionsPageTest@359f7cdf]" started-at="2020-11-20T21:30:11 IST" name="testActionsPage" finished-at="2020-11-20T21:30:56 IST" duration-ms="44496" status="PASS">
+        <test-method signature="profilePageBasicDetailsTest()[pri:0, instance:com.colt.fieldengineerapp.testcases.ProfilePageTest@1fa268de]" started-at="2020-11-24T20:47:29 IST" name="profilePageBasicDetailsTest" finished-at="2020-11-24T20:47:49 IST" duration-ms="19355" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testActionsPage -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.colt.fieldengineerapp.testcases.EndToEndActionsPageTest@359f7cdf]" started-at="2020-11-20T21:30:56 IST" name="tearDown" finished-at="2020-11-20T21:30:56 IST" duration-ms="1" status="PASS">
+        </test-method> <!-- profilePageBasicDetailsTest -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.colt.fieldengineerapp.testcases.ProfilePageTest@1fa268de]" started-at="2020-11-24T20:47:49 IST" name="tearDown" finished-at="2020-11-24T20:47:49 IST" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.colt.fieldengineerapp.testcases.EndToEndActionsPageTest -->
+      </class> <!-- com.colt.fieldengineerapp.testcases.ProfilePageTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

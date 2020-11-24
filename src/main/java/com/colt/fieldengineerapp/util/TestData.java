@@ -16,7 +16,7 @@ public class TestData {
 		
 		Object[][] dataObject = new Object[][] {
 			
-			{"coltonlinedcp", "Colt@1234"}, {"coltonlinedcp", "Colt@1234"}
+			{"dpoda", "Colt@1234"}, {"dpoda", "Colt@1234"}
 			
 		};
 		
@@ -58,6 +58,19 @@ public class TestData {
 		
 		return dataObject;
 	}
+	
+	@DataProvider(name="InputDataForChangePassword")
+	public Object[][] getDataForChangePasswordTestTest(){
+		
+		Object[][] dataObject = new Object[][] {
+			
+			{"Colt@1234","Colt@1234","1234","Colt@1234"}
+			
+		};
+		
+		return dataObject;
+	}
+
 
 
 }

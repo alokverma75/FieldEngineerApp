@@ -1,5 +1,7 @@
 package com.colt.fieldengineerapp.pages;
 
+import java.util.List;
+
 import org.openqa.selenium.support.PageFactory;
 
 import com.colt.fieldengineerapp.base.TestBase;
@@ -15,6 +17,15 @@ public class AllTasksListPage extends TestBase {
 	
 	@AndroidFindBy(id = "com.colt.coltengineering:id/img_next")
 	AndroidElement viewTaskBtn;
+	
+	@AndroidFindBy(id = "com.colt.coltengineering:id/tv_activity_id")
+	private List<AndroidElement> listOfTasks;
+
+		
+	public List<AndroidElement> getListOfTasks() {
+		return listOfTasks;
+	}
+
 	
 	
 	public AndroidElement getViewTaskBtn() {

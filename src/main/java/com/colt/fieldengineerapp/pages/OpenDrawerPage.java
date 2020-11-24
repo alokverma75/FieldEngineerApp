@@ -1,5 +1,7 @@
 package com.colt.fieldengineerapp.pages;
 
+import java.util.List;
+
 import org.openqa.selenium.support.PageFactory;
 
 import com.colt.fieldengineerapp.base.TestBase;
@@ -21,11 +23,14 @@ public class OpenDrawerPage extends TestBase {
 	private AndroidElement welcomeLabel;
 	
 	@AndroidFindBy(id = "com.colt.coltengineering:id/tv_username")
-	private AndroidElement userNameLabel;
-	
-	@AndroidFindBy(id = "com.colt.coltengineering:id/tv_maintainence")
-	private AndroidElement settingsPageButton;
+	private AndroidElement userNameLabel;	
 
+	@AndroidFindBy(id = "com.colt.coltengineering:id/design_menu_item_text")
+	private List<AndroidElement> allDrawerButtons;
+
+	public List<AndroidElement> getAllDrawerButtons() {
+		return allDrawerButtons;
+	}
 
 	public AndroidElement getWelcomeLabel() {
 		return welcomeLabel;
@@ -33,10 +38,6 @@ public class OpenDrawerPage extends TestBase {
 
 	public AndroidElement getUserNameLabel() {
 		return userNameLabel;
-	}
-
-	public AndroidElement getSettingsPageButton() {
-		return settingsPageButton;
 	}
 
 	

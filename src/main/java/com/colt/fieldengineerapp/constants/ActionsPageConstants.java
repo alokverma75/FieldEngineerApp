@@ -3,6 +3,7 @@ package com.colt.fieldengineerapp.constants;
 public interface ActionsPageConstants {
 	
 	public static final String 	ELEMENT_NEW_TASK_FIRST = "New";
+	public static final String 	ELEMENT_PLANNED_TASK_FIRST = "Planned";
 	
 	public static final String 	ELEMENT_ACTIONS_TITLE = "Actions";
 	public static final String 	ELEMENT_ACTIONS_TITLE_MSG = "Actions should match with defined - Actions";

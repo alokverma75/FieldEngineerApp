@@ -82,7 +82,9 @@ public class AddEditImage extends TestBase {
 	@AndroidFindBy(uiAutomator = "text(\"Erase\")")
 	private AndroidElement eraseButton;
 	
-	@AndroidFindBy(id = "com.colt.coltengineering:id/photo_edit_iv")
+	//@AndroidFindBy(id = "com.colt.coltengineering:id/photo_edit_iv")
+	//@AndroidFindBy(id = "com.colt.coltengineering:id/add_text_edit_text")	
+	@AndroidFindBy(id = "com.colt.coltengineering:id/drawing_view")	
 	private AndroidElement drawOnScreenArea;
 	
 	@AndroidFindBy(uiAutomator = "text(\"Do you want to upload file?\")")

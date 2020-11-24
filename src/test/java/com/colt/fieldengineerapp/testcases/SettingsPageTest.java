@@ -65,7 +65,12 @@ public class SettingsPageTest extends TestBase {
 		Assert.assertTrue(hasTasksTitle);
 		
 		homePage.getDrawerButton().click();
-		openDrawerPage.getSettingsPageButton().click();
+//		int size = openDrawerPage.getAllDrawerButtons().size();
+//		System.out.println("size is "+size+ "and element is "+ openDrawerPage.getAllDrawerButtons().get(1));
+		//The trick is to traverse using App source
+		//Settings button is on 2nd Index or 3rd element
+		openDrawerPage.getAllDrawerButtons().get(2).click();
+		
 		
 		String languageButton = settingsPage.getLanguageButton().getText();
 		Assert.assertEquals(languageButton,ELEMENT_LANGUAGE,ELEMENT_LANGUAGE_MSG);
@@ -106,7 +111,7 @@ public class SettingsPageTest extends TestBase {
 		
 		homePage.getDrawerButton().click();
 		Thread.sleep(2000);
-		openDrawerPage.getSettingsPageButton().click();
+		openDrawerPage.getAllDrawerButtons().get(2).click();
 		
 		//Try to check Notification button in Japanese click
 		settingsPage.getJapaneseButtonForNotificationSetting().click();

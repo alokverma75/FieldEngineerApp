@@ -48,8 +48,10 @@ import com.colt.fieldengineerapp.constants.FilterPageConstants;
 import com.colt.fieldengineerapp.constants.HeaderPageConstants;
 import com.colt.fieldengineerapp.constants.HomePageConstants;
 import com.colt.fieldengineerapp.constants.LocationPageConstants;
+import com.colt.fieldengineerapp.constants.LogOutPageConstants;
 import com.colt.fieldengineerapp.constants.OpenDrawerAndSettingsPageConstants;
 import com.colt.fieldengineerapp.constants.PlannedWorksPageErrorMessages;
+import com.colt.fieldengineerapp.constants.ProfilePageConstants;
 import com.colt.fieldengineerapp.constants.RaisePlannedWorkConstants;
 import com.colt.fieldengineerapp.constants.SingleTaskPageConstants;
 import com.colt.fieldengineerapp.constants.TemplatesConstants;
@@ -71,7 +73,7 @@ import io.appium.java_client.touch.offset.PointOption;
 public class TestBase implements FieldEngineerAppConstants, PlannedWorksPageErrorMessages, AlertMessagesRaisePlanWorkConstants,
 		ActionsPageConstants,ConfirmPageConstants, OpenDrawerAndSettingsPageConstants,TemplatesConstants,RaisePlannedWorkConstants,
 		HomePageConstants, LocationPageConstants,SingleTaskPageConstants,AllTasksPageConstants,HeaderPageConstants,AlertPageConstants,
-		FilterPageConstants,AddEditImageConstants{
+		FilterPageConstants,AddEditImageConstants,LogOutPageConstants,ProfilePageConstants{
 
 	public static AndroidDriver<AndroidElement> driver;
 	private static DesiredCapabilities cap = new DesiredCapabilities();
@@ -82,6 +84,7 @@ public class TestBase implements FieldEngineerAppConstants, PlannedWorksPageErro
 	static {
 		try {
 			prop = ReadPropertyFile.readPropertiesFile("resources/config.properties");
+			
 		} catch (IOException e) {
 			System.out.println(" Property file not found");
 			e.printStackTrace();

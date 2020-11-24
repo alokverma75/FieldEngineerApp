@@ -94,8 +94,15 @@ public class ActionsPage extends TestBase {
 	
 	@AndroidFindBy(id = "com.colt.coltengineering:id/img_hide")
 	private AndroidElement hideActionsScreenButton;
+	
+	@AndroidFindBy(uiAutomator = "text(\"No\")")
+	private AndroidElement noDelayButton;
 
-		
+	public AndroidElement getNoDelayButton() {
+		return noDelayButton;
+	}
+
+
 	public AndroidElement getHideActionsScreenButton() {
 		return hideActionsScreenButton;
 	}
